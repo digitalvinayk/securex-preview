@@ -715,9 +715,9 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <!-- Progress -->
     <div class="funnel-progress">
       <div class="funnel-phases">
-        <span class="funnel-phase active" id="fp1">Service</span>
-        <span class="funnel-phase" id="fp2">System Details</span>
-        <span class="funnel-phase" id="fp3">Contact</span>
+        <span class="funnel-phase active" id="fp1">About Installing Your System</span>
+        <span class="funnel-phase" id="fp2">Security Measures</span>
+        <span class="funnel-phase" id="fp3">Request Quote</span>
       </div>
     </div>
     <div class="funnel-track">
@@ -1170,33 +1170,28 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   var timerVal=30;
   var timerInterval;
 
-  // Funnel steps config - matches ORIGINAL Securex site wizard
-  // Installation path
-  var installSteps=[
-    {phase:0, q:'Property Type', sub:'What kind of property needs securing?',
-     opts:['Residential','Commercial']},
-    {phase:1, q:'Monitoring Level', sub:'Select the level of response you need.',
-     opts:['No Monitoring','App Notifications','Guard Response','Keyholder Response','Police Response']},
-    {phase:1, q:'Communication Method', sub:'How should your system connect?',
-     opts:['Wi-Fi','4G / GPRS','Hardwired LAN']},
-    {phase:2, q:'Review Details', sub:'Please verify your configuration before continuing.', type:'review'},
-    {phase:2, q:'Contact Information', sub:'Where should we send your quote?', type:'contact'}
+  // Funnel steps config - Verisure-style with Home/Business branching
+  var homeSteps=[
+    {phase:0, q:'What type of home do you need security for?',
+     opts:['Detached House','Semi-Detached House','Terraced House','Maisonette','Flat']},
+    {phase:0, q:'Do you already use Wi-Fi video cameras at home?',
+     opts:['Yes, a video doorbell','Yes, indoor camera(s)','Yes, perimeter (outdoor) cameras','No']},
+    {phase:1, q:'Which devices would you like to be included in your home security system?',
+     opts:['Intruder Alarm System','CCTV / Camera System','Fire Alarm System','Access Control / Door Entry','All of the above']},
+    {phase:2, q:'What is the postcode of the property you\'d like to protect?', type:'input', placeholder:'e.g. N10 1HD', btnText:'Next'},
+    {phase:2, q:'In order to continue with your quote, please provide your phone number:', type:'phone'}
   ];
-  // Service & Maintenance path
-  var maintainSteps=[
-    {phase:0, q:'Property Type', sub:'What kind of property needs servicing?',
-     opts:['Residential','Commercial']},
-    {phase:1, q:'System Manufacturer', sub:'Which brand is your existing system?',
-     opts:['Honeywell','Pyronix','Texecom','Visonic','Other']},
-    {phase:1, q:'Connection Type', sub:'What type of system is installed?',
-     opts:['Wired System','Wireless System','Hybrid']},
-    {phase:1, q:'Device Count', sub:'Approximately how many devices do you have?',
-     opts:['1-5','6-10','11-20','20+']},
-    {phase:2, q:'Review Details', sub:'Please verify your configuration before continuing.', type:'review'},
-    {phase:2, q:'Contact Information', sub:'Where should we send your quote?', type:'contact'}
+  var businessSteps=[
+    {phase:0, q:'What is your business like?',
+     opts:['Door at street level','Premises in a shopping centre/mall','Warehouse or factory building in an industrial estate','Office in a business centre/office block']},
+    {phase:0, q:'Do you already have a security system installed at your business?',
+     opts:['Yes, a burglar alarm','Yes, CCTV cameras','Yes, access control','Yes, fire alarm','No']},
+    {phase:1, q:'Which devices would you like to be included in your business security system?',
+     opts:['Intruder Alarm System','CCTV / Camera System','Fire Alarm System','Access Control / Door Entry','All of the above']},
+    {phase:2, q:'What is the postcode of the property you\'d like to protect?', type:'input', placeholder:'e.g. N10 1HD', btnText:'Next'},
+    {phase:2, q:'In order to continue with your quote, please provide your phone number:', type:'phone'}
   ];
-  // Step 0 is service type, then branch
-  var step0={phase:0, q:'What do you need?', sub:'Select the primary service you are interested in.', opts:['New Installation','Service & Maintenance']};
+  var step0={phase:0, q:'Are you interested in security for your home, or your business?', opts:['Home','Business']};
   var steps=[step0];
   var branched=false;
 
@@ -1264,83 +1259,52 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     h2.textContent=s.q;
     container.appendChild(h2);
 
-    if(s.sub){
-      var sub=document.createElement('p');
-      sub.className='funnel-sub';
-      sub.textContent=s.sub;
-      sub.style.cssText='color:var(--gray-500);font-size:15px;margin-bottom:24px;margin-top:4px';
-      container.appendChild(sub);
-    }
-
-    if(s.type==='review'){
-      // Review step - summary of answers
-      var box=document.createElement('div');
-      box.className='funnel-review';
-      box.style.cssText='background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px;margin-bottom:24px';
-      Object.keys(fData).forEach(function(k){
-        if(k.indexOf('step')!==0) return;
-        var idx=parseInt(k.replace('step',''));
-        if(isNaN(idx) || !steps[idx]) return;
-        var row=document.createElement('div');
-        row.style.cssText='display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--gray-200);font-size:14px';
-        var label=document.createElement('span');
-        label.style.color='var(--gray-500)';
-        label.textContent=steps[idx].q;
-        var value=document.createElement('strong');
-        value.style.color='#000';
-        value.textContent=fData[k];
-        row.appendChild(label);row.appendChild(value);
-        box.appendChild(row);
-      });
-      // Remove last row border
-      if(box.lastChild) box.lastChild.style.borderBottom='none';
-      container.appendChild(box);
+    if(s.type==='input'){
+      // Postcode input step
+      var row=document.createElement('div');
+      row.className='funnel-input-row';
+      var inp=document.createElement('input');
+      inp.type='text';inp.className='funnel-input';
+      inp.placeholder=s.placeholder||'';
+      inp.id='funnelPostcode';
       var btn=document.createElement('button');
-      btn.className='funnel-submit';btn.textContent='Continue';
+      btn.className='funnel-submit';btn.textContent=s.btnText||'Next';
       btn.addEventListener('click',function(){
+        var val=document.getElementById('funnelPostcode').value.trim();
+        if(val.length<3) return;
+        fData.postcode=val;
         fStep++;renderStep();
       });
-      container.appendChild(btn);
+      row.appendChild(inp);row.appendChild(btn);
+      container.appendChild(row);
 
-    } else if(s.type==='contact'){
-      // Contact step - Full Name, Email, Phone (matches original site)
-      var form=document.createElement('div');
-      form.className='funnel-contact';
-      form.style.cssText='display:flex;flex-direction:column;gap:16px;margin-bottom:20px';
-
-      var fields=[
-        {id:'fName',label:'Full Name',type:'text',ph:'Jane Doe'},
-        {id:'fEmail',label:'Email Address',type:'email',ph:'jane@example.com'},
-        {id:'fPhone',label:'Phone Number',type:'tel',ph:'07700 900000'}
-      ];
-      fields.forEach(function(f){
-        var grp=document.createElement('div');
-        var lab=document.createElement('label');
-        lab.textContent=f.label;
-        lab.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:6px';
-        var inp=document.createElement('input');
-        inp.type=f.type;inp.id=f.id;inp.placeholder=f.ph;
-        inp.style.cssText='width:100%;padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:var(--transition)';
-        inp.addEventListener('focus',function(){this.style.borderColor='#000'});
-        inp.addEventListener('blur',function(){this.style.borderColor='var(--gray-200)'});
-        grp.appendChild(lab);grp.appendChild(inp);
-        form.appendChild(grp);
-      });
-      container.appendChild(form);
-
+    } else if(s.type==='phone'){
+      // Phone number step (Verisure-style final step)
+      var row=document.createElement('div');
+      row.className='funnel-input-row';
+      var inp=document.createElement('input');
+      inp.type='tel';inp.className='funnel-input';
+      inp.placeholder='Phone Number';
+      inp.id='funnelPhone';
       var btn=document.createElement('button');
       btn.className='funnel-submit';btn.textContent='Submit Request';
-      btn.style.marginTop='8px';
       btn.addEventListener('click',function(){
-        var name=document.getElementById('fName').value.trim();
-        var email=document.getElementById('fEmail').value.trim();
-        var phone=document.getElementById('fPhone').value.trim();
-        if(!name||!email||!phone) return;
-        fData.name=name;fData.email=email;fData.phone=phone;
+        var val=document.getElementById('funnelPhone').value.trim();
+        if(val.length<6) return;
+        fData.phone=val;
         clearInterval(timerInterval);
         showSuccess();
       });
-      container.appendChild(btn);
+      row.appendChild(inp);row.appendChild(btn);
+      container.appendChild(row);
+      var privacy=document.createElement('p');
+      privacy.style.cssText='font-size:13px;color:#999;margin-top:16px';
+      var privText=document.createTextNode('For more information on how we use your personal data, read our ');
+      var privLink=document.createElement('a');
+      privLink.href='#';privLink.textContent='Privacy Notice';
+      privLink.style.cssText='color:#000;text-decoration:underline';
+      privacy.appendChild(privText);privacy.appendChild(privLink);
+      container.appendChild(privacy);
 
     } else {
       // Option pills (auto-advance on click)
@@ -1355,12 +1319,12 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
         pill.appendChild(makePillArrow());
         pill.addEventListener('click',function(){
           fData['step'+fStep]=label;
-          // Branch after step 0 (New Installation vs Service & Maintenance)
+          // Branch after step 0 (Home vs Business)
           if(fStep===0 && !branched){
-            if(label==='New Installation'){
-              steps=steps.concat(installSteps);
+            if(label==='Home'){
+              steps=steps.concat(homeSteps);
             } else {
-              steps=steps.concat(maintainSteps);
+              steps=steps.concat(businessSteps);
             }
             totalSteps=steps.length;
             branched=true;
