@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Areas | Securex Security | London, Surrey, Hertfordshire, Essex</title>
+<meta name="description" content="Securex provides NSI certified security, fire and electrical services across London, Surrey, Hertfordshire, Buckinghamshire, Thurrock and Essex. 24/7 emergency callout.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== RESET & TOKENS ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:#000;background:#fff;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+:root{
+  --gray-50:#F7F7F7;--gray-100:#EEEEEE;--gray-200:#DDDDDD;
+  --gray-400:#999999;--gray-500:#666666;--gray-600:#444444;--gray-800:#222222;
+  --radius:12px;--radius-lg:20px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 20px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.1);
+  --max-w:1280px;--transition:.3s cubic-bezier(.4,0,.2,1);
+}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#000;margin-bottom:12px}
+.section-label::before{content:'';width:32px;height:2px;background:#000;border-radius:2px}
+.section-title{font-size:clamp(28px,4vw,44px);font-weight:700;color:#000;margin-bottom:16px}
+.section-subtitle{font-size:17px;color:var(--gray-500);max-width:600px;line-height:1.7}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:var(--transition);font-family:inherit}
+.btn-primary{background:#000;color:#fff}
+.btn-primary:hover{background:#333;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2)}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-secondary:hover{background:rgba(255,255,255,.2);border-color:#fff}
+.btn-outline{background:transparent;color:#000;border:2px solid #000}
+.btn-outline:hover{background:#000;color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* TOPBAR */
+.topbar{background:#000;color:rgba(255,255,255,.7);font-size:13px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.85);transition:var(--transition)}.topbar a:hover{color:#fff}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:20px}
+.topbar-item{display:flex;align-items:center;gap:6px}
+.topbar-badge{background:#fff;color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px}
+
+/* NAVBAR (Professional White) */
+.navbar{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--gray-200);transition:box-shadow .3s ease}
+.navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.navbar .container{display:flex;justify-content:space-between;align-items:center;height:84px;gap:16px;max-width:1520px;padding:0 20px}
+.logo{font-family:'Space Grotesk';font-size:22px;font-weight:800;letter-spacing:4px;color:#000;text-transform:uppercase;flex-shrink:0;position:relative;line-height:1;display:inline-block}
+.logo::after{content:'SECURITY';display:block;font-family:'Inter',sans-serif;font-size:8px;font-weight:600;letter-spacing:4px;color:var(--gray-400);margin-top:5px}
+.logo span{color:var(--gray-400)}
+.nav-links{display:flex;align-items:center;gap:0;flex:1;justify-content:center}
+.nav-item{position:relative}
+.nav-item>a{color:var(--gray-600);font-size:10.5px;font-weight:600;padding:32px 7px;transition:color .2s ease;display:flex;align-items:center;gap:4px;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;height:84px;position:relative}
+.nav-item>a::before{content:'';position:absolute;bottom:0;left:50%;right:50%;height:3px;background:#000;transition:all .3s cubic-bezier(.4,0,.2,1);border-radius:2px 2px 0 0}
+.nav-item:hover>a::before{left:7px;right:7px}
+.nav-item.active>a{color:#000}
+.nav-item.active>a::before{left:7px;right:7px}
+.nav-item>a:hover{color:#000}
+.nav-item .caret{font-size:9px;opacity:.5;transition:var(--transition)}
+.nav-item:hover>a{color:#000}
+.nav-item:hover .caret{transform:rotate(180deg);opacity:1}
+.nav-dropdown{position:absolute;top:100%;left:-8px;min-width:280px;background:#fff;border:1px solid var(--gray-200);border-top:none;border-radius:0 0 var(--radius) var(--radius);box-shadow:0 20px 40px -8px rgba(0,0,0,.15);padding:12px 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .25s ease;pointer-events:none;z-index:100}
+.nav-item:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.nav-dropdown>a,.nav-dropdown>.nav-sub{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;transition:var(--transition);text-transform:none;letter-spacing:0;white-space:normal;line-height:1.4;position:relative}
+.nav-dropdown a:hover{background:var(--gray-50);color:#000}
+.nav-dropdown>a:hover{padding-left:24px}
+.nav-sub{position:relative;cursor:pointer}
+.nav-sub>.nav-sub-label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--gray-600);padding:0;background:transparent}
+.nav-sub>.nav-sub-label .sub-caret{font-size:10px;color:var(--gray-400);transition:var(--transition)}
+.nav-sub:hover>.nav-sub-label{color:#000}
+.nav-sub:hover>.nav-sub-label .sub-caret{color:#000;transform:translateX(3px)}
+.nav-sub:hover{background:var(--gray-50)}
+.nav-sub-menu{position:absolute;top:-12px;left:100%;min-width:260px;background:#fff;border-radius:var(--radius);box-shadow:0 20px 40px rgba(0,0,0,.15);padding:12px 0;opacity:0;visibility:hidden;transform:translateX(-8px);transition:all .25s ease;pointer-events:none;z-index:110;margin-left:2px}
+.nav-sub:hover>.nav-sub-menu{opacity:1;visibility:visible;transform:translateX(0);pointer-events:auto}
+.nav-sub-menu.scrollable{max-height:400px;overflow-y:auto}
+.nav-sub-menu a{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;transition:var(--transition);line-height:1.4}
+.nav-sub-menu a:hover{background:var(--gray-50);color:#000;padding-left:24px}
+.nav-item:nth-last-child(-n+3) .nav-sub-menu{left:auto;right:100%;margin-left:0;margin-right:2px;transform:translateX(8px)}
+.nav-item:nth-last-child(-n+3) .nav-sub:hover>.nav-sub-menu{transform:translateX(0)}
+.nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-phone-wrap{display:flex;align-items:center;gap:8px;transition:var(--transition);color:#000;font-weight:700;font-size:14px;white-space:nowrap;font-family:'Space Grotesk'}
+.nav-phone-wrap:hover .phone-icon{background:#333}
+.nav-phone-wrap .phone-icon{width:34px;height:34px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;transition:var(--transition);flex-shrink:0}
+.nav-quote-btn{padding:11px 18px;background:#000;color:#fff;border-radius:50px;font-weight:700;font-size:10.5px;transition:var(--transition);white-space:nowrap;display:inline-flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.8px}
+.nav-quote-btn:hover{background:#333;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.nav-quote-btn i{font-size:9px;transition:var(--transition)}
+.nav-quote-btn:hover i{transform:translateX(2px)}
+.mobile-toggle{display:none;background:none;border:none;color:#000;cursor:pointer;padding:8px}
+.mobile-menu{display:none}
+.mobile-menu.active{display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:#fff;padding:16px 24px;border-top:1px solid var(--gray-200);box-shadow:0 20px 40px rgba(0,0,0,.1)}
+.mobile-menu.active a{color:var(--gray-600);font-size:15px;padding:14px 0;border-bottom:1px solid var(--gray-100);font-weight:500}
+
+/* PAGE HERO */
+.page-hero{background:#000;color:#fff;padding:60px 0 80px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(255,255,255,.03) 0%,transparent 70%);pointer-events:none}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:24px;position:relative;z-index:2;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,.7);transition:var(--transition)}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb .sep{color:rgba(255,255,255,.3)}
+.breadcrumb .current{color:#fff;font-weight:500}
+.page-hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.page-hero-content{max-width:640px}
+.page-hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+.page-hero h1{font-size:clamp(36px,5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.1}
+.page-hero p{font-size:17px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px}
+.page-hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.hero-map-teaser{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:28px;backdrop-filter:blur(10px)}
+.hero-map-teaser h3{font-family:'Space Grotesk';font-size:18px;color:#fff;margin-bottom:8px}
+.hero-map-teaser p{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px}
+.area-pills{display:flex;flex-wrap:wrap;gap:6px}
+.area-pills span{padding:5px 12px;border-radius:50px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:12px;color:rgba(255,255,255,.8);font-weight:500}
+
+/* STATS STRIP */
+.stats{background:#fff;padding:48px 0;border-bottom:1px solid var(--gray-200)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat{text-align:center;padding:0 12px;border-right:1px solid var(--gray-200)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Space Grotesk';font-size:clamp(32px,4vw,48px);font-weight:800;color:#000;line-height:1;margin-bottom:8px}
+.stat-num span{font-size:.6em;margin-left:4px}
+.stat-label{font-size:13px;color:var(--gray-500);font-weight:500;text-transform:uppercase;letter-spacing:1px}
+
+/* MAP SECTION */
+.map-section{padding:100px 0;background:var(--gray-50)}
+.map-header{text-align:center;margin-bottom:60px}
+.map-header .section-subtitle{margin:0 auto}
+.map-wrapper{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--gray-200)}
+.map-wrapper iframe{width:100%;height:500px;border:0;display:block}
+.map-overlay{position:absolute;top:24px;left:24px;background:#fff;padding:20px 24px;border-radius:var(--radius);box-shadow:var(--shadow-md);max-width:280px;display:none}
+@media(min-width:1024px){.map-overlay{display:block}}
+.map-overlay-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#000;margin-bottom:6px}
+.map-overlay-title{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#000;margin-bottom:8px}
+.map-overlay-text{font-size:13px;color:var(--gray-500);line-height:1.5}
+
+/* AREAS GRID */
+.areas-list{padding:100px 0;background:#fff}
+.areas-list-header{text-align:center;margin-bottom:60px}
+.areas-list-header .section-subtitle{margin:0 auto}
+.areas-regions{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.region-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:32px 28px;transition:var(--transition)}
+.region-card:hover{border-color:#000;box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.region-card-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--gray-200)}
+.region-card-icon{width:44px;height:44px;border-radius:10px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.region-card-head h3{font-size:18px;font-weight:700;color:#000;flex:1}
+.region-card-head span{font-size:12px;color:var(--gray-500);font-weight:600}
+.region-areas{display:flex;flex-direction:column;gap:8px}
+.region-areas a{display:flex;align-items:center;justify-content:space-between;padding:10px 0;font-size:14px;color:var(--gray-600);font-weight:500;transition:var(--transition);border-bottom:1px solid var(--gray-100)}
+.region-areas a:last-child{border-bottom:none}
+.region-areas a:hover{color:#000;padding-left:4px}
+.region-areas a i{font-size:10px;color:var(--gray-400);transition:var(--transition)}
+.region-areas a:hover i{color:#000;transform:translateX(2px)}
+
+/* FEATURED AREAS */
+.featured{padding:100px 0;background:var(--gray-50)}
+.featured-header{text-align:center;margin-bottom:60px}
+.featured-header .section-subtitle{margin:0 auto}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.featured-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--gray-200);transition:var(--transition);display:flex;flex-direction:column}
+.featured-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.featured-card-banner{background:#000;color:#fff;padding:28px 24px 24px;position:relative;overflow:hidden}
+.featured-card-banner::before{content:'';position:absolute;top:-40%;right:-20%;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%)}
+.featured-card-postcode{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);margin-bottom:12px;letter-spacing:1px;position:relative}
+.featured-card-banner h3{font-family:'Space Grotesk';font-size:22px;font-weight:700;position:relative}
+.featured-card-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.featured-card-body p{font-size:14px;color:var(--gray-500);line-height:1.6;margin-bottom:16px;flex:1}
+.featured-card-stats{display:flex;gap:16px;margin-bottom:20px;padding:14px 0;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+.featured-card-stat{flex:1}
+.featured-card-stat-num{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:#000}
+.featured-card-stat-label{font-size:11px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px}
+.featured-card-link{font-size:13px;font-weight:600;color:#000;display:inline-flex;align-items:center;gap:6px;transition:var(--transition);align-self:flex-start}
+.featured-card-link:hover{gap:10px}
+
+/* RESPONSE PROMISE */
+.response{padding:100px 0;background:#000;color:#fff;position:relative;overflow:hidden}
+.response::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(255,255,255,.03) 0%,transparent 60%);pointer-events:none}
+.response-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;position:relative;z-index:2}
+.response-content .section-title{color:#fff}
+.response-content p{font-size:17px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px}
+.response-list{display:flex;flex-direction:column;gap:16px}
+.response-item{display:flex;gap:20px;padding:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);transition:var(--transition)}
+.response-item:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15)}
+.response-item-time{font-family:'Space Grotesk';font-size:32px;font-weight:800;color:#fff;min-width:120px;line-height:1}
+.response-item-time small{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.5);margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+.response-item-content h4{font-family:'Space Grotesk';font-size:17px;font-weight:700;color:#fff;margin-bottom:6px}
+.response-item-content p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin:0}
+
+/* TESTIMONIALS BY AREA */
+.test-areas{padding:100px 0;background:#fff}
+.test-areas-header{text-align:center;margin-bottom:60px}
+.test-areas-header .section-subtitle{margin:0 auto}
+.test-areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.test-area-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:32px;transition:var(--transition)}
+.test-area-card:hover{border-color:#000;box-shadow:var(--shadow-md)}
+.test-area-stars{color:#000;font-size:16px;margin-bottom:16px;letter-spacing:2px}
+.test-area-text{font-size:15px;color:var(--gray-600);line-height:1.7;margin-bottom:24px;font-style:italic}
+.test-area-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid var(--gray-200)}
+.test-area-author{display:flex;align-items:center;gap:12px}
+.test-area-avatar{width:40px;height:40px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
+.test-area-name{font-size:14px;font-weight:600;color:#000}
+.test-area-location{font-size:12px;color:var(--gray-500);display:flex;align-items:center;gap:4px}
+.test-area-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:50px;background:#000;color:#fff;letter-spacing:.5px}
+
+/* CTA */
+.cta-banner{background:var(--gray-50);padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.cta-banner h2{font-size:clamp(28px,4vw,44px);font-weight:800;color:#000;margin-bottom:16px}
+.cta-banner p{font-size:17px;color:var(--gray-500);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+.footer{background:#060606;padding:80px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand .logo{margin-bottom:16px}
+.footer-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:var(--transition)}
+.footer-social a:hover{background:#fff;color:#000}
+.footer-col h4{font-family:'Space Grotesk';font-size:15px;font-weight:700;color:#fff;margin-bottom:20px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px}
+.footer-col li a{font-size:14px;color:rgba(255,255,255,.45);transition:var(--transition)}
+.footer-col li a:hover{color:#fff}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:14px;color:rgba(255,255,255,.45)}
+.footer-contact-item svg{width:16px;height:16px;color:#fff;margin-top:3px;flex-shrink:0}
+.footer-contact-item a{color:rgba(255,255,255,.65)}.footer-contact-item a:hover{color:#fff}
+.footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.3)}
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--transition);cursor:pointer}
+.whatsapp-float:hover{transform:scale(1.1)}
+.whatsapp-float svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .page-hero-grid{grid-template-columns:1fr;gap:40px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--gray-200);padding-bottom:24px}
+  .areas-regions,.featured-grid,.test-areas-grid{grid-template-columns:repeat(2,1fr)}
+  .response-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .topbar{display:none}.nav-links{display:none}.mobile-toggle{display:block}
+  .nav-phone span{display:none}
+  .stats-grid{grid-template-columns:1fr}
+  .stat{border-bottom:1px solid var(--gray-200);padding:16px 0}
+  .stat:last-child{border-bottom:none}
+  .areas-regions,.featured-grid,.test-areas-grid{grid-template-columns:1fr}
+  .response-item{flex-direction:column;gap:10px}
+  .response-item-time{min-width:auto;font-size:28px}
+  .footer-grid{grid-template-columns:1fr}
+  .map-wrapper iframe{height:380px}
+}
+@media(max-width:480px){
+  .container{padding:0 16px}
+  .page-hero .cta-row,.cta-buttons{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <div class="topbar-item"><i class="far fa-envelope" style="font-size:12px"></i><a href="mailto:info@securexsecurity.co.uk">info@securexsecurity.co.uk</a></div>
+      <div class="topbar-item"><i class="fas fa-map-marker-alt" style="font-size:12px"></i>129 Colney Hatch Lane, Muswell Hill, London N10 1HD</div>
+    </div>
+    <div class="topbar-right">
+      <a href="#" style="font-weight:500">Online Payment</a>
+      <span class="topbar-badge">NSI Certified</span>
+      <div class="topbar-item"><i class="fas fa-phone" style="font-size:12px"></i><a href="tel:07848247247" style="font-weight:600;color:#fff">07848 247 247</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a href="securex-redesign.html" class="logo">SECURE<span>X</span></a>
+    <div class="nav-links">
+      <div class="nav-item"><a href="#">NSI &amp; Monitoring <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Intruder Alarm Monitoring Service</a><a href="#">CCTV Monitoring</a><div class="nav-sub"><div class="nav-sub-label">Insurance Requirements <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Top Benefits of NSI Approved Alarm</a><a href="#">Top Reasons to Choose NSI Installers</a><a href="#">Insurance Approved Alarm Systems</a></div></div><a href="#">Police Monitoring</a><a href="#">Guard Response</a></div></div>
+      <div class="nav-item"><a href="#">Residential <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><div class="nav-sub"><div class="nav-sub-label">Home CCTV <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><div class="nav-sub"><div class="nav-sub-label">CCTV Maintenance <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Essential Tips To Maintain CCTV</a></div></div><a href="service-cctv.html">CCTV Installation</a></div></div><div class="nav-sub"><div class="nav-sub-label">Intruder &amp; Burglar Alarms <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><div class="nav-sub"><div class="nav-sub-label">Entry System Installation <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><div class="nav-sub"><div class="nav-sub-label">Residential Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><a href="#">Residential Video Doorbell</a><a href="#">Electrical Installation</a><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a><a href="#">Insurance Requirements</a></div></div>
+      <div class="nav-item"><a href="#">Business <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Business CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Door Entry Systems</a><div class="nav-sub"><div class="nav-sub-label">Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Access Control Installation</a><a href="#">Access Control Maintenance</a></div></div><a href="#">Data Cabling</a><a href="#">Electrical Installation</a><a href="#">Fire Alarm Systems</a><div class="nav-sub"><div class="nav-sub-label">Paxton Installation <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Comprehensive Paxton Installer Guide</a></div></div><a href="#">Insurance Requirements</a></div></div>
+      <div class="nav-item"><a href="#">Commercial <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Commercial CCTV Installation</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Door Entry Systems</a><div class="nav-sub"><div class="nav-sub-label">Commercial Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Commercial Access Control Systems</a><a href="#">Installation</a><a href="#">Maintenance</a></div></div><a href="#">Data Cabling</a><a href="#">Electrical Installation</a><a href="#">Fire Alarm Systems</a><a href="#">Paxton Installation Services</a><a href="#">Pyronix Maintenance Service</a><a href="#">Pyronix Alarm Installation</a><a href="#">Insurance Requirements</a></div></div>
+      <div class="nav-item"><a href="#">Construction <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Construction CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><div class="nav-sub"><div class="nav-sub-label">Construction Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Access Control Installation</a><a href="#">Access Control Maintenance</a></div></div><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a></div></div>
+      <div class="nav-item"><a href="#">Emergency <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">24/7 Security Callout Service</a><a href="#">Emergency Alarm Call Out</a><a href="#">Emergency Fire Alarm Engineer</a><a href="#">House Alarm Emergency Call-Out</a><a href="#">Burglar Alarm Repairs Near Me</a><a href="#">24 Hour Alarm Engineer</a><a href="#">Security System Alarm Repairs</a><div class="nav-sub"><div class="nav-sub-label">Finding Alarm Engineer Near Me <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Alarm Engineer Near Me</a></div></div><a href="#">Security Systems</a><a href="#">House Alarm</a><a href="#">Data Cabling &amp; Networking</a><a href="#">Emergency Electrician</a><a href="#">Smoke Alarm Engineer</a><a href="#">Door Entry Engineer</a></div></div>
+      <div class="nav-item active"><a href="service-areas.html">Service Areas</a></div>
+      <div class="nav-item"><a href="#">Securex Services <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Ajax Installer</a><a href="#">Texecom Alarm Engineer</a><a href="#">Pyronix Engineer Service</a><a href="#">Orisec Engineer Service</a><div class="nav-sub"><div class="nav-sub-label">Visonic Burglar Alarm <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Visonic Alarm Service</a></div></div><div class="nav-sub"><div class="nav-sub-label">Products <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Pyronix Cube Camera</a></div></div><a href="#">CCTV Installation</a><a href="#">CCTV Maintenance</a></div></div>
+      <div class="nav-item"><a href="#">Gallery <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Photos</a><div class="nav-sub"><div class="nav-sub-label">Posts <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Ajax Intruder Alarm</a><a href="#">Pyronix Intruder Alarm</a></div></div></div></div>
+      <div class="nav-item"><a href="#">Contact</a></div>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:07848247247" class="nav-phone-wrap" aria-label="Call 07848 247 247">
+        <span class="phone-icon"><i class="fas fa-phone"></i></span>
+      </a>
+      <a href="#quote" class="nav-quote-btn">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('active')"><i class="fas fa-bars" style="font-size:20px"></i></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="securex-redesign.html">Home</a><a href="service-areas.html">Service Areas</a><a href="services.html">Services</a>
+    <a href="#">Residential</a><a href="#">Business</a><a href="#">Commercial</a><a href="#">Emergency</a><a href="#">Contact</a>
+    <a href="tel:07848247247" style="color:#000;font-weight:700">Call: 07848 247 247</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="securex-redesign.html">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Service Areas</span>
+    </div>
+    <div class="page-hero-grid">
+      <div class="page-hero-content">
+        <div class="page-hero-eyebrow"><i class="fas fa-location-dot"></i> 1,000+ Locations &middot; 6 Regions</div>
+        <h1>Security Services Across London, Surrey, Herts, Bucks, Thurrock &amp; Essex</h1>
+        <p>Securex covers every London borough plus Surrey, Hertfordshire, Buckinghamshire, Thurrock and Essex. Over 1,000 towns, villages and postcode areas served by our NSI certified engineers. 24/7 emergency callouts, free site surveys, no travel charges within our coverage area.</p>
+        <div class="cta-row">
+          <a href="securex-redesign.html#quote" class="btn btn-primary" style="background:#fff;color:#000">Book Free Survey <i class="fas fa-arrow-right"></i></a>
+          <a href="tel:07848247247" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
+        </div>
+      </div>
+      <div class="hero-map-teaser">
+        <h3>Six Regions We Cover</h3>
+        <p>From central London to the Home Counties. All postcodes within our service zone:</p>
+        <div class="area-pills">
+          <span>All 32 London Boroughs</span>
+          <span>Surrey</span>
+          <span>Hertfordshire</span>
+          <span>Buckinghamshire</span>
+          <span>Thurrock</span>
+          <span>Essex</span>
+        </div>
+        <p style="margin-top:14px;margin-bottom:0;font-size:12px;color:rgba(255,255,255,.5)">Postcode areas: N, NW, E, SE, SW, W, WC, EC, IG, RM, AL, WD, HP, SG, CM, CO, SS, CB, EN, LU, KT, TW, SM, CR, BR, DA, GU, RH</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num">1,000<span>+</span></div><div class="stat-label">Locations Covered</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Counties &amp; Regions</div></div>
+      <div class="stat"><div class="stat-num">32</div><div class="stat-label">London Boroughs</div></div>
+      <div class="stat"><div class="stat-num">24<span>/7</span></div><div class="stat-label">Emergency Response</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-header">
+      <div class="section-label">Coverage Map</div>
+      <h2 class="section-title">Where We Operate</h2>
+      <p class="section-subtitle">Greater London, the M25 corridor and the Home Counties. Our engineers are based in Muswell Hill and reach every postcode within our coverage area the same day.</p>
+    </div>
+    <div class="map-wrapper">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.7281069774!2d-0.24168144272590898!3d51.52877184029498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon!5e0!3m2!1sen!2suk!4v1713300000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Securex Security Coverage Map"></iframe>
+      <div class="map-overlay">
+        <div class="map-overlay-label">Headquarters</div>
+        <div class="map-overlay-title">Muswell Hill, London</div>
+        <div class="map-overlay-text">129 Colney Hatch Lane, N10 1HD. Our central base means fast response across all London boroughs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS LIST BY REGION -->
+<section class="areas-list">
+  <div class="container">
+    <div class="areas-list-header">
+      <div class="section-label">Full Coverage</div>
+      <h2 class="section-title">Six Regions We Cover</h2>
+      <p class="section-subtitle">Browse by county or region to find your area. Not listed? Call us, we may still cover you.</p>
+    </div>
+    <div class="areas-regions">
+
+      <div class="region-card">
+        <div class="region-card-head">
+          <div class="region-card-icon"><i class="fas fa-city"></i></div>
+          <h3>Greater London</h3>
+          <span>All 32 Boroughs</span>
+        </div>
+        <div class="region-areas">
+          <a href="#"><span>Westminster &amp; City of London</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Kensington, Chelsea &amp; Mayfair</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Camden, Islington, Hackney</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Barnet, Enfield, Haringey</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Wandsworth, Lambeth, Southwark</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Tower Hamlets, Newham, Redbridge</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Ealing, Hounslow, Hillingdon</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Richmond, Kingston, Merton</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Croydon, Bromley, Lewisham</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-card-head">
+          <div class="region-card-icon"><i class="fas fa-tree"></i></div>
+          <h3>Surrey</h3>
+          <span>GU, KT, RH, SM, CR</span>
+        </div>
+        <div class="region-areas">
+          <a href="#"><span>Guildford</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Kingston upon Thames</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Epsom &amp; Ewell</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Camberley &amp; Farnham</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Dorking &amp; Godalming</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Reigate &amp; Redhill</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Elmbridge &amp; Mole Valley</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Runnymede &amp; Spelthorne</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Chertsey &amp; Staines</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-card-head">
+          <div class="region-card-icon"><i class="fas fa-building"></i></div>
+          <h3>Hertfordshire</h3>
+          <span>AL, WD, HP, SG, EN</span>
+        </div>
+        <div class="region-areas">
+          <a href="#"><span>St Albans</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Watford</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Hemel Hempstead</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Stevenage &amp; Hitchin</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Welwyn Garden City</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Hatfield &amp; Potters Bar</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Berkhamsted &amp; Tring</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Rickmansworth &amp; Shenley</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Ware &amp; Hoddesdon</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-card-head">
+          <div class="region-card-icon"><i class="fas fa-mountain"></i></div>
+          <h3>Buckinghamshire</h3>
+          <span>HP, MK, SL</span>
+        </div>
+        <div class="region-areas">
+          <a href="#"><span>Aylesbury</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>High Wycombe</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Milton Keynes</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Amersham</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Beaconsfield</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Chesham</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Gerrards Cross</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Buckingham</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Marlow</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-card-head">
+          <div class="region-card-icon"><i class="fas fa-road"></i></div>
+          <h3>Thurrock</h3>
+          <span>RM1-RM20</span>
+        </div>
+        <div class="region-areas">
+          <a href="#"><span>Romford</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Grays &amp; Tilbury</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Upminster &amp; Cranham</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Harold Wood &amp; Harold Hill</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Rainham &amp; Wennington</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Chafford Hundred</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>South Ockendon &amp; Aveley</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Purfleet &amp; Chadwell St Mary</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Rise Park &amp; Gidea Park</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-card-head">
+          <div class="region-card-icon"><i class="fas fa-water"></i></div>
+          <h3>Essex</h3>
+          <span>CO, CM, SS, CB</span>
+        </div>
+        <div class="region-areas">
+          <a href="#"><span>Chelmsford</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Colchester</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Southend on Sea</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Basildon &amp; Billericay</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Harlow &amp; Epping</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Braintree &amp; Witham</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Clacton on Sea</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Rayleigh &amp; Maldon</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#"><span>Saffron Walden</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED AREAS -->
+<section class="featured">
+  <div class="container">
+    <div class="featured-header">
+      <div class="section-label">Featured Locations</div>
+      <h2 class="section-title">Our Busiest Service Areas</h2>
+      <p class="section-subtitle">Where we complete the most installations every month. Click through for area specific information and local engineer availability.</p>
+    </div>
+    <div class="featured-grid">
+
+      <div class="featured-card">
+        <div class="featured-card-banner">
+          <span class="featured-card-postcode">N10</span>
+          <h3>Muswell Hill</h3>
+        </div>
+        <div class="featured-card-body">
+          <p>Our home turf. Securex is based in Muswell Hill and we have fitted security systems in hundreds of homes and businesses here. Same day response guaranteed.</p>
+          <div class="featured-card-stats">
+            <div class="featured-card-stat"><div class="featured-card-stat-num">200+</div><div class="featured-card-stat-label">Installations</div></div>
+            <div class="featured-card-stat"><div class="featured-card-stat-num">&lt;1hr</div><div class="featured-card-stat-label">Response</div></div>
+          </div>
+          <a href="#" class="featured-card-link">View Muswell Hill services <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-card-banner">
+          <span class="featured-card-postcode">EN</span>
+          <h3>Barnet &amp; Enfield</h3>
+        </div>
+        <div class="featured-card-body">
+          <p>Full coverage of the London Borough of Barnet and Enfield, including Finchley, Edgware, Potters Bar and the surrounding residential areas.</p>
+          <div class="featured-card-stats">
+            <div class="featured-card-stat"><div class="featured-card-stat-num">120+</div><div class="featured-card-stat-label">Installations</div></div>
+            <div class="featured-card-stat"><div class="featured-card-stat-num">&lt;2hr</div><div class="featured-card-stat-label">Response</div></div>
+          </div>
+          <a href="#" class="featured-card-link">View Barnet services <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-card-banner">
+          <span class="featured-card-postcode">N6</span>
+          <h3>Highgate</h3>
+        </div>
+        <div class="featured-card-body">
+          <p>High end residential security in one of London's most prestigious areas. NSI certified installations with discrete, premium equipment.</p>
+          <div class="featured-card-stats">
+            <div class="featured-card-stat"><div class="featured-card-stat-num">80+</div><div class="featured-card-stat-label">Installations</div></div>
+            <div class="featured-card-stat"><div class="featured-card-stat-num">&lt;1hr</div><div class="featured-card-stat-label">Response</div></div>
+          </div>
+          <a href="#" class="featured-card-link">View Highgate services <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-card-banner">
+          <span class="featured-card-postcode">NW1</span>
+          <h3>Camden</h3>
+        </div>
+        <div class="featured-card-body">
+          <p>Commercial and residential security across Camden, Kentish Town and Primrose Hill. Popular with businesses needing CCTV and access control.</p>
+          <div class="featured-card-stats">
+            <div class="featured-card-stat"><div class="featured-card-stat-num">95+</div><div class="featured-card-stat-label">Installations</div></div>
+            <div class="featured-card-stat"><div class="featured-card-stat-num">&lt;2hr</div><div class="featured-card-stat-label">Response</div></div>
+          </div>
+          <a href="#" class="featured-card-link">View Camden services <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-card-banner">
+          <span class="featured-card-postcode">N1</span>
+          <h3>Islington</h3>
+        </div>
+        <div class="featured-card-body">
+          <p>From period homes to modern developments, Islington is one of our most active postcodes for alarm and CCTV installation work.</p>
+          <div class="featured-card-stats">
+            <div class="featured-card-stat"><div class="featured-card-stat-num">110+</div><div class="featured-card-stat-label">Installations</div></div>
+            <div class="featured-card-stat"><div class="featured-card-stat-num">&lt;2hr</div><div class="featured-card-stat-label">Response</div></div>
+          </div>
+          <a href="#" class="featured-card-link">View Islington services <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-card-banner">
+          <span class="featured-card-postcode">E8</span>
+          <h3>Hackney</h3>
+        </div>
+        <div class="featured-card-body">
+          <p>Complete coverage across Hackney, Dalston, Stoke Newington and Shoreditch. Residential and commercial specialists serving the area.</p>
+          <div class="featured-card-stats">
+            <div class="featured-card-stat"><div class="featured-card-stat-num">75+</div><div class="featured-card-stat-label">Installations</div></div>
+            <div class="featured-card-stat"><div class="featured-card-stat-num">&lt;2hr</div><div class="featured-card-stat-label">Response</div></div>
+          </div>
+          <a href="#" class="featured-card-link">View Hackney services <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSE PROMISE -->
+<section class="response">
+  <div class="container">
+    <div class="response-grid">
+      <div class="response-content">
+        <div class="section-label" style="color:#fff">Response Times</div>
+        <h2 class="section-title">Fast When It Matters Most</h2>
+        <p>When your alarm goes off or your security system fails, every minute counts. Our response times vary by area but we always aim to be first at your door.</p>
+        <a href="tel:07848247247" class="btn btn-primary" style="background:#fff;color:#000">Call Emergency Line <i class="fas fa-phone"></i></a>
+      </div>
+      <div class="response-list">
+        <div class="response-item">
+          <div class="response-item-time">&lt;1hr<small>Priority zone</small></div>
+          <div class="response-item-content">
+            <h4>Muswell Hill, Highgate, Crouch End</h4>
+            <p>Our base location. Engineers typically reach you within an hour for urgent callouts.</p>
+          </div>
+        </div>
+        <div class="response-item">
+          <div class="response-item-time">&lt;2hr<small>Greater London</small></div>
+          <div class="response-item-content">
+            <h4>All 32 London boroughs</h4>
+            <p>From Barnet to Battersea, Ealing to East Ham. Two hour response for emergency callouts across the capital.</p>
+          </div>
+        </div>
+        <div class="response-item">
+          <div class="response-item-time">&lt;4hr<small>Home Counties</small></div>
+          <div class="response-item-content">
+            <h4>Surrey, Herts, Bucks, Thurrock, Essex</h4>
+            <p>Four hour response for emergency callouts across all five surrounding counties within our service zone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS BY AREA -->
+<section class="test-areas">
+  <div class="container">
+    <div class="test-areas-header">
+      <div class="section-label">What Our Local Clients Say</div>
+      <h2 class="section-title">Trusted Across London</h2>
+      <p class="section-subtitle">Real reviews from clients in the areas we serve every day.</p>
+    </div>
+    <div class="test-areas-grid">
+      <div class="test-area-card">
+        <div class="test-area-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-area-text">"Responded really promptly when house alarm failed at 2300 on a Sunday night. Silenced the outside alarm and made sure everything was safe."</p>
+        <div class="test-area-footer">
+          <div class="test-area-author">
+            <div class="test-area-avatar">M</div>
+            <div>
+              <div class="test-area-name">Marina Harden</div>
+              <div class="test-area-location"><i class="fas fa-location-dot"></i> Muswell Hill, N10</div>
+            </div>
+          </div>
+          <span class="test-area-badge">N10</span>
+        </div>
+      </div>
+
+      <div class="test-area-card">
+        <div class="test-area-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-area-text">"Came out promptly on a weekend and sorted the problem quickly. Very professional service across the whole process. Would highly recommend."</p>
+        <div class="test-area-footer">
+          <div class="test-area-author">
+            <div class="test-area-avatar">R</div>
+            <div>
+              <div class="test-area-name">Ruth Wall</div>
+              <div class="test-area-location"><i class="fas fa-location-dot"></i> Hackney, E8</div>
+            </div>
+          </div>
+          <span class="test-area-badge">E8</span>
+        </div>
+      </div>
+
+      <div class="test-area-card">
+        <div class="test-area-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-area-text">"The alarm system was installed quickly and they explained everything clearly. Excellent service and very polite team. Would definitely use them again."</p>
+        <div class="test-area-footer">
+          <div class="test-area-author">
+            <div class="test-area-avatar">S</div>
+            <div>
+              <div class="test-area-name">Sarah K.</div>
+              <div class="test-area-location"><i class="fas fa-location-dot"></i> Islington, N1</div>
+            </div>
+          </div>
+          <span class="test-area-badge">N1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Not Sure If We Cover Your Area?</h2>
+    <p>Call or send us your postcode. We respond within minutes and can usually arrange a free site survey the same week.</p>
+    <div class="cta-buttons">
+      <a href="securex-redesign.html#quote" class="btn btn-primary">Check My Postcode <i class="fas fa-arrow-right"></i></a>
+      <a href="tel:07848247247" class="btn btn-outline"><i class="fas fa-phone"></i> Call 07848 247 247</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="logo">SECURE<span>X</span></div><p class="footer-desc">Professional security, fire and electrical services across London and the Home Counties. NSI certified. Trusted by homeowners, businesses and construction sites.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="securex-redesign.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Blogs</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="service-cctv.html">CCTV Installation</a></li><li><a href="#">Intruder Alarms</a></li><li><a href="#">Fire Alarms</a></li><li><a href="#">Access Control</a></li><li><a href="#">Door Entry</a></li><li><a href="#">Electrical</a></li></ul></div>
+    <div class="footer-col"><h4>Contact Us</h4>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><a href="tel:07848247247">07848 247 247</a></div>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><a href="mailto:info@securexsecurity.co.uk">info@securexsecurity.co.uk</a></div>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>129 Colney Hatch Lane, Muswell Hill, London N10 1HD</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>&copy;2025 Securex FM LTD. All Rights Reserved.</span><span><a href="#" style="color:rgba(255,255,255,.4)">Privacy Policy</a> &middot; <a href="#" style="color:rgba(255,255,255,.4)">Terms</a> &middot; <a href="#" style="color:rgba(255,255,255,.4)">Sitemap</a></span></div>
+</div></footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/447848247247" class="whatsapp-float" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCTV Installation &amp; Maintenance London | Securex Security</title>
+<meta name="description" content="Professional CCTV installation, maintenance and repairs across London. HD and 4K Hikvision systems, remote viewing, night vision. NSI certified, 24/7 support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== RESET & TOKENS ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:#000;background:#fff;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+:root{
+  --gray-50:#F7F7F7;--gray-100:#EEEEEE;--gray-200:#DDDDDD;
+  --gray-400:#999999;--gray-500:#666666;--gray-600:#444444;--gray-800:#222222;
+  --radius:12px;--radius-lg:20px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 20px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.1);
+  --max-w:1280px;--transition:.3s cubic-bezier(.4,0,.2,1);
+}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#000;margin-bottom:12px}
+.section-label::before{content:'';width:32px;height:2px;background:#000;border-radius:2px}
+.section-title{font-size:clamp(28px,4vw,44px);font-weight:700;color:#000;margin-bottom:16px}
+.section-subtitle{font-size:17px;color:var(--gray-500);max-width:600px;line-height:1.7}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:var(--transition);font-family:inherit}
+.btn-primary{background:#000;color:#fff}
+.btn-primary:hover{background:#333;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2)}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-secondary:hover{background:rgba(255,255,255,.2);border-color:#fff}
+.btn-outline{background:transparent;color:#000;border:2px solid #000}
+.btn-outline:hover{background:#000;color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* TOPBAR & NAV (same as services page) */
+.topbar{background:#000;color:rgba(255,255,255,.7);font-size:13px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.85);transition:var(--transition)}.topbar a:hover{color:#fff}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:20px}
+.topbar-item{display:flex;align-items:center;gap:6px}
+.topbar-badge{background:#fff;color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px}
+.navbar{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--gray-200);transition:box-shadow .3s ease}
+.navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.navbar .container{display:flex;justify-content:space-between;align-items:center;height:84px;gap:16px;max-width:1520px;padding:0 20px}
+.logo{font-family:'Space Grotesk';font-size:22px;font-weight:800;letter-spacing:4px;color:#000;text-transform:uppercase;flex-shrink:0;position:relative;line-height:1;display:inline-block}
+.logo::after{content:'SECURITY';display:block;font-family:'Inter',sans-serif;font-size:8px;font-weight:600;letter-spacing:4px;color:var(--gray-400);margin-top:5px}
+.logo span{color:var(--gray-400)}
+.nav-links{display:flex;align-items:center;gap:0;flex:1;justify-content:center}
+.nav-item{position:relative}
+.nav-item>a{color:var(--gray-600);font-size:10.5px;font-weight:600;padding:32px 7px;transition:color .2s ease;display:flex;align-items:center;gap:4px;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;height:84px;position:relative}
+.nav-item>a::before{content:'';position:absolute;bottom:0;left:50%;right:50%;height:3px;background:#000;transition:all .3s cubic-bezier(.4,0,.2,1);border-radius:2px 2px 0 0}
+.nav-item:hover>a::before{left:7px;right:7px}
+.nav-item.active>a{color:#000}
+.nav-item.active>a::before{left:7px;right:7px}
+.nav-item>a:hover{color:#000}
+.nav-item .caret{font-size:9px;opacity:.5;transition:var(--transition)}
+.nav-item:hover>a{color:#000}
+.nav-item:hover .caret{transform:rotate(180deg);opacity:1}
+.nav-dropdown{position:absolute;top:100%;left:-8px;min-width:280px;background:#fff;border:1px solid var(--gray-200);border-top:none;border-radius:0 0 var(--radius) var(--radius);box-shadow:0 20px 40px -8px rgba(0,0,0,.15);padding:12px 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .25s ease;pointer-events:none;z-index:100}
+.nav-item:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.nav-dropdown>a,.nav-dropdown>.nav-sub{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;transition:var(--transition);text-transform:none;letter-spacing:0;white-space:normal;line-height:1.4;position:relative}
+.nav-dropdown a:hover{background:var(--gray-50);color:#000}
+.nav-dropdown>a:hover{padding-left:24px}
+.nav-sub{position:relative;cursor:pointer}
+.nav-sub>.nav-sub-label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--gray-600);padding:0;background:transparent}
+.nav-sub>.nav-sub-label .sub-caret{font-size:10px;color:var(--gray-400);transition:var(--transition)}
+.nav-sub:hover>.nav-sub-label{color:#000}
+.nav-sub:hover>.nav-sub-label .sub-caret{color:#000;transform:translateX(3px)}
+.nav-sub:hover{background:var(--gray-50)}
+.nav-sub-menu{position:absolute;top:-12px;left:100%;min-width:260px;background:#fff;border-radius:var(--radius);box-shadow:0 20px 40px rgba(0,0,0,.15);padding:12px 0;opacity:0;visibility:hidden;transform:translateX(-8px);transition:all .25s ease;pointer-events:none;z-index:110;margin-left:2px}
+.nav-sub:hover>.nav-sub-menu{opacity:1;visibility:visible;transform:translateX(0);pointer-events:auto}
+.nav-sub-menu.scrollable{max-height:400px;overflow-y:auto}
+.nav-sub-menu a{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;transition:var(--transition);line-height:1.4}
+.nav-sub-menu a:hover{background:var(--gray-50);color:#000;padding-left:24px}
+.nav-item:nth-last-child(-n+3) .nav-sub-menu{left:auto;right:100%;margin-left:0;margin-right:2px;transform:translateX(8px)}
+.nav-item:nth-last-child(-n+3) .nav-sub:hover>.nav-sub-menu{transform:translateX(0)}
+.nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-phone-wrap{display:flex;align-items:center;gap:8px;transition:var(--transition);color:#000;font-weight:700;font-size:14px;white-space:nowrap;font-family:'Space Grotesk'}
+.nav-phone-wrap:hover .phone-icon{background:#333}
+.nav-phone-wrap .phone-icon{width:34px;height:34px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;transition:var(--transition);flex-shrink:0}
+.nav-quote-btn{padding:11px 18px;background:#000;color:#fff;border-radius:50px;font-weight:700;font-size:10.5px;transition:var(--transition);white-space:nowrap;display:inline-flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.8px}
+.nav-quote-btn:hover{background:#333;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.nav-quote-btn i{font-size:9px;transition:var(--transition)}
+.nav-quote-btn:hover i{transform:translateX(2px)}
+.mobile-toggle{display:none;background:none;border:none;color:#000;cursor:pointer;padding:8px}
+.mobile-menu{display:none}
+.mobile-menu.active{display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:#fff;padding:16px 24px;border-top:1px solid var(--gray-200);box-shadow:0 20px 40px rgba(0,0,0,.1)}
+.mobile-menu.active a{color:var(--gray-600);font-size:15px;padding:14px 0;border-bottom:1px solid var(--gray-100);font-weight:500}
+
+/* PAGE HERO */
+.page-hero{background:#000;color:#fff;padding:60px 0 80px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.03) 0%,transparent 70%);pointer-events:none}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:24px;position:relative;z-index:2;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,.7);transition:var(--transition)}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb .sep{color:rgba(255,255,255,.3)}
+.breadcrumb .current{color:#fff;font-weight:500}
+.page-hero-content{position:relative;z-index:2;max-width:720px}
+.page-hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+.page-hero h1{font-size:clamp(36px,5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.1}
+.page-hero p{font-size:17px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px;max-width:620px}
+.page-hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
+
+/* OVERVIEW TWO COL */
+.svc-overview{padding:100px 0;background:#fff}
+.svc-overview-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.svc-overview-content h2{font-size:clamp(28px,3.5vw,40px);color:#000;margin-bottom:20px;font-weight:700}
+.svc-overview-content p{font-size:16px;color:var(--gray-600);line-height:1.8;margin-bottom:16px}
+.svc-overview-content p strong{color:#000}
+.svc-overview-image{border-radius:var(--radius-lg);overflow:hidden;background:var(--gray-50);padding:40px}
+.svc-overview-image img{width:100%;border-radius:var(--radius)}
+
+/* FEATURES GRID */
+.svc-features{padding:100px 0;background:var(--gray-50)}
+.svc-features-header{text-align:center;margin-bottom:60px}
+.svc-features-header .section-subtitle{margin:0 auto}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.feature-item{background:#fff;padding:28px 24px;border-radius:var(--radius);border:1px solid var(--gray-200);transition:var(--transition)}
+.feature-item:hover{border-color:#000;transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.feature-item-icon{width:44px;height:44px;border-radius:10px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+.feature-item h4{font-size:16px;font-weight:700;color:#000;margin-bottom:8px}
+.feature-item p{font-size:14px;color:var(--gray-500);line-height:1.6}
+
+/* PROCESS */
+.process{padding:100px 0;background:#fff}
+.process-header{text-align:center;margin-bottom:60px}
+.process-header .section-subtitle{margin:0 auto}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.process-steps::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:2px;background:#000;opacity:.15}
+.process-step{text-align:center;position:relative;z-index:2}
+.step-num{width:80px;height:80px;border-radius:50%;background:#fff;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-size:28px;font-weight:700;color:#000;margin:0 auto 20px;box-shadow:0 4px 20px rgba(0,0,0,.1);transition:var(--transition)}
+.process-step:hover .step-num{background:#000;color:#fff}
+.process-step h3{font-size:16px;font-weight:700;color:#000;margin-bottom:8px}
+.process-step p{font-size:13px;color:var(--gray-500);line-height:1.6;padding:0 8px}
+
+/* COMPARISON TABLE */
+.compare{padding:100px 0;background:var(--gray-50)}
+.compare-header{text-align:center;margin-bottom:60px}
+.compare-header .section-subtitle{margin:0 auto}
+.compare-table{max-width:900px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--gray-200);box-shadow:var(--shadow-sm)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--gray-200)}
+.compare-row:last-child{border-bottom:none}
+.compare-row.head{background:#000;color:#fff}
+.compare-cell{padding:20px 24px;font-size:14px;display:flex;align-items:center;border-right:1px solid var(--gray-200)}
+.compare-row.head .compare-cell{border-right:1px solid rgba(255,255,255,.15);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.compare-cell:last-child{border-right:none}
+.compare-cell.label{font-weight:600;color:#000;background:var(--gray-50)}
+.compare-row.head .compare-cell.label{background:#000;color:#fff}
+.compare-cell i.fa-check{color:#000;margin-right:8px}
+.compare-cell i.fa-xmark{color:var(--gray-400);margin-right:8px}
+
+/* GALLERY */
+.gallery{padding:100px 0;background:#fff}
+.gallery-header{text-align:center;margin-bottom:60px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto}
+.gallery-item{aspect-ratio:1;border-radius:var(--radius);overflow:hidden;background:var(--gray-100);display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:32px;transition:var(--transition);cursor:pointer;position:relative}
+.gallery-item:hover{transform:scale(1.03)}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+
+/* EMBEDDED FUNNEL CTA */
+.mini-funnel{padding:80px 0;background:#000;color:#fff;text-align:center}
+.mini-funnel h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:16px}
+.mini-funnel p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.mini-funnel-form{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.mini-funnel-form input{flex:1;min-width:200px;padding:14px 22px;border-radius:50px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.05);color:#fff;font-size:15px;font-family:inherit;outline:none}
+.mini-funnel-form input::placeholder{color:rgba(255,255,255,.5)}
+.mini-funnel-form input:focus{border-color:#fff;background:rgba(255,255,255,.1)}
+.mini-funnel-form button{padding:14px 32px;border-radius:50px;background:#fff;color:#000;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:var(--transition);font-family:inherit;white-space:nowrap}
+.mini-funnel-form button:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,255,255,.2)}
+
+/* FAQ */
+.faq{padding:100px 0;background:var(--gray-50)}
+.faq-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start;max-width:1100px;margin:0 auto}
+.faq-left{position:sticky;top:100px}
+.faq-left p{font-size:16px;color:var(--gray-500);line-height:1.7;margin-bottom:24px}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;transition:var(--transition)}
+.faq-item.active{border-color:#000;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.faq-question{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:15px;color:#000;background:none;border:none;width:100%;text-align:left;font-family:inherit}
+.faq-question:hover{color:#000}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;transition:var(--transition);flex-shrink:0;font-size:18px;color:var(--gray-500)}
+.faq-item.active .faq-icon{background:#000;color:#fff;transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer-inner{padding:0 24px 20px;font-size:14px;color:var(--gray-500);line-height:1.7}
+
+/* RELATED SERVICES */
+.related{padding:100px 0;background:#fff}
+.related-header{text-align:center;margin-bottom:60px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.related-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:28px 24px;transition:var(--transition);display:flex;flex-direction:column;align-items:flex-start}
+.related-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:#000}
+.related-card-icon{width:48px;height:48px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+.related-card h4{font-size:17px;font-weight:700;color:#000;margin-bottom:8px}
+.related-card p{font-size:14px;color:var(--gray-500);line-height:1.6;margin-bottom:16px;flex-grow:1}
+.related-card a{font-size:14px;font-weight:600;color:#000;display:inline-flex;align-items:center;gap:6px;transition:var(--transition)}
+.related-card a:hover{gap:10px}
+
+/* CTA & FOOTER */
+.cta-banner{background:#000;padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.03),transparent 60%)}
+.cta-banner h2{font-size:clamp(28px,4vw,44px);font-weight:800;color:#fff;margin-bottom:16px;position:relative}
+.cta-banner p{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto;position:relative}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+.footer{background:#060606;padding:80px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand .logo{margin-bottom:16px}
+.footer-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:var(--transition)}
+.footer-social a:hover{background:#fff;color:#000}
+.footer-col h4{font-family:'Space Grotesk';font-size:15px;font-weight:700;color:#fff;margin-bottom:20px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px}
+.footer-col li a{font-size:14px;color:rgba(255,255,255,.45);transition:var(--transition)}
+.footer-col li a:hover{color:#fff}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:14px;color:rgba(255,255,255,.45)}
+.footer-contact-item svg{width:16px;height:16px;color:#fff;margin-top:3px;flex-shrink:0}
+.footer-contact-item a{color:rgba(255,255,255,.65)}.footer-contact-item a:hover{color:#fff}
+.footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.3)}
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--transition);cursor:pointer}
+.whatsapp-float:hover{transform:scale(1.1)}
+.whatsapp-float svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .svc-overview-grid{grid-template-columns:1fr;gap:40px}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:repeat(2,1fr)}.process-steps::before{display:none}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .related-grid{grid-template-columns:1fr;max-width:500px}
+  .faq-layout{grid-template-columns:1fr}.faq-left{position:static;text-align:center}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .topbar{display:none}.nav-links{display:none}.mobile-toggle{display:block}
+  .nav-phone span{display:none}
+  .features-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .compare-cell{padding:14px 16px;font-size:13px}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .container{padding:0 16px}
+  .page-hero .cta-row,.cta-buttons{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <div class="topbar-item"><i class="far fa-envelope" style="font-size:12px"></i><a href="mailto:info@securexsecurity.co.uk">info@securexsecurity.co.uk</a></div>
+      <div class="topbar-item"><i class="fas fa-map-marker-alt" style="font-size:12px"></i>129 Colney Hatch Lane, Muswell Hill, London N10 1HD</div>
+    </div>
+    <div class="topbar-right">
+      <a href="#" style="font-weight:500">Online Payment</a>
+      <span class="topbar-badge">NSI Certified</span>
+      <div class="topbar-item"><i class="fas fa-phone" style="font-size:12px"></i><a href="tel:07848247247" style="font-weight:600;color:#fff">07848 247 247</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a href="securex-redesign.html" class="logo">SECURE<span>X</span></a>
+    <div class="nav-links">
+      <div class="nav-item"><a href="#">NSI &amp; Monitoring <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Intruder Alarm Monitoring Service</a><a href="#">CCTV Monitoring</a><div class="nav-sub"><div class="nav-sub-label">Insurance Requirements <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Top Benefits of NSI Approved Alarm</a><a href="#">Top Reasons to Choose NSI Installers</a><a href="#">Insurance Approved Alarm Systems</a></div></div><a href="#">Police Monitoring</a><a href="#">Guard Response</a></div></div>
+      <div class="nav-item active"><a href="#">Residential <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><div class="nav-sub"><div class="nav-sub-label">Home CCTV <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><div class="nav-sub"><div class="nav-sub-label">CCTV Maintenance <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Essential Tips To Maintain CCTV</a></div></div><a href="service-cctv.html">CCTV Installation</a></div></div><div class="nav-sub"><div class="nav-sub-label">Intruder &amp; Burglar Alarms <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><div class="nav-sub"><div class="nav-sub-label">Entry System Installation <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><div class="nav-sub"><div class="nav-sub-label">Residential Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><a href="#">Residential Video Doorbell</a><a href="#">Electrical Installation</a><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a><a href="#">Insurance Requirements</a></div></div>
+      <div class="nav-item"><a href="#">Business <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Business CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Door Entry Systems</a><div class="nav-sub"><div class="nav-sub-label">Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Access Control Installation</a><a href="#">Access Control Maintenance</a></div></div><a href="#">Data Cabling</a><a href="#">Electrical Installation</a><a href="#">Fire Alarm Systems</a><div class="nav-sub"><div class="nav-sub-label">Paxton Installation <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Comprehensive Paxton Installer Guide</a></div></div><a href="#">Insurance Requirements</a></div></div>
+      <div class="nav-item"><a href="#">Commercial <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Commercial CCTV Installation</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Door Entry Systems</a><div class="nav-sub"><div class="nav-sub-label">Commercial Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Commercial Access Control Systems</a><a href="#">Installation</a><a href="#">Maintenance</a></div></div><a href="#">Data Cabling</a><a href="#">Electrical Installation</a><a href="#">Fire Alarm Systems</a><a href="#">Paxton Installation Services</a><a href="#">Pyronix Maintenance Service</a><a href="#">Pyronix Alarm Installation</a><a href="#">Insurance Requirements</a></div></div>
+      <div class="nav-item"><a href="#">Construction <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Construction CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><div class="nav-sub"><div class="nav-sub-label">Construction Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Access Control Installation</a><a href="#">Access Control Maintenance</a></div></div><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a></div></div>
+      <div class="nav-item"><a href="#">Emergency <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">24/7 Security Callout Service</a><a href="#">Emergency Alarm Call Out</a><a href="#">Emergency Fire Alarm Engineer</a><a href="#">House Alarm Emergency Call-Out</a><a href="#">Burglar Alarm Repairs Near Me</a><a href="#">24 Hour Alarm Engineer</a><a href="#">Security System Alarm Repairs</a><div class="nav-sub"><div class="nav-sub-label">Finding Alarm Engineer Near Me <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Alarm Engineer Near Me</a></div></div><a href="#">Security Systems</a><a href="#">House Alarm</a><a href="#">Data Cabling &amp; Networking</a><a href="#">Emergency Electrician</a><a href="#">Smoke Alarm Engineer</a><a href="#">Door Entry Engineer</a></div></div>
+      <div class="nav-item"><a href="service-areas.html">Service Areas</a></div>
+      <div class="nav-item"><a href="#">Securex Services <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Ajax Installer</a><a href="#">Texecom Alarm Engineer</a><a href="#">Pyronix Engineer Service</a><a href="#">Orisec Engineer Service</a><div class="nav-sub"><div class="nav-sub-label">Visonic Burglar Alarm <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Visonic Alarm Service</a></div></div><div class="nav-sub"><div class="nav-sub-label">Products <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Pyronix Cube Camera</a></div></div><a href="#">CCTV Installation</a><a href="#">CCTV Maintenance</a></div></div>
+      <div class="nav-item"><a href="#">Gallery <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Photos</a><div class="nav-sub"><div class="nav-sub-label">Posts <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Ajax Intruder Alarm</a><a href="#">Pyronix Intruder Alarm</a></div></div></div></div>
+      <div class="nav-item"><a href="#">Contact</a></div>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:07848247247" class="nav-phone-wrap" aria-label="Call 07848 247 247">
+        <span class="phone-icon"><i class="fas fa-phone"></i></span>
+      </a>
+      <a href="#quote" class="nav-quote-btn">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('active')"><i class="fas fa-bars" style="font-size:20px"></i></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="securex-redesign.html">Home</a><a href="services.html">Services</a><a href="#">Residential</a><a href="#">Business</a>
+    <a href="#">Commercial</a><a href="#">Emergency</a><a href="service-areas.html">Service Areas</a><a href="#">Contact</a>
+    <a href="tel:07848247247" style="color:#000;font-weight:700">Call: 07848 247 247</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="securex-redesign.html">Home</a>
+      <span class="sep">/</span>
+      <a href="services.html">Services</a>
+      <span class="sep">/</span>
+      <span class="current">CCTV Installation &amp; Maintenance</span>
+    </div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow"><i class="fas fa-video"></i> CCTV Systems</div>
+      <h1>CCTV Installation &amp; Maintenance in London</h1>
+      <p>Professional HD and 4K surveillance systems using industry leading Hikvision technology. Installed, maintained and supported by NSI certified engineers across London.</p>
+      <div class="cta-row">
+        <a href="#quote" class="btn btn-primary" style="background:#fff;color:#000">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+        <a href="tel:07848247247" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="svc-overview">
+  <div class="container">
+    <div class="svc-overview-grid">
+      <div class="svc-overview-content">
+        <div class="section-label">Overview</div>
+        <h2>Protect What Matters, 24 Hours a Day</h2>
+        <p>At Securex, we deliver high quality CCTV solutions designed to protect your property, people and assets. Whether you are securing a home, business or construction site, our tailored camera systems give you expert installation and ongoing support.</p>
+        <p>We work exclusively with <strong>proven brands like Hikvision</strong> and design each system around your site layout, risk profile and budget. Every camera we fit is positioned for maximum coverage, tested on the day of installation, and backed by our maintenance service.</p>
+        <p>All installations meet <strong>data protection regulations</strong> and can be linked to your mobile phone for real time viewing from anywhere in the world.</p>
+      </div>
+      <div class="svc-overview-image">
+        <img src="hikvision-cctv.webp" alt="Hikvision CCTV cameras installed by Securex">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="svc-features">
+  <div class="container">
+    <div class="svc-features-header">
+      <div class="section-label">Key Features</div>
+      <h2 class="section-title">What You Get With Every Install</h2>
+      <p class="section-subtitle">Six features included as standard across all our CCTV systems.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-item-icon"><i class="fas fa-expand"></i></div>
+        <h4>HD &amp; 4K Resolution</h4>
+        <p>Crystal clear footage with professional grade cameras. Capture faces, number plates and fine detail.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon"><i class="fas fa-mobile-screen"></i></div>
+        <h4>Remote Viewing</h4>
+        <p>Watch live and recorded footage from your smartphone, tablet or PC, anywhere in the world.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon"><i class="fas fa-moon"></i></div>
+        <h4>Night Vision</h4>
+        <p>Infra red and low light cameras that deliver clear footage even in total darkness.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon"><i class="fas fa-person-running"></i></div>
+        <h4>Motion Detection</h4>
+        <p>Intelligent motion alerts sent to your phone the moment activity is detected on your property.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+        <h4>Cloud or Local Storage</h4>
+        <p>Your choice of secure cloud storage or on site recording with encrypted drives.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon"><i class="fas fa-volume-high"></i></div>
+        <h4>Two Way Audio</h4>
+        <p>Selected cameras let you talk to visitors or deter intruders directly from your phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title">Our CCTV Installation Process</h2>
+      <p class="section-subtitle">From first call to final handover, here is exactly what to expect.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step"><div class="step-num">1</div><h3>Free Site Survey</h3><p>We visit your property, identify blind spots and discuss the best camera placement.</p></div>
+      <div class="process-step"><div class="step-num">2</div><h3>Custom System Plan</h3><p>You receive a written quote with camera positions, specifications and total pricing.</p></div>
+      <div class="process-step"><div class="step-num">3</div><h3>Professional Install</h3><p>Our NSI certified engineers fit, wire and configure your system with minimal disruption.</p></div>
+      <div class="process-step"><div class="step-num">4</div><h3>Training &amp; Handover</h3><p>We walk you through the app, storage settings and aftercare so you feel in full control.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare">
+  <div class="container">
+    <div class="compare-header">
+      <div class="section-label">Wired vs Wireless</div>
+      <h2 class="section-title">Which CCTV System Is Right For You?</h2>
+      <p class="section-subtitle">Both options have clear strengths. We help you pick the right fit during the site survey.</p>
+    </div>
+    <div class="compare-table">
+      <div class="compare-row head">
+        <div class="compare-cell label">Feature</div>
+        <div class="compare-cell">Wired CCTV</div>
+        <div class="compare-cell">Wireless CCTV</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Reliability</div>
+        <div class="compare-cell"><i class="fas fa-check"></i> Highest, no signal drops</div>
+        <div class="compare-cell"><i class="fas fa-check"></i> Strong with good Wi-Fi</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Installation Time</div>
+        <div class="compare-cell">Longer, cables required</div>
+        <div class="compare-cell"><i class="fas fa-check"></i> Fast setup</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Video Quality</div>
+        <div class="compare-cell"><i class="fas fa-check"></i> Up to 4K, no compression</div>
+        <div class="compare-cell">HD, depends on bandwidth</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Power Supply</div>
+        <div class="compare-cell">PoE, single cable</div>
+        <div class="compare-cell">Mains or battery</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Best For</div>
+        <div class="compare-cell">Permanent premises, high security sites</div>
+        <div class="compare-cell">Rented properties, quick deployment</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Long Term Cost</div>
+        <div class="compare-cell"><i class="fas fa-check"></i> Lower running cost</div>
+        <div class="compare-cell">Battery replacements over time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <div class="section-label">Recent Work</div>
+      <h2 class="section-title">CCTV Installations We Are Proud Of</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="hikvision-cctv.webp" alt="Hikvision CCTV install"></div>
+      <div class="gallery-item"><img src="securex-security-system-devices-advanced-surveillance-and-entry-solutions.webp" alt="Complete security install"></div>
+      <div class="gallery-item"><img src="intruder-and-burglar-alarm-callouts.webp" alt="Commercial site install"></div>
+      <div class="gallery-item"><img src="scaffold-alarm-1.webp" alt="Construction site install"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI FUNNEL CTA -->
+<section class="mini-funnel" id="quote">
+  <div class="container">
+    <h2>Get Your CCTV Quote in Under a Minute</h2>
+    <p>Enter your postcode below and one of our experts will call you back with a free, no obligation quote.</p>
+    <form class="mini-funnel-form" onsubmit="event.preventDefault();window.location.href='securex-redesign.html#quote'">
+      <input type="text" placeholder="Your Postcode (e.g. N10 1HD)" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <button type="submit">Get Free Quote <i class="fas fa-arrow-right"></i></button>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-left">
+        <div class="section-label">CCTV FAQ</div>
+        <h2 class="section-title">Your Questions Answered</h2>
+        <p>The most common CCTV questions we get from London homeowners and businesses.</p>
+        <a href="tel:07848247247" class="btn btn-outline">Ask an Expert <i class="fas fa-phone"></i></a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item active"><button class="faq-question">Do I need planning permission for CCTV?<span class="faq-icon">+</span></button><div class="faq-answer" style="max-height:200px"><div class="faq-answer-inner">In most cases, no. Cameras on your own residential property usually do not require planning permission. For listed buildings, conservation areas or commercial properties, we will advise during your free site survey.</div></div></div>
+        <div class="faq-item"><button class="faq-question">Can I view my CCTV on my phone?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Every system we install supports remote viewing via smartphone, tablet or desktop. We set up the app for you during installation and show you how to use it.</div></div></div>
+        <div class="faq-item"><button class="faq-question">How long is CCTV footage stored?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Storage depends on your camera resolution, hard drive size and recording mode. Most of our systems store between 14 and 90 days of footage. Cloud options offer longer retention.</div></div></div>
+        <div class="faq-item"><button class="faq-question">Is GDPR compliance included?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. All our business installations include GDPR guidance, signage where required and data protection advice to keep you fully compliant.</div></div></div>
+        <div class="faq-item"><button class="faq-question">How much does a CCTV system cost?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Costs vary based on number of cameras, resolution, storage and installation complexity. Residential systems typically start from a few hundred pounds. We provide a fixed price quote after a free site survey.</div></div></div>
+        <div class="faq-item"><button class="faq-question">Do you offer maintenance contracts?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. We offer flexible maintenance plans and pay as you go repairs. No long term contracts required.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED SERVICES -->
+<section class="related">
+  <div class="container">
+    <div class="related-header">
+      <div class="section-label">Explore More</div>
+      <h2 class="section-title">Services That Work Well With CCTV</h2>
+      <p class="section-subtitle" style="margin:0 auto">Most clients combine CCTV with one or more of these services for a complete security setup.</p>
+    </div>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-card-icon"><i class="fas fa-bell"></i></div>
+        <h4>Intruder Alarm Systems</h4>
+        <p>NSI accredited burglar alarms with police response and insurance approval. The perfect partner to CCTV.</p>
+        <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="related-card">
+        <div class="related-card-icon"><i class="fas fa-fingerprint"></i></div>
+        <h4>Access Control</h4>
+        <p>Keypad, fob and biometric access systems by Paxton. Control who enters your property at any time.</p>
+        <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="related-card">
+        <div class="related-card-icon"><i class="fas fa-door-open"></i></div>
+        <h4>Door Entry &amp; Intercom</h4>
+        <p>Audio and video intercoms for homes, apartments and offices. Integrate with CCTV for full visibility.</p>
+        <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Install CCTV?</h2>
+    <p>Book a free, no obligation site survey. We will design a system that fits your property and your budget.</p>
+    <div class="cta-buttons">
+      <a href="#quote" class="btn btn-primary" style="background:#fff;color:#000">Book Free Survey <i class="fas fa-arrow-right"></i></a>
+      <a href="tel:07848247247" class="btn btn-secondary"><i class="fas fa-phone"></i> Call 07848 247 247</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="logo">SECURE<span>X</span></div><p class="footer-desc">Professional security, fire and electrical services across London and surrounding areas. NSI certified. Trusted by homeowners, businesses and construction sites.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="securex-redesign.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Blogs</a></li><li><a href="#">Sitemap</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="service-cctv.html">CCTV Installation</a></li><li><a href="#">Intruder Alarms</a></li><li><a href="#">Fire Alarms</a></li><li><a href="#">Access Control</a></li><li><a href="#">Door Entry</a></li><li><a href="#">Electrical</a></li></ul></div>
+    <div class="footer-col"><h4>Contact Us</h4>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><a href="tel:07848247247">07848 247 247</a></div>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><a href="mailto:info@securexsecurity.co.uk">info@securexsecurity.co.uk</a></div>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>129 Colney Hatch Lane, Muswell Hill, London N10 1HD</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>&copy;2025 Securex FM LTD. All Rights Reserved.</span><span><a href="#" style="color:rgba(255,255,255,.4)">Privacy Policy</a> &middot; <a href="#" style="color:rgba(255,255,255,.4)">Terms</a> &middot; <a href="#" style="color:rgba(255,255,255,.4)">Sitemap</a></span></div>
+</div></footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/447848247247" class="whatsapp-float" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<!-- FAQ SCRIPT -->
+<script>
+document.querySelectorAll('.faq-question').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=btn.parentElement;
+    var answer=item.querySelector('.faq-answer');
+    var isActive=item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(function(el){
+      el.classList.remove('active');
+      el.querySelector('.faq-answer').style.maxHeight='0';
+    });
+    if(!isActive){
+      item.classList.add('active');
+      answer.style.maxHeight=answer.scrollHeight+'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
