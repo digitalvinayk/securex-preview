@@ -6,7 +6,7 @@
 <title>Securex Security | London's Trusted CCTV, Fire & Intruder Alarm Company</title>
 <meta name="description" content="NSI-certified security specialists in London. CCTV, intruder alarms, fire alarms, access control, door entry & electrical services. 24/7 emergency support. Free site surveys.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 /* ===== RESET ===== */
@@ -31,7 +31,7 @@ ul{list-style:none}
   --max-w:1280px;--transition:.3s cubic-bezier(.4,0,.2,1);
 }
 .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .section-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#000;margin-bottom:12px}
 .section-label::before{content:'';width:32px;height:2px;background:#000;border-radius:2px}
 .section-title{font-size:clamp(28px,4vw,44px);font-weight:700;color:#000;margin-bottom:16px}
@@ -62,9 +62,8 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .navbar{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--gray-200);transition:box-shadow .3s ease}
 .navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .navbar .container{display:flex;justify-content:space-between;align-items:center;height:84px;gap:16px;max-width:1520px;padding:0 20px}
-.logo{font-family:'Space Grotesk';font-size:22px;font-weight:800;letter-spacing:4px;color:#000;text-transform:uppercase;flex-shrink:0;position:relative;line-height:1;display:inline-block}
-.logo::after{content:'SECURITY';display:block;font-family:'Inter',sans-serif;font-size:8px;font-weight:600;letter-spacing:4px;color:var(--gray-400);margin-top:5px}
-.logo span{color:var(--gray-400)}
+.logo{flex-shrink:0;display:flex;align-items:center;height:48px}
+.logo img{height:38px;width:auto;object-fit:contain;display:block}
 .nav-links{display:flex;align-items:center;gap:0;flex:1;justify-content:center}
 .nav-item{position:relative}
 .nav-item>a{color:var(--gray-600);font-size:10.5px;font-weight:600;padding:32px 7px;transition:color .2s ease;display:flex;align-items:center;gap:4px;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;height:84px;position:relative}
@@ -101,7 +100,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .nav-dropdown-heading{padding:8px 20px 4px;font-size:11px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1px}
 .nav-dropdown-divider{height:1px;background:var(--gray-100);margin:8px 0}
 .nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.nav-phone-wrap{display:flex;align-items:center;gap:8px;transition:var(--transition);color:#000;font-weight:700;font-size:14px;white-space:nowrap;font-family:'Space Grotesk'}
+.nav-phone-wrap{display:flex;align-items:center;gap:8px;transition:var(--transition);color:#000;font-weight:700;font-size:14px;white-space:nowrap;font-family:'Inter'}
 .nav-phone-wrap:hover{color:var(--gray-600)}
 .nav-phone-wrap:hover .phone-icon{background:#333}
 .nav-phone-wrap .phone-icon{width:34px;height:34px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;transition:var(--transition);flex-shrink:0}
@@ -143,11 +142,11 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .funnel-track-fill{height:100%;background:#000;border-radius:4px;transition:width .5s ease;width:0%}
 .funnel-track-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#000;border:3px solid #fff;box-shadow:0 0 0 2px #000;transition:left .5s ease;left:0%}
 .funnel-timer{display:flex;align-items:center;gap:8px;margin-top:16px;justify-content:flex-end}
-.funnel-timer-num{font-family:'Space Grotesk';font-size:42px;font-weight:700;color:#000;line-height:1}
+.funnel-timer-num{font-family:'Inter';font-size:42px;font-weight:700;color:#000;line-height:1}
 .funnel-timer-label{font-size:12px;color:#999;line-height:1.3}
 /* Question */
 .funnel-question{margin-top:40px}
-.funnel-question h2{font-size:clamp(22px,3vw,30px);font-weight:600;color:#000;margin-bottom:28px;font-family:'Space Grotesk';line-height:1.3}
+.funnel-question h2{font-size:clamp(22px,3vw,30px);font-weight:600;color:#000;margin-bottom:28px;font-family:'Inter';line-height:1.3}
 /* Option pills */
 .funnel-options{display:flex;flex-direction:column;gap:14px;max-width:600px}
 .funnel-pill{display:flex;align-items:center;justify-content:space-between;background:#f0f0f0;border:none;border-radius:50px;padding:18px 28px;font-size:17px;font-weight:500;color:#000;cursor:pointer;transition:all .25s ease;font-family:inherit;width:100%;text-align:left}
@@ -225,9 +224,9 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .emergency-phone-icon{width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;animation:ring 2s ease-in-out infinite}
 @keyframes ring{0%,100%{transform:rotate(0)}10%{transform:rotate(-12deg)}20%{transform:rotate(12deg)}30%{transform:rotate(-8deg)}40%{transform:rotate(8deg)}50%{transform:rotate(0)}}
 .emergency-phone-label{font-size:12px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px}
-.emergency-phone-number{font-family:'Space Grotesk';font-size:24px;font-weight:700;color:#fff}
+.emergency-phone-number{font-family:'Inter';font-size:24px;font-weight:700;color:#fff}
 .emergency-badge-large{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:48px;text-align:center;backdrop-filter:blur(10px)}
-.emergency-247{font-family:'Space Grotesk';font-size:80px;font-weight:900;color:#fff;-webkit-text-fill-color:#fff;line-height:1}
+.emergency-247{font-family:'Inter';font-size:80px;font-weight:900;color:#fff;-webkit-text-fill-color:#fff;line-height:1}
 .emergency-247-label{font-size:18px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:4px;margin-top:8px}
 .emergency-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}
 .emergency-feature{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.6);padding:8px 12px;background:rgba(255,255,255,.03);border-radius:8px}
@@ -260,7 +259,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .partners-grid{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;align-items:center}
 .partner-item{text-align:center;opacity:.6;transition:var(--transition)}
 .partner-item:hover{opacity:1}
-.partner-name{font-size:20px;font-weight:700;font-family:'Space Grotesk';color:#000}
+.partner-name{font-size:20px;font-weight:700;font-family:'Inter';color:#000}
 .partner-desc{font-size:12px;color:var(--gray-500);margin-top:4px}
 
 /* ===== INDUSTRIES ===== */
@@ -326,7 +325,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
 .process-steps::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:2px;background:#000;opacity:.15}
 .process-step{text-align:center;position:relative;z-index:2}
-.step-num{width:80px;height:80px;border-radius:50%;background:#fff;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-size:28px;font-weight:700;color:#000;margin:0 auto 20px;box-shadow:0 4px 20px rgba(0,0,0,.1);transition:var(--transition)}
+.step-num{width:80px;height:80px;border-radius:50%;background:#fff;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-family:'Inter';font-size:28px;font-weight:700;color:#000;margin:0 auto 20px;box-shadow:0 4px 20px rgba(0,0,0,.1);transition:var(--transition)}
 .process-step:hover .step-num{background:#000;color:#fff}
 .process-step h3{font-size:16px;font-weight:700;color:#000;margin-bottom:8px}
 .process-step p{font-size:13px;color:var(--gray-500);line-height:1.6;padding:0 8px}
@@ -380,7 +379,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .footer-social{display:flex;gap:10px}
 .footer-social a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:var(--transition)}
 .footer-social a:hover{background:#fff;color:#000}
-.footer-col h4{font-family:'Space Grotesk';font-size:15px;font-weight:700;color:#fff;margin-bottom:20px}
+.footer-col h4{font-family:'Inter';font-size:15px;font-weight:700;color:#fff;margin-bottom:20px}
 .footer-col ul{display:flex;flex-direction:column;gap:10px}
 .footer-col li a{font-size:14px;color:rgba(255,255,255,.45);transition:var(--transition)}
 .footer-col li a:hover{color:#000}
@@ -452,7 +451,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="container">
-    <a href="securex-redesign.html" class="logo">SECURE<span>X</span></a>
+    <a href="securex-redesign.html" class="logo"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security"></a>
     <div class="nav-links">
 
       <div class="nav-item">
@@ -716,9 +715,9 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
     <!-- Progress -->
     <div class="funnel-progress">
       <div class="funnel-phases">
-        <span class="funnel-phase active" id="fp1">About Installing Your System</span>
-        <span class="funnel-phase" id="fp2">Security Measures</span>
-        <span class="funnel-phase" id="fp3">Request Quote</span>
+        <span class="funnel-phase active" id="fp1">Service</span>
+        <span class="funnel-phase" id="fp2">System Details</span>
+        <span class="funnel-phase" id="fp3">Contact</span>
       </div>
     </div>
     <div class="funnel-track">
@@ -1129,7 +1128,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 <!-- ===== FOOTER ===== -->
 <footer class="footer"><div class="container">
   <div class="footer-grid">
-    <div class="footer-brand"><div class="logo">SECURE<span>X</span></div><p class="footer-desc">Security systems offer protection and peace of mind by using alarms, CCTV cameras, and other devices to deter threats, prevent breaches, and provide quick emergency response.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+    <div class="footer-brand"><div class="logo" style="margin-bottom:16px"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security" style="height:36px;filter:invert(1) brightness(2)"></div><p class="footer-desc">Security systems offer protection and peace of mind by using alarms, CCTV cameras, and other devices to deter threats, prevent breaches, and provide quick emergency response.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
     <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Our Serving Areas</a></li><li><a href="#">Make Payment</a></li><li><a href="#">Blogs</a></li><li><a href="#">Sitemap</a></li></ul></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="#">CCTV Installation</a></li><li><a href="#">Intruder Alarms</a></li><li><a href="#">Fire Alarms</a></li><li><a href="#">Access Control</a></li><li><a href="#">Door Entry</a></li><li><a href="#">Electrical</a></li><li><a href="#">Data & Networking</a></li></ul></div>
     <div class="footer-col"><h4>Contact Us</h4>
@@ -1171,29 +1170,33 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   var timerVal=30;
   var timerInterval;
 
-  // Funnel steps config - matches Verisure flow with Home/Business branching
-  var homeSteps=[
-    {phase:0, q:'What type of home do you need security for?',
-     opts:['Detached House','Semi-Detached House','Terraced House','Maisonette','Flat']},
-    {phase:0, q:'Do you already use Wi-Fi video cameras at home?',
-     opts:['Yes, a video doorbell','Yes, indoor camera(s)','Yes, perimeter (outdoor) cameras','No']},
-    {phase:1, q:'Which devices would you like to be included in your home security system?',
-     opts:['Intruder Alarm System','CCTV / Camera System','Fire Alarm System','Access Control / Door Entry','All of the above']},
-    {phase:2, q:'What is the postcode of the property you\'d like to protect?', type:'input', placeholder:'e.g. N10 1HD', btnText:'Next'},
-    {phase:2, q:'In order to continue with your quote, please provide your phone number:', type:'phone'}
+  // Funnel steps config - matches ORIGINAL Securex site wizard
+  // Installation path
+  var installSteps=[
+    {phase:0, q:'Property Type', sub:'What kind of property needs securing?',
+     opts:['Residential','Commercial']},
+    {phase:1, q:'Monitoring Level', sub:'Select the level of response you need.',
+     opts:['No Monitoring','App Notifications','Guard Response','Keyholder Response','Police Response']},
+    {phase:1, q:'Communication Method', sub:'How should your system connect?',
+     opts:['Wi-Fi','4G / GPRS','Hardwired LAN']},
+    {phase:2, q:'Review Details', sub:'Please verify your configuration before continuing.', type:'review'},
+    {phase:2, q:'Contact Information', sub:'Where should we send your quote?', type:'contact'}
   ];
-  var businessSteps=[
-    {phase:0, q:'What is your business like?',
-     opts:['Door at street level','Premises in a shopping centre/mall','Warehouse or factory building in an industrial estate','Office in a business centre/office block']},
-    {phase:0, q:'Do you already have a security system installed at your business?',
-     opts:['Yes, a burglar alarm','Yes, CCTV cameras','Yes, access control','Yes, fire alarm','No']},
-    {phase:1, q:'Which devices would you like to be included in your business security system?',
-     opts:['Intruder Alarm System','CCTV / Camera System','Fire Alarm System','Access Control / Door Entry','All of the above']},
-    {phase:2, q:'What is the postcode of the property you\'d like to protect?', type:'input', placeholder:'e.g. N10 1HD', btnText:'Next'},
-    {phase:2, q:'In order to continue with your quote, please provide your phone number:', type:'phone'}
+  // Service & Maintenance path
+  var maintainSteps=[
+    {phase:0, q:'Property Type', sub:'What kind of property needs servicing?',
+     opts:['Residential','Commercial']},
+    {phase:1, q:'System Manufacturer', sub:'Which brand is your existing system?',
+     opts:['Honeywell','Pyronix','Texecom','Visonic','Other']},
+    {phase:1, q:'Connection Type', sub:'What type of system is installed?',
+     opts:['Wired System','Wireless System','Hybrid']},
+    {phase:1, q:'Device Count', sub:'Approximately how many devices do you have?',
+     opts:['1-5','6-10','11-20','20+']},
+    {phase:2, q:'Review Details', sub:'Please verify your configuration before continuing.', type:'review'},
+    {phase:2, q:'Contact Information', sub:'Where should we send your quote?', type:'contact'}
   ];
-  // Step 0 is always Home/Business choice, then branch
-  var step0={phase:0, q:'Are you interested in security for your home, or your business?', opts:['Home','Business']};
+  // Step 0 is service type, then branch
+  var step0={phase:0, q:'What do you need?', sub:'Select the primary service you are interested in.', opts:['New Installation','Service & Maintenance']};
   var steps=[step0];
   var branched=false;
 
@@ -1261,53 +1264,83 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     h2.textContent=s.q;
     container.appendChild(h2);
 
-    if(s.type==='input'){
-      // Postcode input step
-      var row=document.createElement('div');
-      row.className='funnel-input-row';
-      var inp=document.createElement('input');
-      inp.type='text';inp.className='funnel-input';
-      inp.placeholder=s.placeholder||'';
-      inp.id='funnelPostcode';
+    if(s.sub){
+      var sub=document.createElement('p');
+      sub.className='funnel-sub';
+      sub.textContent=s.sub;
+      sub.style.cssText='color:var(--gray-500);font-size:15px;margin-bottom:24px;margin-top:4px';
+      container.appendChild(sub);
+    }
+
+    if(s.type==='review'){
+      // Review step - summary of answers
+      var box=document.createElement('div');
+      box.className='funnel-review';
+      box.style.cssText='background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px;margin-bottom:24px';
+      Object.keys(fData).forEach(function(k){
+        if(k.indexOf('step')!==0) return;
+        var idx=parseInt(k.replace('step',''));
+        if(isNaN(idx) || !steps[idx]) return;
+        var row=document.createElement('div');
+        row.style.cssText='display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--gray-200);font-size:14px';
+        var label=document.createElement('span');
+        label.style.color='var(--gray-500)';
+        label.textContent=steps[idx].q;
+        var value=document.createElement('strong');
+        value.style.color='#000';
+        value.textContent=fData[k];
+        row.appendChild(label);row.appendChild(value);
+        box.appendChild(row);
+      });
+      // Remove last row border
+      if(box.lastChild) box.lastChild.style.borderBottom='none';
+      container.appendChild(box);
       var btn=document.createElement('button');
-      btn.className='funnel-submit';btn.textContent=s.btnText||'Next';
+      btn.className='funnel-submit';btn.textContent='Continue';
       btn.addEventListener('click',function(){
-        var val=document.getElementById('funnelPostcode').value.trim();
-        if(val.length<3) return;
-        fData.postcode=val;
         fStep++;renderStep();
       });
-      row.appendChild(inp);row.appendChild(btn);
-      container.appendChild(row);
+      container.appendChild(btn);
 
-    } else if(s.type==='phone'){
-      // Phone number step (Verisure-style final step)
-      var row=document.createElement('div');
-      row.className='funnel-input-row';
-      var inp=document.createElement('input');
-      inp.type='tel';inp.className='funnel-input';
-      inp.placeholder='Phone Number';
-      inp.id='funnelPhone';
+    } else if(s.type==='contact'){
+      // Contact step - Full Name, Email, Phone (matches original site)
+      var form=document.createElement('div');
+      form.className='funnel-contact';
+      form.style.cssText='display:flex;flex-direction:column;gap:16px;margin-bottom:20px';
+
+      var fields=[
+        {id:'fName',label:'Full Name',type:'text',ph:'Jane Doe'},
+        {id:'fEmail',label:'Email Address',type:'email',ph:'jane@example.com'},
+        {id:'fPhone',label:'Phone Number',type:'tel',ph:'07700 900000'}
+      ];
+      fields.forEach(function(f){
+        var grp=document.createElement('div');
+        var lab=document.createElement('label');
+        lab.textContent=f.label;
+        lab.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:6px';
+        var inp=document.createElement('input');
+        inp.type=f.type;inp.id=f.id;inp.placeholder=f.ph;
+        inp.style.cssText='width:100%;padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:var(--transition)';
+        inp.addEventListener('focus',function(){this.style.borderColor='#000'});
+        inp.addEventListener('blur',function(){this.style.borderColor='var(--gray-200)'});
+        grp.appendChild(lab);grp.appendChild(inp);
+        form.appendChild(grp);
+      });
+      container.appendChild(form);
+
       var btn=document.createElement('button');
       btn.className='funnel-submit';btn.textContent='Submit Request';
+      btn.style.marginTop='8px';
       btn.addEventListener('click',function(){
-        var val=document.getElementById('funnelPhone').value.trim();
-        if(val.length<6) return;
-        fData.phone=val;
+        var name=document.getElementById('fName').value.trim();
+        var email=document.getElementById('fEmail').value.trim();
+        var phone=document.getElementById('fPhone').value.trim();
+        if(!name||!email||!phone) return;
+        fData.name=name;fData.email=email;fData.phone=phone;
         clearInterval(timerInterval);
         showSuccess();
       });
-      row.appendChild(inp);row.appendChild(btn);
-      container.appendChild(row);
-      // Privacy notice
-      var privacy=document.createElement('p');
-      privacy.style.cssText='font-size:13px;color:#999;margin-top:16px';
-      var privText=document.createTextNode('For more information on how we use your personal data, read our ');
-      var privLink=document.createElement('a');
-      privLink.href='#';privLink.textContent='Privacy Notice';
-      privLink.style.cssText='color:#000;text-decoration:underline';
-      privacy.appendChild(privText);privacy.appendChild(privLink);
-      container.appendChild(privacy);
+      container.appendChild(btn);
 
     } else {
       // Option pills (auto-advance on click)
@@ -1322,12 +1355,12 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
         pill.appendChild(makePillArrow());
         pill.addEventListener('click',function(){
           fData['step'+fStep]=label;
-          // Branch after step 0 (Home/Business)
+          // Branch after step 0 (New Installation vs Service & Maintenance)
           if(fStep===0 && !branched){
-            if(label==='Home'){
-              steps=steps.concat(homeSteps);
+            if(label==='New Installation'){
+              steps=steps.concat(installSteps);
             } else {
-              steps=steps.concat(businessSteps);
+              steps=steps.concat(maintainSteps);
             }
             totalSteps=steps.length;
             branched=true;

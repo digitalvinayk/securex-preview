@@ -6,7 +6,7 @@
 <title>Our Services | Securex Security | London</title>
 <meta name="description" content="Complete security, fire, electrical and data services in London. CCTV, intruder alarms, fire alarms, access control and more. NSI certified, 24/7 support.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 /* ===== RESET ===== */
@@ -27,7 +27,7 @@ ul{list-style:none}
   --max-w:1280px;--transition:.3s cubic-bezier(.4,0,.2,1);
 }
 .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .section-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#000;margin-bottom:12px}
 .section-label::before{content:'';width:32px;height:2px;background:#000;border-radius:2px}
 .section-title{font-size:clamp(28px,4vw,44px);font-weight:700;color:#000;margin-bottom:16px}
@@ -55,9 +55,8 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .navbar{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--gray-200);transition:box-shadow .3s ease}
 .navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .navbar .container{display:flex;justify-content:space-between;align-items:center;height:84px;gap:16px;max-width:1520px;padding:0 20px}
-.logo{font-family:'Space Grotesk';font-size:22px;font-weight:800;letter-spacing:4px;color:#000;text-transform:uppercase;flex-shrink:0;position:relative;line-height:1;display:inline-block}
-.logo::after{content:'SECURITY';display:block;font-family:'Inter',sans-serif;font-size:8px;font-weight:600;letter-spacing:4px;color:var(--gray-400);margin-top:5px}
-.logo span{color:var(--gray-400)}
+.logo{flex-shrink:0;display:flex;align-items:center;height:48px}
+.logo img{height:38px;width:auto;object-fit:contain;display:block}
 .nav-links{display:flex;align-items:center;gap:0;flex:1;justify-content:center}
 .nav-item{position:relative}
 .nav-item>a{color:var(--gray-600);font-size:10.5px;font-weight:600;padding:32px 7px;transition:color .2s ease;display:flex;align-items:center;gap:4px;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;height:84px;position:relative}
@@ -88,7 +87,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .nav-item:nth-last-child(-n+3) .nav-sub-menu{left:auto;right:100%;margin-left:0;margin-right:2px;transform:translateX(8px)}
 .nav-item:nth-last-child(-n+3) .nav-sub:hover>.nav-sub-menu{transform:translateX(0)}
 .nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.nav-phone-wrap{display:flex;align-items:center;gap:8px;transition:var(--transition);color:#000;font-weight:700;font-size:14px;white-space:nowrap;font-family:'Space Grotesk'}
+.nav-phone-wrap{display:flex;align-items:center;gap:8px;transition:var(--transition);color:#000;font-weight:700;font-size:14px;white-space:nowrap;font-family:'Inter'}
 .nav-phone-wrap:hover .phone-icon{background:#333}
 .nav-phone-wrap .phone-icon{width:34px;height:34px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;transition:var(--transition);flex-shrink:0}
 .nav-quote-btn{padding:11px 18px;background:#000;color:#fff;border-radius:50px;font-weight:700;font-size:10.5px;transition:var(--transition);white-space:nowrap;display:inline-flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.8px}
@@ -147,7 +146,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
 .process-steps::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:2px;background:#000;opacity:.15}
 .process-step{text-align:center;position:relative;z-index:2}
-.step-num{width:80px;height:80px;border-radius:50%;background:#fff;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-size:28px;font-weight:700;color:#000;margin:0 auto 20px;box-shadow:0 4px 20px rgba(0,0,0,.1);transition:var(--transition)}
+.step-num{width:80px;height:80px;border-radius:50%;background:#fff;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-family:'Inter';font-size:28px;font-weight:700;color:#000;margin:0 auto 20px;box-shadow:0 4px 20px rgba(0,0,0,.1);transition:var(--transition)}
 .process-step:hover .step-num{background:#000;color:#fff}
 .process-step h3{font-size:16px;font-weight:700;color:#000;margin-bottom:8px}
 .process-step p{font-size:13px;color:var(--gray-500);line-height:1.6;padding:0 8px}
@@ -160,7 +159,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .trust-badge img{height:40px}
 .trust-badge .stars{color:#000;font-size:16px;letter-spacing:1px}
 .partners-line{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;padding-top:40px;border-top:1px solid var(--gray-200)}
-.partner-logo{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#000;opacity:.5;transition:var(--transition)}
+.partner-logo{font-family:'Inter';font-size:18px;font-weight:700;color:#000;opacity:.5;transition:var(--transition)}
 .partner-logo:hover{opacity:1}
 
 /* ===== CTA BANNER ===== */
@@ -178,7 +177,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .footer-social{display:flex;gap:10px}
 .footer-social a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:var(--transition)}
 .footer-social a:hover{background:#fff;color:#000}
-.footer-col h4{font-family:'Space Grotesk';font-size:15px;font-weight:700;color:#fff;margin-bottom:20px}
+.footer-col h4{font-family:'Inter';font-size:15px;font-weight:700;color:#fff;margin-bottom:20px}
 .footer-col ul{display:flex;flex-direction:column;gap:10px}
 .footer-col li a{font-size:14px;color:rgba(255,255,255,.45);transition:var(--transition)}
 .footer-col li a:hover{color:#fff}
@@ -235,7 +234,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="container">
-    <a href="securex-redesign.html" class="logo">SECURE<span>X</span></a>
+    <a href="securex-redesign.html" class="logo"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security"></a>
     <div class="nav-links">
       <div class="nav-item"><a href="#">NSI &amp; Monitoring <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Intruder Alarm Monitoring Service</a><a href="#">CCTV Monitoring</a><div class="nav-sub"><div class="nav-sub-label">Insurance Requirements <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Top Benefits of NSI Approved Alarm</a><a href="#">Top Reasons to Choose NSI Installers</a><a href="#">Insurance Approved Alarm Systems</a></div></div><a href="#">Police Monitoring</a><a href="#">Guard Response</a></div></div>
       <div class="nav-item"><a href="#">Residential <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><div class="nav-sub"><div class="nav-sub-label">Home CCTV <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><div class="nav-sub"><div class="nav-sub-label">CCTV Maintenance <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Essential Tips To Maintain CCTV</a></div></div><a href="service-cctv.html">CCTV Installation</a></div></div><div class="nav-sub"><div class="nav-sub-label">Intruder &amp; Burglar Alarms <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><div class="nav-sub"><div class="nav-sub-label">Entry System Installation <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><div class="nav-sub"><div class="nav-sub-label">Residential Access Control <i class="fas fa-chevron-right sub-caret"></i></div><div class="nav-sub-menu"><a href="#">Installation</a><a href="#">Maintenance</a></div></div><a href="#">Residential Video Doorbell</a><a href="#">Electrical Installation</a><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a><a href="#">Insurance Requirements</a></div></div>
@@ -439,7 +438,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
 <!-- FOOTER -->
 <footer class="footer"><div class="container">
   <div class="footer-grid">
-    <div class="footer-brand"><div class="logo">SECURE<span>X</span></div><p class="footer-desc">Professional security, fire and electrical services across London and surrounding areas. NSI certified. Trusted by homeowners, businesses and construction sites.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+    <div class="footer-brand"><div class="logo" style="margin-bottom:16px"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security" style="height:36px;filter:invert(1) brightness(2)"></div><p class="footer-desc">Professional security, fire and electrical services across London and surrounding areas. NSI certified. Trusted by homeowners, businesses and construction sites.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
     <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="securex-redesign.html">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Our Serving Areas</a></li><li><a href="#">Make Payment</a></li><li><a href="#">Blogs</a></li><li><a href="#">Sitemap</a></li></ul></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="service-cctv.html">CCTV Installation</a></li><li><a href="#">Intruder Alarms</a></li><li><a href="#">Fire Alarms</a></li><li><a href="#">Access Control</a></li><li><a href="#">Door Entry</a></li><li><a href="#">Electrical</a></li><li><a href="#">Data &amp; Networking</a></li></ul></div>
     <div class="footer-col"><h4>Contact Us</h4>

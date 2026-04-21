@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCTV Installation South London | Securex Security</title>
+<meta name="description" content="Professional CCTV installation across South London. Home, business, commercial and private sector surveillance systems. 10+ years experience. NSI certified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== RESET & TOKENS ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:#000;background:#fff;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+:root{
+  --gray-50:#F7F7F7;--gray-100:#EEEEEE;--gray-200:#DDDDDD;
+  --gray-400:#999999;--gray-500:#666666;--gray-600:#444444;--gray-800:#222222;
+  --radius:12px;--radius-lg:20px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 20px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.1);
+  --max-w:1280px;--transition:.3s cubic-bezier(.4,0,.2,1);
+}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#000;margin-bottom:12px}
+.section-label::before{content:'';width:32px;height:2px;background:#000;border-radius:2px}
+.section-title{font-size:clamp(28px,4vw,44px);font-weight:700;color:#000;margin-bottom:16px}
+.section-subtitle{font-size:17px;color:var(--gray-500);max-width:700px;line-height:1.7}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:var(--transition);font-family:inherit}
+.btn-primary{background:#000;color:#fff}
+.btn-primary:hover{background:#333;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2)}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-secondary:hover{background:rgba(255,255,255,.2);border-color:#fff}
+.btn-outline{background:transparent;color:#000;border:2px solid #000}
+.btn-outline:hover{background:#000;color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* TOPBAR */
+.topbar{background:#000;color:rgba(255,255,255,.7);font-size:13px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:rgba(255,255,255,.85);transition:var(--transition)}.topbar a:hover{color:#fff}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:20px}
+.topbar-item{display:flex;align-items:center;gap:6px}
+.topbar-badge{background:#fff;color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px}
+
+/* NAVBAR (Professional White) */
+.navbar{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--gray-200);transition:box-shadow .3s ease}
+.navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.navbar .container{display:flex;justify-content:space-between;align-items:center;height:84px;gap:16px;max-width:1520px;padding:0 20px}
+.logo{flex-shrink:0;display:flex;align-items:center;height:48px}
+.logo img{height:38px;width:auto;object-fit:contain;display:block}
+.nav-links{display:flex;align-items:center;gap:0;flex:1;justify-content:center}
+.nav-item{position:relative}
+.nav-item>a{color:var(--gray-600);font-size:10.5px;font-weight:600;padding:32px 7px;transition:color .2s ease;display:flex;align-items:center;gap:4px;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;height:84px;position:relative}
+.nav-item>a::before{content:'';position:absolute;bottom:0;left:50%;right:50%;height:3px;background:#000;transition:all .3s cubic-bezier(.4,0,.2,1);border-radius:2px 2px 0 0}
+.nav-item:hover>a::before{left:7px;right:7px}
+.nav-item.active>a{color:#000}
+.nav-item.active>a::before{left:7px;right:7px}
+.nav-item>a:hover{color:#000}
+.nav-item .caret{font-size:9px;opacity:.5;transition:var(--transition)}
+.nav-item:hover>a{color:#000}
+.nav-item:hover .caret{transform:rotate(180deg);opacity:1}
+.nav-dropdown{position:absolute;top:100%;left:-8px;min-width:280px;background:#fff;border:1px solid var(--gray-200);border-top:none;border-radius:0 0 var(--radius) var(--radius);box-shadow:0 20px 40px -8px rgba(0,0,0,.15);padding:12px 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .25s ease;pointer-events:none;z-index:100}
+.nav-item:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.nav-dropdown>a,.nav-dropdown>.nav-sub{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;transition:var(--transition);text-transform:none;letter-spacing:0;white-space:normal;line-height:1.4;position:relative}
+.nav-dropdown a:hover{background:var(--gray-50);color:#000}
+.nav-dropdown>a:hover{padding-left:24px}
+.nav-sub{position:relative;cursor:pointer}
+.nav-sub>.nav-sub-label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--gray-600);padding:0;background:transparent}
+.nav-sub>.nav-sub-label .sub-caret{font-size:10px;color:var(--gray-400)}
+.nav-sub:hover>.nav-sub-label{color:#000}
+.nav-sub:hover{background:var(--gray-50)}
+.nav-sub-menu{position:absolute;top:-12px;left:100%;min-width:260px;background:#fff;border-radius:var(--radius);box-shadow:0 20px 40px rgba(0,0,0,.15);padding:12px 0;opacity:0;visibility:hidden;transform:translateX(-8px);transition:all .25s ease;pointer-events:none;z-index:110;margin-left:2px}
+.nav-sub:hover>.nav-sub-menu{opacity:1;visibility:visible;transform:translateX(0);pointer-events:auto}
+.nav-sub-menu a{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;line-height:1.4}
+.nav-sub-menu a:hover{background:var(--gray-50);color:#000;padding-left:24px}
+.nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-phone-wrap{display:flex;align-items:center;gap:8px;transition:var(--transition);color:#000;font-weight:700;font-size:14px;white-space:nowrap}
+.nav-phone-wrap:hover .phone-icon{background:#333}
+.nav-phone-wrap .phone-icon{width:34px;height:34px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;transition:var(--transition);flex-shrink:0}
+.nav-quote-btn{padding:11px 18px;background:#000;color:#fff;border-radius:50px;font-weight:700;font-size:10.5px;transition:var(--transition);white-space:nowrap;display:inline-flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.8px}
+.nav-quote-btn:hover{background:#333;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.nav-quote-btn i{font-size:9px}
+.mobile-toggle{display:none;background:none;border:none;color:#000;cursor:pointer;padding:8px}
+.mobile-menu{display:none}
+
+/* PAGE HERO */
+.page-hero{background:#000;color:#fff;padding:60px 0 80px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(255,255,255,.03) 0%,transparent 70%);pointer-events:none}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:24px;position:relative;z-index:2;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,.7)}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb .sep{color:rgba(255,255,255,.3)}
+.breadcrumb .current{color:#fff;font-weight:500}
+.page-hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.page-hero-content{max-width:640px}
+.page-hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+.page-hero h1{font-size:clamp(36px,5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.1}
+.page-hero p{font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:28px}
+.page-hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:28px;backdrop-filter:blur(10px)}
+.hero-trust h3{font-family:'Inter';font-size:18px;color:#fff;margin-bottom:16px}
+.hero-trust ul{display:flex;flex-direction:column;gap:10px}
+.hero-trust li{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.85)}
+.hero-trust li i{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex-shrink:0}
+
+/* INTRO */
+.intro{padding:80px 0;background:#fff}
+.intro-inner{max-width:860px;margin:0 auto;text-align:center}
+.intro p{font-size:17px;color:var(--gray-600);line-height:1.8;margin-bottom:16px}
+
+/* SERVICE CATEGORIES */
+.svc-categories{padding:100px 0;background:var(--gray-50)}
+.svc-categories-header{text-align:center;margin-bottom:60px}
+.svc-categories-header .section-subtitle{margin:0 auto}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1100px;margin:0 auto}
+.svc-block{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:36px 32px;transition:var(--transition);display:flex;flex-direction:column}
+.svc-block:hover{border-color:#000;transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.svc-block-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.svc-block-icon{width:52px;height:52px;border-radius:14px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.svc-block h3{font-size:22px;font-weight:700;color:#000;flex:1}
+.svc-block p{font-size:15px;color:var(--gray-600);line-height:1.7;margin-bottom:18px}
+.svc-block ul{display:flex;flex-direction:column;gap:10px;margin-bottom:0}
+.svc-block li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--gray-600);line-height:1.5}
+.svc-block li i{color:#000;font-size:11px;margin-top:5px;flex-shrink:0}
+
+/* REPAIRS */
+.repairs{padding:100px 0;background:#fff}
+.repairs-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
+.repairs-img{background:var(--gray-50);border-radius:var(--radius-lg);padding:40px;display:flex;align-items:center;justify-content:center}
+.repairs-img img{max-width:100%;border-radius:var(--radius)}
+.repairs-content p{font-size:16px;color:var(--gray-600);line-height:1.8;margin-bottom:20px}
+
+/* HELP LIST (20+ services) */
+.help-list{padding:100px 0;background:var(--gray-50)}
+.help-list-header{text-align:center;margin-bottom:60px}
+.help-list-header .section-subtitle{margin:0 auto}
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:0 auto}
+.help-item{background:#fff;padding:16px 20px;border-radius:10px;border:1px solid var(--gray-200);font-size:14px;color:var(--gray-600);display:flex;align-items:center;gap:10px;transition:var(--transition);font-weight:500}
+.help-item:hover{border-color:#000;color:#000;padding-left:24px}
+.help-item i{color:#000;font-size:11px;flex-shrink:0}
+
+/* AREAS */
+.areas-strip{padding:100px 0;background:#000;color:#fff;position:relative;overflow:hidden}
+.areas-strip::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(255,255,255,.03),transparent 60%)}
+.areas-strip-header{text-align:center;margin-bottom:48px;position:relative;z-index:2}
+.areas-strip-header .section-label{color:#fff}
+.areas-strip-header .section-label::before{background:#fff}
+.areas-strip-header .section-title{color:#fff}
+.areas-strip-header .section-subtitle{color:rgba(255,255,255,.6);margin:0 auto}
+.areas-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1000px;margin:0 auto;position:relative;z-index:2}
+.area-tag{padding:8px 18px;border-radius:50px;font-size:13px;font-weight:500;color:rgba(255,255,255,.8);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);transition:var(--transition)}
+.area-tag:hover{background:#fff;color:#000;border-color:#fff}
+
+/* CTA FINAL */
+.cta-final{padding:80px 0;background:#fff;text-align:center;border-top:1px solid var(--gray-200)}
+.cta-final h2{font-size:clamp(28px,4vw,44px);font-weight:800;color:#000;margin-bottom:16px}
+.cta-final p{font-size:17px;color:var(--gray-500);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+.footer{background:#060606;padding:80px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand .logo{margin-bottom:16px}
+.footer-brand .logo img{filter:invert(1) brightness(2)}
+.footer-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:var(--transition)}
+.footer-social a:hover{background:#fff;color:#000}
+.footer-col h4{font-family:'Inter';font-size:15px;font-weight:700;color:#fff;margin-bottom:20px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px}
+.footer-col li a{font-size:14px;color:rgba(255,255,255,.45);transition:var(--transition)}
+.footer-col li a:hover{color:#fff}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:14px;color:rgba(255,255,255,.45)}
+.footer-contact-item svg{width:16px;height:16px;color:#fff;margin-top:3px;flex-shrink:0}
+.footer-contact-item a{color:rgba(255,255,255,.65)}.footer-contact-item a:hover{color:#fff}
+.footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.3)}
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--transition);cursor:pointer}
+.whatsapp-float:hover{transform:scale(1.1)}
+.whatsapp-float svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .page-hero-grid{grid-template-columns:1fr;gap:40px}
+  .svc-grid{grid-template-columns:1fr;max-width:600px}
+  .repairs-grid{grid-template-columns:1fr;gap:40px}
+  .help-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .topbar{display:none}.nav-links{display:none}.mobile-toggle{display:block}
+  .help-grid{grid-template-columns:1fr}
+  .cta-buttons{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <div class="topbar-item"><i class="far fa-envelope" style="font-size:12px"></i><a href="mailto:info@securexsecurity.co.uk">info@securexsecurity.co.uk</a></div>
+      <div class="topbar-item"><i class="fas fa-map-marker-alt" style="font-size:12px"></i>129 Colney Hatch Lane, Muswell Hill, London N10 1HD</div>
+    </div>
+    <div class="topbar-right">
+      <a href="#" style="font-weight:500">Online Payment</a>
+      <span class="topbar-badge">NSI Certified</span>
+      <div class="topbar-item"><i class="fas fa-phone" style="font-size:12px"></i><a href="tel:07848247247" style="font-weight:600;color:#fff">07848 247 247</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a href="securex-redesign.html" class="logo"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security"></a>
+    <div class="nav-links">
+      <div class="nav-item"><a href="#">NSI &amp; Monitoring <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Intruder Alarm Monitoring</a><a href="#">CCTV Monitoring</a><a href="#">Police Monitoring</a><a href="#">Guard Response</a></div></div>
+      <div class="nav-item"><a href="#">Residential <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="cctv-installation-south-london.html">Home CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Entry System Installation</a><a href="#">Residential Access Control</a><a href="#">Residential Video Doorbell</a><a href="#">Electrical Installation</a><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a></div></div>
+      <div class="nav-item"><a href="#">Business <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Business CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Door Entry Systems</a><a href="#">Access Control</a><a href="#">Data Cabling</a><a href="#">Electrical Installation</a><a href="#">Fire Alarm Systems</a></div></div>
+      <div class="nav-item"><a href="#">Commercial <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Commercial CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Door Entry Systems</a><a href="#">Access Control Systems</a><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a></div></div>
+      <div class="nav-item"><a href="#">Construction <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Construction CCTV</a><a href="#">Intruder &amp; Burglar Alarms</a><a href="#">Access Control</a><a href="#">Data Cabling</a><a href="#">Fire Alarm Systems</a></div></div>
+      <div class="nav-item"><a href="#">Emergency <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">24/7 Security Callout</a><a href="#">Emergency Alarm Call Out</a><a href="#">Burglar Alarm Repairs</a><a href="#">Emergency Electrician</a><a href="#">Smoke Alarm Engineer</a></div></div>
+      <div class="nav-item active"><a href="service-areas.html">Service Areas</a></div>
+      <div class="nav-item"><a href="#">Securex Services <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="service-cctv.html">CCTV Installation</a><a href="#">CCTV Maintenance</a><a href="#">Ajax Installer</a><a href="#">Pyronix Engineer</a><a href="#">Texecom Engineer</a></div></div>
+      <div class="nav-item"><a href="#">Gallery <i class="fas fa-chevron-down caret"></i></a><div class="nav-dropdown"><a href="#">Photos</a><a href="#">Posts</a></div></div>
+      <div class="nav-item"><a href="#">Contact</a></div>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:07848247247" class="nav-phone-wrap" aria-label="Call 07848 247 247">
+        <span class="phone-icon"><i class="fas fa-phone"></i></span>
+      </a>
+      <a href="securex-redesign.html#quote" class="nav-quote-btn">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('active')"><i class="fas fa-bars" style="font-size:20px"></i></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="securex-redesign.html">Home</a>
+      <span class="sep">/</span>
+      <a href="service-areas.html">Service Areas</a>
+      <span class="sep">/</span>
+      <span class="current">CCTV Installation South London</span>
+    </div>
+    <div class="page-hero-grid">
+      <div class="page-hero-content">
+        <div class="page-hero-eyebrow"><i class="fas fa-video"></i> CCTV South London</div>
+        <h1>CCTV Installation South London</h1>
+        <p>With over a decade of experience, Securex Security has installed and repaired surveillance camera systems in homes, businesses, commercial, private and public premises throughout South London. From Clapham to Croydon, Battersea to Brixton, our NSI certified engineers deliver professional CCTV installation that protects what matters most.</p>
+        <div class="cta-row">
+          <a href="securex-redesign.html#quote" class="btn btn-primary" style="background:#fff;color:#000">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+          <a href="tel:07848247247" class="btn btn-secondary"><i class="fas fa-phone"></i> Call 07848 247 247</a>
+        </div>
+      </div>
+      <div class="hero-trust">
+        <h3>Why South London Chooses Securex</h3>
+        <ul>
+          <li><i class="fas fa-check"></i> 10+ years of CCTV expertise</li>
+          <li><i class="fas fa-check"></i> NSI Silver certified installer</li>
+          <li><i class="fas fa-check"></i> Hikvision premium technology</li>
+          <li><i class="fas fa-check"></i> Free site survey across South London</li>
+          <li><i class="fas fa-check"></i> 24/7 emergency callout available</li>
+          <li><i class="fas fa-check"></i> Insurance approved installations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-inner">
+      <div class="section-label">About Our South London Service</div>
+      <h2 class="section-title">Your Local CCTV Installation Company in South London</h2>
+      <p>When you need reliable CCTV installation in South London, Securex Security is the trusted local choice. Our dedicated team of NSI certified engineers provides professional surveillance solutions across every South London borough.</p>
+      <p>From high definition camera systems to advanced IP and wireless setups, we deliver custom surveillance solutions for homes, businesses, and commercial properties. Every installation is tailored to your specific needs and supported by our 24/7 maintenance service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE CATEGORIES (4 blocks) -->
+<section class="svc-categories">
+  <div class="container">
+    <div class="svc-categories-header">
+      <div class="section-label">Our Services</div>
+      <h2 class="section-title">CCTV Systems for Every South London Property</h2>
+      <p class="section-subtitle">Four core CCTV service categories covering every type of property and security requirement across South London.</p>
+    </div>
+    <div class="svc-grid">
+
+      <div class="svc-block">
+        <div class="svc-block-head">
+          <div class="svc-block-icon"><i class="fas fa-house"></i></div>
+          <h3>Home CCTV Systems</h3>
+        </div>
+        <p>Protect your family and property with professional home CCTV across South London. Clear footage to resolve any claims or disputes, with full remote monitoring from your smartphone.</p>
+        <ul>
+          <li><i class="fas fa-circle"></i> Crystal clear HD and 4K footage for claim resolution</li>
+          <li><i class="fas fa-circle"></i> Remote monitoring via smartphone or PC</li>
+          <li><i class="fas fa-circle"></i> Night vision and motion detection as standard</li>
+          <li><i class="fas fa-circle"></i> Discreet installation suitable for any home</li>
+        </ul>
+      </div>
+
+      <div class="svc-block">
+        <div class="svc-block-head">
+          <div class="svc-block-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Business CCTV Systems</h3>
+        </div>
+        <p>Safeguard your South London business with comprehensive surveillance. Asset protection, staff monitoring, and loss prevention in one integrated system.</p>
+        <ul>
+          <li><i class="fas fa-circle"></i> Asset and inventory protection</li>
+          <li><i class="fas fa-circle"></i> Staff monitoring and productivity tracking</li>
+          <li><i class="fas fa-circle"></i> Loss prevention and theft deterrent</li>
+          <li><i class="fas fa-circle"></i> Integration with alarms and access control</li>
+        </ul>
+      </div>
+
+      <div class="svc-block">
+        <div class="svc-block-head">
+          <div class="svc-block-icon"><i class="fas fa-building"></i></div>
+          <h3>Commercial CCTV Installations</h3>
+        </div>
+        <p>Enterprise grade surveillance for larger South London commercial properties. Advanced features including motion detection, night vision and multi site integration.</p>
+        <ul>
+          <li><i class="fas fa-circle"></i> Multi site centralised monitoring</li>
+          <li><i class="fas fa-circle"></i> Advanced motion and intrusion analytics</li>
+          <li><i class="fas fa-circle"></i> Night vision for low light coverage</li>
+          <li><i class="fas fa-circle"></i> GDPR compliant data retention</li>
+        </ul>
+      </div>
+
+      <div class="svc-block">
+        <div class="svc-block-head">
+          <div class="svc-block-icon"><i class="fas fa-landmark"></i></div>
+          <h3>Private Sector CCTV</h3>
+        </div>
+        <p>Specialist CCTV installations for governmental buildings, public education facilities, and sensitive private sector properties across South London.</p>
+        <ul>
+          <li><i class="fas fa-circle"></i> Government and public sector compliant</li>
+          <li><i class="fas fa-circle"></i> Education facility approved systems</li>
+          <li><i class="fas fa-circle"></i> Enhanced security clearance installations</li>
+          <li><i class="fas fa-circle"></i> Dedicated account management</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CCTV REPAIRS -->
+<section class="repairs">
+  <div class="container">
+    <div class="repairs-grid">
+      <div class="repairs-img">
+        <img src="hikvision-cctv.webp" alt="CCTV repair and installation South London">
+      </div>
+      <div class="repairs-content">
+        <div class="section-label">Trusted Service</div>
+        <h2 class="section-title">CCTV Repairs &amp; Fitting</h2>
+        <p>Over a decade installing and maintaining CCTV across South London means we have seen every system type. Whether you need a new camera fitted, a faulty unit replaced, or a full system upgrade, we deliver professional installation you can trust.</p>
+        <p>All our engineers are NSI certified, fully insured, and experienced in both residential and commercial work. We use only premium Hikvision equipment and provide clear, no obligation quotes before any work begins.</p>
+        <a href="tel:07848247247" class="btn btn-outline">Call For Free Survey <i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LET US HELP YOU (20+ services) -->
+<section class="help-list">
+  <div class="container">
+    <div class="help-list-header">
+      <div class="section-label">Let Us Help You</div>
+      <h2 class="section-title">Complete CCTV Service Offerings</h2>
+      <p class="section-subtitle">Every CCTV service you might need across South London, under one trusted local company.</p>
+    </div>
+    <div class="help-grid">
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> HD &amp; 4K Camera Installation</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> IP Camera Systems</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Wireless CCTV Setup</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Analog to IP Upgrades</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Multi Site CCTV</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Remote Viewing Setup</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> DVR / NVR Replacement</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Hard Drive Upgrades</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Camera Repositioning</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Cable Repairs</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Night Vision Cameras</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> PTZ Dome Cameras</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Bullet Camera Installation</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Motion Detection Setup</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Audio Enabled CCTV</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Number Plate Recognition</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> GDPR Compliance Advice</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> CCTV Maintenance Plans</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> 24/7 Emergency Callouts</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Mobile App Configuration</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Cloud Storage Setup</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> System Health Checks</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Insurance Certification</a>
+      <a href="#" class="help-item"><i class="fas fa-circle"></i> Free Site Survey</a>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS COVERED -->
+<section class="areas-strip">
+  <div class="container">
+    <div class="areas-strip-header">
+      <div class="section-label">Coverage</div>
+      <h2 class="section-title">South London Areas We Serve</h2>
+      <p class="section-subtitle">30+ South London neighbourhoods covered with same day or next day response for CCTV installations.</p>
+    </div>
+    <div class="areas-tags">
+      <a href="#" class="area-tag">Battersea</a>
+      <a href="#" class="area-tag">Brixton</a>
+      <a href="#" class="area-tag">Balham</a>
+      <a href="#" class="area-tag">Bermondsey</a>
+      <a href="#" class="area-tag">Camberwell</a>
+      <a href="#" class="area-tag">Canary Wharf</a>
+      <a href="#" class="area-tag">Clapham</a>
+      <a href="#" class="area-tag">Crystal Palace</a>
+      <a href="#" class="area-tag">Croydon</a>
+      <a href="#" class="area-tag">Dulwich</a>
+      <a href="#" class="area-tag">Earlsfield</a>
+      <a href="#" class="area-tag">Elephant &amp; Castle</a>
+      <a href="#" class="area-tag">Forest Hill</a>
+      <a href="#" class="area-tag">Greenwich</a>
+      <a href="#" class="area-tag">Herne Hill</a>
+      <a href="#" class="area-tag">Kennington</a>
+      <a href="#" class="area-tag">Lambeth</a>
+      <a href="#" class="area-tag">Lewisham</a>
+      <a href="#" class="area-tag">New Cross</a>
+      <a href="#" class="area-tag">Peckham</a>
+      <a href="#" class="area-tag">Putney</a>
+      <a href="#" class="area-tag">Stockwell</a>
+      <a href="#" class="area-tag">Streatham</a>
+      <a href="#" class="area-tag">Tooting</a>
+      <a href="#" class="area-tag">Tulse Hill</a>
+      <a href="#" class="area-tag">Vauxhall</a>
+      <a href="#" class="area-tag">Wandsworth</a>
+      <a href="#" class="area-tag">Waterloo</a>
+      <a href="#" class="area-tag">West Norwood</a>
+      <a href="#" class="area-tag">Wimbledon</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final">
+  <div class="container">
+    <h2>Ready to Get Started?</h2>
+    <p>Book a free, no obligation site survey across South London. Our CCTV experts will visit your property and design the perfect surveillance solution within your budget.</p>
+    <div class="cta-buttons">
+      <a href="securex-redesign.html#quote" class="btn btn-primary">Book Free Site Survey <i class="fas fa-arrow-right"></i></a>
+      <a href="tel:07848247247" class="btn btn-outline"><i class="fas fa-phone"></i> Call 07848 247 247</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="logo" style="margin-bottom:16px"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security" style="height:36px;filter:invert(1) brightness(2)"></div><p class="footer-desc">Professional CCTV installation, maintenance and repair across South London and beyond. NSI certified. Trusted by homeowners, businesses and commercial sites.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="securex-redesign.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4>CCTV Services</h4><ul><li><a href="service-cctv.html">CCTV Installation</a></li><li><a href="#">CCTV Maintenance</a></li><li><a href="#">CCTV Repairs</a></li><li><a href="#">Home CCTV</a></li><li><a href="#">Business CCTV</a></li><li><a href="#">Commercial CCTV</a></li></ul></div>
+    <div class="footer-col"><h4>Contact Us</h4>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><a href="tel:07848247247">07848 247 247</a></div>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><a href="mailto:info@securexsecurity.co.uk">info@securexsecurity.co.uk</a></div>
+      <div class="footer-contact-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>129 Colney Hatch Lane, Muswell Hill, London N10 1HD</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>&copy;2025 Securex FM LTD. All Rights Reserved.</span><span><a href="#" style="color:rgba(255,255,255,.4)">Privacy Policy</a> &middot; <a href="#" style="color:rgba(255,255,255,.4)">Terms</a></span></div>
+</div></footer>
+
+<a href="https://wa.me/447848247247" class="whatsapp-float" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+</body>
+</html>
