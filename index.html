@@ -139,9 +139,12 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .funnel-stepper::before{content:'';position:absolute;bottom:20px;left:80px;right:80px;height:2px;background:var(--gray-200);z-index:1}
 .funnel-stepper-progress{position:absolute;bottom:20px;left:80px;height:2px;background:#000;width:0;transition:width .4s ease;z-index:2;max-width:calc(100% - 160px)}
 .funnel-step{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:3;flex:1}
-.funnel-step-circle{width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-family:'Inter';font-size:14px;font-weight:600;color:var(--gray-400);transition:all .3s}
-.funnel-step.active .funnel-step-circle{border-color:#000;color:#000;box-shadow:0 0 0 4px rgba(0,0,0,.05)}
-.funnel-step.done .funnel-step-circle{background:#000;border-color:#000;color:#fff}
+.funnel-step-circle{width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-family:'Inter';font-size:14px;font-weight:600;color:var(--gray-400);transition:all .35s cubic-bezier(.4,0,.2,1);position:relative}
+.funnel-step.active .funnel-step-circle{border-color:#000;color:#000;box-shadow:0 0 0 4px rgba(0,0,0,.05);animation:stepPulse 1.8s ease-in-out infinite}
+.funnel-step.done .funnel-step-circle{background:#000;border-color:#000;color:transparent;font-size:0}
+.funnel-step.done .funnel-step-circle::after{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;font-size:13px;color:#fff;animation:checkPop .3s cubic-bezier(.34,1.56,.64,1)}
+@keyframes stepPulse{0%,100%{box-shadow:0 0 0 4px rgba(0,0,0,.05)}50%{box-shadow:0 0 0 8px rgba(0,0,0,.04)}}
+@keyframes checkPop{0%{transform:scale(0) rotate(-45deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
 .funnel-step-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);transition:color .3s}
 .funnel-step.active .funnel-step-label,.funnel-step.done .funnel-step-label{color:#000}
 /* Question area */
@@ -150,12 +153,15 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .funnel-sub{font-size:14px;color:var(--gray-500);margin-bottom:28px;line-height:1.6}
 /* Card-based option grid */
 .funnel-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.funnel-card-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#fff;border:2px solid var(--gray-200);border-radius:12px;padding:24px 16px;min-height:110px;cursor:pointer;transition:all .2s ease;font-family:inherit;text-align:center}
-.funnel-card-opt i{font-size:26px;color:var(--gray-500);transition:color .2s}
+.funnel-card-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#fff;border:2px solid var(--gray-200);border-radius:12px;padding:24px 16px;min-height:110px;cursor:pointer;transition:transform .2s cubic-bezier(.4,0,.2,1),border-color .2s,background .2s,box-shadow .2s;font-family:inherit;text-align:center;position:relative;overflow:hidden}
+.funnel-card-opt i{font-size:26px;color:var(--gray-500);transition:transform .25s cubic-bezier(.34,1.56,.64,1),color .2s}
 .funnel-card-opt span{font-size:14px;font-weight:500;color:#000}
-.funnel-card-opt:hover{border-color:var(--gray-400);background:var(--gray-50)}
-.funnel-card-opt.selected{border-color:#000;background:#000;color:#fff}
+.funnel-card-opt:hover{border-color:#000;background:var(--gray-50);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.funnel-card-opt:hover i{transform:scale(1.08)}
+.funnel-card-opt:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,0,0,.15)}
+.funnel-card-opt.selected{border-color:#000;background:#000;color:#fff;transform:translateY(-1px)}
 .funnel-card-opt.selected i,.funnel-card-opt.selected span{color:#fff}
+.funnel-card-opt.selected::after{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;top:8px;right:10px;font-size:11px;color:#fff;opacity:.9;animation:checkPop .3s cubic-bezier(.34,1.56,.64,1)}
 /* Input step */
 .funnel-input{width:100%;max-width:400px;padding:14px 20px;border:2px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
 .funnel-input:focus{border-color:#000}
@@ -164,28 +170,35 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .funnel-sys-title{font-family:'Inter';font-size:15px;font-weight:700;color:#000;margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .funnel-sys-title-num{width:26px;height:26px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
 .funnel-room-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
-.funnel-room-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;border:1.5px solid var(--gray-200);border-radius:10px;padding:16px 10px;min-height:88px;cursor:pointer;transition:all .2s ease;font-family:inherit;text-align:center}
-.funnel-room-card i{font-size:22px;color:var(--gray-500);transition:color .2s}
+.funnel-room-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;border:1.5px solid var(--gray-200);border-radius:10px;padding:16px 10px;min-height:88px;cursor:pointer;transition:transform .2s cubic-bezier(.4,0,.2,1),border-color .2s,box-shadow .2s;font-family:inherit;text-align:center;opacity:0;animation:roomFadeIn .4s ease forwards;animation-delay:calc(var(--i,0)*25ms)}
+.funnel-room-card i{font-size:22px;color:var(--gray-500);transition:transform .25s cubic-bezier(.34,1.56,.64,1),color .2s}
 .funnel-room-card span{font-size:12px;font-weight:500;color:#000;line-height:1.2}
-.funnel-room-card:hover{border-color:#000;background:#fff}
-.funnel-room-card:hover i{color:#000}
-.funnel-room-card.staging{border-color:#000;background:#fff;box-shadow:0 0 0 4px rgba(0,0,0,.05)}
+.funnel-room-card:hover{border-color:#000;background:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.06)}
+.funnel-room-card:hover i{color:#000;transform:scale(1.12)}
+.funnel-room-card.staging{border-color:#000;background:#fff;box-shadow:0 0 0 4px rgba(0,0,0,.08);transform:translateY(-1px)}
+.funnel-room-card.staging i{color:#000}
+@keyframes roomFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .funnel-staging{background:#fff;border:2px dashed #000;border-radius:10px;padding:16px;margin-top:14px}
 .funnel-staging-title{font-size:13px;font-weight:700;color:#000;margin-bottom:10px}
 .funnel-sensor-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.funnel-sensor-chip{padding:6px 14px;border-radius:50px;border:1.5px solid var(--gray-200);background:#fff;color:var(--gray-600);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s ease;font-family:inherit}
-.funnel-sensor-chip:hover{border-color:#000;color:#000}
-.funnel-sensor-chip.active{background:#000;color:#fff;border-color:#000}
+.funnel-sensor-chip{padding:6px 14px;border-radius:50px;border:1.5px solid var(--gray-200);background:#fff;color:var(--gray-600);font-size:12px;font-weight:500;cursor:pointer;transition:all .18s ease;font-family:inherit;display:inline-flex;align-items:center;gap:6px}
+.funnel-sensor-chip:hover{border-color:#000;color:#000;transform:translateY(-1px)}
+.funnel-sensor-chip.active{background:#000;color:#fff;border-color:#000;padding-left:10px}
+.funnel-sensor-chip.active::before{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;font-size:9px;animation:checkPop .25s cubic-bezier(.34,1.56,.64,1)}
 .funnel-staging-btn{width:100%;padding:10px;border-radius:8px;background:#000;color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .funnel-staging-btn:hover{background:#333}
 .funnel-added-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
-.funnel-added-empty{text-align:center;padding:18px;color:var(--gray-400);font-size:13px;font-style:italic;border-top:1px dashed var(--gray-200);margin-top:14px}
-.funnel-added-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:12px 14px}
+.funnel-added-empty{text-align:center;padding:18px;color:var(--gray-400);font-size:13px;font-style:italic;border-top:1px dashed var(--gray-200);margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px}
+.funnel-added-empty i{font-size:14px}
+.funnel-added-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:12px 14px;animation:rowSlideIn .35s cubic-bezier(.4,0,.2,1) both;animation-delay:calc(var(--i,0)*40ms)}
+.funnel-added-row:hover{border-color:#000;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.funnel-added-icon{width:34px;height:34px;border-radius:8px;background:var(--gray-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#000;font-size:14px;border:1px solid var(--gray-200)}
 .funnel-added-info{flex:1;min-width:0}
 .funnel-added-name{font-size:13px;font-weight:700;color:#000;margin-bottom:2px}
 .funnel-added-sensors{font-size:11px;color:var(--gray-500);line-height:1.4}
-.funnel-added-remove{width:30px;height:30px;border-radius:50%;background:#fee;color:#dc2626;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .15s;flex-shrink:0}
-.funnel-added-remove:hover{background:#dc2626;color:#fff}
+.funnel-added-remove{width:30px;height:30px;border-radius:50%;background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-200);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .18s;flex-shrink:0}
+.funnel-added-remove:hover{background:#000;color:#fff;border-color:#000;transform:rotate(90deg)}
+@keyframes rowSlideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
 .funnel-sys-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
 .funnel-sys-options .funnel-card-opt{min-height:76px;padding:14px 12px}
 .funnel-sys-options .funnel-card-opt i{font-size:18px}
@@ -217,11 +230,16 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .funnel-trust strong{color:#000;font-weight:600}
 @media(max-width:600px){.funnel-form{grid-template-columns:1fr}.funnel-form .form-group-full{grid-column:auto}}
 /* Review summary */
-.funnel-review{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px}
-.funnel-review-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--gray-200);font-size:14px}
-.funnel-review-row:last-child{border-bottom:none}
-.funnel-review-label{color:var(--gray-500)}
-.funnel-review-value{font-weight:600;color:#000}
+.funnel-review{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:14px;padding:8px 4px;overflow:hidden}
+.funnel-review-section{padding:14px 20px;border-bottom:1px solid var(--gray-200)}
+.funnel-review-section:last-child{border-bottom:none}
+.funnel-review-section-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.funnel-review-section-title i{width:22px;height:22px;border-radius:6px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px}
+.funnel-review-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:7px 0;font-size:13.5px}
+.funnel-review-label{color:var(--gray-500);flex-shrink:0}
+.funnel-review-value{font-weight:600;color:#000;text-align:right;max-width:60%;line-height:1.5}
+.funnel-review-edit{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 14px;border-radius:50px;background:#fff;border:1px solid var(--gray-200);color:var(--gray-600);font-size:12px;cursor:pointer;font-family:inherit;transition:all .18s}
+.funnel-review-edit:hover{border-color:#000;color:#000}
 /* Footer with Back/Continue - sticky to viewport bottom */
 .funnel-footer{padding:20px 40px;background:rgba(255,255,255,.98);border-top:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center;position:sticky;bottom:0;z-index:10;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .funnel-btn{padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;border:none;font-family:inherit;transition:all .2s ease;display:inline-flex;align-items:center;gap:8px}
@@ -233,10 +251,18 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .funnel-btn-next:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 .funnel-btn i{font-size:11px}
 /* Success */
-.funnel-success{text-align:center;padding:60px 40px}
-.funnel-success-icon{width:80px;height:80px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 24px}
-.funnel-success h2{font-size:28px;margin-bottom:12px;color:#000}
-.funnel-success p{color:var(--gray-500);font-size:15px;max-width:440px;margin:0 auto;line-height:1.6}
+.funnel-success{text-align:center;padding:60px 40px;animation:funnelSlide .5s ease}
+.funnel-success-icon{width:88px;height:88px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 28px;position:relative;animation:successPop .6s cubic-bezier(.34,1.56,.64,1)}
+.funnel-success-icon::before,.funnel-success-icon::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #000;opacity:0;animation:ringPulse 2s ease-out infinite}
+.funnel-success-icon::after{animation-delay:.5s}
+.funnel-success h2{font-size:30px;margin-bottom:12px;color:#000;font-weight:700}
+.funnel-success p{color:var(--gray-500);font-size:15px;max-width:460px;margin:0 auto 22px;line-height:1.65}
+.funnel-success-next{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:28px auto 0;text-align:left;padding:20px 22px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px}
+.funnel-success-next-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#000;margin-bottom:4px}
+.funnel-success-next-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-600)}
+.funnel-success-next-item i{width:24px;height:24px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+@keyframes successPop{0%{transform:scale(0) rotate(-180deg);opacity:0}60%{transform:scale(1.1) rotate(10deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes ringPulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.6);opacity:0}}
 /* Slide animation */
 .funnel-question{animation:funnelSlide .3s ease}
 @keyframes funnelSlide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -1426,6 +1452,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       var card=document.createElement('button');
       card.type='button';
       card.className='funnel-room-card';
+      card.style.setProperty('--i',idx);
       if(stagingRoom===idx) card.classList.add('staging');
       var ic=document.createElement('i');ic.className='fas '+r.icon;
       var sp=document.createElement('span');sp.textContent=r.name;
@@ -1475,23 +1502,31 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     // Added rooms list
     if(fData.system.rooms.length===0){
       var empty=document.createElement('div');empty.className='funnel-added-empty';
-      empty.textContent='No areas added yet. Click a room above to begin.';
+      var emIc=document.createElement('i');emIc.className='fas fa-plus-circle';
+      empty.appendChild(emIc);
+      empty.appendChild(document.createTextNode('No areas added yet — click a room above to begin'));
       box1.appendChild(empty);
     } else {
       var list=document.createElement('div');list.className='funnel-added-list';
       fData.system.rooms.forEach(function(rm,i){
         var row=document.createElement('div');row.className='funnel-added-row';
+        row.style.setProperty('--i',i);
+        // Lookup icon from ROOMS data
+        var roomDef=(ROOMS[fData.propertyType]||[]).filter(function(r){return r.name===rm.name;})[0];
+        var iconWrap=document.createElement('div');iconWrap.className='funnel-added-icon';
+        var iconEl=document.createElement('i');iconEl.className='fas '+((roomDef&&roomDef.icon)||'fa-door-closed');
+        iconWrap.appendChild(iconEl);
         var info=document.createElement('div');info.className='funnel-added-info';
         var nm=document.createElement('div');nm.className='funnel-added-name';nm.textContent=rm.name;
         var sn=document.createElement('div');sn.className='funnel-added-sensors';sn.textContent=rm.sensors.join(' · ');
         info.appendChild(nm);info.appendChild(sn);
         var rem=document.createElement('button');rem.type='button';rem.className='funnel-added-remove';
-        rem.innerHTML='<i class="fas fa-trash"></i>';rem.title='Remove';
+        var remIc=document.createElement('i');remIc.className='fas fa-xmark';rem.appendChild(remIc);rem.title='Remove';
         rem.addEventListener('click',function(){
           fData.system.rooms.splice(i,1);
           renderQuestion();
         });
-        row.appendChild(info);row.appendChild(rem);
+        row.appendChild(iconWrap);row.appendChild(info);row.appendChild(rem);
         list.appendChild(row);
       });
       box1.appendChild(list);
@@ -1573,29 +1608,49 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   }
 
   function renderReview(c){
-    var h2=document.createElement('h2');h2.textContent='Review Details';c.appendChild(h2);
-    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Please verify your configuration before continuing.';c.appendChild(sub);
+    var h2=document.createElement('h2');h2.textContent='Review your details';c.appendChild(h2);
+    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Almost done. Please check the summary below before continuing to contact details.';c.appendChild(sub);
     var box=document.createElement('div');box.className='funnel-review';
-    function addRow(k,v){
-      if(!v) return;
-      var r=document.createElement('div');r.className='funnel-review-row';
-      var l=document.createElement('span');l.className='funnel-review-label';l.textContent=k;
-      var val=document.createElement('span');val.className='funnel-review-value';val.textContent=v;
-      r.appendChild(l);r.appendChild(val);box.appendChild(r);
+
+    function addSection(iconClass,title,rows){
+      var sec=document.createElement('div');sec.className='funnel-review-section';
+      var t=document.createElement('div');t.className='funnel-review-section-title';
+      var ic=document.createElement('i');ic.className='fas '+iconClass;
+      t.appendChild(ic);t.appendChild(document.createTextNode(title));
+      sec.appendChild(t);
+      rows.forEach(function(pair){
+        if(!pair[1]) return;
+        var r=document.createElement('div');r.className='funnel-review-row';
+        var l=document.createElement('span');l.className='funnel-review-label';l.textContent=pair[0];
+        var val=document.createElement('span');val.className='funnel-review-value';val.textContent=pair[1];
+        r.appendChild(l);r.appendChild(val);sec.appendChild(r);
+      });
+      box.appendChild(sec);
     }
-    addRow('Service',fData.serviceType);
-    addRow('Property',fData.propertyType);
+
+    addSection('fa-briefcase','What you need',[
+      ['Service',fData.serviceType],
+      ['Property',fData.propertyType]
+    ]);
+
     if(fData.serviceType==='New Installation'){
+      var roomRows=[];
       if(fData.system.rooms && fData.system.rooms.length>0){
-        var roomSummary=fData.system.rooms.map(function(r){return r.name+' ('+r.sensors.length+' sensor'+(r.sensors.length>1?'s':'')+')';}).join(', ');
-        addRow('Areas ('+fData.system.rooms.length+')',roomSummary);
+        fData.system.rooms.forEach(function(rm){
+          roomRows.push([rm.name,rm.sensors.join(' · ')]);
+        });
       }
-      addRow('Monitoring',fData.system.monitoring);
-      addRow('Communication',fData.system.communication);
+      if(roomRows.length>0) addSection('fa-house-chimney','Areas ('+fData.system.rooms.length+')',roomRows);
+      addSection('fa-shield-halved','System configuration',[
+        ['Monitoring',fData.system.monitoring],
+        ['Communication',fData.system.communication]
+      ]);
     } else {
-      addRow('Manufacturer',fData.system.make);
-      addRow('Connection Type',fData.system.type);
-      addRow('Device Count',fData.system.count);
+      addSection('fa-screwdriver-wrench','Existing system',[
+        ['Manufacturer',fData.system.make],
+        ['Connection Type',fData.system.type],
+        ['Device Count',fData.system.count]
+      ]);
     }
     c.appendChild(box);
   }
@@ -1684,10 +1739,27 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     var wrap=document.createElement('div');wrap.className='funnel-success';
     var icon=document.createElement('div');icon.className='funnel-success-icon';
     var check=document.createElement('i');check.className='fas fa-check';icon.appendChild(check);
-    var h2=document.createElement('h2');h2.textContent='Request Received!';
+    var h2=document.createElement('h2');h2.textContent='Thank you, '+fData.name.split(' ')[0]+'!';
     var p1=document.createElement('p');
-    p1.textContent='Thank you, '+fData.name+'. One of our security experts will call you at '+fData.phone+' shortly to confirm your requirements and provide a free, no-obligation quote.';
+    p1.textContent='Your request has been received. A Securex security expert will call you at '+fData.phone+' within 24 hours to confirm your requirements and provide your free, no-obligation quote.';
     wrap.appendChild(icon);wrap.appendChild(h2);wrap.appendChild(p1);
+
+    // Next steps card
+    var next=document.createElement('div');next.className='funnel-success-next';
+    var nt=document.createElement('div');nt.className='funnel-success-next-title';nt.textContent='What happens next';
+    next.appendChild(nt);
+    var steps=[
+      {icon:'fa-envelope',text:'Confirmation email sent to '+fData.email},
+      {icon:'fa-phone',text:'Expert call within 24 hours on '+fData.phone},
+      {icon:'fa-file-invoice',text:'Free, no-obligation written quote'}
+    ];
+    steps.forEach(function(s){
+      var r=document.createElement('div');r.className='funnel-success-next-item';
+      var i=document.createElement('i');i.className='fas '+s.icon;
+      var t=document.createElement('span');t.textContent=s.text;
+      r.appendChild(i);r.appendChild(t);next.appendChild(r);
+    });
+    wrap.appendChild(next);
     card.appendChild(wrap);
   }
 
