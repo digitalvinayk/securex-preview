@@ -159,11 +159,24 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 /* Input step */
 .funnel-input{width:100%;max-width:400px;padding:14px 20px;border:2px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
 .funnel-input:focus{border-color:#000}
-/* Contact form */
-.funnel-form{display:flex;flex-direction:column;gap:16px;max-width:500px}
-.funnel-form label{font-size:13px;font-weight:600;color:#000;margin-bottom:6px;display:block}
-.funnel-form input{width:100%;padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
-.funnel-form input:focus{border-color:#000}
+/* Contact form - Premium styling */
+.funnel-form{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:640px}
+.funnel-form .form-group-full{grid-column:1/-1}
+.funnel-form-group{display:flex;flex-direction:column;position:relative}
+.funnel-form label{font-size:11px;font-weight:700;color:var(--gray-500);margin-bottom:8px;display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:1px}
+.funnel-form label i{font-size:10px;color:var(--gray-400)}
+.funnel-form-input-wrap{position:relative;display:flex;align-items:center}
+.funnel-form-input-wrap i.input-icon{position:absolute;left:16px;color:var(--gray-400);font-size:14px;pointer-events:none;transition:color .2s}
+.funnel-form input{width:100%;padding:14px 16px 14px 44px;border:1.5px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:all .2s;background:#fff;color:#000}
+.funnel-form input::placeholder{color:var(--gray-400)}
+.funnel-form input:focus{border-color:#000;box-shadow:0 0 0 4px rgba(0,0,0,.04)}
+.funnel-form-input-wrap:focus-within i.input-icon{color:#000}
+.funnel-form-input-wrap .input-check{position:absolute;right:16px;color:#10B981;font-size:14px;opacity:0;transition:opacity .2s}
+.funnel-form input.valid ~ .input-check{opacity:1}
+.funnel-trust{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;margin-top:20px;font-size:13px;color:var(--gray-600);max-width:640px}
+.funnel-trust i{color:#000;font-size:15px;flex-shrink:0}
+.funnel-trust strong{color:#000;font-weight:600}
+@media(max-width:600px){.funnel-form{grid-template-columns:1fr}.funnel-form .form-group-full{grid-column:auto}}
 /* Review summary */
 .funnel-review{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px}
 .funnel-review-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--gray-200);font-size:14px}
@@ -1386,21 +1399,56 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   }
 
   function renderContact(c){
-    var h2=document.createElement('h2');h2.textContent='Contact Information';c.appendChild(h2);
-    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Where should we send your quote?';c.appendChild(sub);
+    var h2=document.createElement('h2');h2.textContent='Almost there! Your contact details';c.appendChild(h2);
+    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Enter your details and a security expert will call you within 24 hours with your free, no-obligation quote.';c.appendChild(sub);
+
     var form=document.createElement('div');form.className='funnel-form';
     var fields=[
-      {id:'cName',label:'Full Name',type:'text',ph:'Jane Doe',val:fData.name||''},
-      {id:'cEmail',label:'Email Address',type:'email',ph:'jane@example.com',val:fData.email||''},
-      {id:'cPhone',label:'Phone Number',type:'tel',ph:'07700 900000',val:fData.phone||''}
+      {id:'cName',label:'Full Name',labelIcon:'fa-user',inputIcon:'fa-user',type:'text',ph:'Jane Doe',val:fData.name||'',full:false},
+      {id:'cEmail',label:'Email Address',labelIcon:'fa-envelope',inputIcon:'fa-envelope',type:'email',ph:'jane@example.com',val:fData.email||'',full:false},
+      {id:'cPhone',label:'Phone Number',labelIcon:'fa-phone',inputIcon:'fa-phone',type:'tel',ph:'07700 900000',val:fData.phone||'',full:true}
     ];
     fields.forEach(function(f){
       var grp=document.createElement('div');
-      var l=document.createElement('label');l.textContent=f.label;
-      var i=document.createElement('input');i.type=f.type;i.id=f.id;i.placeholder=f.ph;i.value=f.val;
-      grp.appendChild(l);grp.appendChild(i);form.appendChild(grp);
+      grp.className='funnel-form-group'+(f.full ? ' form-group-full' : '');
+
+      var l=document.createElement('label');
+      l.htmlFor=f.id;
+      var labelIcon=document.createElement('i');labelIcon.className='fas '+f.labelIcon;
+      l.appendChild(labelIcon);
+      l.appendChild(document.createTextNode(' '+f.label));
+
+      var wrap=document.createElement('div');wrap.className='funnel-form-input-wrap';
+      var inputIcon=document.createElement('i');inputIcon.className='fas '+f.inputIcon+' input-icon';
+      var input=document.createElement('input');
+      input.type=f.type;input.id=f.id;input.placeholder=f.ph;input.value=f.val;
+      input.autocomplete=(f.type==='email'?'email':(f.type==='tel'?'tel':'name'));
+      // Live validation checkmark
+      input.addEventListener('input',function(){
+        var ok=false;
+        if(f.type==='email') ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value);
+        else if(f.type==='tel') ok=input.value.replace(/\D/g,'').length>=7;
+        else ok=input.value.trim().length>=2;
+        input.classList.toggle('valid',ok);
+      });
+      var check=document.createElement('i');check.className='fas fa-check input-check';
+
+      wrap.appendChild(inputIcon);wrap.appendChild(input);wrap.appendChild(check);
+      grp.appendChild(l);grp.appendChild(wrap);
+      form.appendChild(grp);
     });
     c.appendChild(form);
+
+    // Trust signal
+    var trust=document.createElement('div');trust.className='funnel-trust';
+    var lockIcon=document.createElement('i');lockIcon.className='fas fa-lock';
+    trust.appendChild(lockIcon);
+    var trustText=document.createElement('span');
+    var s1=document.createElement('strong');s1.textContent='Your details are secure.';
+    trustText.appendChild(s1);
+    trustText.appendChild(document.createTextNode(' We never share your information and comply fully with UK GDPR.'));
+    trust.appendChild(trustText);
+    c.appendChild(trust);
   }
 
   function validateCurrentStep(){
