@@ -222,8 +222,8 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .funnel-review-row:last-child{border-bottom:none}
 .funnel-review-label{color:var(--gray-500)}
 .funnel-review-value{font-weight:600;color:#000}
-/* Footer with Back/Continue */
-.funnel-footer{padding:20px 40px;background:#fff;border-top:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center}
+/* Footer with Back/Continue - sticky to viewport bottom */
+.funnel-footer{padding:20px 40px;background:rgba(255,255,255,.98);border-top:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center;position:sticky;bottom:0;z-index:10;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .funnel-btn{padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;border:none;font-family:inherit;transition:all .2s ease;display:inline-flex;align-items:center;gap:8px}
 .funnel-btn-back{background:var(--gray-100);color:var(--gray-500)}
 .funnel-btn-back:hover:not(:disabled){background:var(--gray-200);color:#000}
@@ -1691,14 +1691,22 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     card.appendChild(wrap);
   }
 
+  function scrollToWizardTop(){
+    var card=qs('#funnelCard');
+    if(!card) return;
+    var rect=card.getBoundingClientRect();
+    var top=rect.top+window.pageYOffset-100; // 100px offset for sticky navbar
+    window.scrollTo({top:top,behavior:'smooth'});
+  }
+
   // Button handlers
   qs('#funnelNext').addEventListener('click',function(){
     if(!validateCurrentStep()) return;
-    if(fStep===TOTAL_STEPS-1){showSuccess();return;}
-    fStep++;renderQuestion();
+    if(fStep===TOTAL_STEPS-1){showSuccess();scrollToWizardTop();return;}
+    fStep++;renderQuestion();scrollToWizardTop();
   });
   qs('#funnelBack').addEventListener('click',function(){
-    if(fStep>0){fStep--;renderQuestion();}
+    if(fStep>0){fStep--;renderQuestion();scrollToWizardTop();}
   });
 
   // Init
