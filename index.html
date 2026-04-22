@@ -1381,6 +1381,10 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       if(key==='serviceType') fData.serviceType=label;
       else if(key==='propertyType') fData.propertyType=label;
       else if(key.indexOf('system.')===0) fData.system[key.replace('system.','')]=label;
+      // Auto-advance for single-choice steps (Service & Property)
+      if(key==='serviceType' || key==='propertyType'){
+        setTimeout(function(){ qs('#funnelNext').click(); },280);
+      }
     });
     return card;
   }
