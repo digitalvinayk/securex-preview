@@ -6,7 +6,7 @@
 <title>Securex Security | London's Trusted CCTV, Fire & Intruder Alarm Company</title>
 <meta name="description" content="NSI-certified security specialists in London. CCTV, intruder alarms, fire alarms, access control, door entry & electrical services. 24/7 emergency support. Free site surveys.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 /* ===== RESET ===== */
@@ -130,156 +130,98 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .hero-visual{display:none}
 
-/* ===== 5-STEP WIZARD (matches original Securex) ===== */
-.funnel-section{padding:40px 0 80px;background:#fff}
-.funnel-wrap{max-width:860px;margin:0 auto;padding:0 24px}
-.funnel-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.06);overflow:hidden}
-/* Stepper - 5 numbered circles */
-.funnel-stepper{display:flex;justify-content:space-between;padding:30px 40px 20px;position:relative;border-bottom:1px solid var(--gray-100)}
-.funnel-stepper::before{content:'';position:absolute;bottom:20px;left:80px;right:80px;height:2px;background:var(--gray-200);z-index:1}
-.funnel-stepper-progress{position:absolute;bottom:20px;left:80px;height:2px;background:#000;width:0;transition:width .4s ease;z-index:2;max-width:calc(100% - 160px)}
-.funnel-step{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:3;flex:1}
-.funnel-step-circle{width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-family:'Inter';font-size:14px;font-weight:600;color:var(--gray-400);transition:all .35s cubic-bezier(.4,0,.2,1);position:relative}
-.funnel-step.active .funnel-step-circle{border-color:#000;color:#000;box-shadow:0 0 0 4px rgba(0,0,0,.05);animation:stepPulse 1.8s ease-in-out infinite}
-.funnel-step.done .funnel-step-circle{background:#000;border-color:#000;color:transparent;font-size:0}
-.funnel-step.done .funnel-step-circle::after{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;font-size:13px;color:#fff;animation:checkPop .3s cubic-bezier(.34,1.56,.64,1)}
-@keyframes stepPulse{0%,100%{box-shadow:0 0 0 4px rgba(0,0,0,.05)}50%{box-shadow:0 0 0 8px rgba(0,0,0,.04)}}
-@keyframes checkPop{0%{transform:scale(0) rotate(-45deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
-.funnel-step-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);transition:color .3s}
-.funnel-step.active .funnel-step-label,.funnel-step.done .funnel-step-label{color:#000}
+/* ===== VERISURE-STYLE FUNNEL ===== */
+.funnel-section{padding:60px 0 80px;background:#fff;font-family:'Fira Sans',sans-serif}
+.funnel-wrap{max-width:760px;margin:0 auto;padding:0 24px}
+.funnel-card{background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,.04);overflow:hidden}
+/* 3-phase top nav (replaces 5-circle stepper) */
+.vfn-phases{display:flex;border-bottom:1px solid #e5e7eb;background:#fff}
+.vfn-phase{flex:1;padding:22px 16px 20px;text-align:center;position:relative;font-family:'Fira Sans';font-size:13.5px;font-weight:300;color:#9ca3af;letter-spacing:.3px;transition:color .3s}
+.vfn-phase.active{color:#262626;font-weight:500}
+.vfn-phase.done{color:#262626}
+.vfn-phase.done::before,.vfn-phase.active::before{content:'';position:absolute;bottom:-1px;left:0;right:0;height:3px;background:#262626;border-radius:2px}
+.vfn-phase::after{content:'';position:absolute;top:50%;right:0;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:#e5e7eb}
+.vfn-phase:last-child::after{display:none}
+.vfn-phase.done::after{background:#262626}
+/* Timer bar */
+.vfn-timer{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;background:#fafafa;border-bottom:1px solid #e5e7eb;font-family:'Fira Sans';font-size:13px;font-weight:300;color:#6b7280}
+.vfn-timer strong{color:#262626;font-weight:500;font-variant-numeric:tabular-nums;min-width:2ch;display:inline-block;text-align:center}
+.vfn-timer i{color:#262626;font-size:12px}
 /* Question area */
-.funnel-question{padding:36px 40px;min-height:340px}
-.funnel-question h2{font-size:22px;font-weight:700;color:#000;margin-bottom:8px;font-family:'Inter';line-height:1.3}
-.funnel-sub{font-size:14px;color:var(--gray-500);margin-bottom:28px;line-height:1.6}
-/* Card-based option grid */
-.funnel-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.funnel-card-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#fff;border:2px solid var(--gray-200);border-radius:12px;padding:24px 16px;min-height:110px;cursor:pointer;transition:transform .2s cubic-bezier(.4,0,.2,1),border-color .2s,background .2s,box-shadow .2s;font-family:inherit;text-align:center;position:relative;overflow:hidden}
-.funnel-card-opt i{font-size:26px;color:var(--gray-500);transition:transform .25s cubic-bezier(.34,1.56,.64,1),color .2s}
-.funnel-card-opt span{font-size:14px;font-weight:500;color:#000}
-.funnel-card-opt:hover{border-color:#000;background:var(--gray-50);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06)}
-.funnel-card-opt:hover i{transform:scale(1.08)}
-.funnel-card-opt:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,0,0,.15)}
-.funnel-card-opt.selected{border-color:#000;background:#000;color:#fff;transform:translateY(-1px)}
-.funnel-card-opt.selected i,.funnel-card-opt.selected span{color:#fff}
-.funnel-card-opt.selected::after{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;top:8px;right:10px;font-size:11px;color:#fff;opacity:.9;animation:checkPop .3s cubic-bezier(.34,1.56,.64,1)}
-/* Input step */
-.funnel-input{width:100%;max-width:400px;padding:14px 20px;border:2px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
-.funnel-input:focus{border-color:#000}
-/* System step - Room Builder */
-.funnel-sys-box{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:14px;padding:24px;margin-bottom:20px}
-.funnel-sys-title{font-family:'Inter';font-size:15px;font-weight:700;color:#000;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.funnel-sys-title-num{width:26px;height:26px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.funnel-room-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
-.funnel-room-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;border:1.5px solid var(--gray-200);border-radius:10px;padding:16px 10px;min-height:88px;cursor:pointer;transition:transform .2s cubic-bezier(.4,0,.2,1),border-color .2s,box-shadow .2s;font-family:inherit;text-align:center;opacity:0;animation:roomFadeIn .4s ease forwards;animation-delay:calc(var(--i,0)*25ms)}
-.funnel-room-card i{font-size:22px;color:var(--gray-500);transition:transform .25s cubic-bezier(.34,1.56,.64,1),color .2s}
-.funnel-room-card span{font-size:12px;font-weight:500;color:#000;line-height:1.2}
-.funnel-room-card:hover{border-color:#000;background:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.06)}
-.funnel-room-card:hover i{color:#000;transform:scale(1.12)}
-.funnel-room-card.staging{border-color:#000;background:#fff;box-shadow:0 0 0 4px rgba(0,0,0,.08);transform:translateY(-1px)}
-.funnel-room-card.staging i{color:#000}
-@keyframes roomFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.funnel-staging{background:#fff;border:2px dashed #000;border-radius:10px;padding:16px;margin-top:14px}
-.funnel-staging-title{font-size:13px;font-weight:700;color:#000;margin-bottom:10px}
-.funnel-sensor-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.funnel-sensor-chip{padding:6px 14px;border-radius:50px;border:1.5px solid var(--gray-200);background:#fff;color:var(--gray-600);font-size:12px;font-weight:500;cursor:pointer;transition:all .18s ease;font-family:inherit;display:inline-flex;align-items:center;gap:6px}
-.funnel-sensor-chip:hover{border-color:#000;color:#000;transform:translateY(-1px)}
-.funnel-sensor-chip.active{background:#000;color:#fff;border-color:#000;padding-left:10px}
-.funnel-sensor-chip.active::before{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;font-size:9px;animation:checkPop .25s cubic-bezier(.34,1.56,.64,1)}
-.funnel-staging-btn{width:100%;padding:10px;border-radius:8px;background:#000;color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px}
-.funnel-staging-btn:hover{background:#333}
-.funnel-added-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
-.funnel-added-empty{text-align:center;padding:18px;color:var(--gray-400);font-size:13px;font-style:italic;border-top:1px dashed var(--gray-200);margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px}
-.funnel-added-empty i{font-size:14px}
-.funnel-added-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:12px 14px;animation:rowSlideIn .35s cubic-bezier(.4,0,.2,1) both;animation-delay:calc(var(--i,0)*40ms)}
-.funnel-added-row:hover{border-color:#000;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-.funnel-added-icon{width:34px;height:34px;border-radius:8px;background:var(--gray-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#000;font-size:14px;border:1px solid var(--gray-200)}
-.funnel-added-info{flex:1;min-width:0}
-.funnel-added-name{font-size:13px;font-weight:700;color:#000;margin-bottom:2px}
-.funnel-added-sensors{font-size:11px;color:var(--gray-500);line-height:1.4}
-.funnel-added-remove{width:30px;height:30px;border-radius:50%;background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-200);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .18s;flex-shrink:0}
-.funnel-added-remove:hover{background:#000;color:#fff;border-color:#000;transform:rotate(90deg)}
-@keyframes rowSlideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
-.funnel-sys-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.funnel-sys-options .funnel-card-opt{min-height:76px;padding:14px 12px}
-.funnel-sys-options .funnel-card-opt i{font-size:18px}
-.funnel-sys-options .funnel-card-opt span{font-size:13px}
-@media(max-width:600px){
-  .funnel-sys-box{padding:18px}
-  .funnel-room-grid{grid-template-columns:repeat(3,1fr)}
-  .funnel-room-card{min-height:78px;padding:12px 8px}
-  .funnel-room-card i{font-size:18px}
-  .funnel-room-card span{font-size:11px}
-}
-
-/* Contact form - Premium styling */
-.funnel-form{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:640px}
-.funnel-form .form-group-full{grid-column:1/-1}
-.funnel-form-group{display:flex;flex-direction:column;position:relative}
-.funnel-form label{font-size:11px;font-weight:700;color:var(--gray-500);margin-bottom:8px;display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:1px}
-.funnel-form label i{font-size:10px;color:var(--gray-400)}
-.funnel-form-input-wrap{position:relative;display:flex;align-items:center}
-.funnel-form-input-wrap i.input-icon{position:absolute;left:16px;color:var(--gray-400);font-size:14px;pointer-events:none;transition:color .2s}
-.funnel-form input{width:100%;padding:14px 16px 14px 44px;border:1.5px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:all .2s;background:#fff;color:#000}
-.funnel-form input::placeholder{color:var(--gray-400)}
-.funnel-form input:focus{border-color:#000;box-shadow:0 0 0 4px rgba(0,0,0,.04)}
-.funnel-form-input-wrap:focus-within i.input-icon{color:#000}
-.funnel-form-input-wrap .input-check{position:absolute;right:16px;color:#10B981;font-size:14px;opacity:0;transition:opacity .2s}
-.funnel-form input.valid ~ .input-check{opacity:1}
-.funnel-trust{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;margin-top:20px;font-size:13px;color:var(--gray-600);max-width:640px}
-.funnel-trust i{color:#000;font-size:15px;flex-shrink:0}
-.funnel-trust strong{color:#000;font-weight:600}
-@media(max-width:600px){.funnel-form{grid-template-columns:1fr}.funnel-form .form-group-full{grid-column:auto}}
-/* Review summary */
-.funnel-review{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:14px;padding:8px 4px;overflow:hidden}
-.funnel-review-section{padding:14px 20px;border-bottom:1px solid var(--gray-200)}
-.funnel-review-section:last-child{border-bottom:none}
-.funnel-review-section-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.funnel-review-section-title i{width:22px;height:22px;border-radius:6px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px}
-.funnel-review-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:7px 0;font-size:13.5px}
-.funnel-review-label{color:var(--gray-500);flex-shrink:0}
-.funnel-review-value{font-weight:600;color:#000;text-align:right;max-width:60%;line-height:1.5}
-.funnel-review-edit{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 14px;border-radius:50px;background:#fff;border:1px solid var(--gray-200);color:var(--gray-600);font-size:12px;cursor:pointer;font-family:inherit;transition:all .18s}
-.funnel-review-edit:hover{border-color:#000;color:#000}
-/* Footer with Back/Continue - sticky to viewport bottom */
-.funnel-footer{padding:20px 40px;background:rgba(255,255,255,.98);border-top:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center;position:sticky;bottom:0;z-index:10;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.funnel-btn{padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;border:none;font-family:inherit;transition:all .2s ease;display:inline-flex;align-items:center;gap:8px}
-.funnel-btn-back{background:var(--gray-100);color:var(--gray-500)}
-.funnel-btn-back:hover:not(:disabled){background:var(--gray-200);color:#000}
-.funnel-btn-back:disabled{opacity:.5;cursor:not-allowed}
-.funnel-btn-next{background:#000;color:#fff}
-.funnel-btn-next:hover{background:#333;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
-.funnel-btn-next:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
-.funnel-btn i{font-size:11px}
+.vfn-q{padding:56px 48px 40px;min-height:400px;animation:vfnSlide .35s cubic-bezier(.4,0,.2,1)}
+.vfn-q h2{font-family:'Fira Sans';font-size:30px;font-weight:200;color:#262626;line-height:1.42;margin:0 0 36px;letter-spacing:-.2px}
+.vfn-q .vfn-sub{font-family:'Fira Sans';font-size:16px;font-weight:300;color:#6b7280;margin:-22px 0 32px;line-height:1.55}
+/* Pill-shaped option buttons (THE Verisure signature) */
+.vfn-opts{display:flex;flex-direction:column;gap:14px;max-width:560px}
+.vfn-opt{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:78px;padding:22px 30px;background:#dcdddf;border:2px solid #dcdddf;border-radius:45px;font-family:'Fira Sans';font-size:19px;font-weight:300;color:#262626;cursor:pointer;transition:all .22s cubic-bezier(.4,0,.2,1);text-align:left;line-height:1.3}
+.vfn-opt-label{flex:1}
+.vfn-opt-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#262626;transition:all .22s}
+.vfn-opt:hover{background:#cfd0d2;border-color:#262626;transform:translateX(2px)}
+.vfn-opt:hover .vfn-opt-icon{background:#fff;transform:scale(1.05)}
+.vfn-opt.selected{background:#262626;border-color:#262626;color:#fff}
+.vfn-opt.selected .vfn-opt-icon{background:#fff;color:#262626}
+.vfn-opt-arrow{color:#262626;font-size:16px;opacity:.35;transition:all .22s}
+.vfn-opt:hover .vfn-opt-arrow{opacity:1;transform:translateX(4px)}
+.vfn-opt.selected .vfn-opt-arrow{color:#fff;opacity:1}
+/* Text / postcode input */
+.vfn-input-group{max-width:440px}
+.vfn-input{width:100%;padding:22px 28px;background:#fff;border:2px solid #dcdddf;border-radius:45px;font-family:'Fira Sans';font-size:19px;font-weight:300;color:#262626;outline:none;transition:all .22s}
+.vfn-input:focus{border-color:#262626}
+.vfn-input::placeholder{color:#9ca3af;font-weight:200}
+/* Contact form (final step) */
+.vfn-form{display:flex;flex-direction:column;gap:14px;max-width:520px}
+.vfn-form-label{font-family:'Fira Sans';font-size:13px;font-weight:400;color:#6b7280;margin-bottom:-6px;padding-left:12px}
+.vfn-trust{display:flex;align-items:center;gap:12px;padding:16px 22px;background:#fafafa;border:1px solid #e5e7eb;border-radius:14px;margin-top:22px;font-family:'Fira Sans';font-size:13.5px;font-weight:300;color:#6b7280;max-width:520px;line-height:1.5}
+.vfn-trust i{color:#262626;font-size:16px;flex-shrink:0}
+.vfn-trust strong{color:#262626;font-weight:500}
+/* Review */
+.vfn-review{background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:10px 8px;max-width:560px}
+.vfn-review-row{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:14px 22px;border-bottom:1px solid #e5e7eb;font-family:'Fira Sans';font-size:15px;font-weight:300}
+.vfn-review-row:last-child{border-bottom:none}
+.vfn-review-label{color:#6b7280}
+.vfn-review-value{color:#262626;font-weight:400;text-align:right;max-width:65%}
+/* Footer buttons */
+.vfn-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 48px 32px;background:#fff;border-top:1px solid #f3f4f6;position:sticky;bottom:0;z-index:10;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.vfn-btn{padding:16px 36px;border-radius:45px;font-family:'Fira Sans';font-size:15px;font-weight:400;cursor:pointer;border:none;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;align-items:center;gap:10px;letter-spacing:.2px}
+.vfn-btn-back{background:transparent;color:#6b7280;padding-left:12px}
+.vfn-btn-back:hover:not(:disabled){color:#262626}
+.vfn-btn-back:disabled{opacity:0;pointer-events:none}
+.vfn-btn-next{background:#262626;color:#fff}
+.vfn-btn-next:hover{background:#000;transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.vfn-btn-next:disabled{background:#d1d5db;color:#9ca3af;cursor:not-allowed;transform:none;box-shadow:none}
 /* Success */
-.funnel-success{text-align:center;padding:60px 40px;animation:funnelSlide .5s ease}
-.funnel-success-icon{width:88px;height:88px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 28px;position:relative;animation:successPop .6s cubic-bezier(.34,1.56,.64,1)}
-.funnel-success-icon::before,.funnel-success-icon::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #000;opacity:0;animation:ringPulse 2s ease-out infinite}
-.funnel-success-icon::after{animation-delay:.5s}
-.funnel-success h2{font-size:30px;margin-bottom:12px;color:#000;font-weight:700}
-.funnel-success p{color:var(--gray-500);font-size:15px;max-width:460px;margin:0 auto 22px;line-height:1.65}
-.funnel-success-next{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:28px auto 0;text-align:left;padding:20px 22px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px}
-.funnel-success-next-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#000;margin-bottom:4px}
-.funnel-success-next-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-600)}
-.funnel-success-next-item i{width:24px;height:24px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
-@keyframes successPop{0%{transform:scale(0) rotate(-180deg);opacity:0}60%{transform:scale(1.1) rotate(10deg)}100%{transform:scale(1) rotate(0);opacity:1}}
-@keyframes ringPulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.6);opacity:0}}
-/* Slide animation */
-.funnel-question{animation:funnelSlide .3s ease}
-@keyframes funnelSlide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.vfn-success{text-align:center;padding:80px 40px;animation:vfnSlide .5s ease}
+.vfn-success-icon{width:88px;height:88px;background:#262626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 32px;animation:vfnPop .6s cubic-bezier(.34,1.56,.64,1);position:relative}
+.vfn-success-icon::before,.vfn-success-icon::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #262626;opacity:0;animation:vfnRing 2.2s ease-out infinite}
+.vfn-success-icon::after{animation-delay:.7s}
+.vfn-success h2{font-family:'Fira Sans';font-size:32px;font-weight:200;color:#262626;margin-bottom:16px;line-height:1.3}
+.vfn-success p{font-family:'Fira Sans';font-size:16px;font-weight:300;color:#6b7280;max-width:500px;margin:0 auto;line-height:1.65}
+.vfn-success-next{display:flex;flex-direction:column;gap:14px;max-width:420px;margin:40px auto 0;text-align:left;padding:24px 26px;background:#fafafa;border:1px solid #e5e7eb;border-radius:14px}
+.vfn-success-next-title{font-family:'Fira Sans';font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#262626;margin-bottom:6px}
+.vfn-success-next-item{display:flex;align-items:center;gap:14px;font-family:'Fira Sans';font-size:14px;font-weight:300;color:#374151}
+.vfn-success-next-item i{width:26px;height:26px;border-radius:50%;background:#262626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
 /* Error banner */
-.funnel-error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca;padding:10px 16px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none}
-.funnel-error.show{display:block}
+.vfn-error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca;padding:12px 18px;border-radius:45px;font-family:'Fira Sans';font-size:13.5px;font-weight:400;margin-bottom:20px;display:none;max-width:560px}
+.vfn-error.show{display:flex;align-items:center;gap:8px}
+@keyframes vfnSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes vfnPop{0%{transform:scale(0) rotate(-180deg);opacity:0}60%{transform:scale(1.08) rotate(10deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes vfnRing{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.65);opacity:0}}
 /* Responsive */
-@media(max-width:600px){
-  .funnel-stepper{padding:24px 20px 16px}
-  .funnel-stepper::before,.funnel-stepper-progress{left:40px;right:40px}
-  .funnel-stepper-progress{max-width:calc(100% - 80px)}
-  .funnel-step-label{font-size:9px;letter-spacing:.5px}
-  .funnel-step-circle{width:32px;height:32px;font-size:13px}
-  .funnel-question{padding:24px 20px;min-height:280px}
-  .funnel-footer{padding:16px 20px}
-  .funnel-options{grid-template-columns:1fr}
-  .funnel-btn{padding:10px 20px;font-size:13px}
+@media(max-width:720px){
+  .funnel-section{padding:30px 0 50px}
+  .funnel-wrap{padding:0 12px}
+  .vfn-phase{font-size:11.5px;padding:16px 8px 14px;letter-spacing:0}
+  .vfn-phase::after{width:5px;height:5px}
+  .vfn-q{padding:36px 24px 28px;min-height:340px}
+  .vfn-q h2{font-size:22px;margin-bottom:28px;line-height:1.38}
+  .vfn-opt{font-size:16px;padding:18px 22px;min-height:64px;border-radius:36px}
+  .vfn-opt-icon{width:38px;height:38px;font-size:15px}
+  .vfn-input{font-size:16px;padding:18px 22px;border-radius:36px}
+  .vfn-footer{padding:18px 24px 24px}
+  .vfn-btn{padding:13px 24px;font-size:14px}
+  .vfn-success{padding:50px 24px}
+  .vfn-success h2{font-size:24px}
+  .vfn-success p{font-size:14.5px}
 }
 
 /* ===== TRUST BAR ===== */
@@ -812,36 +754,23 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 <section class="funnel-section" id="quote">
   <div class="funnel-wrap">
     <div class="funnel-card" id="funnelCard">
-      <!-- 5-Step Stepper -->
-      <div class="funnel-stepper">
-        <div class="funnel-stepper-progress" id="funnelProgress"></div>
-        <div class="funnel-step active" data-step="0">
-          <div class="funnel-step-circle">1</div>
-          <div class="funnel-step-label">Service</div>
-        </div>
-        <div class="funnel-step" data-step="1">
-          <div class="funnel-step-circle">2</div>
-          <div class="funnel-step-label">Property</div>
-        </div>
-        <div class="funnel-step" data-step="2">
-          <div class="funnel-step-circle">3</div>
-          <div class="funnel-step-label">System</div>
-        </div>
-        <div class="funnel-step" data-step="3">
-          <div class="funnel-step-circle">4</div>
-          <div class="funnel-step-label">Review</div>
-        </div>
-        <div class="funnel-step" data-step="4">
-          <div class="funnel-step-circle">5</div>
-          <div class="funnel-step-label">Contact</div>
-        </div>
+      <!-- 3-phase nav (Verisure style) -->
+      <div class="vfn-phases" id="vfnPhases">
+        <div class="vfn-phase active" data-phase="0">About Your Property</div>
+        <div class="vfn-phase" data-phase="1">Security Measures</div>
+        <div class="vfn-phase" data-phase="2">Request Quote</div>
       </div>
-      <!-- Question area -->
-      <div id="funnelQ" class="funnel-question"></div>
+      <!-- Countdown timer -->
+      <div class="vfn-timer">
+        <i class="far fa-clock"></i>
+        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
+      </div>
+      <!-- Single question area -->
+      <div id="funnelQ" class="vfn-q"></div>
       <!-- Footer buttons -->
-      <div class="funnel-footer">
-        <button class="funnel-btn funnel-btn-back" id="funnelBack" disabled>Back</button>
-        <button class="funnel-btn funnel-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
+      <div class="vfn-footer">
+        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
+        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
@@ -1277,516 +1206,292 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   });
 });
 
-// ===== 5-STEP WIZARD (matches original Securex site) =====
+// ===== VERISURE-STYLE FUNNEL =====
 (function(){
-  var TOTAL_STEPS=5; // Service / Property / System / Review / Contact
+  // Each step = single question. Phases group steps into 3 nav sections.
+  var STEPS=[
+    {key:'propertyKind',phase:0,q:'Are you looking to protect a home, or a business?',opts:[
+      {v:'Home',i:'fa-house'},
+      {v:'Business',i:'fa-building'}
+    ]},
+    {key:'propertyType',phase:0,q:'What type of property do you need security for?',optsByKind:{
+      Home:[
+        {v:'Detached House',i:'fa-house-chimney'},
+        {v:'Semi-Detached House',i:'fa-house-chimney-window'},
+        {v:'Terraced House',i:'fa-house-chimney-medical'},
+        {v:'Maisonette',i:'fa-building-circle-check'},
+        {v:'Flat / Apartment',i:'fa-building'}
+      ],
+      Business:[
+        {v:'Office',i:'fa-briefcase'},
+        {v:'Retail / Shop',i:'fa-shop'},
+        {v:'Warehouse / Industrial',i:'fa-warehouse'},
+        {v:'Construction Site',i:'fa-helmet-safety'},
+        {v:'Other Commercial',i:'fa-building-columns'}
+      ]
+    }},
+    {key:'services',phase:1,q:'Which security services are you interested in?',opts:[
+      {v:'CCTV Installation',i:'fa-video'},
+      {v:'Intruder Alarm',i:'fa-shield-halved'},
+      {v:'Fire Alarm',i:'fa-fire-extinguisher'},
+      {v:'Access Control / Door Entry',i:'fa-door-open'},
+      {v:'Complete Security Package',i:'fa-star'}
+    ]},
+    {key:'existing',phase:1,q:'Do you already have a security system installed?',opts:[
+      {v:'No — looking to install',i:'fa-plus-circle'},
+      {v:'Yes — needs upgrading',i:'fa-arrow-up-right-dots'},
+      {v:'Yes — needs servicing or repair',i:'fa-screwdriver-wrench'}
+    ]},
+    {key:'timing',phase:1,q:'When would you like the work carried out?',opts:[
+      {v:'As soon as possible',i:'fa-bolt'},
+      {v:'Within the next month',i:'fa-calendar-day'},
+      {v:'Within 3 months',i:'fa-calendar'},
+      {v:'Just researching',i:'fa-magnifying-glass'}
+    ]},
+    {key:'postcode',phase:2,q:'What is the postcode of the property?',input:{type:'text',ph:'e.g. SW1A 1AA',auto:'postal-code'}},
+    {key:'review',phase:2,q:'Quick review before we call you back',type:'review'},
+    {key:'contact',phase:2,q:'Who should we call with your free quote?',type:'contact'}
+  ];
   var fStep=0;
-  var fData={serviceType:null,propertyType:null,system:{}};
+  var fData={};
+  var timerStart=Date.now();
+  var timerSeconds=60;
+  var timerInt=null;
 
-  // System config options per service type
-  var installSystemOpts={
-    monitoring:['No Monitoring','App Notifications','Guard Response','Keyholder Response','Police Response'],
-    communication:['Wi-Fi','4G / GPRS','Hardwired LAN']
-  };
-  var maintainSystemOpts={
-    make:['Honeywell','Pyronix','Texecom','Visonic','Other'],
-    type:['Wired System','Wireless System','Hybrid'],
-    count:['1-5','6-10','11-20','20+']
-  };
+  function qs(s){return document.querySelector(s);}
+  function qsa(s){return document.querySelectorAll(s);}
 
-  // Full room + sensor config (matches original Securex form)
-  var ROOMS={
-    Residential:[
-      {name:'Front Door',icon:'fa-door-open',sensors:['Door Contact']},
-      {name:'Entrance Hall',icon:'fa-person-walking',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
-      {name:'Lounge',icon:'fa-couch',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
-      {name:'Kitchen',icon:'fa-kitchen-set',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Heat Detector']},
-      {name:'Utility Room',icon:'fa-faucet-drip',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector','Flood Sensor']},
-      {name:'WC',icon:'fa-restroom',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor']},
-      {name:'Landing',icon:'fa-stairs',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
-      {name:'Bedroom',icon:'fa-bed',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
-      {name:'Bathroom',icon:'fa-bath',sensors:['Motion Sensor','Shock Sensor']},
-      {name:'Loft Room',icon:'fa-house-chimney',sensors:['Motion Sensor','Shock Sensor','Smoke Detector']},
-      {name:'Garage',icon:'fa-warehouse',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector']},
-      {name:'Shed / Storage',icon:'fa-dungeon',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector']},
-      {name:'Outbuilding',icon:'fa-tents',sensors:['Door Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
-      {name:'External Area',icon:'fa-tree',sensors:['External Beam Front','External Beam Rear','External Beam Left','External Beam Right']}
-    ],
-    Commercial:[
-      {name:'Front Door',icon:'fa-door-open',sensors:['Door Contact']},
-      {name:'Entrance Lobby',icon:'fa-door-closed',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector','Panic Button']},
-      {name:'Reception',icon:'fa-bell-concierge',sensors:['Magnetic Contact','Motion Sensor','Panic Button','Smoke Detector','Shock Sensor']},
-      {name:'Office / Room',icon:'fa-briefcase',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
-      {name:'Kitchen',icon:'fa-mug-hot',sensors:['Magnetic Contact','Motion Sensor','Heat Detector','Shock Sensor','Panic Button']},
-      {name:'WC',icon:'fa-restroom',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor']},
-      {name:'Shop Front',icon:'fa-store',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button']},
-      {name:'Storage Room',icon:'fa-box',sensors:['Magnetic Contact','Motion Sensor','Smoke Detector']},
-      {name:'Warehouse',icon:'fa-warehouse',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector','Panic Button']}
-    ]
-  };
-
-  // Staging state for sensor selection
-  var stagingRoom=null;
-  var stagingSensors=[];
-
-  function qs(sel){return document.querySelector(sel);}
-  function qsa(sel){return document.querySelectorAll(sel);}
-
-  function updateStepper(){
-    var pct=fStep===0 ? 0 : (fStep/(TOTAL_STEPS-1))*100;
-    qs('#funnelProgress').style.width=pct+'%';
-    qsa('.funnel-step').forEach(function(el,i){
+  function updatePhases(){
+    var curPhase=STEPS[fStep].phase;
+    qsa('.vfn-phase').forEach(function(el,i){
       el.classList.remove('active','done');
-      if(i<fStep) el.classList.add('done');
-      else if(i===fStep) el.classList.add('active');
+      if(i<curPhase) el.classList.add('done');
+      else if(i===curPhase) el.classList.add('active');
     });
-    // Update Back/Next buttons
+  }
+
+  function updateButtons(){
     qs('#funnelBack').disabled=(fStep===0);
     var nextBtn=qs('#funnelNext');
     while(nextBtn.firstChild) nextBtn.removeChild(nextBtn.firstChild);
-    if(fStep===TOTAL_STEPS-1){
-      nextBtn.appendChild(document.createTextNode('Submit Request '));
-      var icon=document.createElement('i');icon.className='fas fa-paper-plane';
-      nextBtn.appendChild(icon);
+    var step=STEPS[fStep];
+    var labelText,iconClass='fa-arrow-right';
+    if(step.type==='contact'){labelText='Get My Free Quote ';iconClass='fa-paper-plane';}
+    else if(step.type==='review'){labelText='Confirm & Continue ';}
+    else labelText='Continue ';
+    nextBtn.appendChild(document.createTextNode(labelText));
+    var ic=document.createElement('i');ic.className='fas '+iconClass;
+    nextBtn.appendChild(ic);
+    // Hide Continue for auto-advance option steps (options only, not input/review/contact)
+    if(step.opts || step.optsByKind){
+      nextBtn.style.visibility=fData[step.key]?'visible':'hidden';
     } else {
-      nextBtn.appendChild(document.createTextNode('Continue '));
-      var icon=document.createElement('i');icon.className='fas fa-arrow-right';
-      nextBtn.appendChild(icon);
+      nextBtn.style.visibility='visible';
     }
+  }
+
+  function tick(){
+    var elapsed=Math.floor((Date.now()-timerStart)/1000);
+    var remain=Math.max(0,timerSeconds-elapsed);
+    var el=qs('#vfnTimer');
+    if(el) el.textContent=remain;
+    if(remain<=0 && timerInt){clearInterval(timerInt);timerInt=null;}
   }
 
   function showError(msg){
-    var container=qs('#funnelQ');
-    var existing=qs('.funnel-error');
-    if(existing) existing.remove();
-    var err=document.createElement('div');
-    err.className='funnel-error show';
-    err.textContent=msg;
-    container.insertBefore(err,container.firstChild);
-    setTimeout(function(){ if(err.parentNode) err.remove(); },4000);
+    var c=qs('#funnelQ');
+    var ex=qs('.vfn-error');
+    if(ex) ex.remove();
+    var err=document.createElement('div');err.className='vfn-error show';
+    var ic=document.createElement('i');ic.className='fas fa-circle-exclamation';
+    err.appendChild(ic);
+    err.appendChild(document.createTextNode(msg));
+    c.insertBefore(err,c.firstChild);
+    setTimeout(function(){if(err.parentNode) err.remove();},4000);
   }
 
-  function createCardOption(iconClass,label,key,selectedValue){
-    var card=document.createElement('button');
-    card.type='button';
-    card.className='funnel-card-opt';
-    if(selectedValue===label) card.classList.add('selected');
-    var icon=document.createElement('i');icon.className=iconClass;
-    var txt=document.createElement('span');txt.textContent=label;
-    card.appendChild(icon);card.appendChild(txt);
-    card.addEventListener('click',function(){
-      // Deselect siblings
-      card.parentElement.querySelectorAll('.funnel-card-opt').forEach(function(s){s.classList.remove('selected');});
-      card.classList.add('selected');
-      if(key==='serviceType') fData.serviceType=label;
-      else if(key==='propertyType') fData.propertyType=label;
-      else if(key.indexOf('system.')===0) fData.system[key.replace('system.','')]=label;
-      // Auto-advance for single-choice steps (Service & Property)
-      if(key==='serviceType' || key==='propertyType'){
-        setTimeout(function(){ qs('#funnelNext').click(); },280);
+  function scrollTop(){
+    var card=qs('#funnelCard');if(!card) return;
+    var rect=card.getBoundingClientRect();
+    var top=rect.top+window.pageYOffset-100;
+    window.scrollTo({top:top,behavior:'smooth'});
+  }
+
+  function createPillOption(v,i,key,selected){
+    var btn=document.createElement('button');
+    btn.type='button';
+    btn.className='vfn-opt'+(selected===v?' selected':'');
+    // Icon
+    var iconWrap=document.createElement('div');iconWrap.className='vfn-opt-icon';
+    var ic=document.createElement('i');ic.className='fas '+i;
+    iconWrap.appendChild(ic);
+    btn.appendChild(iconWrap);
+    // Label
+    var lbl=document.createElement('span');lbl.className='vfn-opt-label';lbl.textContent=v;
+    btn.appendChild(lbl);
+    // Arrow
+    var arr=document.createElement('i');arr.className='fas fa-arrow-right vfn-opt-arrow';
+    btn.appendChild(arr);
+    btn.addEventListener('click',function(){
+      btn.parentElement.querySelectorAll('.vfn-opt').forEach(function(x){x.classList.remove('selected');});
+      btn.classList.add('selected');
+      fData[key]=v;
+      // Auto-advance after brief delay for feedback
+      setTimeout(function(){advance();},320);
+    });
+    return btn;
+  }
+
+  function render(){
+    var c=qs('#funnelQ');
+    while(c.firstChild) c.removeChild(c.firstChild);
+    c.style.animation='none';c.offsetHeight;c.style.animation='';
+    var step=STEPS[fStep];
+    var h2=document.createElement('h2');h2.textContent=step.q;c.appendChild(h2);
+
+    if(step.type==='review'){
+      var sub=document.createElement('p');sub.className='vfn-sub';
+      sub.textContent='Please check your details before we prepare your free, no-obligation quote.';
+      c.appendChild(sub);
+      var box=document.createElement('div');box.className='vfn-review';
+      function row(k,v){
+        if(!v) return;
+        var r=document.createElement('div');r.className='vfn-review-row';
+        var l=document.createElement('span');l.className='vfn-review-label';l.textContent=k;
+        var val=document.createElement('span');val.className='vfn-review-value';val.textContent=v;
+        r.appendChild(l);r.appendChild(val);box.appendChild(r);
       }
-    });
-    return card;
-  }
-
-  function renderQuestion(){
-    var container=qs('#funnelQ');
-    while(container.firstChild) container.removeChild(container.firstChild);
-    container.style.animation='none';container.offsetHeight;container.style.animation='';
-
-    if(fStep===0){
-      renderService(container);
-    } else if(fStep===1){
-      renderProperty(container);
-    } else if(fStep===2){
-      renderSystem(container);
-    } else if(fStep===3){
-      renderReview(container);
-    } else if(fStep===4){
-      renderContact(container);
-    }
-    updateStepper();
-  }
-
-  function renderService(c){
-    var h2=document.createElement('h2');h2.textContent='What do you need?';c.appendChild(h2);
-    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Select the primary service you are interested in.';c.appendChild(sub);
-    var opts=document.createElement('div');opts.className='funnel-options';
-    opts.appendChild(createCardOption('fas fa-screwdriver-wrench','New Installation','serviceType',fData.serviceType));
-    opts.appendChild(createCardOption('fas fa-shield-halved','Service & Maintenance','serviceType',fData.serviceType));
-    c.appendChild(opts);
-  }
-
-  function renderProperty(c){
-    var h2=document.createElement('h2');h2.textContent='Property Type';c.appendChild(h2);
-    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='What kind of property needs securing?';c.appendChild(sub);
-    var opts=document.createElement('div');opts.className='funnel-options';
-    opts.appendChild(createCardOption('fas fa-house','Residential','propertyType',fData.propertyType));
-    opts.appendChild(createCardOption('fas fa-building','Commercial','propertyType',fData.propertyType));
-    c.appendChild(opts);
-  }
-
-  function renderSystem(c){
-    var h2=document.createElement('h2');h2.textContent='System Configuration';c.appendChild(h2);
-    var sub=document.createElement('p');sub.className='funnel-sub';
-    if(fData.serviceType==='New Installation'){
-      sub.textContent='Build your system by adding rooms and options.';
+      row('Property',fData.propertyKind);
+      row('Type',fData.propertyType);
+      row('Service',fData.services);
+      row('Current system',fData.existing);
+      row('When',fData.timing);
+      row('Postcode',fData.postcode);
+      c.appendChild(box);
+    } else if(step.type==='contact'){
+      var sub=document.createElement('p');sub.className='vfn-sub';
+      sub.textContent='A Securex expert will call you within 24 hours with your free, no-obligation quote.';
+      c.appendChild(sub);
+      var form=document.createElement('div');form.className='vfn-form';
+      var fields=[
+        {id:'cName',label:'Full name',type:'text',ph:'Jane Doe',auto:'name'},
+        {id:'cEmail',label:'Email address',type:'email',ph:'jane@example.com',auto:'email'},
+        {id:'cPhone',label:'Phone number',type:'tel',ph:'07700 900000',auto:'tel'}
+      ];
+      fields.forEach(function(f){
+        var lbl=document.createElement('div');lbl.className='vfn-form-label';lbl.textContent=f.label;
+        form.appendChild(lbl);
+        var inp=document.createElement('input');
+        inp.type=f.type;inp.id=f.id;inp.className='vfn-input';inp.placeholder=f.ph;
+        inp.autocomplete=f.auto;inp.value=fData[f.id]||'';
+        form.appendChild(inp);
+      });
+      c.appendChild(form);
+      // Trust signal
+      var tr=document.createElement('div');tr.className='vfn-trust';
+      var trIc=document.createElement('i');trIc.className='fas fa-lock';
+      tr.appendChild(trIc);
+      var trT=document.createElement('span');
+      var strong=document.createElement('strong');strong.textContent='Your details are secure.';
+      trT.appendChild(strong);
+      trT.appendChild(document.createTextNode(' We never share your information. UK GDPR compliant.'));
+      tr.appendChild(trT);
+      c.appendChild(tr);
+    } else if(step.input){
+      var wrap=document.createElement('div');wrap.className='vfn-input-group';
+      var inp=document.createElement('input');
+      inp.type=step.input.type;inp.className='vfn-input';inp.placeholder=step.input.ph;
+      inp.autocomplete=step.input.auto||'';
+      inp.value=fData[step.key]||'';
+      inp.id='vfnInput_'+step.key;
+      inp.addEventListener('input',function(){fData[step.key]=inp.value.trim();updateButtons();});
+      inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();advance();}});
+      wrap.appendChild(inp);
+      c.appendChild(wrap);
+      setTimeout(function(){inp.focus();},150);
     } else {
-      sub.textContent='Tell us about your existing security system.';
+      var opts=step.opts || (step.optsByKind ? step.optsByKind[fData.propertyKind] || step.optsByKind.Home : []);
+      var box=document.createElement('div');box.className='vfn-opts';
+      opts.forEach(function(o){box.appendChild(createPillOption(o.v,o.i,step.key,fData[step.key]));});
+      c.appendChild(box);
     }
-    c.appendChild(sub);
-    if(fData.serviceType==='New Installation') renderInstallSystem(c);
-    else renderMaintainSystem(c);
+    updatePhases();
+    updateButtons();
   }
 
-  function renderInstallSystem(c){
-    // BOX 1 - Add Areas (Rooms)
-    var roomList=ROOMS[fData.propertyType]||ROOMS.Residential;
-    if(!fData.system.rooms) fData.system.rooms=[];
-
-    var box1=document.createElement('div');box1.className='funnel-sys-box';
-    var t1=document.createElement('div');t1.className='funnel-sys-title';
-    var n1=document.createElement('span');n1.className='funnel-sys-title-num';n1.textContent='1';
-    t1.appendChild(n1);
-    t1.appendChild(document.createTextNode('Add Areas ('+fData.propertyType+')'));
-    box1.appendChild(t1);
-
-    var grid=document.createElement('div');grid.className='funnel-room-grid';
-    roomList.forEach(function(r,idx){
-      var card=document.createElement('button');
-      card.type='button';
-      card.className='funnel-room-card';
-      card.style.setProperty('--i',idx);
-      if(stagingRoom===idx) card.classList.add('staging');
-      var ic=document.createElement('i');ic.className='fas '+r.icon;
-      var sp=document.createElement('span');sp.textContent=r.name;
-      card.appendChild(ic);card.appendChild(sp);
-      card.addEventListener('click',function(){
-        stagingRoom=(stagingRoom===idx?null:idx);
-        stagingSensors=[];
-        renderQuestion();
-      });
-      grid.appendChild(card);
-    });
-    box1.appendChild(grid);
-
-    // Staging area (sensor selection)
-    if(stagingRoom!==null && roomList[stagingRoom]){
-      var room=roomList[stagingRoom];
-      var stage=document.createElement('div');stage.className='funnel-staging';
-      var st=document.createElement('div');st.className='funnel-staging-title';
-      st.textContent='Select sensors for '+room.name+':';
-      stage.appendChild(st);
-      var chips=document.createElement('div');chips.className='funnel-sensor-chips';
-      room.sensors.forEach(function(s){
-        var chip=document.createElement('button');chip.type='button';chip.className='funnel-sensor-chip';
-        if(stagingSensors.indexOf(s)>=0) chip.classList.add('active');
-        chip.textContent=s;
-        chip.addEventListener('click',function(){
-          var i=stagingSensors.indexOf(s);
-          if(i>=0) stagingSensors.splice(i,1);
-          else stagingSensors.push(s);
-          chip.classList.toggle('active');
-        });
-        chips.appendChild(chip);
-      });
-      stage.appendChild(chips);
-      var addBtn=document.createElement('button');addBtn.type='button';addBtn.className='funnel-staging-btn';
-      addBtn.innerHTML='<i class="fas fa-plus"></i> Add '+room.name+' to my system';
-      addBtn.addEventListener('click',function(){
-        if(stagingSensors.length===0){showError('Please select at least one sensor.');return;}
-        fData.system.rooms.push({name:room.name,sensors:stagingSensors.slice()});
-        stagingRoom=null;stagingSensors=[];
-        renderQuestion();
-      });
-      stage.appendChild(addBtn);
-      box1.appendChild(stage);
+  function validate(){
+    var step=STEPS[fStep];
+    if(step.type==='contact'){
+      var n=qs('#cName').value.trim();
+      var e=qs('#cEmail').value.trim();
+      var p=qs('#cPhone').value.trim();
+      if(!n||!e||!p){showError('Please fill in all three fields.');return false;}
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){showError('Please enter a valid email address.');return false;}
+      if(p.replace(/\D/g,'').length<7){showError('Please enter a valid phone number.');return false;}
+      fData.name=n;fData.email=e;fData.phone=p;
+      return true;
     }
-
-    // Added rooms list
-    if(fData.system.rooms.length===0){
-      var empty=document.createElement('div');empty.className='funnel-added-empty';
-      var emIc=document.createElement('i');emIc.className='fas fa-plus-circle';
-      empty.appendChild(emIc);
-      empty.appendChild(document.createTextNode('No areas added yet — click a room above to begin'));
-      box1.appendChild(empty);
-    } else {
-      var list=document.createElement('div');list.className='funnel-added-list';
-      fData.system.rooms.forEach(function(rm,i){
-        var row=document.createElement('div');row.className='funnel-added-row';
-        row.style.setProperty('--i',i);
-        // Lookup icon from ROOMS data
-        var roomDef=(ROOMS[fData.propertyType]||[]).filter(function(r){return r.name===rm.name;})[0];
-        var iconWrap=document.createElement('div');iconWrap.className='funnel-added-icon';
-        var iconEl=document.createElement('i');iconEl.className='fas '+((roomDef&&roomDef.icon)||'fa-door-closed');
-        iconWrap.appendChild(iconEl);
-        var info=document.createElement('div');info.className='funnel-added-info';
-        var nm=document.createElement('div');nm.className='funnel-added-name';nm.textContent=rm.name;
-        var sn=document.createElement('div');sn.className='funnel-added-sensors';sn.textContent=rm.sensors.join(' · ');
-        info.appendChild(nm);info.appendChild(sn);
-        var rem=document.createElement('button');rem.type='button';rem.className='funnel-added-remove';
-        var remIc=document.createElement('i');remIc.className='fas fa-xmark';rem.appendChild(remIc);rem.title='Remove';
-        rem.addEventListener('click',function(){
-          fData.system.rooms.splice(i,1);
-          renderQuestion();
-        });
-        row.appendChild(iconWrap);row.appendChild(info);row.appendChild(rem);
-        list.appendChild(row);
-      });
-      box1.appendChild(list);
-    }
-    c.appendChild(box1);
-
-    // BOX 2 - Monitoring Level
-    var box2=document.createElement('div');box2.className='funnel-sys-box';
-    var t2=document.createElement('div');t2.className='funnel-sys-title';
-    var n2=document.createElement('span');n2.className='funnel-sys-title-num';n2.textContent='2';
-    t2.appendChild(n2);
-    t2.appendChild(document.createTextNode('Monitoring Level'));
-    box2.appendChild(t2);
-    var monIcons={'No Monitoring':'fa-ban','App Notifications':'fa-mobile-screen','Guard Response':'fa-user-shield','Keyholder Response':'fa-key','Police Response':'fa-shield-halved'};
-    var o1=document.createElement('div');o1.className='funnel-sys-options';
-    installSystemOpts.monitoring.forEach(function(v){
-      var card=createCardOption('fas '+(monIcons[v]||'fa-bell'),v,'system.monitoring',fData.system.monitoring);
-      o1.appendChild(card);
-    });
-    box2.appendChild(o1);
-    c.appendChild(box2);
-
-    // BOX 3 - Communication Method
-    var box3=document.createElement('div');box3.className='funnel-sys-box';
-    var t3=document.createElement('div');t3.className='funnel-sys-title';
-    var n3=document.createElement('span');n3.className='funnel-sys-title-num';n3.textContent='3';
-    t3.appendChild(n3);
-    t3.appendChild(document.createTextNode('Communication Method'));
-    box3.appendChild(t3);
-    var commIcons={'Wi-Fi':'fa-wifi','4G / GPRS':'fa-signal','Hardwired LAN':'fa-ethernet'};
-    var o2=document.createElement('div');o2.className='funnel-sys-options';
-    installSystemOpts.communication.forEach(function(v){
-      var card=createCardOption('fas '+(commIcons[v]||'fa-wifi'),v,'system.communication',fData.system.communication);
-      o2.appendChild(card);
-    });
-    box3.appendChild(o2);
-    c.appendChild(box3);
-  }
-
-  function renderMaintainSystem(c){
-    // Maintenance: make + type + count (simpler)
-    var box1=document.createElement('div');box1.className='funnel-sys-box';
-    var t1=document.createElement('div');t1.className='funnel-sys-title';
-    var n1=document.createElement('span');n1.className='funnel-sys-title-num';n1.textContent='1';
-    t1.appendChild(n1);t1.appendChild(document.createTextNode('System Manufacturer'));
-    box1.appendChild(t1);
-    var o1=document.createElement('div');o1.className='funnel-sys-options';
-    var makeIcons={'Honeywell':'fa-microchip','Pyronix':'fa-shield','Texecom':'fa-network-wired','Visonic':'fa-tower-broadcast','Other':'fa-question'};
-    maintainSystemOpts.make.forEach(function(v){
-      var card=createCardOption('fas '+(makeIcons[v]||'fa-microchip'),v,'system.make',fData.system.make);
-      o1.appendChild(card);
-    });
-    box1.appendChild(o1);c.appendChild(box1);
-
-    var box2=document.createElement('div');box2.className='funnel-sys-box';
-    var t2=document.createElement('div');t2.className='funnel-sys-title';
-    var n2=document.createElement('span');n2.className='funnel-sys-title-num';n2.textContent='2';
-    t2.appendChild(n2);t2.appendChild(document.createTextNode('Connection Type'));
-    box2.appendChild(t2);
-    var o2=document.createElement('div');o2.className='funnel-sys-options';
-    var typeIcons={'Wired System':'fa-plug','Wireless System':'fa-wifi','Hybrid':'fa-shuffle'};
-    maintainSystemOpts.type.forEach(function(v){
-      var card=createCardOption('fas '+(typeIcons[v]||'fa-plug'),v,'system.type',fData.system.type);
-      o2.appendChild(card);
-    });
-    box2.appendChild(o2);c.appendChild(box2);
-
-    var box3=document.createElement('div');box3.className='funnel-sys-box';
-    var t3=document.createElement('div');t3.className='funnel-sys-title';
-    var n3=document.createElement('span');n3.className='funnel-sys-title-num';n3.textContent='3';
-    t3.appendChild(n3);t3.appendChild(document.createTextNode('Approximate Device Count'));
-    box3.appendChild(t3);
-    var o3=document.createElement('div');o3.className='funnel-sys-options';
-    maintainSystemOpts.count.forEach(function(v){
-      var card=createCardOption('fas fa-hashtag',v,'system.count',fData.system.count);
-      o3.appendChild(card);
-    });
-    box3.appendChild(o3);c.appendChild(box3);
-  }
-
-  function renderReview(c){
-    var h2=document.createElement('h2');h2.textContent='Review your details';c.appendChild(h2);
-    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Almost done. Please check the summary below before continuing to contact details.';c.appendChild(sub);
-    var box=document.createElement('div');box.className='funnel-review';
-
-    function addSection(iconClass,title,rows){
-      var sec=document.createElement('div');sec.className='funnel-review-section';
-      var t=document.createElement('div');t.className='funnel-review-section-title';
-      var ic=document.createElement('i');ic.className='fas '+iconClass;
-      t.appendChild(ic);t.appendChild(document.createTextNode(title));
-      sec.appendChild(t);
-      rows.forEach(function(pair){
-        if(!pair[1]) return;
-        var r=document.createElement('div');r.className='funnel-review-row';
-        var l=document.createElement('span');l.className='funnel-review-label';l.textContent=pair[0];
-        var val=document.createElement('span');val.className='funnel-review-value';val.textContent=pair[1];
-        r.appendChild(l);r.appendChild(val);sec.appendChild(r);
-      });
-      box.appendChild(sec);
-    }
-
-    addSection('fa-briefcase','What you need',[
-      ['Service',fData.serviceType],
-      ['Property',fData.propertyType]
-    ]);
-
-    if(fData.serviceType==='New Installation'){
-      var roomRows=[];
-      if(fData.system.rooms && fData.system.rooms.length>0){
-        fData.system.rooms.forEach(function(rm){
-          roomRows.push([rm.name,rm.sensors.join(' · ')]);
-        });
+    if(step.type==='review') return true;
+    if(step.input){
+      if(!fData[step.key]){showError('Please enter your '+(step.key==='postcode'?'postcode':'answer')+'.');return false;}
+      if(step.key==='postcode' && !/^[A-Z]{1,2}[0-9][A-Z0-9]?\s*[0-9][A-Z]{2}$/i.test(fData[step.key])){
+        showError('Please enter a valid UK postcode.');return false;
       }
-      if(roomRows.length>0) addSection('fa-house-chimney','Areas ('+fData.system.rooms.length+')',roomRows);
-      addSection('fa-shield-halved','System configuration',[
-        ['Monitoring',fData.system.monitoring],
-        ['Communication',fData.system.communication]
-      ]);
-    } else {
-      addSection('fa-screwdriver-wrench','Existing system',[
-        ['Manufacturer',fData.system.make],
-        ['Connection Type',fData.system.type],
-        ['Device Count',fData.system.count]
-      ]);
+      return true;
     }
-    c.appendChild(box);
-  }
-
-  function renderContact(c){
-    var h2=document.createElement('h2');h2.textContent='Almost there! Your contact details';c.appendChild(h2);
-    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Enter your details and a security expert will call you within 24 hours with your free, no-obligation quote.';c.appendChild(sub);
-
-    var form=document.createElement('div');form.className='funnel-form';
-    var fields=[
-      {id:'cName',label:'Full Name',labelIcon:'fa-user',inputIcon:'fa-user',type:'text',ph:'Jane Doe',val:fData.name||'',full:false},
-      {id:'cEmail',label:'Email Address',labelIcon:'fa-envelope',inputIcon:'fa-envelope',type:'email',ph:'jane@example.com',val:fData.email||'',full:false},
-      {id:'cPhone',label:'Phone Number',labelIcon:'fa-phone',inputIcon:'fa-phone',type:'tel',ph:'07700 900000',val:fData.phone||'',full:true}
-    ];
-    fields.forEach(function(f){
-      var grp=document.createElement('div');
-      grp.className='funnel-form-group'+(f.full ? ' form-group-full' : '');
-
-      var l=document.createElement('label');
-      l.htmlFor=f.id;
-      var labelIcon=document.createElement('i');labelIcon.className='fas '+f.labelIcon;
-      l.appendChild(labelIcon);
-      l.appendChild(document.createTextNode(' '+f.label));
-
-      var wrap=document.createElement('div');wrap.className='funnel-form-input-wrap';
-      var inputIcon=document.createElement('i');inputIcon.className='fas '+f.inputIcon+' input-icon';
-      var input=document.createElement('input');
-      input.type=f.type;input.id=f.id;input.placeholder=f.ph;input.value=f.val;
-      input.autocomplete=(f.type==='email'?'email':(f.type==='tel'?'tel':'name'));
-      // Live validation checkmark
-      input.addEventListener('input',function(){
-        var ok=false;
-        if(f.type==='email') ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value);
-        else if(f.type==='tel') ok=input.value.replace(/\D/g,'').length>=7;
-        else ok=input.value.trim().length>=2;
-        input.classList.toggle('valid',ok);
-      });
-      var check=document.createElement('i');check.className='fas fa-check input-check';
-
-      wrap.appendChild(inputIcon);wrap.appendChild(input);wrap.appendChild(check);
-      grp.appendChild(l);grp.appendChild(wrap);
-      form.appendChild(grp);
-    });
-    c.appendChild(form);
-
-    // Trust signal
-    var trust=document.createElement('div');trust.className='funnel-trust';
-    var lockIcon=document.createElement('i');lockIcon.className='fas fa-lock';
-    trust.appendChild(lockIcon);
-    var trustText=document.createElement('span');
-    var s1=document.createElement('strong');s1.textContent='Your details are secure.';
-    trustText.appendChild(s1);
-    trustText.appendChild(document.createTextNode(' We never share your information and comply fully with UK GDPR.'));
-    trust.appendChild(trustText);
-    c.appendChild(trust);
-  }
-
-  function validateCurrentStep(){
-    if(fStep===0 && !fData.serviceType){showError('Please select a service type.');return false;}
-    if(fStep===1 && !fData.propertyType){showError('Please select a property type.');return false;}
-    if(fStep===2){
-      if(fData.serviceType==='New Installation'){
-        if(!fData.system.rooms || fData.system.rooms.length===0){showError('Please add at least one area to your system.');return false;}
-        if(!fData.system.monitoring){showError('Please select a monitoring level.');return false;}
-        if(!fData.system.communication){showError('Please select a communication method.');return false;}
-      } else {
-        if(!fData.system.make){showError('Please select a manufacturer.');return false;}
-        if(!fData.system.type){showError('Please select a connection type.');return false;}
-        if(!fData.system.count){showError('Please select device count.');return false;}
-      }
-    }
-    if(fStep===4){
-      var name=qs('#cName').value.trim();
-      var email=qs('#cEmail').value.trim();
-      var phone=qs('#cPhone').value.trim();
-      if(!name||!email||!phone){showError('Please fill in all fields.');return false;}
-      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){showError('Please enter a valid email.');return false;}
-      fData.name=name;fData.email=email;fData.phone=phone;
-    }
+    if(!fData[step.key]){showError('Please choose an option to continue.');return false;}
     return true;
   }
 
-  function showSuccess(){
+  function advance(){
+    if(!validate()) return;
+    if(fStep===STEPS.length-1){success();scrollTop();return;}
+    fStep++;render();scrollTop();
+  }
+
+  function back(){
+    if(fStep>0){fStep--;render();scrollTop();}
+  }
+
+  function success(){
     var card=qs('#funnelCard');
     while(card.firstChild) card.removeChild(card.firstChild);
-    var wrap=document.createElement('div');wrap.className='funnel-success';
-    var icon=document.createElement('div');icon.className='funnel-success-icon';
-    var check=document.createElement('i');check.className='fas fa-check';icon.appendChild(check);
-    var h2=document.createElement('h2');h2.textContent='Thank you, '+fData.name.split(' ')[0]+'!';
-    var p1=document.createElement('p');
-    p1.textContent='Your request has been received. A Securex security expert will call you at '+fData.phone+' within 24 hours to confirm your requirements and provide your free, no-obligation quote.';
-    wrap.appendChild(icon);wrap.appendChild(h2);wrap.appendChild(p1);
-
-    // Next steps card
-    var next=document.createElement('div');next.className='funnel-success-next';
-    var nt=document.createElement('div');nt.className='funnel-success-next-title';nt.textContent='What happens next';
+    if(timerInt){clearInterval(timerInt);timerInt=null;}
+    var wrap=document.createElement('div');wrap.className='vfn-success';
+    var icon=document.createElement('div');icon.className='vfn-success-icon';
+    var ch=document.createElement('i');ch.className='fas fa-check';icon.appendChild(ch);
+    wrap.appendChild(icon);
+    var h=document.createElement('h2');
+    var firstName=(fData.name||'there').split(' ')[0];
+    h.textContent='Thank you, '+firstName+'!';
+    wrap.appendChild(h);
+    var p=document.createElement('p');
+    p.textContent='Your request has been received. A Securex security expert will call you at '+(fData.phone||'your number')+' within 24 hours to confirm your requirements and provide your free, no-obligation quote.';
+    wrap.appendChild(p);
+    var next=document.createElement('div');next.className='vfn-success-next';
+    var nt=document.createElement('div');nt.className='vfn-success-next-title';nt.textContent='What happens next';
     next.appendChild(nt);
-    var steps=[
-      {icon:'fa-envelope',text:'Confirmation email sent to '+fData.email},
-      {icon:'fa-phone',text:'Expert call within 24 hours on '+fData.phone},
-      {icon:'fa-file-invoice',text:'Free, no-obligation written quote'}
+    var items=[
+      {i:'fa-envelope',t:'Confirmation email sent to '+(fData.email||'your inbox')},
+      {i:'fa-phone',t:'Expert call within 24 hours'},
+      {i:'fa-file-invoice',t:'Free, no-obligation written quote'}
     ];
-    steps.forEach(function(s){
-      var r=document.createElement('div');r.className='funnel-success-next-item';
-      var i=document.createElement('i');i.className='fas '+s.icon;
-      var t=document.createElement('span');t.textContent=s.text;
-      r.appendChild(i);r.appendChild(t);next.appendChild(r);
+    items.forEach(function(s){
+      var r=document.createElement('div');r.className='vfn-success-next-item';
+      var ic=document.createElement('i');ic.className='fas '+s.i;
+      var sp=document.createElement('span');sp.textContent=s.t;
+      r.appendChild(ic);r.appendChild(sp);next.appendChild(r);
     });
     wrap.appendChild(next);
     card.appendChild(wrap);
   }
 
-  function scrollToWizardTop(){
-    var card=qs('#funnelCard');
-    if(!card) return;
-    var rect=card.getBoundingClientRect();
-    var top=rect.top+window.pageYOffset-100; // 100px offset for sticky navbar
-    window.scrollTo({top:top,behavior:'smooth'});
-  }
+  qs('#funnelNext').addEventListener('click',advance);
+  qs('#funnelBack').addEventListener('click',back);
 
-  // Button handlers
-  qs('#funnelNext').addEventListener('click',function(){
-    if(!validateCurrentStep()) return;
-    if(fStep===TOTAL_STEPS-1){showSuccess();scrollToWizardTop();return;}
-    fStep++;renderQuestion();scrollToWizardTop();
-  });
-  qs('#funnelBack').addEventListener('click',function(){
-    if(fStep>0){fStep--;renderQuestion();scrollToWizardTop();}
-  });
-
-  // Init
-  renderQuestion();
+  // Start timer + initial render
+  timerInt=setInterval(tick,500);
+  render();
 })();
 
 // Scroll animations
