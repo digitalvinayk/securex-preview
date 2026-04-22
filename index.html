@@ -130,57 +130,78 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .hero-visual{display:none}
 
-/* ===== VERISURE-STYLE FUNNEL ===== */
-.funnel-section{padding:0;background:#fff}
-.funnel-wrap{max-width:860px;margin:0 auto;padding:40px 24px 60px}
-/* Progress bar */
-.funnel-progress{display:flex;align-items:flex-start;gap:0;margin-bottom:12px;position:relative}
-.funnel-phases{display:flex;justify-content:space-between;width:100%;position:relative}
-.funnel-phase{font-size:13px;font-weight:600;color:#bbb;text-transform:uppercase;letter-spacing:.5px;transition:color .3s;flex:1;text-align:center}
-.funnel-phase.active,.funnel-phase.done{color:#000}
-.funnel-track{width:100%;height:4px;background:#e5e5e5;border-radius:4px;position:relative;margin-top:10px}
-.funnel-track-fill{height:100%;background:#000;border-radius:4px;transition:width .5s ease;width:0%}
-.funnel-track-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#000;border:3px solid #fff;box-shadow:0 0 0 2px #000;transition:left .5s ease;left:0%}
-.funnel-timer{display:flex;align-items:center;gap:8px;margin-top:16px;justify-content:flex-end}
-.funnel-timer-num{font-family:'Inter';font-size:42px;font-weight:700;color:#000;line-height:1}
-.funnel-timer-label{font-size:12px;color:#999;line-height:1.3}
-/* Question */
-.funnel-question{margin-top:40px}
-.funnel-question h2{font-size:clamp(22px,3vw,30px);font-weight:600;color:#000;margin-bottom:28px;font-family:'Inter';line-height:1.3}
-/* Option pills */
-.funnel-options{display:flex;flex-direction:column;gap:14px;max-width:600px}
-.funnel-pill{display:flex;align-items:center;justify-content:space-between;background:#f0f0f0;border:none;border-radius:50px;padding:18px 28px;font-size:17px;font-weight:500;color:#000;cursor:pointer;transition:all .25s ease;font-family:inherit;width:100%;text-align:left}
-.funnel-pill:hover{background:#000;color:#fff}
-.funnel-pill:hover .funnel-pill-arrow{border-color:#fff;color:#fff}
-.funnel-pill-arrow{width:36px;height:36px;border-radius:50%;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;transition:all .25s ease;flex-shrink:0;color:#ccc}
-.funnel-pill-arrow svg{width:16px;height:16px}
+/* ===== 5-STEP WIZARD (matches original Securex) ===== */
+.funnel-section{padding:40px 0 80px;background:#fff}
+.funnel-wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.funnel-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.06);overflow:hidden}
+/* Stepper - 5 numbered circles */
+.funnel-stepper{display:flex;justify-content:space-between;padding:30px 40px 20px;position:relative;border-bottom:1px solid var(--gray-100)}
+.funnel-stepper::before{content:'';position:absolute;bottom:20px;left:80px;right:80px;height:2px;background:var(--gray-200);z-index:1}
+.funnel-stepper-progress{position:absolute;bottom:20px;left:80px;height:2px;background:#000;width:0;transition:width .4s ease;z-index:2;max-width:calc(100% - 160px)}
+.funnel-step{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:3;flex:1}
+.funnel-step-circle{width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-family:'Inter';font-size:14px;font-weight:600;color:var(--gray-400);transition:all .3s}
+.funnel-step.active .funnel-step-circle{border-color:#000;color:#000;box-shadow:0 0 0 4px rgba(0,0,0,.05)}
+.funnel-step.done .funnel-step-circle{background:#000;border-color:#000;color:#fff}
+.funnel-step-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);transition:color .3s}
+.funnel-step.active .funnel-step-label,.funnel-step.done .funnel-step-label{color:#000}
+/* Question area */
+.funnel-question{padding:36px 40px;min-height:340px}
+.funnel-question h2{font-size:22px;font-weight:700;color:#000;margin-bottom:8px;font-family:'Inter';line-height:1.3}
+.funnel-sub{font-size:14px;color:var(--gray-500);margin-bottom:28px;line-height:1.6}
+/* Card-based option grid */
+.funnel-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.funnel-card-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#fff;border:2px solid var(--gray-200);border-radius:12px;padding:24px 16px;min-height:110px;cursor:pointer;transition:all .2s ease;font-family:inherit;text-align:center}
+.funnel-card-opt i{font-size:26px;color:var(--gray-500);transition:color .2s}
+.funnel-card-opt span{font-size:14px;font-weight:500;color:#000}
+.funnel-card-opt:hover{border-color:var(--gray-400);background:var(--gray-50)}
+.funnel-card-opt.selected{border-color:#000;background:#000;color:#fff}
+.funnel-card-opt.selected i,.funnel-card-opt.selected span{color:#fff}
 /* Input step */
-.funnel-input-row{display:flex;gap:12px;max-width:500px;margin-top:8px}
-.funnel-input{flex:1;padding:16px 24px;border:2px solid #ddd;border-radius:50px;font-size:16px;font-family:inherit;outline:none;transition:border-color .2s}
+.funnel-input{width:100%;max-width:400px;padding:14px 20px;border:2px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
 .funnel-input:focus{border-color:#000}
-.funnel-submit{padding:16px 36px;border-radius:50px;background:#000;color:#fff;font-size:16px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:background .2s}
-.funnel-submit:hover{background:#333}
 /* Contact form */
 .funnel-form{display:flex;flex-direction:column;gap:16px;max-width:500px}
-.funnel-form label{font-size:14px;font-weight:600;color:#000;margin-bottom:4px;display:block}
-.funnel-form input{width:100%;padding:14px 20px;border:2px solid #ddd;border-radius:12px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
+.funnel-form label{font-size:13px;font-weight:600;color:#000;margin-bottom:6px;display:block}
+.funnel-form input{width:100%;padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
 .funnel-form input:focus{border-color:#000}
-.funnel-form-group{display:flex;flex-direction:column}
+/* Review summary */
+.funnel-review{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px}
+.funnel-review-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--gray-200);font-size:14px}
+.funnel-review-row:last-child{border-bottom:none}
+.funnel-review-label{color:var(--gray-500)}
+.funnel-review-value{font-weight:600;color:#000}
+/* Footer with Back/Continue */
+.funnel-footer{padding:20px 40px;background:#fff;border-top:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center}
+.funnel-btn{padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;border:none;font-family:inherit;transition:all .2s ease;display:inline-flex;align-items:center;gap:8px}
+.funnel-btn-back{background:var(--gray-100);color:var(--gray-500)}
+.funnel-btn-back:hover:not(:disabled){background:var(--gray-200);color:#000}
+.funnel-btn-back:disabled{opacity:.5;cursor:not-allowed}
+.funnel-btn-next{background:#000;color:#fff}
+.funnel-btn-next:hover{background:#333;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.funnel-btn-next:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.funnel-btn i{font-size:11px}
 /* Success */
-.funnel-success{text-align:center;padding:60px 20px}
+.funnel-success{text-align:center;padding:60px 40px}
 .funnel-success-icon{width:80px;height:80px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 24px}
-.funnel-success h2{font-size:28px;margin-bottom:12px}
-.funnel-success p{color:#666;font-size:16px;max-width:400px;margin:0 auto}
+.funnel-success h2{font-size:28px;margin-bottom:12px;color:#000}
+.funnel-success p{color:var(--gray-500);font-size:15px;max-width:440px;margin:0 auto;line-height:1.6}
 /* Slide animation */
-.funnel-question{animation:funnelSlideIn .35s ease}
-@keyframes funnelSlideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+.funnel-question{animation:funnelSlide .3s ease}
+@keyframes funnelSlide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* Error banner */
+.funnel-error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca;padding:10px 16px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none}
+.funnel-error.show{display:block}
 /* Responsive */
 @media(max-width:600px){
-  .funnel-wrap{padding:24px 16px 40px}
-  .funnel-pill{padding:14px 20px;font-size:15px;border-radius:40px}
-  .funnel-timer-num{font-size:32px}
-  .funnel-input-row{flex-direction:column}
-  .funnel-phase{font-size:11px}
+  .funnel-stepper{padding:24px 20px 16px}
+  .funnel-stepper::before,.funnel-stepper-progress{left:40px;right:40px}
+  .funnel-stepper-progress{max-width:calc(100% - 80px)}
+  .funnel-step-label{font-size:9px;letter-spacing:.5px}
+  .funnel-step-circle{width:32px;height:32px;font-size:13px}
+  .funnel-question{padding:24px 20px;min-height:280px}
+  .funnel-footer{padding:16px 20px}
+  .funnel-options{grid-template-columns:1fr}
+  .funnel-btn{padding:10px 20px;font-size:13px}
 }
 
 /* ===== TRUST BAR ===== */
@@ -712,24 +733,39 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 <!-- ===== VERISURE-STYLE FUNNEL ===== -->
 <section class="funnel-section" id="quote">
   <div class="funnel-wrap">
-    <!-- Progress -->
-    <div class="funnel-progress">
-      <div class="funnel-phases">
-        <span class="funnel-phase active" id="fp1">About Installing Your System</span>
-        <span class="funnel-phase" id="fp2">Security Measures</span>
-        <span class="funnel-phase" id="fp3">Request Quote</span>
+    <div class="funnel-card" id="funnelCard">
+      <!-- 5-Step Stepper -->
+      <div class="funnel-stepper">
+        <div class="funnel-stepper-progress" id="funnelProgress"></div>
+        <div class="funnel-step active" data-step="0">
+          <div class="funnel-step-circle">1</div>
+          <div class="funnel-step-label">Service</div>
+        </div>
+        <div class="funnel-step" data-step="1">
+          <div class="funnel-step-circle">2</div>
+          <div class="funnel-step-label">Property</div>
+        </div>
+        <div class="funnel-step" data-step="2">
+          <div class="funnel-step-circle">3</div>
+          <div class="funnel-step-label">System</div>
+        </div>
+        <div class="funnel-step" data-step="3">
+          <div class="funnel-step-circle">4</div>
+          <div class="funnel-step-label">Review</div>
+        </div>
+        <div class="funnel-step" data-step="4">
+          <div class="funnel-step-circle">5</div>
+          <div class="funnel-step-label">Contact</div>
+        </div>
+      </div>
+      <!-- Question area -->
+      <div id="funnelQ" class="funnel-question"></div>
+      <!-- Footer buttons -->
+      <div class="funnel-footer">
+        <button class="funnel-btn funnel-btn-back" id="funnelBack" disabled>Back</button>
+        <button class="funnel-btn funnel-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
-    <div class="funnel-track">
-      <div class="funnel-track-fill" id="funnelFill"></div>
-      <div class="funnel-track-dot" id="funnelDot"></div>
-    </div>
-    <div class="funnel-timer">
-      <span class="funnel-timer-num" id="funnelTimer">30</span>
-      <span class="funnel-timer-label">seconds<br>to finish</span>
-    </div>
-    <!-- Question area -->
-    <div id="funnelQ" class="funnel-question"></div>
   </div>
 </section>
 
@@ -1163,210 +1199,259 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   });
 });
 
-// ===== VERISURE-STYLE FUNNEL =====
+// ===== 5-STEP WIZARD (matches original Securex site) =====
 (function(){
+  var TOTAL_STEPS=5; // Service / Property / System / Review / Contact
   var fStep=0;
-  var fData={};
-  var timerVal=30;
-  var timerInterval;
+  var fData={serviceType:null,propertyType:null,system:{}};
 
-  // Funnel steps config - Verisure-style with Home/Business branching
-  var homeSteps=[
-    {phase:0, q:'What type of home do you need security for?',
-     opts:['Detached House','Semi-Detached House','Terraced House','Maisonette','Flat']},
-    {phase:0, q:'Do you already use Wi-Fi video cameras at home?',
-     opts:['Yes, a video doorbell','Yes, indoor camera(s)','Yes, perimeter (outdoor) cameras','No']},
-    {phase:1, q:'Which devices would you like to be included in your home security system?',
-     opts:['Intruder Alarm System','CCTV / Camera System','Fire Alarm System','Access Control / Door Entry','All of the above']},
-    {phase:2, q:'What is the postcode of the property you\'d like to protect?', type:'input', placeholder:'e.g. N10 1HD', btnText:'Next'},
-    {phase:2, q:'In order to continue with your quote, please provide your phone number:', type:'phone'}
-  ];
-  var businessSteps=[
-    {phase:0, q:'What is your business like?',
-     opts:['Door at street level','Premises in a shopping centre/mall','Warehouse or factory building in an industrial estate','Office in a business centre/office block']},
-    {phase:0, q:'Do you already have a security system installed at your business?',
-     opts:['Yes, a burglar alarm','Yes, CCTV cameras','Yes, access control','Yes, fire alarm','No']},
-    {phase:1, q:'Which devices would you like to be included in your business security system?',
-     opts:['Intruder Alarm System','CCTV / Camera System','Fire Alarm System','Access Control / Door Entry','All of the above']},
-    {phase:2, q:'What is the postcode of the property you\'d like to protect?', type:'input', placeholder:'e.g. N10 1HD', btnText:'Next'},
-    {phase:2, q:'In order to continue with your quote, please provide your phone number:', type:'phone'}
-  ];
-  var step0={phase:0, q:'Are you interested in security for your home, or your business?', opts:['Home','Business']};
-  var steps=[step0];
-  var branched=false;
+  // System config options per service type
+  var installSystemOpts={
+    monitoring:['No Monitoring','App Notifications','Guard Response','Keyholder Response','Police Response'],
+    communication:['Wi-Fi','4G / GPRS','Hardwired LAN']
+  };
+  var maintainSystemOpts={
+    make:['Honeywell','Pyronix','Texecom','Visonic','Other'],
+    type:['Wired System','Wireless System','Hybrid'],
+    count:['1-5','6-10','11-20','20+']
+  };
 
-  var totalSteps=steps.length;
+  function qs(sel){return document.querySelector(sel);}
+  function qsa(sel){return document.querySelectorAll(sel);}
 
-  function startTimer(){
-    clearInterval(timerInterval);
-    timerVal=30;
-    updateTimerDisplay();
-    timerInterval=setInterval(function(){
-      if(timerVal>0) timerVal--;
-      updateTimerDisplay();
-    },1000);
-  }
-
-  function updateTimerDisplay(){
-    var el=document.getElementById('funnelTimer');
-    if(el) el.textContent=timerVal;
-  }
-
-  function updateProgress(){
-    var pct=(fStep/(totalSteps-1))*100;
-    var fill=document.getElementById('funnelFill');
-    var dot=document.getElementById('funnelDot');
-    if(fill) fill.style.width=pct+'%';
-    if(dot) dot.style.left=pct+'%';
-    // Update phase labels
-    var s=steps[fStep];
-    var phases=['fp1','fp2','fp3'];
-    for(var i=0;i<3;i++){
-      var el=document.getElementById(phases[i]);
-      if(!el) continue;
-      if(i<s.phase) el.className='funnel-phase done';
-      else if(i===s.phase) el.className='funnel-phase active';
-      else el.className='funnel-phase';
-    }
-  }
-
-  function makePillArrow(){
-    var arrow=document.createElement('span');
-    arrow.className='funnel-pill-arrow';
-    var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('fill','none');
-    svg.setAttribute('stroke','currentColor');svg.setAttribute('stroke-width','2');
-    var path=document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d','M9 5l7 7-7 7');
-    svg.appendChild(path);arrow.appendChild(svg);
-    return arrow;
-  }
-
-  function renderStep(){
-    var container=document.getElementById('funnelQ');
-    if(!container) return;
-    while(container.firstChild) container.removeChild(container.firstChild);
-
-    var s=steps[fStep];
-    updateProgress();
-
-    // Force re-trigger animation
-    container.style.animation='none';
-    container.offsetHeight;
-    container.style.animation='';
-
-    var h2=document.createElement('h2');
-    h2.textContent=s.q;
-    container.appendChild(h2);
-
-    if(s.type==='input'){
-      // Postcode input step
-      var row=document.createElement('div');
-      row.className='funnel-input-row';
-      var inp=document.createElement('input');
-      inp.type='text';inp.className='funnel-input';
-      inp.placeholder=s.placeholder||'';
-      inp.id='funnelPostcode';
-      var btn=document.createElement('button');
-      btn.className='funnel-submit';btn.textContent=s.btnText||'Next';
-      btn.addEventListener('click',function(){
-        var val=document.getElementById('funnelPostcode').value.trim();
-        if(val.length<3) return;
-        fData.postcode=val;
-        fStep++;renderStep();
-      });
-      row.appendChild(inp);row.appendChild(btn);
-      container.appendChild(row);
-
-    } else if(s.type==='phone'){
-      // Phone number step (Verisure-style final step)
-      var row=document.createElement('div');
-      row.className='funnel-input-row';
-      var inp=document.createElement('input');
-      inp.type='tel';inp.className='funnel-input';
-      inp.placeholder='Phone Number';
-      inp.id='funnelPhone';
-      var btn=document.createElement('button');
-      btn.className='funnel-submit';btn.textContent='Submit Request';
-      btn.addEventListener('click',function(){
-        var val=document.getElementById('funnelPhone').value.trim();
-        if(val.length<6) return;
-        fData.phone=val;
-        clearInterval(timerInterval);
-        showSuccess();
-      });
-      row.appendChild(inp);row.appendChild(btn);
-      container.appendChild(row);
-      var privacy=document.createElement('p');
-      privacy.style.cssText='font-size:13px;color:#999;margin-top:16px';
-      var privText=document.createTextNode('For more information on how we use your personal data, read our ');
-      var privLink=document.createElement('a');
-      privLink.href='#';privLink.textContent='Privacy Notice';
-      privLink.style.cssText='color:#000;text-decoration:underline';
-      privacy.appendChild(privText);privacy.appendChild(privLink);
-      container.appendChild(privacy);
-
+  function updateStepper(){
+    var pct=fStep===0 ? 0 : (fStep/(TOTAL_STEPS-1))*100;
+    qs('#funnelProgress').style.width=pct+'%';
+    qsa('.funnel-step').forEach(function(el,i){
+      el.classList.remove('active','done');
+      if(i<fStep) el.classList.add('done');
+      else if(i===fStep) el.classList.add('active');
+    });
+    // Update Back/Next buttons
+    qs('#funnelBack').disabled=(fStep===0);
+    var nextBtn=qs('#funnelNext');
+    while(nextBtn.firstChild) nextBtn.removeChild(nextBtn.firstChild);
+    if(fStep===TOTAL_STEPS-1){
+      nextBtn.appendChild(document.createTextNode('Submit Request '));
+      var icon=document.createElement('i');icon.className='fas fa-paper-plane';
+      nextBtn.appendChild(icon);
     } else {
-      // Option pills (auto-advance on click)
-      var opts=document.createElement('div');
-      opts.className='funnel-options';
-      s.opts.forEach(function(label){
-        var pill=document.createElement('button');
-        pill.className='funnel-pill';
-        var txt=document.createElement('span');
-        txt.textContent=label;
-        pill.appendChild(txt);
-        pill.appendChild(makePillArrow());
-        pill.addEventListener('click',function(){
-          fData['step'+fStep]=label;
-          // Branch after step 0 (Home vs Business)
-          if(fStep===0 && !branched){
-            if(label==='Home'){
-              steps=steps.concat(homeSteps);
-            } else {
-              steps=steps.concat(businessSteps);
-            }
-            totalSteps=steps.length;
-            branched=true;
-          }
-          fStep++;
-          renderStep();
-        });
-        opts.appendChild(pill);
-      });
-      container.appendChild(opts);
+      nextBtn.appendChild(document.createTextNode('Continue '));
+      var icon=document.createElement('i');icon.className='fas fa-arrow-right';
+      nextBtn.appendChild(icon);
     }
+  }
+
+  function showError(msg){
+    var container=qs('#funnelQ');
+    var existing=qs('.funnel-error');
+    if(existing) existing.remove();
+    var err=document.createElement('div');
+    err.className='funnel-error show';
+    err.textContent=msg;
+    container.insertBefore(err,container.firstChild);
+    setTimeout(function(){ if(err.parentNode) err.remove(); },4000);
+  }
+
+  function createCardOption(iconClass,label,key,selectedValue){
+    var card=document.createElement('button');
+    card.type='button';
+    card.className='funnel-card-opt';
+    if(selectedValue===label) card.classList.add('selected');
+    var icon=document.createElement('i');icon.className=iconClass;
+    var txt=document.createElement('span');txt.textContent=label;
+    card.appendChild(icon);card.appendChild(txt);
+    card.addEventListener('click',function(){
+      // Deselect siblings
+      card.parentElement.querySelectorAll('.funnel-card-opt').forEach(function(s){s.classList.remove('selected');});
+      card.classList.add('selected');
+      if(key==='serviceType') fData.serviceType=label;
+      else if(key==='propertyType') fData.propertyType=label;
+      else if(key.indexOf('system.')===0) fData.system[key.replace('system.','')]=label;
+    });
+    return card;
+  }
+
+  function renderQuestion(){
+    var container=qs('#funnelQ');
+    while(container.firstChild) container.removeChild(container.firstChild);
+    container.style.animation='none';container.offsetHeight;container.style.animation='';
+
+    if(fStep===0){
+      renderService(container);
+    } else if(fStep===1){
+      renderProperty(container);
+    } else if(fStep===2){
+      renderSystem(container);
+    } else if(fStep===3){
+      renderReview(container);
+    } else if(fStep===4){
+      renderContact(container);
+    }
+    updateStepper();
+  }
+
+  function renderService(c){
+    var h2=document.createElement('h2');h2.textContent='What do you need?';c.appendChild(h2);
+    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Select the primary service you are interested in.';c.appendChild(sub);
+    var opts=document.createElement('div');opts.className='funnel-options';
+    opts.appendChild(createCardOption('fas fa-screwdriver-wrench','New Installation','serviceType',fData.serviceType));
+    opts.appendChild(createCardOption('fas fa-shield-halved','Service & Maintenance','serviceType',fData.serviceType));
+    c.appendChild(opts);
+  }
+
+  function renderProperty(c){
+    var h2=document.createElement('h2');h2.textContent='Property Type';c.appendChild(h2);
+    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='What kind of property needs securing?';c.appendChild(sub);
+    var opts=document.createElement('div');opts.className='funnel-options';
+    opts.appendChild(createCardOption('fas fa-house','Residential','propertyType',fData.propertyType));
+    opts.appendChild(createCardOption('fas fa-building','Commercial','propertyType',fData.propertyType));
+    c.appendChild(opts);
+  }
+
+  function renderSystem(c){
+    var h2=document.createElement('h2');h2.textContent='System Configuration';c.appendChild(h2);
+    var sub=document.createElement('p');sub.className='funnel-sub';
+    if(fData.serviceType==='New Installation'){
+      sub.textContent='Tell us what level of monitoring and connection you need.';
+    } else {
+      sub.textContent='Tell us about your existing security system.';
+    }
+    c.appendChild(sub);
+
+    if(fData.serviceType==='New Installation'){
+      // Monitoring + Communication
+      var lbl1=document.createElement('label');lbl1.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:8px';lbl1.textContent='Monitoring Level';c.appendChild(lbl1);
+      var o1=document.createElement('div');o1.className='funnel-options';
+      installSystemOpts.monitoring.forEach(function(v){
+        var card=createCardOption('fas fa-bell',v,'system.monitoring',fData.system.monitoring);
+        o1.appendChild(card);
+      });
+      c.appendChild(o1);
+      var lbl2=document.createElement('label');lbl2.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:24px';lbl2.textContent='Communication Method';c.appendChild(lbl2);
+      var o2=document.createElement('div');o2.className='funnel-options';
+      installSystemOpts.communication.forEach(function(v){
+        var card=createCardOption('fas fa-wifi',v,'system.communication',fData.system.communication);
+        o2.appendChild(card);
+      });
+      c.appendChild(o2);
+    } else {
+      // Maintenance: make + type + count
+      var lbl1=document.createElement('label');lbl1.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:8px';lbl1.textContent='System Manufacturer';c.appendChild(lbl1);
+      var o1=document.createElement('div');o1.className='funnel-options';
+      maintainSystemOpts.make.forEach(function(v){
+        var card=createCardOption('fas fa-microchip',v,'system.make',fData.system.make);
+        o1.appendChild(card);
+      });
+      c.appendChild(o1);
+      var lbl2=document.createElement('label');lbl2.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:24px';lbl2.textContent='Connection Type';c.appendChild(lbl2);
+      var o2=document.createElement('div');o2.className='funnel-options';
+      maintainSystemOpts.type.forEach(function(v){
+        var card=createCardOption('fas fa-plug',v,'system.type',fData.system.type);
+        o2.appendChild(card);
+      });
+      c.appendChild(o2);
+      var lbl3=document.createElement('label');lbl3.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:24px';lbl3.textContent='Approximate Device Count';c.appendChild(lbl3);
+      var o3=document.createElement('div');o3.className='funnel-options';
+      maintainSystemOpts.count.forEach(function(v){
+        var card=createCardOption('fas fa-hashtag',v,'system.count',fData.system.count);
+        o3.appendChild(card);
+      });
+      c.appendChild(o3);
+    }
+  }
+
+  function renderReview(c){
+    var h2=document.createElement('h2');h2.textContent='Review Details';c.appendChild(h2);
+    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Please verify your configuration before continuing.';c.appendChild(sub);
+    var box=document.createElement('div');box.className='funnel-review';
+    function addRow(k,v){
+      if(!v) return;
+      var r=document.createElement('div');r.className='funnel-review-row';
+      var l=document.createElement('span');l.className='funnel-review-label';l.textContent=k;
+      var val=document.createElement('span');val.className='funnel-review-value';val.textContent=v;
+      r.appendChild(l);r.appendChild(val);box.appendChild(r);
+    }
+    addRow('Service',fData.serviceType);
+    addRow('Property',fData.propertyType);
+    if(fData.serviceType==='New Installation'){
+      addRow('Monitoring',fData.system.monitoring);
+      addRow('Communication',fData.system.communication);
+    } else {
+      addRow('Manufacturer',fData.system.make);
+      addRow('Connection Type',fData.system.type);
+      addRow('Device Count',fData.system.count);
+    }
+    c.appendChild(box);
+  }
+
+  function renderContact(c){
+    var h2=document.createElement('h2');h2.textContent='Contact Information';c.appendChild(h2);
+    var sub=document.createElement('p');sub.className='funnel-sub';sub.textContent='Where should we send your quote?';c.appendChild(sub);
+    var form=document.createElement('div');form.className='funnel-form';
+    var fields=[
+      {id:'cName',label:'Full Name',type:'text',ph:'Jane Doe',val:fData.name||''},
+      {id:'cEmail',label:'Email Address',type:'email',ph:'jane@example.com',val:fData.email||''},
+      {id:'cPhone',label:'Phone Number',type:'tel',ph:'07700 900000',val:fData.phone||''}
+    ];
+    fields.forEach(function(f){
+      var grp=document.createElement('div');
+      var l=document.createElement('label');l.textContent=f.label;
+      var i=document.createElement('input');i.type=f.type;i.id=f.id;i.placeholder=f.ph;i.value=f.val;
+      grp.appendChild(l);grp.appendChild(i);form.appendChild(grp);
+    });
+    c.appendChild(form);
+  }
+
+  function validateCurrentStep(){
+    if(fStep===0 && !fData.serviceType){showError('Please select a service type.');return false;}
+    if(fStep===1 && !fData.propertyType){showError('Please select a property type.');return false;}
+    if(fStep===2){
+      if(fData.serviceType==='New Installation'){
+        if(!fData.system.monitoring){showError('Please select a monitoring level.');return false;}
+        if(!fData.system.communication){showError('Please select a communication method.');return false;}
+      } else {
+        if(!fData.system.make){showError('Please select a manufacturer.');return false;}
+        if(!fData.system.type){showError('Please select a connection type.');return false;}
+        if(!fData.system.count){showError('Please select device count.');return false;}
+      }
+    }
+    if(fStep===4){
+      var name=qs('#cName').value.trim();
+      var email=qs('#cEmail').value.trim();
+      var phone=qs('#cPhone').value.trim();
+      if(!name||!email||!phone){showError('Please fill in all fields.');return false;}
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){showError('Please enter a valid email.');return false;}
+      fData.name=name;fData.email=email;fData.phone=phone;
+    }
+    return true;
   }
 
   function showSuccess(){
-    var container=document.getElementById('funnelQ');
-    while(container.firstChild) container.removeChild(container.firstChild);
-    // Hide progress
-    var prog=document.querySelector('.funnel-progress');
-    var track=document.querySelector('.funnel-track');
-    var timer=document.querySelector('.funnel-timer');
-    if(prog) prog.style.display='none';
-    if(track) track.style.display='none';
-    if(timer) timer.style.display='none';
-
-    var wrap=document.createElement('div');
-    wrap.className='funnel-success';
-    var icon=document.createElement('div');
-    icon.className='funnel-success-icon';
-    var check=document.createElement('i');
-    check.className='fas fa-check';
-    icon.appendChild(check);
-    var h2=document.createElement('h2');
-    h2.textContent='Request Received!';
+    var card=qs('#funnelCard');
+    while(card.firstChild) card.removeChild(card.firstChild);
+    var wrap=document.createElement('div');wrap.className='funnel-success';
+    var icon=document.createElement('div');icon.className='funnel-success-icon';
+    var check=document.createElement('i');check.className='fas fa-check';icon.appendChild(check);
+    var h2=document.createElement('h2');h2.textContent='Request Received!';
     var p1=document.createElement('p');
-    p1.textContent='Thank you for your request. One of our security experts will call you shortly to discuss your requirements and provide a free, no-obligation quote.';
+    p1.textContent='Thank you, '+fData.name+'. One of our security experts will call you at '+fData.phone+' shortly to confirm your requirements and provide a free, no-obligation quote.';
     wrap.appendChild(icon);wrap.appendChild(h2);wrap.appendChild(p1);
-    container.appendChild(wrap);
+    card.appendChild(wrap);
   }
 
+  // Button handlers
+  qs('#funnelNext').addEventListener('click',function(){
+    if(!validateCurrentStep()) return;
+    if(fStep===TOTAL_STEPS-1){showSuccess();return;}
+    fStep++;renderQuestion();
+  });
+  qs('#funnelBack').addEventListener('click',function(){
+    if(fStep>0){fStep--;renderQuestion();}
+  });
+
   // Init
-  startTimer();
-  renderStep();
+  renderQuestion();
 })();
 
 // Scroll animations
