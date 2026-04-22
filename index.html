@@ -159,6 +159,45 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 /* Input step */
 .funnel-input{width:100%;max-width:400px;padding:14px 20px;border:2px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s}
 .funnel-input:focus{border-color:#000}
+/* System step - Room Builder */
+.funnel-sys-box{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:14px;padding:24px;margin-bottom:20px}
+.funnel-sys-title{font-family:'Inter';font-size:15px;font-weight:700;color:#000;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.funnel-sys-title-num{width:26px;height:26px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.funnel-room-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.funnel-room-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;border:1.5px solid var(--gray-200);border-radius:10px;padding:16px 10px;min-height:88px;cursor:pointer;transition:all .2s ease;font-family:inherit;text-align:center}
+.funnel-room-card i{font-size:22px;color:var(--gray-500);transition:color .2s}
+.funnel-room-card span{font-size:12px;font-weight:500;color:#000;line-height:1.2}
+.funnel-room-card:hover{border-color:#000;background:#fff}
+.funnel-room-card:hover i{color:#000}
+.funnel-room-card.staging{border-color:#000;background:#fff;box-shadow:0 0 0 4px rgba(0,0,0,.05)}
+.funnel-staging{background:#fff;border:2px dashed #000;border-radius:10px;padding:16px;margin-top:14px}
+.funnel-staging-title{font-size:13px;font-weight:700;color:#000;margin-bottom:10px}
+.funnel-sensor-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.funnel-sensor-chip{padding:6px 14px;border-radius:50px;border:1.5px solid var(--gray-200);background:#fff;color:var(--gray-600);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s ease;font-family:inherit}
+.funnel-sensor-chip:hover{border-color:#000;color:#000}
+.funnel-sensor-chip.active{background:#000;color:#fff;border-color:#000}
+.funnel-staging-btn{width:100%;padding:10px;border-radius:8px;background:#000;color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.funnel-staging-btn:hover{background:#333}
+.funnel-added-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.funnel-added-empty{text-align:center;padding:18px;color:var(--gray-400);font-size:13px;font-style:italic;border-top:1px dashed var(--gray-200);margin-top:14px}
+.funnel-added-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:12px 14px}
+.funnel-added-info{flex:1;min-width:0}
+.funnel-added-name{font-size:13px;font-weight:700;color:#000;margin-bottom:2px}
+.funnel-added-sensors{font-size:11px;color:var(--gray-500);line-height:1.4}
+.funnel-added-remove{width:30px;height:30px;border-radius:50%;background:#fee;color:#dc2626;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .15s;flex-shrink:0}
+.funnel-added-remove:hover{background:#dc2626;color:#fff}
+.funnel-sys-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.funnel-sys-options .funnel-card-opt{min-height:76px;padding:14px 12px}
+.funnel-sys-options .funnel-card-opt i{font-size:18px}
+.funnel-sys-options .funnel-card-opt span{font-size:13px}
+@media(max-width:600px){
+  .funnel-sys-box{padding:18px}
+  .funnel-room-grid{grid-template-columns:repeat(3,1fr)}
+  .funnel-room-card{min-height:78px;padding:12px 8px}
+  .funnel-room-card i{font-size:18px}
+  .funnel-room-card span{font-size:11px}
+}
+
 /* Contact form - Premium styling */
 .funnel-form{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:640px}
 .funnel-form .form-group-full{grid-column:1/-1}
@@ -1229,6 +1268,41 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     count:['1-5','6-10','11-20','20+']
   };
 
+  // Full room + sensor config (matches original Securex form)
+  var ROOMS={
+    Residential:[
+      {name:'Front Door',icon:'fa-door-open',sensors:['Door Contact']},
+      {name:'Entrance Hall',icon:'fa-person-walking',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
+      {name:'Lounge',icon:'fa-couch',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
+      {name:'Kitchen',icon:'fa-kitchen-set',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Heat Detector']},
+      {name:'Utility Room',icon:'fa-faucet-drip',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector','Flood Sensor']},
+      {name:'WC',icon:'fa-restroom',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor']},
+      {name:'Landing',icon:'fa-stairs',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
+      {name:'Bedroom',icon:'fa-bed',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
+      {name:'Bathroom',icon:'fa-bath',sensors:['Motion Sensor','Shock Sensor']},
+      {name:'Loft Room',icon:'fa-house-chimney',sensors:['Motion Sensor','Shock Sensor','Smoke Detector']},
+      {name:'Garage',icon:'fa-warehouse',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector']},
+      {name:'Shed / Storage',icon:'fa-dungeon',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector']},
+      {name:'Outbuilding',icon:'fa-tents',sensors:['Door Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
+      {name:'External Area',icon:'fa-tree',sensors:['External Beam Front','External Beam Rear','External Beam Left','External Beam Right']}
+    ],
+    Commercial:[
+      {name:'Front Door',icon:'fa-door-open',sensors:['Door Contact']},
+      {name:'Entrance Lobby',icon:'fa-door-closed',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector','Panic Button']},
+      {name:'Reception',icon:'fa-bell-concierge',sensors:['Magnetic Contact','Motion Sensor','Panic Button','Smoke Detector','Shock Sensor']},
+      {name:'Office / Room',icon:'fa-briefcase',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button','Smoke Detector']},
+      {name:'Kitchen',icon:'fa-mug-hot',sensors:['Magnetic Contact','Motion Sensor','Heat Detector','Shock Sensor','Panic Button']},
+      {name:'WC',icon:'fa-restroom',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor']},
+      {name:'Shop Front',icon:'fa-store',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Panic Button']},
+      {name:'Storage Room',icon:'fa-box',sensors:['Magnetic Contact','Motion Sensor','Smoke Detector']},
+      {name:'Warehouse',icon:'fa-warehouse',sensors:['Magnetic Contact','Motion Sensor','Shock Sensor','Smoke Detector','Panic Button']}
+    ]
+  };
+
+  // Staging state for sensor selection
+  var stagingRoom=null;
+  var stagingSensors=[];
+
   function qs(sel){return document.querySelector(sel);}
   function qsa(sel){return document.querySelectorAll(sel);}
 
@@ -1326,52 +1400,176 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     var h2=document.createElement('h2');h2.textContent='System Configuration';c.appendChild(h2);
     var sub=document.createElement('p');sub.className='funnel-sub';
     if(fData.serviceType==='New Installation'){
-      sub.textContent='Tell us what level of monitoring and connection you need.';
+      sub.textContent='Build your system by adding rooms and options.';
     } else {
       sub.textContent='Tell us about your existing security system.';
     }
     c.appendChild(sub);
+    if(fData.serviceType==='New Installation') renderInstallSystem(c);
+    else renderMaintainSystem(c);
+  }
 
-    if(fData.serviceType==='New Installation'){
-      // Monitoring + Communication
-      var lbl1=document.createElement('label');lbl1.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:8px';lbl1.textContent='Monitoring Level';c.appendChild(lbl1);
-      var o1=document.createElement('div');o1.className='funnel-options';
-      installSystemOpts.monitoring.forEach(function(v){
-        var card=createCardOption('fas fa-bell',v,'system.monitoring',fData.system.monitoring);
-        o1.appendChild(card);
+  function renderInstallSystem(c){
+    // BOX 1 - Add Areas (Rooms)
+    var roomList=ROOMS[fData.propertyType]||ROOMS.Residential;
+    if(!fData.system.rooms) fData.system.rooms=[];
+
+    var box1=document.createElement('div');box1.className='funnel-sys-box';
+    var t1=document.createElement('div');t1.className='funnel-sys-title';
+    var n1=document.createElement('span');n1.className='funnel-sys-title-num';n1.textContent='1';
+    t1.appendChild(n1);
+    t1.appendChild(document.createTextNode('Add Areas ('+fData.propertyType+')'));
+    box1.appendChild(t1);
+
+    var grid=document.createElement('div');grid.className='funnel-room-grid';
+    roomList.forEach(function(r,idx){
+      var card=document.createElement('button');
+      card.type='button';
+      card.className='funnel-room-card';
+      if(stagingRoom===idx) card.classList.add('staging');
+      var ic=document.createElement('i');ic.className='fas '+r.icon;
+      var sp=document.createElement('span');sp.textContent=r.name;
+      card.appendChild(ic);card.appendChild(sp);
+      card.addEventListener('click',function(){
+        stagingRoom=(stagingRoom===idx?null:idx);
+        stagingSensors=[];
+        renderQuestion();
       });
-      c.appendChild(o1);
-      var lbl2=document.createElement('label');lbl2.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:24px';lbl2.textContent='Communication Method';c.appendChild(lbl2);
-      var o2=document.createElement('div');o2.className='funnel-options';
-      installSystemOpts.communication.forEach(function(v){
-        var card=createCardOption('fas fa-wifi',v,'system.communication',fData.system.communication);
-        o2.appendChild(card);
+      grid.appendChild(card);
+    });
+    box1.appendChild(grid);
+
+    // Staging area (sensor selection)
+    if(stagingRoom!==null && roomList[stagingRoom]){
+      var room=roomList[stagingRoom];
+      var stage=document.createElement('div');stage.className='funnel-staging';
+      var st=document.createElement('div');st.className='funnel-staging-title';
+      st.textContent='Select sensors for '+room.name+':';
+      stage.appendChild(st);
+      var chips=document.createElement('div');chips.className='funnel-sensor-chips';
+      room.sensors.forEach(function(s){
+        var chip=document.createElement('button');chip.type='button';chip.className='funnel-sensor-chip';
+        if(stagingSensors.indexOf(s)>=0) chip.classList.add('active');
+        chip.textContent=s;
+        chip.addEventListener('click',function(){
+          var i=stagingSensors.indexOf(s);
+          if(i>=0) stagingSensors.splice(i,1);
+          else stagingSensors.push(s);
+          chip.classList.toggle('active');
+        });
+        chips.appendChild(chip);
       });
-      c.appendChild(o2);
-    } else {
-      // Maintenance: make + type + count
-      var lbl1=document.createElement('label');lbl1.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:8px';lbl1.textContent='System Manufacturer';c.appendChild(lbl1);
-      var o1=document.createElement('div');o1.className='funnel-options';
-      maintainSystemOpts.make.forEach(function(v){
-        var card=createCardOption('fas fa-microchip',v,'system.make',fData.system.make);
-        o1.appendChild(card);
+      stage.appendChild(chips);
+      var addBtn=document.createElement('button');addBtn.type='button';addBtn.className='funnel-staging-btn';
+      addBtn.innerHTML='<i class="fas fa-plus"></i> Add '+room.name+' to my system';
+      addBtn.addEventListener('click',function(){
+        if(stagingSensors.length===0){showError('Please select at least one sensor.');return;}
+        fData.system.rooms.push({name:room.name,sensors:stagingSensors.slice()});
+        stagingRoom=null;stagingSensors=[];
+        renderQuestion();
       });
-      c.appendChild(o1);
-      var lbl2=document.createElement('label');lbl2.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:24px';lbl2.textContent='Connection Type';c.appendChild(lbl2);
-      var o2=document.createElement('div');o2.className='funnel-options';
-      maintainSystemOpts.type.forEach(function(v){
-        var card=createCardOption('fas fa-plug',v,'system.type',fData.system.type);
-        o2.appendChild(card);
-      });
-      c.appendChild(o2);
-      var lbl3=document.createElement('label');lbl3.style.cssText='display:block;font-size:13px;font-weight:600;color:#000;margin-bottom:10px;margin-top:24px';lbl3.textContent='Approximate Device Count';c.appendChild(lbl3);
-      var o3=document.createElement('div');o3.className='funnel-options';
-      maintainSystemOpts.count.forEach(function(v){
-        var card=createCardOption('fas fa-hashtag',v,'system.count',fData.system.count);
-        o3.appendChild(card);
-      });
-      c.appendChild(o3);
+      stage.appendChild(addBtn);
+      box1.appendChild(stage);
     }
+
+    // Added rooms list
+    if(fData.system.rooms.length===0){
+      var empty=document.createElement('div');empty.className='funnel-added-empty';
+      empty.textContent='No areas added yet. Click a room above to begin.';
+      box1.appendChild(empty);
+    } else {
+      var list=document.createElement('div');list.className='funnel-added-list';
+      fData.system.rooms.forEach(function(rm,i){
+        var row=document.createElement('div');row.className='funnel-added-row';
+        var info=document.createElement('div');info.className='funnel-added-info';
+        var nm=document.createElement('div');nm.className='funnel-added-name';nm.textContent=rm.name;
+        var sn=document.createElement('div');sn.className='funnel-added-sensors';sn.textContent=rm.sensors.join(' · ');
+        info.appendChild(nm);info.appendChild(sn);
+        var rem=document.createElement('button');rem.type='button';rem.className='funnel-added-remove';
+        rem.innerHTML='<i class="fas fa-trash"></i>';rem.title='Remove';
+        rem.addEventListener('click',function(){
+          fData.system.rooms.splice(i,1);
+          renderQuestion();
+        });
+        row.appendChild(info);row.appendChild(rem);
+        list.appendChild(row);
+      });
+      box1.appendChild(list);
+    }
+    c.appendChild(box1);
+
+    // BOX 2 - Monitoring Level
+    var box2=document.createElement('div');box2.className='funnel-sys-box';
+    var t2=document.createElement('div');t2.className='funnel-sys-title';
+    var n2=document.createElement('span');n2.className='funnel-sys-title-num';n2.textContent='2';
+    t2.appendChild(n2);
+    t2.appendChild(document.createTextNode('Monitoring Level'));
+    box2.appendChild(t2);
+    var monIcons={'No Monitoring':'fa-ban','App Notifications':'fa-mobile-screen','Guard Response':'fa-user-shield','Keyholder Response':'fa-key','Police Response':'fa-shield-halved'};
+    var o1=document.createElement('div');o1.className='funnel-sys-options';
+    installSystemOpts.monitoring.forEach(function(v){
+      var card=createCardOption('fas '+(monIcons[v]||'fa-bell'),v,'system.monitoring',fData.system.monitoring);
+      o1.appendChild(card);
+    });
+    box2.appendChild(o1);
+    c.appendChild(box2);
+
+    // BOX 3 - Communication Method
+    var box3=document.createElement('div');box3.className='funnel-sys-box';
+    var t3=document.createElement('div');t3.className='funnel-sys-title';
+    var n3=document.createElement('span');n3.className='funnel-sys-title-num';n3.textContent='3';
+    t3.appendChild(n3);
+    t3.appendChild(document.createTextNode('Communication Method'));
+    box3.appendChild(t3);
+    var commIcons={'Wi-Fi':'fa-wifi','4G / GPRS':'fa-signal','Hardwired LAN':'fa-ethernet'};
+    var o2=document.createElement('div');o2.className='funnel-sys-options';
+    installSystemOpts.communication.forEach(function(v){
+      var card=createCardOption('fas '+(commIcons[v]||'fa-wifi'),v,'system.communication',fData.system.communication);
+      o2.appendChild(card);
+    });
+    box3.appendChild(o2);
+    c.appendChild(box3);
+  }
+
+  function renderMaintainSystem(c){
+    // Maintenance: make + type + count (simpler)
+    var box1=document.createElement('div');box1.className='funnel-sys-box';
+    var t1=document.createElement('div');t1.className='funnel-sys-title';
+    var n1=document.createElement('span');n1.className='funnel-sys-title-num';n1.textContent='1';
+    t1.appendChild(n1);t1.appendChild(document.createTextNode('System Manufacturer'));
+    box1.appendChild(t1);
+    var o1=document.createElement('div');o1.className='funnel-sys-options';
+    var makeIcons={'Honeywell':'fa-microchip','Pyronix':'fa-shield','Texecom':'fa-network-wired','Visonic':'fa-tower-broadcast','Other':'fa-question'};
+    maintainSystemOpts.make.forEach(function(v){
+      var card=createCardOption('fas '+(makeIcons[v]||'fa-microchip'),v,'system.make',fData.system.make);
+      o1.appendChild(card);
+    });
+    box1.appendChild(o1);c.appendChild(box1);
+
+    var box2=document.createElement('div');box2.className='funnel-sys-box';
+    var t2=document.createElement('div');t2.className='funnel-sys-title';
+    var n2=document.createElement('span');n2.className='funnel-sys-title-num';n2.textContent='2';
+    t2.appendChild(n2);t2.appendChild(document.createTextNode('Connection Type'));
+    box2.appendChild(t2);
+    var o2=document.createElement('div');o2.className='funnel-sys-options';
+    var typeIcons={'Wired System':'fa-plug','Wireless System':'fa-wifi','Hybrid':'fa-shuffle'};
+    maintainSystemOpts.type.forEach(function(v){
+      var card=createCardOption('fas '+(typeIcons[v]||'fa-plug'),v,'system.type',fData.system.type);
+      o2.appendChild(card);
+    });
+    box2.appendChild(o2);c.appendChild(box2);
+
+    var box3=document.createElement('div');box3.className='funnel-sys-box';
+    var t3=document.createElement('div');t3.className='funnel-sys-title';
+    var n3=document.createElement('span');n3.className='funnel-sys-title-num';n3.textContent='3';
+    t3.appendChild(n3);t3.appendChild(document.createTextNode('Approximate Device Count'));
+    box3.appendChild(t3);
+    var o3=document.createElement('div');o3.className='funnel-sys-options';
+    maintainSystemOpts.count.forEach(function(v){
+      var card=createCardOption('fas fa-hashtag',v,'system.count',fData.system.count);
+      o3.appendChild(card);
+    });
+    box3.appendChild(o3);c.appendChild(box3);
   }
 
   function renderReview(c){
@@ -1388,6 +1586,10 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     addRow('Service',fData.serviceType);
     addRow('Property',fData.propertyType);
     if(fData.serviceType==='New Installation'){
+      if(fData.system.rooms && fData.system.rooms.length>0){
+        var roomSummary=fData.system.rooms.map(function(r){return r.name+' ('+r.sensors.length+' sensor'+(r.sensors.length>1?'s':'')+')';}).join(', ');
+        addRow('Areas ('+fData.system.rooms.length+')',roomSummary);
+      }
       addRow('Monitoring',fData.system.monitoring);
       addRow('Communication',fData.system.communication);
     } else {
@@ -1456,6 +1658,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     if(fStep===1 && !fData.propertyType){showError('Please select a property type.');return false;}
     if(fStep===2){
       if(fData.serviceType==='New Installation'){
+        if(!fData.system.rooms || fData.system.rooms.length===0){showError('Please add at least one area to your system.');return false;}
         if(!fData.system.monitoring){showError('Please select a monitoring level.');return false;}
         if(!fData.system.communication){showError('Please select a communication method.');return false;}
       } else {
