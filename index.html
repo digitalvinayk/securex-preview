@@ -754,11 +754,13 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 <section class="funnel-section" id="quote">
   <div class="funnel-wrap">
     <div class="funnel-card" id="funnelCard">
-      <!-- 3-phase nav (Verisure style) -->
+      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
       <div class="vfn-phases" id="vfnPhases">
-        <div class="vfn-phase active" data-phase="0">About Your Property</div>
-        <div class="vfn-phase" data-phase="1">Security Measures</div>
-        <div class="vfn-phase" data-phase="2">Request Quote</div>
+        <div class="vfn-phase active" data-phase="0">Service</div>
+        <div class="vfn-phase" data-phase="1">Property</div>
+        <div class="vfn-phase" data-phase="2">System</div>
+        <div class="vfn-phase" data-phase="3">Review</div>
+        <div class="vfn-phase" data-phase="4">Contact</div>
       </div>
       <!-- Countdown timer -->
       <div class="vfn-timer">
@@ -1208,49 +1210,85 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
 
 // ===== VERISURE-STYLE FUNNEL =====
 (function(){
-  // Each step = single question. Phases group steps into 3 nav sections.
+  // Each step = single question. Phases: 0 Service, 1 Property, 2 System, 3 Review, 4 Contact.
+  // Matches all 5 questions from the original Securex form.
   var STEPS=[
-    {key:'propertyKind',phase:0,q:'Are you looking to protect a home, or a business?',opts:[
-      {v:'Home',i:'fa-house'},
-      {v:'Business',i:'fa-building'}
+    // PHASE 0 - SERVICE
+    {key:'serviceType',phase:0,q:'What do you need?',sub:'Select the primary service you are interested in.',opts:[
+      {v:'New Installation',i:'fa-screwdriver-wrench'},
+      {v:'Service & Maintenance',i:'fa-shield-halved'}
     ]},
-    {key:'propertyType',phase:0,q:'What type of property do you need security for?',optsByKind:{
-      Home:[
-        {v:'Detached House',i:'fa-house-chimney'},
-        {v:'Semi-Detached House',i:'fa-house-chimney-window'},
-        {v:'Terraced House',i:'fa-house-chimney-medical'},
-        {v:'Maisonette',i:'fa-building-circle-check'},
-        {v:'Flat / Apartment',i:'fa-building'}
+    // PHASE 1 - PROPERTY
+    {key:'propertyType',phase:1,q:'What kind of property needs securing?',sub:'Choose the type that best matches your premises.',opts:[
+      {v:'Residential',i:'fa-house'},
+      {v:'Commercial',i:'fa-building'}
+    ]},
+    // PHASE 2 - SYSTEM (branches by serviceType)
+    // For New Installation: rooms (multi) + monitoring + communication
+    {key:'rooms',phase:2,q:'Which areas need protecting?',sub:'Select all areas you would like covered. You can pick more than one.',multi:true,onlyIf:function(d){return d.serviceType==='New Installation';},optsByKind:{
+      Residential:[
+        {v:'Front Door',i:'fa-door-closed'},
+        {v:'Entrance Hall',i:'fa-person-walking'},
+        {v:'Lounge',i:'fa-couch'},
+        {v:'Kitchen',i:'fa-utensils'},
+        {v:'Utility Room',i:'fa-soap'},
+        {v:'WC',i:'fa-toilet'},
+        {v:'Landing',i:'fa-stairs'},
+        {v:'Bedroom',i:'fa-bed'},
+        {v:'Bathroom',i:'fa-bath'},
+        {v:'Loft Room',i:'fa-warehouse'},
+        {v:'Garage',i:'fa-car'},
+        {v:'Shed / Storage',i:'fa-box'},
+        {v:'Outbuilding',i:'fa-house-chimney'},
+        {v:'External Area',i:'fa-tree'}
       ],
-      Business:[
-        {v:'Office',i:'fa-briefcase'},
-        {v:'Retail / Shop',i:'fa-shop'},
-        {v:'Warehouse / Industrial',i:'fa-warehouse'},
-        {v:'Construction Site',i:'fa-helmet-safety'},
-        {v:'Other Commercial',i:'fa-building-columns'}
+      Commercial:[
+        {v:'Reception',i:'fa-bell-concierge'},
+        {v:'Office Area',i:'fa-briefcase'},
+        {v:'Meeting Rooms',i:'fa-people-group'},
+        {v:'Server Room',i:'fa-server'},
+        {v:'Storage / Stockroom',i:'fa-box'},
+        {v:'Warehouse',i:'fa-warehouse'},
+        {v:'Shop Floor',i:'fa-shop'},
+        {v:'External Area',i:'fa-tree'},
+        {v:'Car Park',i:'fa-square-parking'}
       ]
     }},
-    {key:'services',phase:1,q:'Which security services are you interested in?',opts:[
-      {v:'CCTV Installation',i:'fa-video'},
-      {v:'Intruder Alarm',i:'fa-shield-halved'},
-      {v:'Fire Alarm',i:'fa-fire-extinguisher'},
-      {v:'Access Control / Door Entry',i:'fa-door-open'},
-      {v:'Complete Security Package',i:'fa-star'}
+    {key:'monitoring',phase:2,q:'What level of monitoring would you like?',sub:'Choose how you want your system to respond to alerts.',onlyIf:function(d){return d.serviceType==='New Installation';},opts:[
+      {v:'No Monitoring',i:'fa-ban'},
+      {v:'App Notifications',i:'fa-mobile-screen'},
+      {v:'Guard Response',i:'fa-user-shield'},
+      {v:'Keyholder Response',i:'fa-key'},
+      {v:'Police Response',i:'fa-shield-halved'}
     ]},
-    {key:'existing',phase:1,q:'Do you already have a security system installed?',opts:[
-      {v:'No, looking to install',i:'fa-plus-circle'},
-      {v:'Yes, needs upgrading',i:'fa-arrow-up-right-dots'},
-      {v:'Yes, needs servicing or repair',i:'fa-screwdriver-wrench'}
+    {key:'communication',phase:2,q:'How should your system communicate?',sub:'Pick the connection method for alerts and updates.',onlyIf:function(d){return d.serviceType==='New Installation';},opts:[
+      {v:'Wi-Fi',i:'fa-wifi'},
+      {v:'4G / GPRS',i:'fa-signal'},
+      {v:'Hardwired LAN',i:'fa-network-wired'}
     ]},
-    {key:'timing',phase:1,q:'When would you like the work carried out?',opts:[
-      {v:'As soon as possible',i:'fa-bolt'},
-      {v:'Within the next month',i:'fa-calendar-day'},
-      {v:'Within 3 months',i:'fa-calendar'},
-      {v:'Just researching',i:'fa-magnifying-glass'}
+    // For Service & Maintenance: make + type + count
+    {key:'make',phase:2,q:'Who manufactured your existing system?',sub:'Tell us the brand of your current alarm or CCTV system.',onlyIf:function(d){return d.serviceType==='Service & Maintenance';},opts:[
+      {v:'Honeywell',i:'fa-microchip'},
+      {v:'Pyronix',i:'fa-shield'},
+      {v:'Texecom',i:'fa-network-wired'},
+      {v:'Visonic',i:'fa-tower-broadcast'},
+      {v:'Other / Not sure',i:'fa-question'}
     ]},
-    {key:'postcode',phase:2,q:'What is the postcode of the property?',input:{type:'text',ph:'e.g. SW1A 1AA',auto:'postal-code'}},
-    {key:'review',phase:2,q:'Quick review before we call you back',type:'review'},
-    {key:'contact',phase:2,q:'Who should we call with your free quote?',type:'contact'}
+    {key:'connection',phase:2,q:'What type of connection does it use?',sub:'Select how your existing system is wired.',onlyIf:function(d){return d.serviceType==='Service & Maintenance';},opts:[
+      {v:'Wired System',i:'fa-plug'},
+      {v:'Wireless System',i:'fa-wifi'},
+      {v:'Hybrid (Wired + Wireless)',i:'fa-shuffle'}
+    ]},
+    {key:'deviceCount',phase:2,q:'Roughly how many devices are installed?',sub:'An approximate count is fine. This helps us prepare the right quote.',onlyIf:function(d){return d.serviceType==='Service & Maintenance';},opts:[
+      {v:'1 to 5 devices',i:'fa-1'},
+      {v:'6 to 10 devices',i:'fa-6'},
+      {v:'11 to 20 devices',i:'fa-hashtag'},
+      {v:'More than 20',i:'fa-chart-simple'}
+    ]},
+    // PHASE 3 - REVIEW
+    {key:'review',phase:3,q:'Review your details',sub:'Please check the summary before we prepare your free, no-obligation quote.',type:'review'},
+    // PHASE 4 - CONTACT
+    {key:'contact',phase:4,q:'Who should we call with your free quote?',sub:'A Securex expert will call you within 24 hours.',type:'contact'}
   ];
   var fStep=0;
   var fData={};
@@ -1282,8 +1320,8 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     nextBtn.appendChild(document.createTextNode(labelText));
     var ic=document.createElement('i');ic.className='fas '+iconClass;
     nextBtn.appendChild(ic);
-    // Hide Continue for auto-advance option steps (options only, not input/review/contact)
-    if(step.opts || step.optsByKind){
+    // Single-select options auto-advance, so hide Continue until a pick
+    if((step.opts || step.optsByKind) && !step.multi){
       nextBtn.style.visibility=fData[step.key]?'visible':'hidden';
     } else {
       nextBtn.style.visibility='visible';
@@ -1317,10 +1355,11 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     window.scrollTo({top:top,behavior:'smooth'});
   }
 
-  function createPillOption(v,i,key,selected){
+  function createPillOption(v,i,key,selected,multi){
     var btn=document.createElement('button');
     btn.type='button';
-    btn.className='vfn-opt'+(selected===v?' selected':'');
+    var isSel=multi ? (Array.isArray(selected)&&selected.indexOf(v)>=0) : (selected===v);
+    btn.className='vfn-opt'+(isSel?' selected':'');
     // Icon
     var iconWrap=document.createElement('div');iconWrap.className='vfn-opt-icon';
     var ic=document.createElement('i');ic.className='fas '+i;
@@ -1329,14 +1368,23 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     // Label
     var lbl=document.createElement('span');lbl.className='vfn-opt-label';lbl.textContent=v;
     btn.appendChild(lbl);
-    // Arrow
-    var arr=document.createElement('i');arr.className='fas fa-arrow-right vfn-opt-arrow';
+    // Arrow / check indicator
+    var arr=document.createElement('i');
+    arr.className=multi ? 'fas fa-check vfn-opt-arrow' : 'fas fa-arrow-right vfn-opt-arrow';
     btn.appendChild(arr);
     btn.addEventListener('click',function(){
+      if(multi){
+        if(!Array.isArray(fData[key])) fData[key]=[];
+        var idx=fData[key].indexOf(v);
+        if(idx>=0){fData[key].splice(idx,1);btn.classList.remove('selected');}
+        else{fData[key].push(v);btn.classList.add('selected');}
+        updateButtons();
+        return;
+      }
       btn.parentElement.querySelectorAll('.vfn-opt').forEach(function(x){x.classList.remove('selected');});
       btn.classList.add('selected');
       fData[key]=v;
-      // Auto-advance after brief delay for feedback
+      // Auto-advance after brief delay for feedback (single-select only)
       setTimeout(function(){advance();},320);
     });
     return btn;
@@ -1348,30 +1396,33 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     c.style.animation='none';c.offsetHeight;c.style.animation='';
     var step=STEPS[fStep];
     var h2=document.createElement('h2');h2.textContent=step.q;c.appendChild(h2);
+    if(step.sub){
+      var sub=document.createElement('p');sub.className='vfn-sub';sub.textContent=step.sub;c.appendChild(sub);
+    }
 
     if(step.type==='review'){
-      var sub=document.createElement('p');sub.className='vfn-sub';
-      sub.textContent='Please check your details before we prepare your free, no-obligation quote.';
-      c.appendChild(sub);
       var box=document.createElement('div');box.className='vfn-review';
       function row(k,v){
-        if(!v) return;
+        if(!v || (Array.isArray(v) && v.length===0)) return;
         var r=document.createElement('div');r.className='vfn-review-row';
         var l=document.createElement('span');l.className='vfn-review-label';l.textContent=k;
-        var val=document.createElement('span');val.className='vfn-review-value';val.textContent=v;
+        var val=document.createElement('span');val.className='vfn-review-value';
+        val.textContent=Array.isArray(v) ? v.join(', ') : v;
         r.appendChild(l);r.appendChild(val);box.appendChild(r);
       }
-      row('Property',fData.propertyKind);
-      row('Type',fData.propertyType);
-      row('Service',fData.services);
-      row('Current system',fData.existing);
-      row('When',fData.timing);
-      row('Postcode',fData.postcode);
+      row('Service',fData.serviceType);
+      row('Property',fData.propertyType);
+      if(fData.serviceType==='New Installation'){
+        row('Areas ('+(fData.rooms?fData.rooms.length:0)+')',fData.rooms);
+        row('Monitoring',fData.monitoring);
+        row('Communication',fData.communication);
+      } else if(fData.serviceType==='Service & Maintenance'){
+        row('Manufacturer',fData.make);
+        row('Connection',fData.connection);
+        row('Devices',fData.deviceCount);
+      }
       c.appendChild(box);
     } else if(step.type==='contact'){
-      var sub=document.createElement('p');sub.className='vfn-sub';
-      sub.textContent='A Securex expert will call you within 24 hours with your free, no-obligation quote.';
-      c.appendChild(sub);
       var form=document.createElement('div');form.className='vfn-form';
       var fields=[
         {id:'cName',label:'Full name',type:'text',ph:'Jane Doe',auto:'name'},
@@ -1387,7 +1438,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
         form.appendChild(inp);
       });
       c.appendChild(form);
-      // Trust signal
       var tr=document.createElement('div');tr.className='vfn-trust';
       var trIc=document.createElement('i');trIc.className='fas fa-lock';
       tr.appendChild(trIc);
@@ -1410,10 +1460,16 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       c.appendChild(wrap);
       setTimeout(function(){inp.focus();},150);
     } else {
-      var opts=step.opts || (step.optsByKind ? step.optsByKind[fData.propertyKind] || step.optsByKind.Home : []);
+      // Options list (single or multi select)
+      var opts=step.opts || (step.optsByKind ? step.optsByKind[fData.propertyType] || step.optsByKind.Residential : []);
       var box=document.createElement('div');box.className='vfn-opts';
-      opts.forEach(function(o){box.appendChild(createPillOption(o.v,o.i,step.key,fData[step.key]));});
+      opts.forEach(function(o){box.appendChild(createPillOption(o.v,o.i,step.key,fData[step.key],step.multi));});
       c.appendChild(box);
+      if(step.multi){
+        var hint=document.createElement('p');hint.className='vfn-sub';hint.style.marginTop='18px';hint.style.fontSize='13.5px';
+        hint.textContent='Tap any option to select. Selected options turn black. When done, press Continue.';
+        c.appendChild(hint);
+      }
     }
     updatePhases();
     updateButtons();
@@ -1439,18 +1495,39 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       }
       return true;
     }
+    if(step.multi){
+      if(!fData[step.key] || !fData[step.key].length){showError('Please select at least one option.');return false;}
+      return true;
+    }
     if(!fData[step.key]){showError('Please choose an option to continue.');return false;}
     return true;
   }
 
+  function stepIsActive(idx){
+    var s=STEPS[idx];
+    return !s.onlyIf || s.onlyIf(fData);
+  }
+
+  function nextActiveStep(from){
+    for(var i=from+1;i<STEPS.length;i++){if(stepIsActive(i)) return i;}
+    return -1;
+  }
+
+  function prevActiveStep(from){
+    for(var i=from-1;i>=0;i--){if(stepIsActive(i)) return i;}
+    return -1;
+  }
+
   function advance(){
     if(!validate()) return;
-    if(fStep===STEPS.length-1){success();scrollTop();return;}
-    fStep++;render();scrollTop();
+    var next=nextActiveStep(fStep);
+    if(next===-1){success();scrollTop();return;}
+    fStep=next;render();scrollTop();
   }
 
   function back(){
-    if(fStep>0){fStep--;render();scrollTop();}
+    var prev=prevActiveStep(fStep);
+    if(prev>=0){fStep=prev;render();scrollTop();}
   }
 
   function success(){
