@@ -210,13 +210,10 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 @keyframes vfnSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes vfnPop{0%{transform:scale(0) rotate(-180deg);opacity:0}60%{transform:scale(1.08) rotate(10deg)}100%{transform:scale(1) rotate(0);opacity:1}}
 @keyframes vfnRing{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.65);opacity:0}}
-/* Room staging — modal popup (overlay) */
+/* Room staging — inline panel within the form card */
 .vfn-opt.staging{outline:2px solid #262626;outline-offset:3px;background:#fff;color:#262626}
 .vfn-opt.staging .vfn-opt-icon{background:#262626;color:#fff}
-.vfn-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;animation:vfnFade .22s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-@keyframes vfnFade{from{opacity:0}to{opacity:1}}
-.vfn-stage{width:100%;max-width:520px;padding:28px 28px 24px;background:#fff;border:1px solid #e5e7eb;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.3);animation:vfnPopIn .28s cubic-bezier(.34,1.56,.64,1)}
-@keyframes vfnPopIn{0%{opacity:0;transform:scale(.92) translateY(6px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.vfn-stage{margin-top:22px;padding:22px 24px;background:#fafafa;border:1px solid #e5e7eb;border-radius:18px;max-width:620px;animation:vfnSlide .3s ease}
 .vfn-stage-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .vfn-stage-head-icon{width:42px;height:42px;border-radius:50%;background:#262626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .vfn-stage-head-icon{display:inline-flex}
@@ -1477,15 +1474,10 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     });
     c.appendChild(grid);
 
-    // Staging panel as MODAL POPUP (overlay) when a room is open
+    // Staging panel inline below the area grid (when a room is open)
     if(stagingIdx!==null && list[stagingIdx]){
       var room=list[stagingIdx];
-      var backdrop=document.createElement('div');backdrop.id='vfnStageModal';backdrop.className='vfn-modal-backdrop';
-      backdrop.addEventListener('click',function(e){
-        if(e.target===backdrop){stagingIdx=null;stagingSensors=[];render();}
-      });
       var panel=document.createElement('div');panel.className='vfn-stage';
-      panel.addEventListener('click',function(e){e.stopPropagation();});
       // Header
       var head=document.createElement('div');head.className='vfn-stage-head';
       var headIcon=document.createElement('i');headIcon.className='fas '+room.icon+' vfn-stage-head-icon';
@@ -1524,7 +1516,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       var addBtn=document.createElement('button');addBtn.type='button';addBtn.className='vfn-stage-add';
       addBtn.disabled=stagingSensors.length===0;
       var alreadyHave=fData.rooms.some(function(r){return r.name===room.name;});
-      addBtn.textContent=(alreadyHave?'Update ':'Add ')+room.name+' to system';
+      addBtn.textContent=alreadyHave ? 'Update Area in System' : 'Add Area to System';
       var aic=document.createElement('i');aic.className='fas fa-circle-plus';addBtn.insertBefore(aic,addBtn.firstChild);
       addBtn.addEventListener('click',function(){
         if(stagingSensors.length===0) return;
@@ -1548,11 +1540,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
         addRow.appendChild(rmBtn);
       }
       panel.appendChild(addRow);
-      backdrop.appendChild(panel);
-      document.body.appendChild(backdrop);
-      // Close on Escape key
-      var escHandler=function(e){if(e.key==='Escape'){stagingIdx=null;stagingSensors=[];document.removeEventListener('keydown',escHandler);render();}};
-      document.addEventListener('keydown',escHandler);
+      c.appendChild(panel);
     }
 
     // Summary count hint
@@ -1577,9 +1565,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     var c=qs('#funnelQ');
     while(c.firstChild) c.removeChild(c.firstChild);
     c.style.animation='none';c.offsetHeight;c.style.animation='';
-    // Clear any lingering staging modal from previous render
-    var oldModal=document.getElementById('vfnStageModal');
-    if(oldModal) oldModal.remove();
     var step=STEPS[fStep];
     var h2=document.createElement('h2');h2.textContent=step.q;c.appendChild(h2);
     if(step.sub){
