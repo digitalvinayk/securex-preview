@@ -1,3 +1,4 @@
+<div id="securex-home-wrap">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -9,7 +10,6 @@ body{font-family:'Inter',-apple-system,sans-serif;color:#1a1a2e;background:#fff;
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
-
 /* ===== TOKENS (Black & White Theme) ===== */
 :root{
   --navy:#000000;--navy-light:#111111;--navy-mid:#222222;
@@ -29,7 +29,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .section-label::before{content:'';width:32px;height:2px;background:#000;border-radius:2px}
 .section-title{font-size:clamp(28px,4vw,44px);font-weight:700;color:#000;margin-bottom:16px}
 .section-subtitle{font-size:17px;color:var(--gray-500);max-width:600px;line-height:1.7}
-
 /* ===== BUTTONS ===== */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:var(--transition);font-family:inherit}
 .btn-primary{background:#000;color:#fff}
@@ -41,7 +40,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .btn-dark{background:#000;color:#fff;border:none}
 .btn-dark:hover{background:var(--navy-mid);transform:translateY(-2px)}
 .btn svg{width:18px;height:18px}
-
 /* ===== TOPBAR ===== */
 .topbar{background:#000;color:rgba(255,255,255,.7);font-size:13px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
@@ -50,7 +48,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .topbar-item{display:flex;align-items:center;gap:6px}
 .topbar-badge{background:#fff;color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
-
 /* ===== NAVBAR (Professional White) ===== */
 .navbar{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--gray-200);transition:box-shadow .3s ease}
 .navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
@@ -72,7 +69,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .nav-dropdown>a,.nav-dropdown>.nav-sub{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;transition:var(--transition);text-transform:none;letter-spacing:0;white-space:normal;line-height:1.4;position:relative}
 .nav-dropdown a:hover{background:var(--gray-50);color:#000}
 .nav-dropdown>a:hover{padding-left:24px}
-
 /* Nested sub-dropdown */
 .nav-sub{position:relative;cursor:pointer}
 .nav-sub>.nav-sub-label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--gray-600);padding:0;background:transparent}
@@ -85,11 +81,9 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .nav-sub-menu.scrollable{max-height:400px;overflow-y:auto}
 .nav-sub-menu a{display:block;padding:10px 20px;font-size:13px;color:var(--gray-600);font-weight:500;transition:var(--transition);line-height:1.4}
 .nav-sub-menu a:hover{background:var(--gray-50);color:#000;padding-left:24px}
-
 /* Edge detection - flip sub-menu to the left when near right edge */
 .nav-item:nth-last-child(-n+3) .nav-sub-menu{left:auto;right:100%;margin-left:0;margin-right:2px;transform:translateX(8px)}
 .nav-item:nth-last-child(-n+3) .nav-sub:hover>.nav-sub-menu{transform:translateX(0)}
-
 .nav-dropdown-heading{padding:8px 20px 4px;font-size:11px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1px}
 .nav-dropdown-divider{height:1px;background:var(--gray-100);margin:8px 0}
 .nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
@@ -106,7 +100,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .mobile-menu.active{display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:#fff;padding:16px 24px;border-top:1px solid var(--gray-200);box-shadow:0 20px 40px rgba(0,0,0,.1)}
 .mobile-menu.active a{color:var(--gray-600);font-size:15px;padding:14px 0;border-bottom:1px solid var(--gray-100);font-weight:500}
 .mobile-menu.active a:hover{color:#000}
-
 /* ===== HERO ===== */
 .hero{background:#000;position:relative;overflow:hidden;padding:80px 0 60px;min-height:520px;display:flex;align-items:center}
 .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(255,255,255,.03) 0%,transparent 70%);pointer-events:none}
@@ -122,7 +115,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .hero-badge-item svg{width:16px;height:16px;color:#fff}
 .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .hero-visual{display:none}
-
 /* ===== VERISURE-STYLE FUNNEL ===== */
 .funnel-section{padding:60px 0 80px;background:#fff;font-family:'Fira Sans',sans-serif}
 .funnel-wrap{max-width:760px;margin:0 auto;padding:0 24px}
@@ -255,7 +247,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   .vfn-success h2{font-size:24px}
   .vfn-success p{font-size:14.5px}
 }
-
 /* ===== TRUST BAR ===== */
 .trust-bar{background:#fff;border-bottom:1px solid var(--gray-200);padding:20px 0;position:relative;z-index:10}
 .trust-bar .container{display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap}
@@ -263,7 +254,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .trust-item img{height:36px;width:auto;object-fit:contain}
 .trust-item .stars{color:#fff;font-size:16px;letter-spacing:1px}
 .trust-divider{width:1px;height:32px;background:var(--gray-200)}
-
 /* ===== SERVICES ICON ROW ===== */
 .services-row{padding:60px 0;background:#fff}
 .services-row-header{text-align:center;margin-bottom:40px}
@@ -274,7 +264,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .service-icon-circle img{width:36px;height:36px;object-fit:contain;filter:brightness(0) invert(1)}
 .service-icon-item:hover .service-icon-circle{background:#333;box-shadow:0 0 20px rgba(0,0,0,.15)}
 .service-icon-label{font-size:13px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.5px}
-
 /* ===== COMPLETE SOLUTIONS ===== */
 .complete-solutions{padding:80px 0;background:var(--gray-50)}
 .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
@@ -283,7 +272,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .cs-list-item svg{width:18px;height:18px;color:#000;flex-shrink:0;margin-top:3px}
 .cs-list-item strong{color:#000}
 .cs-image img{border-radius:var(--radius-lg);width:100%}
-
 /* ===== EMERGENCY ===== */
 .emergency{background:#000;padding:80px 0;position:relative;overflow:hidden}
 .emergency-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
@@ -304,7 +292,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .emergency-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}
 .emergency-feature{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.6);padding:8px 12px;background:rgba(255,255,255,.03);border-radius:8px}
 .emergency-feature svg{width:16px;height:16px;color:#fff;flex-shrink:0}
-
 /* ===== TRUST CARDS ===== */
 .trust-cards{padding:100px 0;background:#000;color:#fff}
 .trust-cards-header{text-align:center;margin-bottom:60px}
@@ -317,7 +304,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .trust-card-icon svg{width:24px;height:24px;color:#fff}
 .trust-card h3{font-size:15px;font-weight:700;margin-bottom:8px}
 .trust-card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
-
 /* ===== TIPS ===== */
 .tips{padding:80px 0;background:var(--gray-50)}
 .tips-header{text-align:center;margin-bottom:48px}
@@ -325,7 +311,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .tip-row{display:flex;align-items:flex-start;gap:16px;background:#fff;padding:20px 24px;border-radius:var(--radius);border:1px solid var(--gray-200)}
 .tip-num{width:36px;height:36px;border-radius:8px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
 .tip-row p{font-size:15px;color:var(--gray-600);line-height:1.7}
-
 /* ===== PARTNERS ===== */
 .partners{padding:80px 0;background:#fff}
 .partners-header{text-align:center;margin-bottom:48px}
@@ -334,7 +319,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .partner-item:hover{opacity:1}
 .partner-name{font-size:20px;font-weight:700;font-family:'Inter';color:#000}
 .partner-desc{font-size:12px;color:var(--gray-500);margin-top:4px}
-
 /* ===== INDUSTRIES ===== */
 .industries{padding:60px 0;background:var(--gray-50)}
 .industries-header{text-align:center;margin-bottom:40px}
@@ -343,7 +327,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .ind-icon{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:24px;transition:var(--transition)}
 .ind-item:hover .ind-icon{border-color:#000;background:rgba(0,0,0,.05)}
 .ind-label{font-size:12px;font-weight:600;color:var(--gray-600);text-align:center}
-
 /* ===== ABOUT ===== */
 .about{padding:100px 0;background:#fff}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
@@ -354,7 +337,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .about-tags{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px}
 .about-tag{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-600);font-weight:500}
 .about-tag svg{width:16px;height:16px;color:#000}
-
 /* ===== SERVICE DETAILS ===== */
 .svc-detail{padding:80px 0}
 .svc-detail:nth-child(even){background:var(--gray-50)}
@@ -368,7 +350,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .svc-detail-content li{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--gray-600);margin-bottom:8px;line-height:1.5}
 .svc-detail-content li svg{width:16px;height:16px;color:#000;flex-shrink:0;margin-top:3px}
 .svc-image img{border-radius:var(--radius-lg);width:100%}
-
 /* ===== CLIENT CENTRIC ===== */
 .client-centric{padding:80px 0;background:var(--gray-50)}
 .cc-header{text-align:center;margin-bottom:16px}
@@ -377,7 +358,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .cc-card{background:#fff;padding:20px 24px;border-radius:var(--radius);border:1px solid var(--gray-200);font-size:15px;color:var(--gray-600);display:flex;align-items:center;gap:10px}
 .cc-card svg{width:20px;height:20px;color:#000;flex-shrink:0}
 .cc-footer{text-align:center;font-size:15px;color:var(--gray-500);max-width:700px;margin:0 auto}
-
 /* ===== TESTIMONIALS ===== */
 .testimonials{padding:100px 0;background:#fff}
 .testimonials-header{text-align:center;margin-bottom:60px}
@@ -391,7 +371,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .test-avatar{width:42px;height:42px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#fff}
 .test-name{font-size:14px;font-weight:600;color:#000}
 .test-role{font-size:12px;color:var(--gray-400)}
-
 /* ===== PROCESS ===== */
 .process{padding:80px 0;background:var(--gray-50)}
 .process-header{text-align:center;margin-bottom:60px}
@@ -402,7 +381,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .process-step:hover .step-num{background:#000;color:#fff}
 .process-step h3{font-size:16px;font-weight:700;color:#000;margin-bottom:8px}
 .process-step p{font-size:13px;color:var(--gray-500);line-height:1.6;padding:0 8px}
-
 /* ===== COVERAGE MAP ===== */
 .coverage{padding:100px 0;background:#fff}
 .coverage-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
@@ -414,7 +392,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .coverage-tag:hover{background:#000;color:#fff}
 .coverage-desc{font-size:16px;color:var(--gray-500);line-height:1.7;margin-bottom:24px}
 @media(max-width:1024px){.coverage-grid{grid-template-columns:1fr}}
-
 /* ===== FAQ ===== */
 .faq{padding:100px 0;background:#fff}
 .faq-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start}
@@ -429,21 +406,18 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .faq-item.active .faq-icon{background:#000;color:#fff;transform:rotate(45deg)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
 .faq-answer-inner{padding:0 24px 20px;font-size:14px;color:var(--gray-500);line-height:1.7}
-
 /* ===== CTA BANNER ===== */
 .cta-banner{background:#000;padding:80px 0;text-align:center;position:relative;overflow:hidden}
 .cta-banner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.03),transparent 60%)}
 .cta-banner h2{font-size:clamp(28px,4vw,44px);font-weight:800;color:#fff;margin-bottom:16px;position:relative}
 .cta-banner p{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto;position:relative}
 .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
-
 /* ===== SERVICE AREAS ===== */
 .areas{padding:60px 0;background:var(--gray-50)}
 .areas-header{text-align:center;margin-bottom:36px}
 .areas-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:900px;margin:0 auto}
 .area-tag{padding:8px 20px;border-radius:50px;font-size:14px;font-weight:500;color:var(--gray-600);background:#fff;border:1px solid var(--gray-200);transition:var(--transition)}
 .area-tag:hover{border-color:#000;color:#000;background:rgba(0,0,0,.05)}
-
 /* ===== FOOTER ===== */
 .footer{background:#060D18;padding:80px 0 0}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -460,12 +434,10 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .footer-contact-item svg{width:16px;height:16px;color:#000;margin-top:3px;flex-shrink:0}
 .footer-contact-item a{color:rgba(255,255,255,.65)}.footer-contact-item a:hover{color:#000}
 .footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.3)}
-
 /* ===== WHATSAPP ===== */
 .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--transition);cursor:pointer}
 .whatsapp-float:hover{transform:scale(1.1)}
 .whatsapp-float svg{width:28px;height:28px;fill:#fff}
-
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
   .hero-grid,.emergency-grid,.about-grid,.svc-detail-grid,.cs-grid{grid-template-columns:1fr;text-align:center}
@@ -498,12 +470,10 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   .wizard-content{padding:24px 20px}.wizard-footer{padding:16px 20px}
   .wiz-step-label{font-size:10px}.wizard-stepper{padding:20px 10px 10px}
 }
-
 /* ===== ANIMATIONS ===== */
 .animate-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 </style>
-
 <!-- ===== TOPBAR ===== -->
 <div class="topbar">
   <div class="container">
@@ -518,13 +488,11 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </div>
-
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="container">
     <a href="securex-redesign.html" class="logo"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/07/surex-logo-e1750518077648.jpg" alt="Securex Security"></a>
     <div class="nav-links">
-
       <div class="nav-item">
         <a href="#">NSI &amp; Monitoring <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -542,7 +510,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           <a href="#">Guard Response</a>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="#">Residential <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -575,7 +542,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           <a href="#">Insurance Requirements</a>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="#">Business <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -596,7 +562,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           <a href="#">Insurance Requirements</a>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="#">Commercial <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -616,7 +581,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           <a href="#">Insurance Requirements</a>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="#">Construction <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -630,7 +594,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           <a href="#">Fire Alarm Systems</a>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="#">Emergency <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -653,11 +616,9 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           <a href="#">Door Entry Engineer</a>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="service-areas.html">Service Areas</a>
       </div>
-
       <div class="nav-item">
         <a href="#">Securex Services <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -716,7 +677,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           <a href="#">Door Entry System Installation</a>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="#">Gallery <i class="fas fa-chevron-down caret"></i></a>
         <div class="nav-dropdown">
@@ -727,11 +687,9 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
           </div>
         </div>
       </div>
-
       <div class="nav-item">
         <a href="#">Contact</a>
       </div>
-
     </div>
     <div class="nav-cta">
       <a href="tel:07848247247" class="nav-phone-wrap" aria-label="Call 07848 247 247">
@@ -748,7 +706,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <a href="tel:07848247247" style="color:#000;font-weight:700">Call: 07848 247 247</a>
   </div>
 </nav>
-
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="container">
@@ -779,7 +736,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== VERISURE-STYLE FUNNEL ===== -->
 <section class="funnel-section" id="quote">
   <div class="funnel-wrap">
@@ -807,7 +763,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== SERVICES ICON ROW ===== -->
 <section class="services-row">
   <div class="container">
@@ -825,7 +780,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== TRUST BAR ===== -->
 <div class="trust-bar">
   <div class="container">
@@ -840,7 +794,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <div class="trust-item"><i class="fas fa-shield-halved" style="color:#000"></i> Insurance Approved</div>
   </div>
 </div>
-
 <!-- ===== COMPLETE SOLUTIONS ===== -->
 <section class="complete-solutions">
   <div class="container">
@@ -865,7 +818,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== 24/7 EMERGENCY ===== -->
 <section class="emergency" id="emergency">
   <div class="container">
@@ -897,7 +849,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== PROFESSIONAL & TRUST-FOCUSED ===== -->
 <section class="trust-cards">
   <div class="container">
@@ -918,7 +869,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== SECURE. RELIABLE. 24/7. ===== -->
 <section class="tips">
   <div class="container">
@@ -930,7 +880,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== TECHNOLOGY PARTNERS ===== -->
 <section class="partners">
   <div class="container">
@@ -948,7 +897,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== INDUSTRIES ===== -->
 <section class="industries">
   <div class="container">
@@ -965,7 +913,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== ABOUT SECUREX ===== -->
 <section class="about" id="about">
   <div class="container">
@@ -987,7 +934,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== SERVICE DETAIL: INTRUDER ALARM ===== -->
 <section class="svc-detail" id="svc-intruder"><div class="container"><div class="svc-detail-grid">
   <div class="svc-detail-content">
@@ -998,7 +944,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/08/intruder-and-burglar-alarm-callouts.webp" alt="Intruder Alarm System"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: FIRE ALARMS ===== -->
 <section class="svc-detail" id="svc-fire"><div class="container"><div class="svc-detail-grid reverse">
   <div class="svc-detail-content">
@@ -1009,7 +954,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/08/fire-alarm-by-securex-security.webp" alt="Fire Alarm System"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: SCAFFOLD ===== -->
 <section class="svc-detail"><div class="container"><div class="svc-detail-grid">
   <div class="svc-detail-content">
@@ -1020,7 +964,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/08/scaffold-alarm-1.webp" alt="Scaffold Alarm"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: ELECTRICAL ===== -->
 <section class="svc-detail"><div class="container"><div class="svc-detail-grid reverse">
   <div class="svc-detail-content">
@@ -1031,7 +974,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/07/emergency-electrical-company.webp" alt="Electrical Services"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: CCTV ===== -->
 <section class="svc-detail" id="svc-cctv"><div class="container"><div class="svc-detail-grid">
   <div class="svc-detail-content">
@@ -1042,7 +984,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/08/hikvision-cctv.webp" alt="CCTV Systems"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: DOOR ENTRY ===== -->
 <section class="svc-detail" id="svc-door"><div class="container"><div class="svc-detail-grid reverse">
   <div class="svc-detail-content">
@@ -1053,7 +994,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/08/door-entry.webp" alt="Door Entry System"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: ACCESS CONTROL ===== -->
 <section class="svc-detail" id="svc-access"><div class="container"><div class="svc-detail-grid">
   <div class="svc-detail-content">
@@ -1064,7 +1004,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/08/access-control-paxton-product.webp" alt="Access Control"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: DATA & NETWORKING ===== -->
 <section class="svc-detail" id="svc-data"><div class="container"><div class="svc-detail-grid reverse">
   <div class="svc-detail-content">
@@ -1075,7 +1014,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/07/security-system-network-maintenance.webp" alt="Data Networking"></div>
 </div></div></section>
-
 <!-- ===== SERVICE DETAIL: VIDEO DOORBELL ===== -->
 <section class="svc-detail"><div class="container"><div class="svc-detail-grid">
   <div class="svc-detail-content">
@@ -1086,7 +1024,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="svc-image"><img src="https://securexsecurity.co.uk/wp-content/uploads/2025/08/hikvision-villa-wireless-wifi-door-intercom-system.webp" alt="Video Doorbell"></div>
 </div></div></section>
-
 <!-- ===== CLIENT-CENTRIC SOLUTIONS ===== -->
 <section class="client-centric">
   <div class="container">
@@ -1101,7 +1038,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <p class="cc-footer">Our commitment goes beyond installation -- continuous aftersales support, system training, and proactive maintenance.</p>
   </div>
 </section>
-
 <!-- ===== TESTIMONIALS ===== -->
 <section class="testimonials" id="reviews">
   <div class="container">
@@ -1113,7 +1049,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== OUR PROVEN PROCESS ===== -->
 <section class="process"><div class="container">
   <div class="process-header"><div class="section-label">How It Works</div><h2 class="section-title">Our Proven Process</h2></div>
@@ -1124,7 +1059,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <div class="process-step"><div class="step-num">4</div><h3>Ongoing Support</h3><p>Routine maintenance to emergency callouts, we're your long-term security partner.</p></div>
   </div>
 </div></section>
-
 <!-- ===== COVERAGE MAP ===== -->
 <section class="coverage" id="coverage">
   <div class="container">
@@ -1163,7 +1097,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
 <!-- ===== FAQ ===== -->
 <section class="faq" id="faq"><div class="container"><div class="faq-layout">
   <div class="faq-left"><div class="section-label">FAQ</div><h2 class="section-title">Frequently Asked Questions</h2><p>Have a question about our security services? Find answers below or contact our team for a personalised response.</p><a href="#" class="btn btn-outline" style="margin-top:8px">Contact Us</a></div>
@@ -1179,7 +1112,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <div class="faq-item"><button class="faq-question">What areas do you cover?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Greater London and surrounding boroughs within the M25. Extended coverage to Surrey, Hertfordshire available.</div></div></div>
   </div>
 </div></div></section>
-
 <!-- ===== FREE SECURITY ASSESSMENT ===== -->
 <section class="cta-banner" id="contact"><div class="container">
   <h2>Free Security Assessment</h2>
@@ -1189,7 +1121,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <a href="tel:07848247247" class="btn btn-secondary"><i class="fas fa-phone"></i> Call 07848 247 247</a>
   </div>
 </div></section>
-
 <!-- ===== SERVICE AREAS ===== -->
 <section class="areas"><div class="container">
   <div class="areas-header"><h2 class="section-title">Services We Provide!</h2></div>
@@ -1199,7 +1130,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     <a href="#" class="area-tag">Camden</a><a href="#" class="area-tag">Islington</a><a href="#" class="area-tag">Hackney</a><a href="#" class="area-tag">Westminster</a><a href="#" class="area-tag">Muswell Hill</a><a href="#" class="area-tag">Surrey</a><a href="#" class="area-tag">Hertfordshire</a>
   </div>
 </div></section>
-
 <!-- ===== FOOTER ===== -->
 <footer class="footer"><div class="container">
   <div class="footer-grid">
@@ -1215,10 +1145,8 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
   <div class="footer-bottom"><span>&copy;2026 Securex FM LTD. All Rights Reserved.</span><span><a href="#" style="color:rgba(255,255,255,.4)">Privacy Policy</a> &middot; <a href="#" style="color:rgba(255,255,255,.4)">Terms</a> &middot; <a href="#" style="color:rgba(255,255,255,.4)">Sitemap</a></span></div>
 </div></footer>
-
 <!-- ===== WHATSAPP ===== -->
 <a href="https://wa.me/447848247247" class="whatsapp-float" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-
 <!-- ===== SCRIPTS ===== -->
 <script>
 // FAQ Accordion
@@ -1237,7 +1165,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     }
   });
 });
-
 // ===== VERISURE-STYLE FUNNEL =====
 (function(){
   // Each step = single question. Phases: 0 Service, 1 Property, 2 System, 3 Review, 4 Contact.
@@ -1327,10 +1254,8 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   // Room staging state (for the per-area sensor picker)
   var stagingIdx=null;        // index into current rooms list being configured
   var stagingSensors=[];      // sensors selected in the staging panel
-
   function qs(s){return document.querySelector(s);}
   function qsa(s){return document.querySelectorAll(s);}
-
   function updatePhases(){
     var curPhase=STEPS[fStep].phase;
     qsa('.vfn-phase').forEach(function(el,i){
@@ -1339,7 +1264,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       else if(i===curPhase) el.classList.add('active');
     });
   }
-
   function updateButtons(){
     qs('#funnelBack').disabled=(fStep===0);
     var nextBtn=qs('#funnelNext');
@@ -1359,7 +1283,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       nextBtn.style.visibility='visible';
     }
   }
-
   function tick(){
     var elapsed=Math.floor((Date.now()-timerStart)/1000);
     var remain=Math.max(0,timerSeconds-elapsed);
@@ -1367,7 +1290,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     if(el) el.textContent=remain;
     if(remain<=0 && timerInt){clearInterval(timerInt);timerInt=null;}
   }
-
   function showError(msg){
     var c=qs('#funnelQ');
     var ex=qs('.vfn-error');
@@ -1379,14 +1301,12 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     c.insertBefore(err,c.firstChild);
     setTimeout(function(){if(err.parentNode) err.remove();},4000);
   }
-
   function scrollTop(){
     var card=qs('#funnelCard');if(!card) return;
     var rect=card.getBoundingClientRect();
     var top=rect.top+window.pageYOffset-100;
     window.scrollTo({top:top,behavior:'smooth'});
   }
-
   function createPillOption(v,i,key,selected,multi){
     var btn=document.createElement('button');
     btn.type='button';
@@ -1421,12 +1341,10 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     });
     return btn;
   }
-
   // ---- Rooms step: click an area -> pick its sensors -> Add to System ----
   function renderRoomsStep(c,step){
     var list=step.roomsByKind[fData.propertyType]||step.roomsByKind.Residential;
     if(!Array.isArray(fData.rooms)) fData.rooms=[];
-
     // Grid of area pills (2-col when >=6). Click to open staging.
     var grid=document.createElement('div');
     grid.className='vfn-opts'+(list.length>=6?' two-col':'');
@@ -1464,7 +1382,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       grid.appendChild(btn);
     });
     c.appendChild(grid);
-
     // Staging panel inline below the area grid (when a room is open)
     if(stagingIdx!==null && list[stagingIdx]){
       var room=list[stagingIdx];
@@ -1533,7 +1450,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       panel.appendChild(addRow);
       c.appendChild(panel);
     }
-
     // Summary count hint
     if(fData.rooms.length>0){
       var count=document.createElement('div');count.className='vfn-rooms-count';
@@ -1545,13 +1461,11 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       c.appendChild(count);
     }
   }
-
   // Map sensor name -> Font Awesome icon
   function sensorIcon(s){
     var m={'Door Contact':'fa-door-open','Magnetic Contact':'fa-magnet','Motion Sensor':'fa-person-walking','Shock Sensor':'fa-bolt','Panic Button':'fa-bell','Smoke Detector':'fa-smog','Heat Detector':'fa-temperature-high','Flood Detector':'fa-droplet','Glass Break Sensor':'fa-glass-water-droplet','External Siren':'fa-volume-high','CCTV Camera':'fa-video','Video Doorbell':'fa-bell-concierge'};
     return m[s]||'fa-circle-dot';
   }
-
   function render(){
     var c=qs('#funnelQ');
     while(c.firstChild) c.removeChild(c.firstChild);
@@ -1561,7 +1475,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     if(step.sub){
       var sub=document.createElement('p');sub.className='vfn-sub';sub.textContent=step.sub;c.appendChild(sub);
     }
-
     if(step.type==='review'){
       var box=document.createElement('div');box.className='vfn-review';
       function row(k,v){
@@ -1644,7 +1557,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     updatePhases();
     updateButtons();
   }
-
   function validate(){
     var step=STEPS[fStep];
     if(step.type==='contact'){
@@ -1677,34 +1589,28 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     if(!fData[step.key]){showError('Please choose an option to continue.');return false;}
     return true;
   }
-
   function stepIsActive(idx){
     var s=STEPS[idx];
     return !s.onlyIf || s.onlyIf(fData);
   }
-
   function nextActiveStep(from){
     for(var i=from+1;i<STEPS.length;i++){if(stepIsActive(i)) return i;}
     return -1;
   }
-
   function prevActiveStep(from){
     for(var i=from-1;i>=0;i--){if(stepIsActive(i)) return i;}
     return -1;
   }
-
   function advance(){
     if(!validate()) return;
     var next=nextActiveStep(fStep);
     if(next===-1){success();scrollTop();return;}
     fStep=next;render();scrollTop();
   }
-
   function back(){
     var prev=prevActiveStep(fStep);
     if(prev>=0){fStep=prev;render();scrollTop();}
   }
-
   function success(){
     var card=qs('#funnelCard');
     // Submit to Securex backend REST endpoint (astra-child functions.php)
@@ -1759,15 +1665,12 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     wrap.appendChild(next);
     card.appendChild(wrap);
   }
-
   qs('#funnelNext').addEventListener('click',advance);
   qs('#funnelBack').addEventListener('click',back);
-
   // Start timer + initial render
   timerInt=setInterval(tick,500);
   render();
 })();
-
 // Scroll animations
 var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting) e.target.classList.add('visible')});
@@ -1775,9 +1678,9 @@ var obs=new IntersectionObserver(function(entries){
 document.querySelectorAll('.service-icon-item,.trust-card,.test-card,.process-step,.svc-detail-grid,.tip-row').forEach(function(el){
   el.classList.add('animate-in');obs.observe(el);
 });
-
 // Sticky nav shadow
 window.addEventListener('scroll',function(){
   document.querySelector('.navbar').classList.toggle('scrolled',window.scrollY>10);
 });
 </script>
+</div>
