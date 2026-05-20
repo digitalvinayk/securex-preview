@@ -727,6 +727,47 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 
 
 <style id="services-listing-styles">
+/* ===== NEW SITE HEADER (two-row layout, matches live old website) ===== */
+.site-header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 0 #eee}
+.header-top{background:#fff;padding:14px 0;border-bottom:1px solid #f1f1f1}
+.header-top-inner{max-width:1520px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:200px 1fr 200px;align-items:center;gap:24px;position:relative}
+.header-nsi{display:flex;align-items:center;height:64px}
+.header-nsi img{height:64px;width:auto;object-fit:contain;display:block}
+.header-logo{font-family:'Inter','Arial Narrow',sans-serif;font-size:34px;font-weight:300;letter-spacing:.42em;color:#0a0a0a;text-decoration:none;text-align:center;text-transform:uppercase;justify-self:center;padding-left:.42em}
+.header-logo:hover{color:#000}
+.header-utility{display:flex;align-items:center;justify-content:flex-end;gap:18px;font-size:13.5px;color:#0a0a0a;justify-self:end}
+.header-util-payment{color:#0a0a0a;text-decoration:none;font-weight:500;white-space:nowrap}
+.header-util-payment:hover{color:#666}
+.header-util-item{display:flex;align-items:center;gap:8px;color:#0a0a0a;text-decoration:none;white-space:nowrap}
+.header-util-item:hover{color:#555}
+.header-util-icon{width:32px;height:32px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.header-util-text{font-weight:500}
+.header-util-phone .header-util-text{font-weight:700;letter-spacing:.02em}
+.header-nav{background:#fff;border-top:1px solid #f1f1f1;border-bottom:1px solid #eee}
+.header-nav-inner{max-width:1520px;margin:0 auto;padding:0 28px;display:flex;justify-content:center}
+.header-nav .nav-links{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
+.header-nav .nav-item>a{padding:18px 18px;font-size:13.5px;font-weight:600;color:#0a0a0a;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:6px;height:auto;text-decoration:none;white-space:nowrap;position:relative}
+.header-nav .nav-item>a::before{display:none}
+.header-nav .nav-item:hover>a{color:#666}
+.header-nav .nav-item .caret{font-size:9px;opacity:.45;margin-left:2px;transition:transform .2s,opacity .2s}
+.header-nav .nav-item:hover .caret{opacity:1;transform:rotate(180deg)}
+/* keep existing dropdown styling, just nudge for new header height */
+.header-nav .nav-dropdown{top:100%}
+.mobile-toggle{display:none;background:none;border:none;color:#0a0a0a;font-size:22px;cursor:pointer;padding:8px;position:absolute;right:20px;top:50%;transform:translateY(-50%)}
+/* Responsive */
+@media(max-width:960px){
+  .header-top-inner{grid-template-columns:auto 1fr auto;gap:14px;padding:0 18px}
+  .header-utility{display:none}
+  .header-logo{font-size:26px;letter-spacing:.3em}
+  .header-nsi img{height:48px}
+  .mobile-toggle{display:flex;position:static}
+  .header-nav{display:none}
+}
+@media(max-width:520px){
+  .header-logo{font-size:22px;letter-spacing:.25em}
+  .header-nsi img{height:40px}
+}
+
 /* ===== Enhanced Trust Stats Bar (override v2 defaults) ===== */
 .svc-stats{padding:0 24px;background:transparent;margin-top:-44px;position:relative;z-index:5}
 .svc-stats-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:28px 22px;box-shadow:0 24px 60px -20px rgba(0,0,0,.18)}
@@ -810,26 +851,26 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 
 </head>
 <body>
-<!-- ===== TOPBAR ===== -->
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-left">
-      <div class="topbar-item"><i class="far fa-envelope" style="font-size:12px"></i><a href="mailto:info@securexsecurity.co.uk">info@securexsecurity.co.uk</a></div>
-      <div class="topbar-item"><i class="fas fa-map-marker-alt" style="font-size:12px"></i>129 Colney Hatch Lane, Muswell Hill, London N10 1HD</div>
-    </div>
-    <div class="topbar-right">
-      <a href="https://buy.stripe.com/5kA2a7bjW19xcvu4gg" target="_blank" rel="noopener" style="font-weight:500">Online Payment</a>
-      <span class="topbar-badge">NSI Certified</span>
-      <div class="topbar-item"><i class="fas fa-phone" style="font-size:12px"></i><a href="tel:07848247247" style="font-weight:600;color:#fff">07848 247 247</a></div>
+<!-- ===== NEW SITE HEADER ===== -->
+
+<header class="site-header">
+  <div class="header-top">
+    <div class="header-top-inner">
+      <a class="header-nsi" href="#" aria-label="NSI Silver Accredited Installer">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2025/07/ns-logo.jpeg" alt="NSI Silver Accredited" loading="eager">
+      </a>
+      <a class="header-logo" href="index.html" aria-label="Securex home">SECUREX</a>
+      <div class="header-utility">
+        <a href="https://buy.stripe.com/5kA2a7bjW19xcvu4gg" target="_blank" rel="noopener" class="header-util-payment">Online Payment</a>
+        <a href="mailto:info@securexsecurity.co.uk" class="header-util-item"><span class="header-util-icon"><i class="far fa-envelope"></i></span><span class="header-util-text">info@securexsecurity.co.uk</span></a>
+        <a href="tel:07848247247" class="header-util-item header-util-phone"><span class="header-util-icon"><i class="fas fa-phone"></i></span><span class="header-util-text">07848 247 247</span></a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
     </div>
   </div>
-</div>
-
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
-  <div class="container">
-    <a href="securex-redesign.html" class="logo"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security"></a>
-    <div class="nav-links">
+  <nav class="header-nav" aria-label="Primary">
+    <div class="header-nav-inner">
+<div class="nav-links">
 
       <div class="nav-item">
         <a href="#">NSI &amp; Monitoring <i class="fas fa-chevron-down caret"></i></a>
@@ -1045,8 +1086,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
       </a>
       <a href="#quote" class="nav-quote-btn">Free Quote <i class="fas fa-arrow-right"></i></a>
     </div>
-    <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('active')"><i class="fas fa-bars" style="font-size:20px"></i></button>
-  </div>
+    </div>
   <div class="mobile-menu">
     <a href="#">NSI &amp; Monitoring</a><a href="#">Residential</a><a href="#">Business</a><a href="#">Commercial</a>
     <a href="#">Construction</a><a href="#">Emergency</a><a href="service-areas.html">Service Areas</a><a href="#">Securex Services</a>
