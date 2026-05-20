@@ -510,9 +510,143 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .animate-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 </style>
+
+<style id="svc-v2-styles">
+/* ---- Service page v2: modern professional design ---- */
+.svc-eyebrow{font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:14px;display:inline-block}
+.svc-h2{font-family:'Inter',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:800;color:#0a0a0a;letter-spacing:-.02em;line-height:1.15;margin:0 0 16px}
+.svc-lead{color:#4b5563;font-size:17px;line-height:1.7;max-width:680px;margin:0 auto}
+.svc-section{padding:96px 24px;background:#fff}
+.svc-section--alt{background:linear-gradient(180deg,#fafafa 0%,#f5f5f7 100%)}
+.svc-section--dark{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%);color:#fff;position:relative;overflow:hidden}
+.svc-section--dark::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,.05) 0%,transparent 60%);pointer-events:none}
+/* ---- Hero ---- */
+.svc-hero{position:relative;background:#0a0a0a;color:#fff;padding:100px 24px 80px;overflow:hidden;text-align:center}
+.svc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.08) 0%,transparent 50%);pointer-events:none}
+.svc-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.svc-hero-inner{position:relative;max-width:880px;margin:0 auto}
+.svc-breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:24px;letter-spacing:.3px}
+.svc-breadcrumb a{color:#9ca3af;text-decoration:none;transition:color .2s}
+.svc-breadcrumb a:hover{color:#fff}
+.svc-breadcrumb span.sep{margin:0 10px;color:#4b5563}
+.svc-hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:7px 18px;border-radius:50px;font-size:13px;font-weight:500;color:#e5e7eb;margin-bottom:24px}
+.svc-hero-badge .dot{width:8px;height:8px;background:#10b981;border-radius:50%;box-shadow:0 0 0 4px rgba(16,185,129,.15);animation:svcPulse 2s ease-in-out infinite}
+@keyframes svcPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 4px rgba(16,185,129,.15)}50%{transform:scale(1.1);box-shadow:0 0 0 8px rgba(16,185,129,.05)}}
+.svc-hero h1{font-family:'Inter',sans-serif;font-size:clamp(40px,6vw,68px);font-weight:800;letter-spacing:-.025em;line-height:1.05;color:#fff;margin:0 0 22px}
+.svc-hero h1 em{font-style:normal;background:linear-gradient(120deg,#fff 30%,#9ca3af 90%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.svc-hero-subline{font-size:13px;font-weight:600;color:#9ca3af;letter-spacing:3px;text-transform:uppercase;margin:0 0 22px}
+.svc-hero-desc{font-size:17px;color:#d1d5db;line-height:1.65;max-width:640px;margin:0 auto 40px}
+.svc-hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.svc-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:50px;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;text-decoration:none;transition:all .25s cubic-bezier(.4,0,.2,1);border:none;cursor:pointer}
+.svc-btn-primary{background:#fff;color:#0a0a0a}
+.svc-btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,255,255,.15)}
+.svc-btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.svc-btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
+/* ---- Trust stats ---- */
+.svc-stats{padding:50px 24px;background:#fff;border-bottom:1px solid #f3f4f6}
+.svc-stats-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:center}
+.svc-stat{display:flex;flex-direction:column;align-items:center;text-align:center;padding:14px;position:relative}
+.svc-stat+.svc-stat::before{content:'';position:absolute;left:0;top:25%;height:50%;width:1px;background:#e5e7eb}
+.svc-stat-icon{width:44px;height:44px;border-radius:50%;background:#f5f5f7;display:flex;align-items:center;justify-content:center;color:#0a0a0a;margin-bottom:12px;font-size:18px}
+.svc-stat-num{font-family:'Inter',sans-serif;font-size:30px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;line-height:1}
+.svc-stat-lbl{font-size:12px;color:#6b7280;font-weight:500;letter-spacing:.3px;margin-top:6px}
+/* ---- Form intro CTA ---- */
+.svc-form-intro{padding:80px 24px 40px;background:linear-gradient(180deg,#fff 0%,#fafafa 100%);text-align:center}
+.svc-form-intro h2{font-family:'Inter',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:800;color:#0a0a0a;letter-spacing:-.02em;line-height:1.15;margin:18px 0 14px;max-width:720px;margin-left:auto;margin-right:auto}
+.svc-form-intro p{color:#4b5563;font-size:16px;line-height:1.65;max-width:580px;margin:0 auto}
+.svc-form-section{background:#fafafa;padding:0 24px 80px}
+/* ---- Features grid ---- */
+.svc-features{padding:96px 24px;background:#fff}
+.svc-features-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.svc-feature{position:relative;padding:30px 26px;background:#fff;border:1px solid #e5e7eb;border-radius:18px;transition:all .25s cubic-bezier(.4,0,.2,1);overflow:hidden}
+.svc-feature::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0a0a0a,#4b5563);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.svc-feature:hover{transform:translateY(-4px);border-color:#0a0a0a;box-shadow:0 18px 40px -10px rgba(0,0,0,.12)}
+.svc-feature:hover::before{transform:scaleX(1)}
+.svc-feature-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#0a0a0a 0%,#262626 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;transition:transform .25s}
+.svc-feature:hover .svc-feature-icon{transform:scale(1.08) rotate(-4deg)}
+.svc-feature h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#0a0a0a;margin:0 0 8px;letter-spacing:-.01em}
+.svc-feature p{font-size:14.5px;color:#4b5563;line-height:1.6;margin:0}
+/* ---- Process / How it works ---- */
+.svc-process{position:relative}
+.svc-process-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;position:relative}
+.svc-step{position:relative;background:#fff;border-radius:18px;padding:30px 26px;border:1px solid #e5e7eb;transition:all .25s}
+.svc-step:hover{transform:translateY(-3px);border-color:#0a0a0a;box-shadow:0 14px 32px -10px rgba(0,0,0,.1)}
+.svc-step-num{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#fff;background:#0a0a0a;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px;letter-spacing:.5px}
+.svc-step h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#0a0a0a;margin:0 0 10px}
+.svc-step p{font-size:14px;color:#4b5563;line-height:1.6;margin:0}
+/* ---- Packages ---- */
+.svc-packages{padding:96px 24px;background:#fff}
+.svc-pkg-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;align-items:stretch}
+.svc-pkg{position:relative;background:#fff;border-radius:22px;padding:36px 30px 32px;border:1.5px solid #e5e7eb;display:flex;flex-direction:column;transition:all .25s cubic-bezier(.4,0,.2,1)}
+.svc-pkg:hover{transform:translateY(-4px);box-shadow:0 22px 50px -15px rgba(0,0,0,.12)}
+.svc-pkg-tier{font-size:13px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.svc-pkg-price{font-family:'Inter',sans-serif;font-size:38px;font-weight:800;color:#0a0a0a;letter-spacing:-.025em;line-height:1;margin-bottom:6px}
+.svc-pkg-price-sub{font-size:13px;color:#6b7280;margin-bottom:22px}
+.svc-pkg-divider{height:1px;background:#e5e7eb;margin:0 -30px 22px}
+.svc-pkg-list{list-style:none;padding:0;margin:0 0 28px;flex:1}
+.svc-pkg-list li{padding:9px 0;color:#1f2937;font-size:14.5px;display:flex;align-items:center;gap:11px;line-height:1.5}
+.svc-pkg-list li i{color:#10b981;font-size:13px;flex-shrink:0}
+.svc-pkg-btn{display:block;text-align:center;padding:14px;background:#fff;color:#0a0a0a;border:1.5px solid #0a0a0a;border-radius:50px;font-weight:600;text-decoration:none;font-size:14.5px;transition:all .2s}
+.svc-pkg-btn:hover{background:#0a0a0a;color:#fff}
+.svc-pkg--featured{background:linear-gradient(160deg,#0a0a0a 0%,#1f1f1f 100%);color:#fff;border-color:#0a0a0a;transform:scale(1.02);position:relative}
+.svc-pkg--featured:hover{transform:scale(1.02) translateY(-4px);box-shadow:0 32px 60px -20px rgba(0,0,0,.5)}
+.svc-pkg--featured .svc-pkg-tier{color:#9ca3af}
+.svc-pkg--featured .svc-pkg-price{color:#fff}
+.svc-pkg--featured .svc-pkg-price-sub{color:#9ca3af}
+.svc-pkg--featured .svc-pkg-divider{background:rgba(255,255,255,.1);margin:0 -30px 22px}
+.svc-pkg--featured .svc-pkg-list li{color:#e5e7eb}
+.svc-pkg--featured .svc-pkg-btn{background:#fff;color:#0a0a0a;border-color:#fff}
+.svc-pkg--featured .svc-pkg-btn:hover{background:#f5f5f7}
+.svc-pkg-ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#10b981,#059669);color:#fff;padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 6px 14px rgba(16,185,129,.3)}
+/* ---- Why us / trust grid ---- */
+.svc-why{padding:80px 24px;background:linear-gradient(180deg,#fafafa,#f5f5f7)}
+.svc-why-grid{max-width:1080px;margin:30px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.svc-why-card{background:#fff;border-radius:16px;padding:24px;text-align:center;border:1px solid #e5e7eb;transition:all .25s}
+.svc-why-card:hover{transform:translateY(-3px);border-color:#0a0a0a;box-shadow:0 14px 30px -10px rgba(0,0,0,.1)}
+.svc-why-icon{width:48px;height:48px;border-radius:50%;background:#0a0a0a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 14px}
+.svc-why-card-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#0a0a0a;line-height:1.4}
+/* ---- Testimonial / Reviews ---- */
+.svc-reviews{padding:96px 24px;background:#fff}
+.svc-reviews-grid{max-width:1180px;margin:40px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.svc-review{background:linear-gradient(180deg,#fafafa,#fff);border:1px solid #e5e7eb;border-radius:18px;padding:30px 28px;position:relative;transition:all .25s}
+.svc-review:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(0,0,0,.1)}
+.svc-review::before{content:'\201C';position:absolute;top:14px;right:24px;font-family:Georgia,serif;font-size:80px;color:#e5e7eb;line-height:1;font-weight:700}
+.svc-review-stars{color:#fbbc04;letter-spacing:2px;margin-bottom:14px;font-size:15px}
+.svc-review-text{color:#1f2937;font-size:15px;line-height:1.65;margin-bottom:20px;position:relative;z-index:1}
+.svc-review-author{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #f3f4f6}
+.svc-review-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0a0a0a,#4b5563);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.svc-review-name{font-family:'Inter',sans-serif;font-weight:700;color:#0a0a0a;font-size:14.5px}
+.svc-review-meta{font-size:12px;color:#9ca3af}
+/* ---- FAQ ---- */
+.svc-faq{padding:96px 24px;background:linear-gradient(180deg,#fff,#fafafa)}
+.svc-faq-list{max-width:780px;margin:40px auto 0;display:flex;flex-direction:column;gap:12px}
+.svc-faq-item{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:0;overflow:hidden;transition:all .2s}
+.svc-faq-item:hover{border-color:#d1d5db}
+.svc-faq-item[open]{border-color:#0a0a0a;box-shadow:0 6px 22px -10px rgba(0,0,0,.08)}
+.svc-faq-q{font-family:'Inter',sans-serif;font-weight:600;color:#0a0a0a;list-style:none;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:15.5px;line-height:1.4}
+.svc-faq-q::-webkit-details-marker{display:none}
+.svc-faq-toggle{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#f5f5f7;display:flex;align-items:center;justify-content:center;font-size:14px;color:#0a0a0a;transition:transform .25s ease;font-weight:700}
+.svc-faq-item[open] .svc-faq-toggle{transform:rotate(45deg);background:#0a0a0a;color:#fff}
+.svc-faq-a{padding:0 24px 22px;color:#4b5563;font-size:14.5px;line-height:1.7;margin:0;animation:svcFaqIn .25s ease}
+@keyframes svcFaqIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+/* ---- Final CTA ---- */
+.svc-cta{padding:110px 24px;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+.svc-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(255,255,255,.06) 0%,transparent 60%)}
+.svc-cta-inner{position:relative;max-width:680px;margin:0 auto}
+.svc-cta h2{font-family:'Inter',sans-serif;font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0 0 14px}
+.svc-cta p{color:#d1d5db;font-size:17px;margin:0 0 32px;line-height:1.65}
+/* Responsive */
+@media(max-width:720px){
+  .svc-section{padding:64px 20px}
+  .svc-hero{padding:70px 20px 56px}
+  .svc-stat+.svc-stat::before{display:none}
+  .svc-pkg--featured{transform:none}
+  .svc-pkg--featured:hover{transform:translateY(-4px)}
+}
+</style>
+
 </head>
 <body>
-
 <!-- ===== TOPBAR ===== -->
 <div class="topbar">
   <div class="container">
@@ -758,67 +892,43 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
 
-<!-- ===== SERVICE HERO ===== -->
-<section class="hero" style="background:#000;padding:80px 24px 60px;text-align:center">
-  <div class="container">
-    <!-- Breadcrumb -->
-    <div style="font-size:13px;color:#9ca3af;margin-bottom:24px;letter-spacing:.5px">
-      <a href="index.html" style="color:#9ca3af;text-decoration:none">Home</a>
-      <span style="margin:0 8px">›</span>
-      <a href="#" style="color:#9ca3af;text-decoration:none">Services</a>
-      <span style="margin:0 8px">›</span>
+<!-- ===== HERO ===== -->
+<section class="svc-hero">
+  <div class="svc-hero-inner">
+    <div class="svc-breadcrumb">
+      <a href="index.html">Home</a><span class="sep">›</span>
+      <a href="#">Services</a><span class="sep">›</span>
       <span style="color:#fff">CCTV Installation</span>
     </div>
-    <div class="hero-badge"><span class="dot"></span>NSI Accredited &middot; Trusted Since 2014</div>
-    <h2 class="hero-headline" style="margin:18px auto 22px;max-width:920px">Professional CCTV Installation Across London</h2>
-    <h3 style="font-family:Inter,sans-serif;font-size:14px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#9ca3af;margin:0 auto 22px">HD &amp; 4K Systems &middot; Remote Viewing &middot; 24/7 Monitoring</h3>
-    <p class="hero-desc" style="max-width:680px;margin:0 auto 36px;color:#d1d5db">
-      Protect your home or business with a professionally installed CCTV system. Our NSI-certified engineers design,
-      install, and maintain CCTV solutions tailored to your property, with same-day surveys available across London.
-    </p>
-    <div class="hero-buttons" style="justify-content:center;display:flex;gap:14px;flex-wrap:wrap">
-      <a href="#quote" class="btn btn-light" style="background:#fff;color:#000;padding:14px 30px;border-radius:45px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px">Get Free Quote <i class="fas fa-arrow-right"></i></a>
-      <a href="tel:07848247247" class="btn btn-outline" style="border:1px solid #fff;color:#fff;padding:14px 30px;border-radius:45px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px"><i class="fas fa-phone"></i> Call Now</a>
+    <div class="svc-hero-badge"><span class="dot"></span>NSI Accredited · Trusted Since 2014</div>
+    <h1>Professional CCTV Installation <em>Across London</em></h1>
+    <div class="svc-hero-subline">HD &amp; 4K Systems · Remote Viewing · 24/7 Monitoring</div>
+    <p class="svc-hero-desc">Protect your home or business with a professionally installed CCTV system. Our NSI-certified engineers design, install, and maintain CCTV solutions tailored to your property, with same-day surveys available across London.</p>
+    <div class="svc-hero-buttons">
+      <a href="#quote" class="svc-btn svc-btn-primary">Get Free Quote <i class="fas fa-arrow-right" style="font-size:12px"></i></a>
+      <a href="tel:07848247247" class="svc-btn svc-btn-ghost"><i class="fas fa-phone" style="font-size:12px"></i> 07848 247 247</a>
     </div>
   </div>
 </section>
 
-<!-- ===== TRUST STATS BAR ===== -->
-<section style="background:#fafafa;padding:30px 24px;border-bottom:1px solid #e5e7eb">
-  <div class="container" style="max-width:1100px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;text-align:center">
-      <div>
-        <div style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;color:#000">1,000+</div>
-        <div style="font-size:13px;color:#6b7280;letter-spacing:.5px">CCTV Systems Installed</div>
-      </div>
-      <div>
-        <div style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;color:#000">NSI</div>
-        <div style="font-size:13px;color:#6b7280;letter-spacing:.5px">Silver Accredited</div>
-      </div>
-      <div>
-        <div style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;color:#000">24/7</div>
-        <div style="font-size:13px;color:#6b7280;letter-spacing:.5px">Emergency Support</div>
-      </div>
-      <div>
-        <div style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;color:#000">5&#9733;</div>
-        <div style="font-size:13px;color:#6b7280;letter-spacing:.5px">Based on 112 Reviews</div>
-      </div>
-    </div>
+<!-- ===== TRUST STATS ===== -->
+<section class="svc-stats">
+  <div class="svc-stats-grid">
+    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-camera"></i></div><div class="svc-stat-num">1,000+</div><div class="svc-stat-lbl">CCTV Systems Installed</div></div>
+    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-shield-halved"></i></div><div class="svc-stat-num">NSI</div><div class="svc-stat-lbl">Silver Accredited</div></div>
+    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-clock"></i></div><div class="svc-stat-num">24/7</div><div class="svc-stat-lbl">Emergency Support</div></div>
+    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-star"></i></div><div class="svc-stat-num">5.0★</div><div class="svc-stat-lbl">Based on 112 Reviews</div></div>
   </div>
 </section>
 
-<!-- ===== FUNNEL FORM (moved up + CTA header) ===== -->
-<section style="padding:60px 24px 20px;background:#fff;text-align:center">
-  <div class="container" style="max-width:760px">
-    <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">Free Quote</div>
-    <h2 style="font-family:Inter,sans-serif;font-size:30px;font-weight:700;color:#000;margin:0 0 12px;line-height:1.25">Get Your Free CCTV Quote in 60 Seconds</h2>
-    <p style="color:#6b7280;font-size:15px;margin:0 0 8px">Answer a few quick questions and a Securex security expert will call you within 24 hours with a fixed-price quote.</p>
-  </div>
+<!-- ===== FORM CTA + FORM ===== -->
+<section class="svc-form-intro">
+  <span class="svc-eyebrow">Free Quote</span>
+  <h2>Get Your Free CCTV Quote in 60 Seconds</h2>
+  <p>Answer a few quick questions and a Securex security expert will call you within 24 hours with a fixed-price quote — no obligation, no hidden costs.</p>
 </section>
-<!-- ===== FUNNEL FORM ===== -->
-<section class="funnel-section" id="quote">
+<section class="svc-form-section"><section class="funnel-section" id="quote">
   <div class="funnel-wrap">
     <div class="funnel-card" id="funnelCard">
       <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
@@ -843,196 +953,161 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
       </div>
     </div>
   </div>
+</section></section>
+
+<!-- ===== FEATURES ===== -->
+<section class="svc-features">
+  <div style="max-width:1180px;margin:0 auto;text-align:center;margin-bottom:48px">
+    <span class="svc-eyebrow">What We Install</span>
+    <h2 class="svc-h2">Premium CCTV Systems Built for London</h2>
+    <p class="svc-lead">From single-camera doorbells to multi-site enterprise grids, we install CCTV systems from leading manufacturers — backed by our own monitoring and maintenance team.</p>
+  </div>
+  <div class="svc-features-grid">
+    <div class="svc-feature"><div class="svc-feature-icon"><i class="fas fa-video"></i></div><h3>HD &amp; 4K Cameras</h3><p>Crystal-clear footage day and night, with Wide Dynamic Range and infrared night vision up to 50 metres.</p></div>
+    <div class="svc-feature"><div class="svc-feature-icon"><i class="fas fa-mobile-screen"></i></div><h3>Live Remote Viewing</h3><p>View live and recorded footage from anywhere via your phone, tablet, or laptop with our secure app.</p></div>
+    <div class="svc-feature"><div class="svc-feature-icon"><i class="fas fa-bell"></i></div><h3>AI Motion Alerts</h3><p>Smart motion detection distinguishes humans from animals and weather, sending instant push notifications.</p></div>
+    <div class="svc-feature"><div class="svc-feature-icon"><i class="fas fa-cloud"></i></div><h3>Cloud &amp; Local Storage</h3><p>Secure cloud backup paired with local NVR storage up to 8TB — never lose critical footage.</p></div>
+  </div>
 </section>
 
+<!-- ===== PROCESS ===== -->
+<section class="svc-section svc-section--alt svc-process">
+  <div style="max-width:1180px;margin:0 auto;text-align:center;margin-bottom:48px">
+    <span class="svc-eyebrow">How It Works</span>
+    <h2 class="svc-h2">From Quote to Installation in 4 Simple Steps</h2>
+    <p class="svc-lead">A frictionless process designed around your schedule — most jobs complete in a single day.</p>
+  </div>
+  <div class="svc-process-grid">
+    <div class="svc-step"><span class="svc-step-num">01</span><h3>Free Site Survey</h3><p>Our engineer visits your property to assess coverage, blind spots, and recommended camera placement.</p></div>
+    <div class="svc-step"><span class="svc-step-num">02</span><h3>Custom System Design</h3><p>We design a system around your needs and budget, with a fixed-price quote you can trust.</p></div>
+    <div class="svc-step"><span class="svc-step-num">03</span><h3>Professional Install</h3><p>NSI-certified engineers install your system with minimal disruption — most jobs done in a day.</p></div>
+    <div class="svc-step"><span class="svc-step-num">04</span><h3>Training &amp; Ongoing Support</h3><p>We train you to use the system and provide 24/7 technical support for the lifetime of your installation.</p></div>
+  </div>
+</section>
 
-<!-- ===== SERVICE OVERVIEW + FEATURES ===== -->
-<section style="padding:80px 24px;background:#fff">
-  <div class="container" style="max-width:1100px">
-    <div style="text-align:center;margin-bottom:48px">
-      <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">What We Install</div>
-      <h2 style="font-family:Inter,sans-serif;font-size:34px;font-weight:700;color:#000;margin:0 0 16px">Premium CCTV Systems Tailored to You</h2>
-      <p style="color:#6b7280;font-size:16px;max-width:680px;margin:0 auto;line-height:1.7">
-        From single-camera doorbells to multi-site enterprise grids, we install CCTV systems from leading manufacturers including Hikvision, Dahua, and Axis &mdash; all backed by our own monitoring and maintenance team.
-      </p>
+<!-- ===== PACKAGES ===== -->
+<section class="svc-packages">
+  <div style="max-width:1180px;margin:0 auto;text-align:center;margin-bottom:56px">
+    <span class="svc-eyebrow">Pricing Packages</span>
+    <h2 class="svc-h2">Transparent Pricing. No Hidden Costs.</h2>
+    <p class="svc-lead">All packages include parts, professional installation, training, and a 2-year warranty.</p>
+  </div>
+  <div class="svc-pkg-grid">
+    <div class="svc-pkg">
+      <div class="svc-pkg-tier">Essential</div>
+      <div class="svc-pkg-price">From £599</div>
+      <div class="svc-pkg-price-sub">One-time installation cost</div>
+      <div class="svc-pkg-divider"></div>
+      <ul class="svc-pkg-list">
+        <li><i class="fas fa-check"></i> 2× HD cameras</li>
+        <li><i class="fas fa-check"></i> 1TB local storage</li>
+        <li><i class="fas fa-check"></i> Mobile app access</li>
+        <li><i class="fas fa-check"></i> Professional installation</li>
+        <li><i class="fas fa-check"></i> 2-year warranty</li>
+      </ul>
+      <a href="#quote" class="svc-pkg-btn">Get Started</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
-      <div style="border:1px solid #e5e7eb;border-radius:14px;padding:24px;background:#fff">
-        <div style="width:48px;height:48px;border-radius:12px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px"><i class="fas fa-video"></i></div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">HD &amp; 4K Cameras</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">Crystal-clear footage day and night, with WDR and IR night vision up to 50m.</p>
-      </div>
-      <div style="border:1px solid #e5e7eb;border-radius:14px;padding:24px;background:#fff">
-        <div style="width:48px;height:48px;border-radius:12px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px"><i class="fas fa-mobile-screen"></i></div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">Remote Viewing</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">View live and recorded footage from anywhere via your phone, tablet, or laptop.</p>
-      </div>
-      <div style="border:1px solid #e5e7eb;border-radius:14px;padding:24px;background:#fff">
-        <div style="width:48px;height:48px;border-radius:12px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px"><i class="fas fa-bell"></i></div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">Motion Alerts</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">AI-powered motion detection sends instant push notifications when activity is detected.</p>
-      </div>
-      <div style="border:1px solid #e5e7eb;border-radius:14px;padding:24px;background:#fff">
-        <div style="width:48px;height:48px;border-radius:12px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px"><i class="fas fa-cloud"></i></div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">Cloud &amp; Local Storage</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">Choose secure cloud storage or local NVR with up to 8TB of footage retention.</p>
-      </div>
+    <div class="svc-pkg svc-pkg--featured">
+      <span class="svc-pkg-ribbon">Most Popular</span>
+      <div class="svc-pkg-tier">Standard</div>
+      <div class="svc-pkg-price">From £1,299</div>
+      <div class="svc-pkg-price-sub">One-time installation cost</div>
+      <div class="svc-pkg-divider"></div>
+      <ul class="svc-pkg-list">
+        <li><i class="fas fa-check"></i> 4× 4K cameras with IR night vision</li>
+        <li><i class="fas fa-check"></i> 4TB NVR storage</li>
+        <li><i class="fas fa-check"></i> AI motion alerts</li>
+        <li><i class="fas fa-check"></i> Cloud + local recording</li>
+        <li><i class="fas fa-check"></i> 24/7 priority support</li>
+      </ul>
+      <a href="#quote" class="svc-pkg-btn">Get Started</a>
+    </div>
+    <div class="svc-pkg">
+      <div class="svc-pkg-tier">Commercial</div>
+      <div class="svc-pkg-price">From £2,499</div>
+      <div class="svc-pkg-price-sub">One-time installation cost</div>
+      <div class="svc-pkg-divider"></div>
+      <ul class="svc-pkg-list">
+        <li><i class="fas fa-check"></i> 8+ 4K cameras (PTZ available)</li>
+        <li><i class="fas fa-check"></i> 8TB redundant NVR</li>
+        <li><i class="fas fa-check"></i> 24/7 monitored visual verification</li>
+        <li><i class="fas fa-check"></i> ANPR &amp; analytics</li>
+        <li><i class="fas fa-check"></i> Annual maintenance included</li>
+      </ul>
+      <a href="#quote" class="svc-pkg-btn">Get Started</a>
     </div>
   </div>
 </section>
 
-<!-- ===== HOW IT WORKS / PROCESS ===== -->
-<section style="padding:80px 24px;background:#fafafa">
-  <div class="container" style="max-width:1100px">
-    <div style="text-align:center;margin-bottom:48px">
-      <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">How It Works</div>
-      <h2 style="font-family:Inter,sans-serif;font-size:34px;font-weight:700;color:#000;margin:0 0 16px">From Quote to Installation in 4 Steps</h2>
+<!-- ===== WHY US ===== -->
+<section class="svc-why">
+  <div style="text-align:center;max-width:780px;margin:0 auto">
+    <span class="svc-eyebrow">Why Choose Us</span>
+    <h2 class="svc-h2">The CCTV Installer London Trusts</h2>
+  </div>
+  <div class="svc-why-grid">
+    <div class="svc-why-card"><div class="svc-why-icon"><i class="fas fa-shield-halved"></i></div><div class="svc-why-card-title">NSI Silver Accredited</div></div>
+    <div class="svc-why-card"><div class="svc-why-icon"><i class="fas fa-bolt"></i></div><div class="svc-why-card-title">Same-Day Survey</div></div>
+    <div class="svc-why-card"><div class="svc-why-icon"><i class="fas fa-pound-sign"></i></div><div class="svc-why-card-title">Fixed-Price Quote</div></div>
+    <div class="svc-why-card"><div class="svc-why-icon"><i class="fas fa-graduation-cap"></i></div><div class="svc-why-card-title">BTEC Engineers</div></div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="svc-reviews">
+  <div style="max-width:780px;margin:0 auto;text-align:center">
+    <span class="svc-eyebrow">Customer Reviews</span>
+    <h2 class="svc-h2">What Our Clients Say</h2>
+    <p class="svc-lead">Trusted by over 1,000 homeowners and businesses across London.</p>
+  </div>
+  <div class="svc-reviews-grid">
+    <div class="svc-review">
+      <div class="svc-review-stars">★★★★★</div>
+      <p class="svc-review-text">Came out promptly, on a weekend, and sorted the problem out quickly. Highly professional from start to finish.</p>
+      <div class="svc-review-author"><div class="svc-review-avatar">R</div><div><div class="svc-review-name">Ruth Wall</div><div class="svc-review-meta">Verified Google Review</div></div></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:26px;position:relative">
-        <div style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;color:#e5e7eb;line-height:1;margin-bottom:12px">01</div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">Free Site Survey</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">Our engineer visits your property to assess coverage, blind spots, and recommended camera placement.</p>
-      </div>
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:26px">
-        <div style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;color:#e5e7eb;line-height:1;margin-bottom:12px">02</div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">Custom System Design</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">We design a system around your needs and budget, with a fixed-price quote you can trust.</p>
-      </div>
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:26px">
-        <div style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;color:#e5e7eb;line-height:1;margin-bottom:12px">03</div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">Professional Install</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">NSI-certified engineers install your system with minimal disruption &mdash; most jobs done in a day.</p>
-      </div>
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:26px">
-        <div style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;color:#e5e7eb;line-height:1;margin-bottom:12px">04</div>
-        <h3 style="font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:0 0 8px;color:#000">Training &amp; Ongoing Support</h3>
-        <p style="font-size:14px;color:#6b7280;line-height:1.55;margin:0">We train you to use the system and provide 24/7 technical support for the lifetime of your installation.</p>
-      </div>
+    <div class="svc-review">
+      <div class="svc-review-stars">★★★★★</div>
+      <p class="svc-review-text">Our security alarm went off due to low battery and kids couldn&rsquo;t sleep — Alex came straightaway from the other side of London.</p>
+      <div class="svc-review-author"><div class="svc-review-avatar">Y</div><div><div class="svc-review-name">Yoko Beesley</div><div class="svc-review-meta">Verified Google Review</div></div></div>
+    </div>
+    <div class="svc-review">
+      <div class="svc-review-stars">★★★★★</div>
+      <p class="svc-review-text">Thank you so much for fitting our CCTV. You were kind, helpful, and prompt — I felt very looked after.</p>
+      <div class="svc-review-author"><div class="svc-review-avatar">A</div><div><div class="svc-review-name">Ava Reeves</div><div class="svc-review-meta">Verified Google Review</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== PACKAGES / PRICING ===== -->
-<section style="padding:80px 24px;background:#fff">
-  <div class="container" style="max-width:1100px">
-    <div style="text-align:center;margin-bottom:48px">
-      <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">Pricing Packages</div>
-      <h2 style="font-family:Inter,sans-serif;font-size:34px;font-weight:700;color:#000;margin:0 0 16px">Transparent Pricing, No Hidden Costs</h2>
-      <p style="color:#6b7280;font-size:15px;max-width:600px;margin:0 auto">All packages include parts, professional installation, and a 2-year warranty.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
-      <!-- Basic -->
-      <div style="border:1px solid #e5e7eb;border-radius:18px;padding:32px;background:#fff;display:flex;flex-direction:column">
-        <div style="font-family:Inter,sans-serif;font-size:14px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">Essential</div>
-        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:20px">
-          <span style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;color:#000">From &pound;599</span>
-        </div>
-        <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1">
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> 2x HD cameras</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> 1TB local storage</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> Mobile app access</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> Professional installation</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> 2-year warranty</li>
-        </ul>
-        <a href="#quote" style="display:block;text-align:center;padding:14px;background:#fff;color:#000;border:1px solid #000;border-radius:45px;font-weight:600;text-decoration:none;font-size:14px">Get Started</a>
-      </div>
-      <!-- Standard - Featured -->
-      <div style="border:2px solid #000;border-radius:18px;padding:32px;background:#000;color:#fff;display:flex;flex-direction:column;transform:scale(1.03);position:relative">
-        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:4px 14px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px">MOST POPULAR</div>
-        <div style="font-family:Inter,sans-serif;font-size:14px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">Standard</div>
-        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:20px">
-          <span style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;color:#fff">From &pound;1,299</span>
-        </div>
-        <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1">
-          <li style="padding:8px 0;color:#e5e7eb;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#10b981"></i> 4x 4K cameras (IR night vision)</li>
-          <li style="padding:8px 0;color:#e5e7eb;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#10b981"></i> 4TB NVR storage</li>
-          <li style="padding:8px 0;color:#e5e7eb;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#10b981"></i> AI motion alerts</li>
-          <li style="padding:8px 0;color:#e5e7eb;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#10b981"></i> Cloud + local recording</li>
-          <li style="padding:8px 0;color:#e5e7eb;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#10b981"></i> 24/7 priority support</li>
-        </ul>
-        <a href="#quote" style="display:block;text-align:center;padding:14px;background:#fff;color:#000;border-radius:45px;font-weight:600;text-decoration:none;font-size:14px">Get Started</a>
-      </div>
-      <!-- Premium -->
-      <div style="border:1px solid #e5e7eb;border-radius:18px;padding:32px;background:#fff;display:flex;flex-direction:column">
-        <div style="font-family:Inter,sans-serif;font-size:14px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">Commercial</div>
-        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:20px">
-          <span style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;color:#000">From &pound;2,499</span>
-        </div>
-        <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1">
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> 8+ 4K cameras (PTZ available)</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> 8TB redundant NVR</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> 24/7 monitored visual verification</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> ANPR &amp; analytics</li>
-          <li style="padding:8px 0;color:#374151;font-size:14px;display:flex;align-items:center;gap:10px"><i class="fas fa-check" style="color:#16a34a"></i> Annual maintenance included</li>
-        </ul>
-        <a href="#quote" style="display:block;text-align:center;padding:14px;background:#fff;color:#000;border:1px solid #000;border-radius:45px;font-weight:600;text-decoration:none;font-size:14px">Get Started</a>
-      </div>
+<!-- ===== FAQ ===== -->
+<section class="svc-faq">
+  <div style="text-align:center">
+    <span class="svc-eyebrow">FAQ</span>
+    <h2 class="svc-h2">Common Questions</h2>
+  </div>
+  <div class="svc-faq-list">
+    <details class="svc-faq-item"><summary class="svc-faq-q"><span>How much does CCTV installation cost?</span><span class="svc-faq-toggle">+</span></summary><p class="svc-faq-a">Most residential systems start from £599 (2-camera Essential package) and commercial systems from £2,499. All quotes are fixed-price after a free site survey — no surprises on the bill.</p></details>
+    <details class="svc-faq-item"><summary class="svc-faq-q"><span>How long does installation take?</span><span class="svc-faq-toggle">+</span></summary><p class="svc-faq-a">Most home installations are complete within a single day. Larger commercial systems may take 2–3 days depending on cabling complexity and number of cameras.</p></details>
+    <details class="svc-faq-item"><summary class="svc-faq-q"><span>What areas of London do you cover?</span><span class="svc-faq-toggle">+</span></summary><p class="svc-faq-a">We install across Greater London including Central, North, South, East, West, plus Surrey, Hertfordshire, Buckinghamshire, Essex, and Thurrock. Free travel within the M25.</p></details>
+    <details class="svc-faq-item"><summary class="svc-faq-q"><span>Will my CCTV work without Wi-Fi?</span><span class="svc-faq-toggle">+</span></summary><p class="svc-faq-a">Yes — our systems use local NVR storage so recording continues even if your internet goes down. Remote viewing requires Wi-Fi or 4G but local recording is always active.</p></details>
+    <details class="svc-faq-item"><summary class="svc-faq-q"><span>Can I add cameras later?</span><span class="svc-faq-toggle">+</span></summary><p class="svc-faq-a">Absolutely. All our systems are modular — we install with future expansion in mind. Most NVRs support 8–16 cameras so you can add more as needed.</p></details>
+    <details class="svc-faq-item"><summary class="svc-faq-q"><span>Do you provide ongoing maintenance?</span><span class="svc-faq-toggle">+</span></summary><p class="svc-faq-a">Yes — annual maintenance contracts are available from £120/year, including health checks, firmware updates, and priority callouts. Commercial package includes this free for the first year.</p></details>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="svc-cta">
+  <div class="svc-cta-inner">
+    <span class="svc-eyebrow" style="color:#9ca3af">Ready to start?</span>
+    <h2>Protect what matters most.</h2>
+    <p>Get a free, no-obligation CCTV quote from our NSI-accredited engineers. Same-day surveys available across London.</p>
+    <div class="svc-hero-buttons">
+      <a href="#quote" class="svc-btn svc-btn-primary">Start Free Quote <i class="fas fa-arrow-right" style="font-size:12px"></i></a>
+      <a href="tel:07848247247" class="svc-btn svc-btn-ghost"><i class="fas fa-phone" style="font-size:12px"></i> 07848 247 247</a>
     </div>
   </div>
 </section>
 
-<!-- ===== WHY SECUREX (mini comparison teaser) ===== -->
-<section style="padding:60px 24px;background:#fafafa">
-  <div class="container" style="max-width:900px;text-align:center">
-    <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">Why Choose Us</div>
-    <h2 style="font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:#000;margin:0 0 24px">The CCTV Installer London Trusts</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:30px">
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px"><i class="fas fa-shield-halved" style="font-size:22px;color:#000;margin-bottom:10px"></i><div style="font-size:13px;font-weight:700;color:#000">NSI Silver Accredited</div></div>
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px"><i class="fas fa-bolt" style="font-size:22px;color:#000;margin-bottom:10px"></i><div style="font-size:13px;font-weight:700;color:#000">Same-Day Survey</div></div>
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px"><i class="fas fa-pound-sign" style="font-size:22px;color:#000;margin-bottom:10px"></i><div style="font-size:13px;font-weight:700;color:#000">Fixed-Price Quote</div></div>
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px"><i class="fas fa-tools" style="font-size:22px;color:#000;margin-bottom:10px"></i><div style="font-size:13px;font-weight:700;color:#000">BTEC Engineers</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ACCORDION ===== -->
-<section style="padding:80px 24px;background:#fff">
-  <div class="container" style="max-width:820px">
-    <div style="text-align:center;margin-bottom:40px">
-      <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">FAQ</div>
-      <h2 style="font-family:Inter,sans-serif;font-size:34px;font-weight:700;color:#000;margin:0">Common Questions</h2>
-    </div>
-    <div class="faq-list" style="display:flex;flex-direction:column;gap:12px">
-      <details style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:18px 22px;cursor:pointer">
-        <summary style="font-family:Inter,sans-serif;font-weight:600;color:#000;list-style:none;display:flex;justify-content:space-between;align-items:center"><span>How much does CCTV installation cost?</span><span style="font-size:18px;color:#9ca3af">+</span></summary>
-        <p style="margin:14px 0 0;color:#374151;font-size:14px;line-height:1.6">Most residential systems start from &pound;599 (2-camera Essential package) and commercial systems from &pound;2,499. All quotes are fixed-price after a free site survey &mdash; no surprises on the bill.</p>
-      </details>
-      <details style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:18px 22px;cursor:pointer">
-        <summary style="font-family:Inter,sans-serif;font-weight:600;color:#000;list-style:none;display:flex;justify-content:space-between;align-items:center"><span>How long does installation take?</span><span style="font-size:18px;color:#9ca3af">+</span></summary>
-        <p style="margin:14px 0 0;color:#374151;font-size:14px;line-height:1.6">Most home installations are complete within a single day. Larger commercial systems may take 2-3 days depending on cabling complexity and number of cameras.</p>
-      </details>
-      <details style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:18px 22px;cursor:pointer">
-        <summary style="font-family:Inter,sans-serif;font-weight:600;color:#000;list-style:none;display:flex;justify-content:space-between;align-items:center"><span>What areas of London do you cover?</span><span style="font-size:18px;color:#9ca3af">+</span></summary>
-        <p style="margin:14px 0 0;color:#374151;font-size:14px;line-height:1.6">We install across Greater London including Central, North, South, East, West, plus Surrey, Hertfordshire, Buckinghamshire, Essex, and Thurrock. Free travel within the M25.</p>
-      </details>
-      <details style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:18px 22px;cursor:pointer">
-        <summary style="font-family:Inter,sans-serif;font-weight:600;color:#000;list-style:none;display:flex;justify-content:space-between;align-items:center"><span>Will my CCTV work without WiFi?</span><span style="font-size:18px;color:#9ca3af">+</span></summary>
-        <p style="margin:14px 0 0;color:#374151;font-size:14px;line-height:1.6">Yes &mdash; our systems use local NVR storage so recording continues even if your internet goes down. Remote viewing requires WiFi or 4G but the recording is always local.</p>
-      </details>
-      <details style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:18px 22px;cursor:pointer">
-        <summary style="font-family:Inter,sans-serif;font-weight:600;color:#000;list-style:none;display:flex;justify-content:space-between;align-items:center"><span>Can I add cameras later?</span><span style="font-size:18px;color:#9ca3af">+</span></summary>
-        <p style="margin:14px 0 0;color:#374151;font-size:14px;line-height:1.6">Absolutely. All our systems are modular &mdash; we install with future expansion in mind. Most NVRs support 8-16 cameras so you can add more as needed.</p>
-      </details>
-      <details style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:18px 22px;cursor:pointer">
-        <summary style="font-family:Inter,sans-serif;font-weight:600;color:#000;list-style:none;display:flex;justify-content:space-between;align-items:center"><span>Do you provide ongoing maintenance?</span><span style="font-size:18px;color:#9ca3af">+</span></summary>
-        <p style="margin:14px 0 0;color:#374151;font-size:14px;line-height:1.6">Yes &mdash; annual maintenance contracts are available from &pound;120/year, including health checks, firmware updates, and priority callouts. Commercial package includes this free for the first year.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FINAL CTA BANNER ===== -->
-<section style="padding:80px 24px;background:#000;color:#fff;text-align:center">
-  <div class="container" style="max-width:780px">
-    <h2 style="font-family:Inter,sans-serif;font-size:32px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.2">Ready to protect your property?</h2>
-    <p style="color:#d1d5db;font-size:16px;margin:0 0 28px">Get a free, no-obligation CCTV quote from our NSI-accredited engineers.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="#quote" style="background:#fff;color:#000;padding:14px 30px;border-radius:45px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px">Start Free Quote <i class="fas fa-arrow-right"></i></a>
-      <a href="tel:07848247247" style="border:1px solid #fff;color:#fff;padding:14px 30px;border-radius:45px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px"><i class="fas fa-phone"></i> 07848 247 247</a>
-    </div>
-  </div>
-</section>
 <footer class="footer"><div class="container">
   <div class="footer-grid">
     <div class="footer-brand"><div class="logo" style="margin-bottom:16px"><img src="surex-logo-e1750518077648.jpg" alt="Securex Security" style="height:36px;filter:invert(1) brightness(2)"></div><p class="footer-desc">Security systems offer protection and peace of mind by using alarms, CCTV cameras, and other devices to deter threats, prevent breaches, and provide quick emergency response.</p><div class="footer-social"><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
