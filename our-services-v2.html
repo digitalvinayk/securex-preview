@@ -652,9 +652,11 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .svc-list-grid{max-width:1180px;margin:48px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
 .svc-card{position:relative;background:#fff;border:1px solid #e5e7eb;border-radius:20px;overflow:hidden;transition:all .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;text-decoration:none;color:inherit}
 .svc-card:hover{transform:translateY(-6px);border-color:#0a0a0a;box-shadow:0 22px 50px -15px rgba(0,0,0,.15)}
-.svc-card-image{height:180px;background:linear-gradient(135deg,#0a0a0a 0%,#262626 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.svc-card-image::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.08) 0%,transparent 60%);pointer-events:none}
-.svc-card-icon{width:74px;height:74px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;backdrop-filter:blur(6px);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.svc-card-image{height:200px;background:#0a0a0a;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:flex-start}
+.svc-card-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.svc-card:hover .svc-card-image img{transform:scale(1.08)}
+.svc-card-image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.1) 0%,rgba(10,10,10,.75) 100%);pointer-events:none}
+.svc-card-icon{position:relative;z-index:2;width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;backdrop-filter:blur(8px);transition:transform .3s cubic-bezier(.34,1.56,.64,1);margin:0 0 18px 18px}
 .svc-card:hover .svc-card-icon{transform:scale(1.1) rotate(-6deg)}
 .svc-card-body{padding:26px 26px 28px;flex:1;display:flex;flex-direction:column}
 .svc-card h3{font-family:'Inter',sans-serif;font-size:19px;font-weight:700;color:#0a0a0a;margin:0 0 10px;letter-spacing:-.01em}
@@ -955,6 +957,39 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
 </section>
 
+<!-- ===== FORM CTA + FORM (moved to top, right after trust stats) ===== -->
+<section class="svc-form-intro" id="quote">
+  <span class="svc-eyebrow">Free Quote</span>
+  <h2>Get Your Free Securex Quote in 60 Seconds</h2>
+  <p>Answer a few quick questions and a security expert will call you within 24 hours with a fixed-price quote &mdash; no obligation, no hidden costs.</p>
+</section>
+<section class="svc-form-section"><section class="funnel-section" id="quote">
+  <div class="funnel-wrap">
+    <div class="funnel-card" id="funnelCard">
+      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
+      <div class="vfn-phases" id="vfnPhases">
+        <div class="vfn-phase active" data-phase="0">Service</div>
+        <div class="vfn-phase" data-phase="1">Property</div>
+        <div class="vfn-phase" data-phase="2">System</div>
+        <div class="vfn-phase" data-phase="3">Review</div>
+        <div class="vfn-phase" data-phase="4">Contact</div>
+      </div>
+      <!-- Countdown timer -->
+      <div class="vfn-timer">
+        <i class="far fa-clock"></i>
+        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
+      </div>
+      <!-- Single question area -->
+      <div id="funnelQ" class="vfn-q"></div>
+      <!-- Footer buttons -->
+      <div class="vfn-footer">
+        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
+        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section></section>
+
 <!-- ===== SERVICES LIST ===== -->
 <section class="svc-list">
   <div style="max-width:1180px;margin:0 auto;text-align:center">
@@ -966,6 +1001,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     
     <a class="svc-card" href="service-cctv-installation.html">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/CCTV.jpg" alt="CCTV Installation" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-video"></i></div>
       </div>
       <div class="svc-card-body">
@@ -977,6 +1013,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/intruder_alarms.jpg" alt="Intruder Alarms" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-shield-halved"></i></div>
       </div>
       <div class="svc-card-body">
@@ -988,6 +1025,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/FIRE_ALARM.jpg" alt="Fire Alarms" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-fire-extinguisher"></i></div>
       </div>
       <div class="svc-card-body">
@@ -999,6 +1037,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/access_control.jpg" alt="Access Control" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-fingerprint"></i></div>
       </div>
       <div class="svc-card-body">
@@ -1010,6 +1049,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/door_entry.jpg" alt="Video Doorbell &amp; Door Entry" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-bell-concierge"></i></div>
       </div>
       <div class="svc-card-body">
@@ -1021,6 +1061,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/data-cabling.jpg" alt="Data Cabling &amp; Networking" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-network-wired"></i></div>
       </div>
       <div class="svc-card-body">
@@ -1032,6 +1073,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/electrical_installation.jpg" alt="Electrical Installation" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-bolt"></i></div>
       </div>
       <div class="svc-card-body">
@@ -1043,6 +1085,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/05/scaffolding_alarms.jpg" alt="Scaffolding Alarms" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-helmet-safety"></i></div>
       </div>
       <div class="svc-card-body">
@@ -1054,6 +1097,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </a>
     <a class="svc-card" href="#">
       <div class="svc-card-image">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/RING.jpg" alt="24/7 Emergency Service" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-bolt-lightning"></i></div>
       </div>
       <div class="svc-card-body">
@@ -1091,39 +1135,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
-<!-- ===== FORM CTA + FORM ===== -->
-<section class="svc-form-intro">
-  <span class="svc-eyebrow">Free Quote</span>
-  <h2>Get Your Free Securex Quote in 60 Seconds</h2>
-  <p>Answer a few quick questions and a security expert will call you within 24 hours with a fixed-price quote &mdash; no obligation, no hidden costs.</p>
-</section>
-<section class="svc-form-section"><section class="funnel-section" id="quote">
-  <div class="funnel-wrap">
-    <div class="funnel-card" id="funnelCard">
-      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
-      <div class="vfn-phases" id="vfnPhases">
-        <div class="vfn-phase active" data-phase="0">Service</div>
-        <div class="vfn-phase" data-phase="1">Property</div>
-        <div class="vfn-phase" data-phase="2">System</div>
-        <div class="vfn-phase" data-phase="3">Review</div>
-        <div class="vfn-phase" data-phase="4">Contact</div>
-      </div>
-      <!-- Countdown timer -->
-      <div class="vfn-timer">
-        <i class="far fa-clock"></i>
-        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
-      </div>
-      <!-- Single question area -->
-      <div id="funnelQ" class="vfn-q"></div>
-      <!-- Footer buttons -->
-      <div class="vfn-footer">
-        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
-        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section></section>
 
 <!-- ===== REVIEWS ===== -->
 <section class="svc-reviews">
