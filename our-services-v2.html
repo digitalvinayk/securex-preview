@@ -727,6 +727,21 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 
 
 <style id="services-listing-styles">
+/* ===== Enhanced Trust Stats Bar (override v2 defaults) ===== */
+.svc-stats{padding:0 24px;background:transparent;margin-top:-44px;position:relative;z-index:5}
+.svc-stats-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:28px 22px;box-shadow:0 24px 60px -20px rgba(0,0,0,.18)}
+.svc-stat{display:flex;align-items:center;gap:16px;padding:8px 14px;border-right:1px solid #eef2f7;position:relative}
+.svc-stat:last-child{border-right:0}
+.svc-stat-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);color:#b45309;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 14px -4px rgba(180,83,9,.3)}
+.svc-stat:nth-child(2) .svc-stat-icon{background:linear-gradient(135deg,#dbeafe,#bfdbfe);color:#1e40af;box-shadow:0 4px 14px -4px rgba(30,64,175,.3)}
+.svc-stat:nth-child(3) .svc-stat-icon{background:linear-gradient(135deg,#dcfce7,#bbf7d0);color:#15803d;box-shadow:0 4px 14px -4px rgba(21,128,61,.3)}
+.svc-stat:nth-child(4) .svc-stat-icon{background:linear-gradient(135deg,#fce7f3,#fbcfe8);color:#be185d;box-shadow:0 4px 14px -4px rgba(190,24,93,.3)}
+.svc-stat-text{display:flex;flex-direction:column;text-align:left;gap:2px}
+.svc-stat-num{font-family:'Inter',sans-serif;font-size:24px;font-weight:800;color:#0a0a0a;line-height:1.1;letter-spacing:-.02em;margin:0}
+.svc-stat-lbl{font-size:12.5px;color:#6b7280;font-weight:500;line-height:1.3;margin:0}
+@media(max-width:900px){.svc-stats-grid{grid-template-columns:repeat(2,1fr);gap:8px;padding:20px}.svc-stat{padding:12px;border-right:0;border-bottom:1px solid #eef2f7}.svc-stat:nth-child(3),.svc-stat:nth-child(4){border-bottom:0}.svc-stat:nth-child(2){border-left:1px solid #eef2f7}.svc-stat:nth-child(4){border-left:1px solid #eef2f7}}
+@media(max-width:520px){.svc-stats-grid{grid-template-columns:1fr;gap:0}.svc-stat{border-right:0!important;border-left:0!important;border-bottom:1px solid #eef2f7}.svc-stat:last-child{border-bottom:0}}
+
 /* Services grid */
 .svc-list{padding:96px 24px;background:#fff}
 .svc-list-grid{max-width:1180px;margin:48px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
@@ -1030,13 +1045,25 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
 </section>
 
-<!-- ===== TRUST STATS ===== -->
+<!-- ===== TRUST STATS (enhanced card design, overlapping hero) ===== -->
 <section class="svc-stats">
   <div class="svc-stats-grid">
-    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-briefcase"></i></div><div class="svc-stat-num">9+</div><div class="svc-stat-lbl">Services Offered</div></div>
-    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-shield-halved"></i></div><div class="svc-stat-num">NSI</div><div class="svc-stat-lbl">Silver Accredited</div></div>
-    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-clock"></i></div><div class="svc-stat-num">24/7</div><div class="svc-stat-lbl">Emergency Support</div></div>
-    <div class="svc-stat"><div class="svc-stat-icon"><i class="fas fa-star"></i></div><div class="svc-stat-num">5.0★</div><div class="svc-stat-lbl">Based on 112 Reviews</div></div>
+    <div class="svc-stat">
+      <div class="svc-stat-icon"><i class="fas fa-briefcase"></i></div>
+      <div class="svc-stat-text"><div class="svc-stat-num">9+</div><div class="svc-stat-lbl">Services Offered</div></div>
+    </div>
+    <div class="svc-stat">
+      <div class="svc-stat-icon"><i class="fas fa-shield-halved"></i></div>
+      <div class="svc-stat-text"><div class="svc-stat-num">NSI Silver</div><div class="svc-stat-lbl">Accredited Installer</div></div>
+    </div>
+    <div class="svc-stat">
+      <div class="svc-stat-icon"><i class="fas fa-clock"></i></div>
+      <div class="svc-stat-text"><div class="svc-stat-num">24/7</div><div class="svc-stat-lbl">Emergency Support</div></div>
+    </div>
+    <div class="svc-stat">
+      <div class="svc-stat-icon"><i class="fas fa-star"></i></div>
+      <div class="svc-stat-text"><div class="svc-stat-num">5.0&star;</div><div class="svc-stat-lbl">Based on 112 Reviews</div></div>
+    </div>
   </div>
 </section>
 
@@ -1050,39 +1077,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </p>
   </div>
 </section>
-
-<!-- ===== FORM CTA + FORM (moved to top, right after trust stats) ===== -->
-<section class="svc-form-intro" id="quote">
-  <span class="svc-eyebrow">Free Quote</span>
-  <h2>Get Your Free Securex Quote in 60 Seconds</h2>
-  <p>Answer a few quick questions and a security expert will call you within 24 hours with a fixed-price quote &mdash; no obligation, no hidden costs.</p>
-</section>
-<section class="svc-form-section"><section class="funnel-section" id="quote">
-  <div class="funnel-wrap">
-    <div class="funnel-card" id="funnelCard">
-      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
-      <div class="vfn-phases" id="vfnPhases">
-        <div class="vfn-phase active" data-phase="0">Service</div>
-        <div class="vfn-phase" data-phase="1">Property</div>
-        <div class="vfn-phase" data-phase="2">System</div>
-        <div class="vfn-phase" data-phase="3">Review</div>
-        <div class="vfn-phase" data-phase="4">Contact</div>
-      </div>
-      <!-- Countdown timer -->
-      <div class="vfn-timer">
-        <i class="far fa-clock"></i>
-        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
-      </div>
-      <!-- Single question area -->
-      <div id="funnelQ" class="vfn-q"></div>
-      <!-- Footer buttons -->
-      <div class="vfn-footer">
-        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
-        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section></section>
 
 <!-- ===== SERVICES LIST ===== -->
 <section class="svc-list">
@@ -1255,6 +1249,39 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
+
+<!-- ===== FORM CTA + FORM (positioned below services + USP, above FAQ) ===== -->
+<section class="svc-form-intro" id="quote">
+  <span class="svc-eyebrow">Free Quote</span>
+  <h2>Get Your Free Securex Quote in 60 Seconds</h2>
+  <p>Answer a few quick questions and a security expert will call you within 24 hours with a fixed-price quote &mdash; no obligation, no hidden costs.</p>
+</section>
+<section class="svc-form-section"><section class="funnel-section" id="quote">
+  <div class="funnel-wrap">
+    <div class="funnel-card" id="funnelCard">
+      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
+      <div class="vfn-phases" id="vfnPhases">
+        <div class="vfn-phase active" data-phase="0">Service</div>
+        <div class="vfn-phase" data-phase="1">Property</div>
+        <div class="vfn-phase" data-phase="2">System</div>
+        <div class="vfn-phase" data-phase="3">Review</div>
+        <div class="vfn-phase" data-phase="4">Contact</div>
+      </div>
+      <!-- Countdown timer -->
+      <div class="vfn-timer">
+        <i class="far fa-clock"></i>
+        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
+      </div>
+      <!-- Single question area -->
+      <div id="funnelQ" class="vfn-q"></div>
+      <!-- Footer buttons -->
+      <div class="vfn-footer">
+        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
+        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section></section>
 
 <!-- ===== FAQ (matches FAQPage schema) ===== -->
 <section style="padding:80px 24px;background:#fff" id="faq">
