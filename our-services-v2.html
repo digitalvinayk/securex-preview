@@ -773,6 +773,39 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   .svc-list{padding:64px 20px}
   .svc-list-grid{grid-template-columns:1fr;gap:16px}
 }
+
+/* ===== Modern FAQ (override v2 defaults) ===== */
+.faq-modern-section{padding:96px 24px;background:linear-gradient(180deg,#fff 0%,#fafafa 100%)}
+.faq-modern-wrap{max-width:820px;margin:0 auto}
+.faq-modern-head{text-align:center;margin-bottom:44px}
+.faq-modern-head .svc-eyebrow{display:inline-block;margin-bottom:10px}
+.faq-modern-head h2{font-family:'Inter',sans-serif;font-size:34px;font-weight:800;color:#0a0a0a;margin:0 0 12px;letter-spacing:-.02em;line-height:1.2}
+.faq-modern-head p{color:#6b7280;font-size:16px;margin:0;line-height:1.6}
+.faq-modern-list{display:flex;flex-direction:column;gap:14px}
+.faq-modern-item{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;transition:all .3s cubic-bezier(.4,0,.2,1)}
+.faq-modern-item:hover{border-color:#d1d5db;box-shadow:0 8px 24px -8px rgba(0,0,0,.08)}
+.faq-modern-item[open]{border-color:#0a0a0a;box-shadow:0 14px 34px -10px rgba(0,0,0,.12);background:linear-gradient(180deg,#fff,#fafafa)}
+.faq-modern-item summary{padding:22px 64px 22px 26px;cursor:pointer;list-style:none;position:relative;font-family:'Inter',sans-serif;font-size:16.5px;font-weight:600;color:#0a0a0a;line-height:1.45;transition:color .2s}
+.faq-modern-item summary::-webkit-details-marker{display:none}
+.faq-modern-item summary:hover{color:#000}
+.faq-modern-item summary::after{content:'';position:absolute;right:22px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:#f3f4f6;color:#0a0a0a;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;transition:all .3s cubic-bezier(.4,0,.2,1)}
+.faq-modern-item summary::before{content:'+';position:absolute;right:22px;top:50%;transform:translate(-12px,-50%);font-size:22px;font-weight:300;color:#0a0a0a;z-index:2;transition:all .3s cubic-bezier(.4,0,.2,1);width:36px;height:36px;display:flex;align-items:center;justify-content:center;line-height:1}
+.faq-modern-item[open] summary::before{transform:translate(-12px,-50%) rotate(45deg);color:#fff}
+.faq-modern-item[open] summary::after{background:#0a0a0a}
+.faq-modern-body{padding:0 26px 24px;animation:faqFade .35s ease-out}
+.faq-modern-body p{color:#4b5563;font-size:15px;line-height:1.7;margin:0}
+.faq-modern-body p + p{margin-top:12px}
+.faq-modern-foot{text-align:center;margin-top:36px;padding:24px;background:#fff;border:1px dashed #d1d5db;border-radius:14px}
+.faq-modern-foot p{margin:0 0 6px;color:#4b5563;font-size:14.5px}
+.faq-modern-foot a{color:#0a0a0a;font-weight:700;text-decoration:none;font-size:18px}
+@keyframes faqFade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media(max-width:720px){
+  .faq-modern-section{padding:64px 18px}
+  .faq-modern-head h2{font-size:26px}
+  .faq-modern-item summary{padding:18px 56px 18px 20px;font-size:15px}
+  .faq-modern-item summary::before,.faq-modern-item summary::after{right:16px;width:30px;height:30px}
+  .faq-modern-body{padding:0 20px 20px}
+}
 </style>
 
 </head>
@@ -1078,6 +1111,39 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
 </section>
 
+<!-- ===== FORM CTA + FORM (high in page, after trust + about) ===== -->
+<section class="svc-form-intro" id="quote">
+  <span class="svc-eyebrow">Free Quote</span>
+  <h2>Get Your Free Securex Quote in 60 Seconds</h2>
+  <p>Answer a few quick questions and a security expert will call you within 24 hours with a fixed-price quote &mdash; no obligation, no hidden costs.</p>
+</section>
+<section class="svc-form-section"><section class="funnel-section" id="quote">
+  <div class="funnel-wrap">
+    <div class="funnel-card" id="funnelCard">
+      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
+      <div class="vfn-phases" id="vfnPhases">
+        <div class="vfn-phase active" data-phase="0">Service</div>
+        <div class="vfn-phase" data-phase="1">Property</div>
+        <div class="vfn-phase" data-phase="2">System</div>
+        <div class="vfn-phase" data-phase="3">Review</div>
+        <div class="vfn-phase" data-phase="4">Contact</div>
+      </div>
+      <!-- Countdown timer -->
+      <div class="vfn-timer">
+        <i class="far fa-clock"></i>
+        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
+      </div>
+      <!-- Single question area -->
+      <div id="funnelQ" class="vfn-q"></div>
+      <!-- Footer buttons -->
+      <div class="vfn-footer">
+        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
+        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section></section>
+
 <!-- ===== SERVICES LIST ===== -->
 <section class="svc-list">
   <div style="max-width:1180px;margin:0 auto;text-align:center">
@@ -1250,52 +1316,43 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
 </section>
 
-<!-- ===== FORM CTA + FORM (positioned below services + USP, above FAQ) ===== -->
-<section class="svc-form-intro" id="quote">
-  <span class="svc-eyebrow">Free Quote</span>
-  <h2>Get Your Free Securex Quote in 60 Seconds</h2>
-  <p>Answer a few quick questions and a security expert will call you within 24 hours with a fixed-price quote &mdash; no obligation, no hidden costs.</p>
-</section>
-<section class="svc-form-section"><section class="funnel-section" id="quote">
-  <div class="funnel-wrap">
-    <div class="funnel-card" id="funnelCard">
-      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
-      <div class="vfn-phases" id="vfnPhases">
-        <div class="vfn-phase active" data-phase="0">Service</div>
-        <div class="vfn-phase" data-phase="1">Property</div>
-        <div class="vfn-phase" data-phase="2">System</div>
-        <div class="vfn-phase" data-phase="3">Review</div>
-        <div class="vfn-phase" data-phase="4">Contact</div>
-      </div>
-      <!-- Countdown timer -->
-      <div class="vfn-timer">
-        <i class="far fa-clock"></i>
-        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
-      </div>
-      <!-- Single question area -->
-      <div id="funnelQ" class="vfn-q"></div>
-      <!-- Footer buttons -->
-      <div class="vfn-footer">
-        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
-        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section></section>
-
-<!-- ===== FAQ (matches FAQPage schema) ===== -->
-<section style="padding:80px 24px;background:#fff" id="faq">
-  <div style="max-width:820px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:36px">
+<!-- ===== FAQ — Modern Card Design (matches FAQPage schema) ===== -->
+<section class="faq-modern-section" id="faq">
+  <div class="faq-modern-wrap">
+    <div class="faq-modern-head">
       <span class="svc-eyebrow">FAQ</span>
-      <h2 class="svc-h2">Frequently Asked Questions</h2>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about Securex Security &mdash; our accreditation, coverage, pricing, and response times.</p>
     </div>
-    <div class="svc-faq">
-      <details class="svc-faq-item"><summary>Is Securex Security NSI accredited?</summary><div class="svc-faq-body"><p>Yes. Securex Security holds NSI Silver accreditation from the National Security Inspectorate. This certification confirms that all installations meet British Standards and are approved by major UK insurers. It is required for police-monitored alarm systems and for insurance claims involving alarm or CCTV systems.</p></div></details>
-      <details class="svc-faq-item"><summary>Which areas does Securex Security cover?</summary><div class="svc-faq-body"><p>Securex Security covers Greater London including all major boroughs, plus Surrey, Hertfordshire, Buckinghamshire, Thurrock, and Essex. Same-day emergency callouts are available across Greater London. Call 07848&nbsp;247&nbsp;247 to confirm availability for your postcode.</p></div></details>
-      <details class="svc-faq-item"><summary>How much does CCTV installation cost in London?</summary><div class="svc-faq-body"><p>Securex Security provides free, fixed-price site surveys with no hidden costs. Pricing depends on the number of cameras, system type (HD, 4K, or IP), and storage requirements. Call 07848&nbsp;247&nbsp;247 or complete the online form to get a quote.</p></div></details>
-      <details class="svc-faq-item"><summary>Does Securex Security provide emergency alarm repairs?</summary><div class="svc-faq-body"><p>Yes. Securex Security operates a 24/7 emergency callout service covering all London postcodes, 7 days a week including bank holidays. Engineers are dispatched for alarm faults, false alarms, CCTV failures, and lockouts.</p></div></details>
-      <details class="svc-faq-item"><summary>When was Securex Security founded?</summary><div class="svc-faq-body"><p>Securex Security was founded in 2014 and is registered in England and Wales as Securex FM LTD (Company Number 15415679). The company is based at 129 Colney Hatch Lane, Muswell Hill, London N10&nbsp;1HD.</p></div></details>
+    <div class="faq-modern-list">
+      <details class="faq-modern-item" open>
+        <summary>Is Securex Security NSI accredited?</summary>
+        <div class="faq-modern-body"><p>Yes. Securex Security holds <strong>NSI Silver accreditation</strong> from the National Security Inspectorate. This certification confirms that all installations meet British Standards and are approved by major UK insurers. It is required for police-monitored alarm systems and for insurance claims involving alarm or CCTV systems.</p></div>
+      </details>
+      <details class="faq-modern-item">
+        <summary>Which areas does Securex Security cover?</summary>
+        <div class="faq-modern-body"><p>Securex Security covers <strong>Greater London</strong> including all major boroughs, plus <strong>Surrey, Hertfordshire, Buckinghamshire, Thurrock, and Essex</strong>. Same-day emergency callouts are available across Greater London. Call <a href="tel:07848247247">07848&nbsp;247&nbsp;247</a> to confirm availability for your postcode.</p></div>
+      </details>
+      <details class="faq-modern-item">
+        <summary>How much does CCTV installation cost in London?</summary>
+        <div class="faq-modern-body"><p>Securex Security provides <strong>free, fixed-price site surveys</strong> with no hidden costs. Pricing depends on the number of cameras, system type (HD, 4K, or IP), and storage requirements. Call <a href="tel:07848247247">07848&nbsp;247&nbsp;247</a> or complete the quote form above to get a tailored price.</p></div>
+      </details>
+      <details class="faq-modern-item">
+        <summary>Does Securex Security provide emergency alarm repairs?</summary>
+        <div class="faq-modern-body"><p>Yes. We operate a <strong>24/7 emergency callout service</strong> covering all London postcodes, 7 days a week including bank holidays. Engineers are dispatched for alarm faults, false alarms, CCTV failures, and lockouts. Most callouts are attended within a few hours.</p></div>
+      </details>
+      <details class="faq-modern-item">
+        <summary>When was Securex Security founded?</summary>
+        <div class="faq-modern-body"><p>Securex Security was <strong>founded in 2014</strong> and is registered in England and Wales as <strong>Securex FM LTD</strong> (Company Number 15415679). Our office is based at 129 Colney Hatch Lane, Muswell Hill, London N10&nbsp;1HD.</p></div>
+      </details>
+      <details class="faq-modern-item">
+        <summary>Are your installations approved by insurance companies?</summary>
+        <div class="faq-modern-body"><p>Yes &mdash; <strong>every installation is insurance-approved</strong>. Our NSI Silver accreditation is recognised by all major UK home and business insurers. We provide a certificate of compliance with every alarm and CCTV installation that you can submit to your insurer to reduce premiums.</p></div>
+      </details>
+    </div>
+    <div class="faq-modern-foot">
+      <p>Still have questions?</p>
+      <a href="tel:07848247247"><i class="fas fa-phone" style="font-size:14px;margin-right:6px"></i>07848 247 247</a>
     </div>
   </div>
 </section>
