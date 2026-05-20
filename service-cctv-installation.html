@@ -809,6 +809,43 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   </div>
 </section>
 
+<!-- ===== FUNNEL FORM (moved up + CTA header) ===== -->
+<section style="padding:60px 24px 20px;background:#fff;text-align:center">
+  <div class="container" style="max-width:760px">
+    <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">Free Quote</div>
+    <h2 style="font-family:Inter,sans-serif;font-size:30px;font-weight:700;color:#000;margin:0 0 12px;line-height:1.25">Get Your Free CCTV Quote in 60 Seconds</h2>
+    <p style="color:#6b7280;font-size:15px;margin:0 0 8px">Answer a few quick questions and a Securex security expert will call you within 24 hours with a fixed-price quote.</p>
+  </div>
+</section>
+<!-- ===== FUNNEL FORM ===== -->
+<section class="funnel-section" id="quote">
+  <div class="funnel-wrap">
+    <div class="funnel-card" id="funnelCard">
+      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
+      <div class="vfn-phases" id="vfnPhases">
+        <div class="vfn-phase active" data-phase="0">Service</div>
+        <div class="vfn-phase" data-phase="1">Property</div>
+        <div class="vfn-phase" data-phase="2">System</div>
+        <div class="vfn-phase" data-phase="3">Review</div>
+        <div class="vfn-phase" data-phase="4">Contact</div>
+      </div>
+      <!-- Countdown timer -->
+      <div class="vfn-timer">
+        <i class="far fa-clock"></i>
+        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
+      </div>
+      <!-- Single question area -->
+      <div id="funnelQ" class="vfn-q"></div>
+      <!-- Footer buttons -->
+      <div class="vfn-footer">
+        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
+        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ===== SERVICE OVERVIEW + FEATURES ===== -->
 <section style="padding:80px 24px;background:#fff">
   <div class="container" style="max-width:1100px">
@@ -843,37 +880,6 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     </div>
   </div>
 </section>
-
-<!-- ===== FUNNEL FORM ===== -->
-<section class="funnel-section" id="quote">
-  <div class="funnel-wrap">
-    <div class="funnel-card" id="funnelCard">
-      <!-- 5-phase nav (matches original Securex steps, Verisure pill style) -->
-      <div class="vfn-phases" id="vfnPhases">
-        <div class="vfn-phase active" data-phase="0">Service</div>
-        <div class="vfn-phase" data-phase="1">Property</div>
-        <div class="vfn-phase" data-phase="2">System</div>
-        <div class="vfn-phase" data-phase="3">Review</div>
-        <div class="vfn-phase" data-phase="4">Contact</div>
-      </div>
-      <!-- Countdown timer -->
-      <div class="vfn-timer">
-        <i class="far fa-clock"></i>
-        <span><strong id="vfnTimer">60</strong> seconds to finish</span>
-      </div>
-      <!-- Single question area -->
-      <div id="funnelQ" class="vfn-q"></div>
-      <!-- Footer buttons -->
-      <div class="vfn-footer">
-        <button class="vfn-btn vfn-btn-back" id="funnelBack" disabled><i class="fas fa-arrow-left"></i> Back</button>
-        <button class="vfn-btn vfn-btn-next" id="funnelNext">Continue <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SERVICES ICON ROW ===== -->
-
 
 <!-- ===== HOW IT WORKS / PROCESS ===== -->
 <section style="padding:80px 24px;background:#fafafa">
