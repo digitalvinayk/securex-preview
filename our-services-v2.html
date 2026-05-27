@@ -709,7 +709,8 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
     {"@type":"Question","name":"Which areas does Securex Security cover?","acceptedAnswer":{"@type":"Answer","text":"Securex Security covers Greater London including all major boroughs, plus Surrey, Hertfordshire, Buckinghamshire, Thurrock, and Essex. Same-day emergency callouts are available across Greater London."}},
     {"@type":"Question","name":"How much does CCTV installation cost in London?","acceptedAnswer":{"@type":"Answer","text":"Securex Security provides free, fixed-price site surveys with no hidden costs. Pricing depends on the number of cameras, system type (HD, 4K, or IP), and storage requirements."}},
     {"@type":"Question","name":"Does Securex Security provide emergency alarm repairs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Securex Security operates a 24/7 emergency callout service covering all London postcodes, 7 days a week including bank holidays."}},
-    {"@type":"Question","name":"When was Securex Security founded?","acceptedAnswer":{"@type":"Answer","text":"Securex Security was founded in 2014 and is registered in England and Wales as Securex FM LTD (Company Number 15415679), based at 129 Colney Hatch Lane, Muswell Hill, London N10 1HD."}}
+    {"@type":"Question","name":"When was Securex Security founded?","acceptedAnswer":{"@type":"Answer","text":"Securex Security was founded in 2014 and is registered in England and Wales as Securex FM LTD (Company Number 15415679), based at 129 Colney Hatch Lane, Muswell Hill, London N10 1HD."}},
+    {"@type":"Question","name":"Are your installations approved by insurance companies?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every installation is insurance approved. Our NSI Silver accreditation is recognised by all major UK home and business insurers. We provide a certificate of compliance with every alarm and CCTV installation that you can submit to your insurer to reduce premiums."}}
   ]
 }
 </script>
@@ -761,7 +762,15 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   .header-logo{font-size:26px;letter-spacing:.3em}
   .header-nsi img{height:48px}
   .mobile-toggle{display:flex;position:static}
-  .header-nav{display:none}
+  .header-nav{display:none;border-top:1px solid #eee}
+  .header-nav.is-open{display:block;max-height:calc(100vh - 100px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .header-nav.is-open .header-nav-inner{display:block;padding:8px 0}
+  .header-nav.is-open .nav-links{flex-direction:column;align-items:stretch;gap:0}
+  .header-nav.is-open .nav-item{border-bottom:1px solid #f1f1f1;width:100%}
+  .header-nav.is-open .nav-item>a{padding:16px 22px;font-size:14px;justify-content:space-between;width:100%}
+  .header-nav.is-open .nav-dropdown{position:static;opacity:1;visibility:visible;pointer-events:auto;transform:none;box-shadow:none;border:none;padding:0 0 8px 12px;min-width:0}
+  .header-nav.is-open .nav-dropdown a{padding:10px 22px;font-size:13px}
+  .mobile-toggle.is-active i::before{content:"\f00d"} /* swap to X icon when open */
 }
 @media(max-width:520px){
   .header-logo{font-size:22px;letter-spacing:.25em}
@@ -856,19 +865,19 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 <header class="site-header">
   <div class="header-top">
     <div class="header-top-inner">
-      <a class="header-nsi" href="#" aria-label="NSI Silver Accredited Installer">
-        <img src="https://securexsecurity.co.uk/wp-content/uploads/2025/07/ns-logo.jpeg" alt="NSI Silver Accredited" loading="eager">
-      </a>
+      <div class="header-nsi" role="img" aria-label="NSI Silver Accredited Installer since 2014">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2025/07/ns-logo.jpeg" alt="NSI Silver Accredited Installer" loading="eager">
+      </div>
       <a class="header-logo" href="index.html" aria-label="Securex home">SECUREX</a>
       <div class="header-utility">
         <a href="https://buy.stripe.com/5kA2a7bjW19xcvu4gg" target="_blank" rel="noopener" class="header-util-payment">Online Payment</a>
         <a href="mailto:info@securexsecurity.co.uk" class="header-util-item"><span class="header-util-icon"><i class="far fa-envelope"></i></span><span class="header-util-text">info@securexsecurity.co.uk</span></a>
         <a href="tel:07848247247" class="header-util-item header-util-phone"><span class="header-util-icon"><i class="fas fa-phone"></i></span><span class="header-util-text">07848 247 247</span></a>
       </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><i class="fas fa-bars"></i></button>
     </div>
   </div>
-  <nav class="header-nav" aria-label="Primary">
+  <nav class="header-nav" id="primaryNav" aria-label="Primary">
     <div class="header-nav-inner">
 <div class="nav-links">
 
@@ -1205,7 +1214,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/intruder_alarms.jpg" alt="Intruder Alarms in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-shield-halved"></i></div>
@@ -1217,7 +1226,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/FIRE_ALARM.jpg" alt="Fire Alarms in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-fire-extinguisher"></i></div>
@@ -1229,7 +1238,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/access_control.jpg" alt="Access Control in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-fingerprint"></i></div>
@@ -1241,7 +1250,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/door_entry.jpg" alt="Video Doorbell &amp; Door Entry in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-bell-concierge"></i></div>
@@ -1253,7 +1262,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/data-cabling.jpg" alt="Data Cabling &amp; Networking in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-network-wired"></i></div>
@@ -1265,7 +1274,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/electrical_installation.jpg" alt="Electrical Installation in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-bolt"></i></div>
@@ -1277,7 +1286,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/05/scaffolding_alarms.jpg" alt="Scaffolding Alarms in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-helmet-safety"></i></div>
@@ -1289,7 +1298,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
         <span class="svc-card-cta">Learn more</span>
       </div>
     </a>
-    <a class="svc-card" href="#">
+    <a class="svc-card" href="#quote">
       <div class="svc-card-image">
         <img src="https://securexsecurity.co.uk/wp-content/uploads/2023/04/RING.jpg" alt="24/7 Emergency Service in London by Securex Security" loading="lazy">
         <div class="svc-card-icon"><i class="fas fa-bolt-lightning"></i></div>
@@ -1431,6 +1440,27 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 
 <!-- ===== SCRIPTS ===== -->
 <script>
+// Mobile hamburger toggle (header navigation)
+(function(){
+  var btn = document.getElementById('mobileToggle');
+  var nav = document.querySelector('.header-nav');
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    btn.classList.toggle('is-active', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  // Close menu when a link inside it is clicked
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && nav.classList.contains('is-open')){
+      nav.classList.remove('is-open');
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(function(btn){
   btn.addEventListener('click',function(){
