@@ -674,6 +674,9 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .modern-page-wrapper.page-loading > * { animation: none !important; transition: none !important; opacity: 1 !important; }
 .modern-page-wrapper .content-card > p:empty { display: none !important; }
 .svc-list-grid > p { display: none !important; }
+body.page-id-18356 .ast-container { max-width: none !important; padding: 0 !important; margin: 0 !important; width: 100% !important; }
+body.page-id-18356 #content { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+body.page-id-18356 #primary { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; }
 .svc-card { min-height: 0 !important; }
 .svc-card:not(:has(.svc-card-image)) { display: none !important; }
 .svc-hero .svc-hero-title { font-family: Inter, Arial, sans-serif; font-size: 56px; font-weight: 800; line-height: 1.1; color: rgb(255, 255, 255); margin: 0 0 14px 0; max-width: 800px; }
@@ -1012,7 +1015,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     // PHASE 0 - SERVICE
     {key:'serviceType',phase:0,q:'What do you need?',sub:'Select the primary service you are interested in.',opts:[
       {v:'New Installation',i:'fa-screwdriver-wrench'},
-      {v:'Service & Maintenance',i:'fa-shield-halved'}
+      {v:'Service \u0026 Maintenance',i:'fa-shield-halved'}
     ]},
     // PHASE 1 - PROPERTY
     {key:'propertyType',phase:1,q:'What kind of property needs securing?',sub:'Choose the type that best matches your premises.',opts:[
@@ -1062,19 +1065,19 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       {v:'Hardwired LAN',i:'fa-network-wired'}
     ]},
     // For Service & Maintenance: make + type + count
-    {key:'make',phase:2,q:'Who manufactured your existing system?',sub:'Tell us the brand of your current alarm or CCTV system.',onlyIf:function(d){return d.serviceType==='Service & Maintenance';},opts:[
+    {key:'make',phase:2,q:'Who manufactured your existing system?',sub:'Tell us the brand of your current alarm or CCTV system.',onlyIf:function(d){return d.serviceType==='Service \u0026 Maintenance';},opts:[
       {v:'Honeywell',i:'fa-microchip'},
       {v:'Pyronix',i:'fa-shield'},
       {v:'Texecom',i:'fa-network-wired'},
       {v:'Visonic',i:'fa-tower-broadcast'},
       {v:'Other / Not sure',i:'fa-question'}
     ]},
-    {key:'connection',phase:2,q:'What type of connection does it use?',sub:'Select how your existing system is wired.',onlyIf:function(d){return d.serviceType==='Service & Maintenance';},opts:[
+    {key:'connection',phase:2,q:'What type of connection does it use?',sub:'Select how your existing system is wired.',onlyIf:function(d){return d.serviceType==='Service \u0026 Maintenance';},opts:[
       {v:'Wired System',i:'fa-plug'},
       {v:'Wireless System',i:'fa-wifi'},
       {v:'Hybrid (Wired + Wireless)',i:'fa-shuffle'}
     ]},
-    {key:'deviceCount',phase:2,q:'Roughly how many devices are installed?',sub:'An approximate count is fine. This helps us prepare the right quote.',onlyIf:function(d){return d.serviceType==='Service & Maintenance';},opts:[
+    {key:'deviceCount',phase:2,q:'Roughly how many devices are installed?',sub:'An approximate count is fine. This helps us prepare the right quote.',onlyIf:function(d){return d.serviceType==='Service \u0026 Maintenance';},opts:[
       {v:'1 to 5 devices',i:'fa-1'},
       {v:'6 to 10 devices',i:'fa-6'},
       {v:'11 to 20 devices',i:'fa-hashtag'},
@@ -1113,7 +1116,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     var step=STEPS[fStep];
     var labelText,iconClass='fa-arrow-right';
     if(step.type==='contact'){labelText='Get My Free Quote ';iconClass='fa-paper-plane';}
-    else if(step.type==='review'){labelText='Confirm & Continue ';}
+    else if(step.type==='review'){labelText='Confirm \u0026 Continue ';}
     else labelText='Continue ';
     nextBtn.appendChild(document.createTextNode(labelText));
     var ic=document.createElement('i');ic.className='fas '+iconClass;
@@ -1349,7 +1352,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
         }
         row('Monitoring',fData.monitoring);
         row('Communication',fData.communication);
-      } else if(fData.serviceType==='Service & Maintenance'){
+      } else if(fData.serviceType==='Service \u0026 Maintenance'){
         row('Manufacturer',fData.make);
         row('Connection',fData.connection);
         row('Devices',fData.deviceCount);
