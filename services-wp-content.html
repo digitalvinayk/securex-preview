@@ -766,6 +766,26 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 
 </style>
 
+<style id="securex-wrapper-overrides">
+/* ----- Hide the Astra-child page.php "modern-page-wrapper" injection ----- */
+.modern-page-wrapper > .hero-section { position: absolute !important; left: -10000px !important; top: 0 !important; width: 1px !important; height: 1px !important; overflow: hidden !important; padding: 0 !important; margin: 0 !important; }
+.modern-page-wrapper > .content-section > .contact-section { display: none !important; }
+.modern-page-wrapper.page-loading, .modern-page-wrapper { padding: 0 !important; margin: 0 !important; min-height: 0 !important; line-height: inherit !important; color: inherit !important; }
+.modern-page-wrapper > .content-section { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; }
+.modern-page-wrapper, .modern-page-wrapper * { opacity: 1 !important; }
+.modern-page-wrapper.page-loading > * { animation: none !important; transition: none !important; opacity: 1 !important; }
+
+/* ----- Hide the OLD Elementor Pro header (data-elementor-id="22583") on this page ----- */
+body.page-id-18356 div[data-elementor-type="header"][data-elementor-id="22583"],
+body.page-id-18356 .elementor-location-header { display: none !important; visibility: hidden !important; height: 0 !important; }
+body.page-id-18356 .ast-header-break-point .main-header-bar-wrap,
+body.page-id-18356 #masthead { display: none !important; }
+
+/* ----- Make the new site-header sticky inside the WP content area ----- */
+body.page-id-18356 .site-header { margin-top: -1px; }
+body.page-id-18356 .modern-page-wrapper { margin-top: 0 !important; }
+</style>
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -832,6 +852,81 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   ]
 }
 </script>
+
+<header class="site-header">
+  <div class="header-top">
+    <div class="header-top-inner">
+      <div class="header-nsi" role="img" aria-label="NSI Silver Accredited Installer since 2014">
+        <img src="https://securexsecurity.co.uk/wp-content/uploads/2025/07/ns-logo.jpeg" alt="NSI Silver Accredited Installer" loading="eager">
+      </div>
+      <a class="header-logo" href="index.html" aria-label="Securex home">SECUREX</a>
+      <div class="header-utility">
+        <a href="https://buy.stripe.com/5kA2a7bjW19xcvu4gg" target="_blank" rel="noopener" class="header-util-payment">Online Payment</a>
+        <a href="mailto:info@securexsecurity.co.uk" class="header-util-item"><span class="header-util-icon"><i class="far fa-envelope"></i></span><span class="header-util-text">info@securexsecurity.co.uk</span></a>
+        <a href="tel:07848247247" class="header-util-item header-util-phone"><span class="header-util-icon"><i class="fas fa-phone"></i></span><span class="header-util-text">07848 247 247</span></a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+  <nav class="header-nav" id="primaryNav" aria-label="Primary">
+    <div class="header-nav-inner">
+<div class="nav-links">
+
+  <div class="nav-item">
+    <a href="services-v2.html">Services <i class="fas fa-chevron-down caret"></i></a>
+    <div class="nav-dropdown" style="min-width:340px">
+      <div class="nav-dropdown-heading">All Services</div>
+      <a href="service-cctv.html"><i class="fas fa-video" style="width:16px;color:#6b7280;margin-right:8px"></i>CCTV Installation</a>
+      <a href="service-intruder-alarms.html"><i class="fas fa-shield-halved" style="width:16px;color:#6b7280;margin-right:8px"></i>Intruder Alarms</a>
+      <a href="service-fire-alarms.html"><i class="fas fa-fire-extinguisher" style="width:16px;color:#6b7280;margin-right:8px"></i>Fire Alarms</a>
+      <a href="service-access-control.html"><i class="fas fa-fingerprint" style="width:16px;color:#6b7280;margin-right:8px"></i>Access Control</a>
+      <a href="service-video-doorbells.html"><i class="fas fa-bell-concierge" style="width:16px;color:#6b7280;margin-right:8px"></i>Video Doorbells</a>
+      <a href="service-data-cabling.html"><i class="fas fa-network-wired" style="width:16px;color:#6b7280;margin-right:8px"></i>Data Cabling &amp; Networking</a>
+      <a href="service-electrical.html"><i class="fas fa-bolt" style="width:16px;color:#6b7280;margin-right:8px"></i>Electrical Installation</a>
+      <a href="service-construction-security.html"><i class="fas fa-helmet-safety" style="width:16px;color:#6b7280;margin-right:8px"></i>Construction Security</a>
+      <div class="nav-dropdown-divider"></div>
+      <a href="services-v2.html" style="font-weight:700;color:#000">View all services &rarr;</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="sectors.html">Sectors <i class="fas fa-chevron-down caret"></i></a>
+    <div class="nav-dropdown">
+      <a href="sector-home.html"><i class="fas fa-house" style="width:16px;color:#6b7280;margin-right:8px"></i>Home Security</a>
+      <a href="sector-business.html"><i class="fas fa-briefcase" style="width:16px;color:#6b7280;margin-right:8px"></i>Business Security</a>
+      <a href="sector-commercial.html"><i class="fas fa-building" style="width:16px;color:#6b7280;margin-right:8px"></i>Commercial Security</a>
+      <a href="sector-construction.html"><i class="fas fa-hard-hat" style="width:16px;color:#6b7280;margin-right:8px"></i>Construction Security</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="areas.html">Areas Covered</a>
+  </div>
+
+  <div class="nav-item">
+    <a href="about.html">About <i class="fas fa-chevron-down caret"></i></a>
+    <div class="nav-dropdown">
+      <a href="about.html">About Securex</a>
+      <a href="about-nsi.html">NSI Accreditation</a>
+      <a href="about-team.html">Our Engineers</a>
+      <a href="about-reviews.html">Reviews</a>
+      <a href="about-gallery.html">Gallery</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="emergency.html" style="color:#dc2626"><i class="fas fa-bolt-lightning" style="font-size:11px;margin-right:5px"></i>24/7 Emergency</a>
+  </div>
+
+  <div class="nav-item">
+    <a href="contact.html">Contact</a>
+  </div>
+
+</div>
+    </div>
+  </nav>
+</header>
+
 
 <main id="main-content">
 <!-- ===== HERO ===== -->
