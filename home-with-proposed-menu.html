@@ -582,7 +582,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
 .psx-mega-footer span{color:#6b7280;font-size:12px}
 
 /* Position adjustments — right-edge dropdowns flip */
-.psx-nav-item:nth-last-child(-n+3) .psx-dropdown{left:auto;right:0}
+.psx-nav-item:nth-last-child(-n+4) .psx-dropdown{left:auto;right:0}
 
 /* Responsive */
 @media(max-width:1180px){
@@ -590,6 +590,14 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15}
   .psx-mega{min-width:680px;grid-template-columns:1fr 1fr 220px}
   .psx-mega-wide{min-width:900px;grid-template-columns:1fr 1fr 1fr 220px}
 }
+
+/* FIX: Emergency dropdown — descriptions should appear on a new line */
+.psx-dropdown-simple a{align-items:flex-start}
+.psx-dropdown-simple a > i{margin-top:3px;flex-shrink:0}
+.psx-dropdown-simple a > span{display:flex;flex-direction:column;gap:2px;flex:1}
+.psx-dropdown-simple a small{display:block;font-size:11.5px;color:#9ca3af;font-weight:400;line-height:1.4;letter-spacing:.01em}
+.psx-dropdown-simple a:hover small{color:#6b7280}
+
 @media(max-width:960px){
   .psx-utility-inner{grid-template-columns:auto 1fr auto}
   .psx-utility-right{display:none}
