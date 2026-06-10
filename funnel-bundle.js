@@ -645,3 +645,85 @@ window.addEventListener('scroll',function(){
   setTimeout(runWithRetry, 1500);
   setTimeout(runWithRetry, 3500);
 })();
+
+// ============================================================
+// Mobile polish for funnel form — brand colours, pill width,
+// keep WhatsApp button from overlapping the CTA.
+// Injected as a <style> block once at startup; harmless on desktop.
+// ============================================================
+(function(){
+  if (document.getElementById('smx-funnel-mobile-css')) return;
+  var css = '' +
+    /* Mobile-first overrides — only apply <=900px */
+    '@media (max-width: 900px){' +
+      /* Make the pill option visually branded (dark navy with white text) */
+      '#funnelCard .vfn-opt{' +
+        'background:#0F1A2E !important;' +
+        'border:2px solid #0F1A2E !important;' +
+        'color:#fff !important;' +
+        'box-shadow:0 4px 10px rgba(15,26,46,0.18) !important;' +
+        'border-radius:14px !important;' +
+        'padding:14px 18px !important;' +
+        'min-height:60px !important;' +
+        'gap:14px !important;' +
+      '}' +
+      '#funnelCard .vfn-opt:hover,#funnelCard .vfn-opt:active{' +
+        'background:#1A2746 !important;' +
+        'border-color:#1A2746 !important;' +
+      '}' +
+      /* Icon bubble inside the pill — light circle for contrast */
+      '#funnelCard .vfn-opt .vfn-opt-icon{' +
+        'background:rgba(255,255,255,0.12) !important;' +
+        'color:#fff !important;' +
+        'flex:0 0 38px !important;' +
+        'width:38px !important; height:38px !important;' +
+      '}' +
+      '#funnelCard .vfn-opt .vfn-opt-icon i{color:#fff !important;}' +
+      /* Label: single line, no wrap, ellipsis if absolutely necessary */
+      '#funnelCard .vfn-opt .vfn-opt-label{' +
+        'color:#fff !important;' +
+        'font-weight:600 !important;' +
+        'font-size:15px !important;' +
+        'line-height:1.25 !important;' +
+        'white-space:normal !important;' +
+        'flex:1 1 auto !important;' +
+        'text-align:left !important;' +
+        'width:auto !important;' +
+        'max-width:none !important;' +
+      '}' +
+      /* Arrow: tone-on-tone white */
+      '#funnelCard .vfn-opt .vfn-opt-arrow{color:rgba(255,255,255,0.7) !important;}' +
+      /* Chip (device picker) — keep light but readable */
+      '#funnelCard .vfn-chip{font-size:14px !important; padding:8px 14px !important;}' +
+      '#funnelCard .vfn-chip.is-on, #funnelCard .vfn-chip.active{' +
+        'background:#0F1A2E !important; color:#fff !important; border-color:#0F1A2E !important;' +
+      '}' +
+      /* Continue button — make brand */
+      '#funnelCard .vfn-btn-next:not([style*="hidden"]){' +
+        'background:#0F1A2E !important; color:#fff !important; border:0 !important;' +
+        'padding:14px 22px !important; font-weight:700 !important;' +
+      '}' +
+      /* Tighter phases row so all 5 fit comfortably */
+      '#funnelCard .vfn-phases{font-size:13px !important;}' +
+      '#funnelCard .vfn-phase{padding:6px 4px !important;}' +
+      /* Push the funnel card bottom edge away from the floating WhatsApp button */
+      '.funnel-card, #funnelCard{padding-bottom:32px !important;}' +
+      /* Move WhatsApp widget up so it sits BELOW the form CTA, not over it. */
+      '#nta-whatsapp-floating-widget,' +
+      '.nta-floating-whatsapp,' +
+      '[class*="whatsapp-floating"],' +
+      '[id*="whatsapp-float"]{' +
+        'bottom:88px !important;' +     /* lift above any CTA pill */
+        'z-index:50 !important;' +
+      '}' +
+      '#scroll-to-top, [class*="back-to-top"], [class*="scroll-top"]{' +
+        'bottom:32px !important;' +
+        'z-index:49 !important;' +
+      '}' +
+    '}';
+
+  var st = document.createElement('style');
+  st.id = 'smx-funnel-mobile-css';
+  st.textContent = css;
+  document.head.appendChild(st);
+})();
