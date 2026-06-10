@@ -557,3 +557,91 @@ document.querySelectorAll('.service-icon-item,.trust-card,.test-card,.process-st
 window.addEventListener('scroll',function(){
   document.querySelector('.navbar').classList.toggle('scrolled',window.scrollY>10);
 });
+
+// ============================================================
+// NSI nuker — client explicitly removed NSI accreditation.
+// Strip any NSI references that leaked through from old content.
+// Runs on DOMContentLoaded + a couple of delayed passes for late renders.
+// ============================================================
+(function(){
+  var REPLACEMENTS = [
+    // Order matters — longer phrases first to avoid partial matches.
+    [/\s*·?\s*NSI\s*Silver\s*Accredited\s*·?\s*Trusted\s+since\s+2014\s*/gi, 'Trusted since 2014'],
+    [/NSI\s*Silver\s*Accreditation/gi, 'Industry accreditation'],
+    [/NSI[-\s]*Silver\s+accredited\s+installers?/gi, 'qualified installers'],
+    [/NSI[-\s]*Silver\s+accredited/gi, 'qualified'],
+    [/Every\s+engineer\s+is\s+NSI\s+Silver\s+accredited/gi, 'Every engineer is fully qualified'],
+    [/NSI[-\s]accredited\s+engineers?/gi, 'qualified engineers'],
+    [/NSI[-\s]accredited\s+monitored\s+(intruder\s+)?alarms?/gi, 'professionally monitored $1alarms'],
+    [/NSI[-\s]accredited\s+monitored/gi, 'professionally monitored'],
+    [/NSI[-\s]accredited/gi, 'fully qualified'],
+    [/Our\s+NSI[-\s]accredited\s+monitored\s+alarms/gi, 'Our monitored alarms'],
+    [/NSI\s+Silver/gi, ''],
+    [/Are\s+you\s+actually\s+NSI\s+accredited\??/gi, 'Are your engineers fully qualified?'],
+    [/Is\s+Securex\s+Security\s+NSI\s+accredited\??/gi, 'Is Securex Security fully qualified?'],
+    [/Securex\s+Security\s+holds\s+NSI\s+Silver\s+accreditation\s+from\s+the\s+National\s+Security\s+Inspectorate\.\s*/gi, ''],
+    [/Our\s+NSI\s+Silver\s+accreditation\s+is\s+recognised\s+by\s+all\s+major\s+UK\s+(home\s+and\s+business\s+)?insurers\.\s*/gi, 'Our work is recognised by all major UK insurers. '],
+    [/\bNSI\b/g, '']
+  ];
+
+  function scrubText(text){
+    if (!text) return text;
+    var out = text;
+    for (var i = 0; i < REPLACEMENTS.length; i++) {
+      out = out.replace(REPLACEMENTS[i][0], REPLACEMENTS[i][1]);
+    }
+    // Collapse double spaces created by deletions
+    out = out.replace(/  +/g, ' ').replace(/\s+([.,;:!?])/g, '$1');
+    return out;
+  }
+
+  function nukeNsi(){
+    // Walk all text nodes
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var node, changes = 0;
+    while ((node = walker.nextNode())) {
+      var orig = node.nodeValue;
+      if (!orig || orig.indexOf('NSI') === -1 && orig.indexOf('Silver') === -1 && orig.indexOf('Trusted since 2014') === -1) continue;
+      var fixed = scrubText(orig);
+      if (fixed !== orig) {
+        node.nodeValue = fixed;
+        changes++;
+      }
+    }
+
+    // Hide elements whose ENTIRE visible text is now empty after scrub,
+    // common case: the "NSI Silver Accredited · Trusted since 2014" hero pill
+    // becomes empty if we strip both phrases. Find badge-like containers.
+    document.querySelectorAll('[class*="badge"],[class*="pill"],[class*="trust"],[class*="accredit"],[class*="modern-page-wrapper"] [class*="hero"] span').forEach(function(el){
+      var txt = (el.textContent || '').trim();
+      if (!txt || txt.length < 3) {
+        if (el.children.length === 0) el.style.display = 'none';
+      }
+    });
+
+    // Remove any standalone NSI-logo images
+    document.querySelectorAll('img').forEach(function(img){
+      var src = (img.src || '').toLowerCase();
+      var alt = (img.alt || '').toLowerCase();
+      if (/nsi|ns-logo|nsi-logo|nsi-silver/.test(src) || /nsi/.test(alt)) {
+        img.style.display = 'none';
+      }
+    });
+
+    return changes;
+  }
+
+  function runWithRetry(){
+    try { nukeNsi(); } catch(e) {}
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runWithRetry);
+  } else {
+    runWithRetry();
+  }
+  // Late-rendered content (Elementor, lazyload) — retry
+  setTimeout(runWithRetry, 500);
+  setTimeout(runWithRetry, 1500);
+  setTimeout(runWithRetry, 3500);
+})();
