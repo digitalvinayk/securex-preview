@@ -363,13 +363,21 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
 
     if(step.type==='review'){
       var box=document.createElement('div');box.className='vfn-review';
+      var CK='<svg viewBox="0 0 24 24" width="16" height="16" style="display:block"><circle cx="12" cy="12" r="11" fill="#16a34a"></circle><path d="M7 12.4l3.1 3.1L17 9" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+      var vh=document.createElement('div');vh.className='vfn-review-verify';
+      vh.style.cssText='display:flex;align-items:center;gap:8px;font-weight:700;color:#16a34a;font-size:14px;margin:0 0 10px;padding:0 22px';
+      vh.innerHTML=CK+'<span>Please verify your details</span>';
+      box.appendChild(vh);
       function row(k,v){
         if(!v || (Array.isArray(v) && v.length===0)) return;
         var r=document.createElement('div');r.className='vfn-review-row';
+        var left=document.createElement('span');left.style.cssText='display:flex;align-items:center;gap:8px;min-width:0';
+        var ck=document.createElement('span');ck.setAttribute('aria-hidden','true');ck.style.cssText='display:inline-flex;flex:0 0 16px';ck.innerHTML=CK;
         var l=document.createElement('span');l.className='vfn-review-label';l.textContent=k;
+        left.appendChild(ck);left.appendChild(l);
         var val=document.createElement('span');val.className='vfn-review-value';
         val.textContent=Array.isArray(v) ? v.join(', ') : v;
-        r.appendChild(l);r.appendChild(val);box.appendChild(r);
+        r.appendChild(left);r.appendChild(val);box.appendChild(r);
       }
       row('Service',fData.serviceType);
       row('Property',fData.propertyType);
