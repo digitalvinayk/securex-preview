@@ -182,7 +182,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
   function scrollTop(){
     var card=qs('#funnelCard');if(!card) return;
     var rect=card.getBoundingClientRect();
-    var top=rect.top+window.pageYOffset-100;
+    var top=rect.top+window.pageYOffset-16;
     window.scrollTo({top:top,behavior:'smooth'});
   }
 
