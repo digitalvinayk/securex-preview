@@ -496,12 +496,12 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
     if(!validate()) return;
     var next=nextActiveStep(fStep);
     if(next===-1){success();scrollTop();return;}
-    fStep=next;render();scrollTop();
+    fStep=next;render();
   }
 
   function back(){
     var prev=prevActiveStep(fStep);
-    if(prev>=0){fStep=prev;render();scrollTop();}
+    if(prev>=0){fStep=prev;render();}
   }
 
   function success(){
