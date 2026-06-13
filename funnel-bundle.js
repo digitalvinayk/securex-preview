@@ -426,7 +426,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn){
       inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();advance();}});
       wrap.appendChild(inp);
       c.appendChild(wrap);
-      setTimeout(function(){inp.focus();},150);
+      /* auto-focus removed to prevent mobile keyboard jump */
     } else {
       // Options list (single or multi select)
       var opts=step.opts || (step.optsByKind ? step.optsByKind[fData.propertyType] || step.optsByKind.Residential : []);
