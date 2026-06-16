@@ -561,10 +561,13 @@ document.querySelectorAll('.service-icon-item,.trust-card,.test-card,.process-st
   el.classList.add('animate-in');obs.observe(el);
 });
 
-// Sticky nav shadow
-window.addEventListener('scroll',function(){
-  document.querySelector('.navbar').classList.toggle('scrolled',window.scrollY>10);
-});
+// Sticky nav shadow (guard: .navbar only exists on the standalone preview, not the live WP site)
+var _smxNavbar=document.querySelector('.navbar');
+if(_smxNavbar){
+  window.addEventListener('scroll',function(){
+    _smxNavbar.classList.toggle('scrolled',window.scrollY>10);
+  });
+}
 
 // ============================================================
 // Mobile polish for funnel form — brand colours, pill width,
